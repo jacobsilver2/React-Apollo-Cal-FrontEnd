@@ -25,6 +25,40 @@ const Inner = styled.div`
   padding: 2rem;
 `;
 
+injectGlobal`
+
+  @font-face {
+    font-family: 'radnika-next';
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  html{
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  } 
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 2;
+    font-family: 'radnika-next';
+    font-weight: 300;
+    line-height: 1.5;
+    color: ${theme.textColor};
+    background: ${theme.bgColor};
+    position: relative;
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.textColor};
+  }
+`;
+
 
 class Page extends Component {
 

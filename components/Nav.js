@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import NavStyles from '../components/styles/NavStyles';
+
 const Nav = () => (
-  <div>
+  <NavStyles>
     <Link href="/newCalEvent">
-      <a>New Calendar Event</a>
+      <a>New Event</a>
     </Link>
     <Link href="/">
       <a>Home</a>
     </Link>
-  </div>
+  </NavStyles>
 );
 
 export default Nav;
