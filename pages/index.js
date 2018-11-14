@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import Calendar from '../components/Calendar';
 
 const Home = () => (
   <div>
-    <p>Hey</p>
+    <Calendar />
   </div>
 );
 
