@@ -289,7 +289,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\n  @font-face {\n    font-family: 'radnika-next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html{\n    box-sizing: border-box;\n  }\n\n  *, *:before, *:after {\n    box-sizing: inherit;\n  } \n\n  body {\n    padding: 0;\n    margin: 0;\n    font-size: 1.1rem;\n    line-height: 2;\n    font-family: 'radnika-next';\n    font-weight: 300;\n    line-height: 1.5;\n    color: ", ";\n    background: ", ";\n    position: relative;\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n\n  @font-face {\n    font-family: 'radnika-next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n\n  /* @font-face {\n    font-family: 'material-icons';\n    src: url('/MaterialIcons-Regular.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  html{\n    box-sizing: border-box;\n  }\n\n  *, *:before, *:after {\n    box-sizing: inherit;\n  } \n\n  body {\n    padding: 0;\n    margin: 0;\n    font-size: 1.1rem;\n    line-height: 2;\n    font-family: 'radnika-next';\n    font-weight: 300;\n    line-height: 1.5;\n    color: ", ";\n    background: ", ";\n    position: relative;\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  /* .icon {\n    font-family: 'material-icons';\n    font-style: normal;\n    display: inline-block;\n    vertical-align: middle;\n    line-height: 1;\n    text-transform: none;\n    letter-spacing: normal;\n    word-wrap: normal;\n    white-space: nowrap;\n    direction: ltr;\n\n    -webkit-font-smoothing: antialiased;\n    text-rendering: optimizeLegibility;\n    -moz-osx-font-smoothing: grayscale;\n    font-feature-settings: 'liga';\n  } */\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -306,7 +306,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var theme = {
   mainColor: '#1a8fff',
-  textColor: '#777',
+  textColor: '#111',
   textColorLight: '#ccc',
   borderColor: '#eee',
   bgColor: '#f9f9f9',
@@ -346,31 +346,31 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 93
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 94
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 95
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 96
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 97
         },
         __self: this
       }, this.props.children)));

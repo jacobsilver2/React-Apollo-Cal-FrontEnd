@@ -5,7 +5,7 @@ import Meta from './Meta';
 
 const theme = {
   mainColor: '#1a8fff',
-  textColor: '#777',
+  textColor: '#111',
   textColorLight: '#ccc',
   borderColor: '#eee',
   bgColor: '#f9f9f9',
@@ -33,6 +33,14 @@ injectGlobal`
     font-weight: normal;
     font-style: normal;
   }
+
+  /* @font-face {
+    font-family: 'material-icons';
+    src: url('/MaterialIcons-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  } */
+
   html{
     box-sizing: border-box;
   }
@@ -57,6 +65,24 @@ injectGlobal`
     text-decoration: none;
     color: ${theme.textColor};
   }
+
+  /* .icon {
+    font-family: 'material-icons';
+    font-style: normal;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+  } */
 `;
 
 
