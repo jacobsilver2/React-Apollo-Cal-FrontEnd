@@ -34,12 +34,14 @@ injectGlobal`
     font-style: normal;
   }
 
-  /* @font-face {
+  
+
+  @font-face {
     font-family: 'material-icons';
-    src: url('/MaterialIcons-Regular.woff2') format('woff2');
+    src: url('https://fonts.googleapis.com/icon?family=Material+Icons') format('woff2');
     font-weight: normal;
     font-style: normal;
-  } */
+  }
 
   html{
     box-sizing: border-box;
@@ -66,23 +68,7 @@ injectGlobal`
     color: ${theme.textColor};
   }
 
-  /* .icon {
-    font-family: 'material-icons';
-    font-style: normal;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
 
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-  } */
 `;
 
 

@@ -3,11 +3,11 @@ import NavStyles from '../components/styles/NavStyles';
 
 const Nav = () => (
   <NavStyles>
+    <Link href="/">
+      <a>Calendar</a>
+    </Link>
     <Link href="/newCalEvent">
       <a>New Event</a>
-    </Link>
-    <Link href="/">
-      <a>Home</a>
     </Link>
   </NavStyles>
 );
