@@ -141,4 +141,5 @@ prevMonth = () => {
   }
 }
 
+export { ALL_EVENTS_QUERY };
 export default Calendar;

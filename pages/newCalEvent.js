@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import CreateEvent from '../components/CreateEvent';
 
 const NewCalEvent = () => (
   <div>
-    <p>New Cal Event</p>
+    <CreateEvent />
   </div>
 );
 
