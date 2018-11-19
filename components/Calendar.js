@@ -3,6 +3,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth} from 'date-fns';
 import {StyledCal} from './styles/CalendarStyles';
+import CalendarEvent from './CalendarEvent';
 
 const ALL_EVENTS_QUERY = gql`
   query ALL_EVENTS_QUERY {
@@ -61,7 +62,7 @@ class Calendar extends Component {
     return <div className="days row">{days}</div>
   }
 
-  renderCells = () => {
+  renderCells = (events) => {
     const { currentMonth, selectedDate } = this.state;
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
@@ -70,17 +71,14 @@ class Calendar extends Component {
   
     const dateFormat = "d";
     const rows = [];
-  
     let days = [];
     let day = startDate;
     let formattedDate = "";
-    
+    let dateCheckFormat = "YYYY MMMM d";
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat, { awareOfUnicodeTokens: true });
-        const cloneDay = day;
-      
-        // debugger;
+        const matchedEvent = events.filter(event => isSameDay(event.date, day));
         days.push(
           <div
             className={`col cell ${
@@ -92,6 +90,7 @@ class Calendar extends Component {
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
+            {matchedEvent.length > 0 && matchedEvent.map(e => <CalendarEvent event={e} key={e.id}/>)}
           </div>
         );
         day = addDays(day, 1);
@@ -124,16 +123,14 @@ prevMonth = () => {
 
         <Query query={ALL_EVENTS_QUERY}>
           { ({data, error, loading}) => {
-            console.log(data)
             if (loading) return <p>Loading...</p>
             if (error) return <p>Error: {error.message}</p>
             return (
               <StyledCal>
-                <p>I found {data.events.length} items</p>
                 <div className="calendar">
                   {this.renderHeader()}
                   {this.renderDays()}
-                  {this.renderCells()}
+                  {this.renderCells(data.events)}
                 </div>
               </StyledCal>
             )
