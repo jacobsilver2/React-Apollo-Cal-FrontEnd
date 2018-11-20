@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import { ALL_EVENTS_QUERY } from './Calendar'; 
 
 const CREATE_EVENT_MUTATION = gql`
   mutation CREATE_EVENT_MUTATION(
@@ -34,6 +35,19 @@ class CreateEvent extends Component {
     date: '',
   }
 
+  update = (cache, payload) => {
+    // manually update the cache on the client, so it matches the server
+
+    // 1. Read the events in the cache
+    const data = cache.readQuery({ query: ALL_EVENTS_QUERY })
+    
+    // 2. Add the new event to the events
+    data.events = data.events.push(payload.data);
+
+    // 3. Put the items back
+    cache.writeQuery( {query: ALL_EVENTS_QUERY, data });
+  }
+
   handleChange = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
@@ -61,7 +75,7 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <Mutation mutation={CREATE_EVENT_MUTATION} variables={this.state}>
+      <Mutation mutation={CREATE_EVENT_MUTATION} update={this.update} variables={this.state}>
         {(createEvent, { loading, error, called, data }) => (
 
           <Form onSubmit={ async (e) => {

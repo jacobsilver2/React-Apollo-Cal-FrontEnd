@@ -44,5 +44,5 @@ class DeleteEvent extends Component {
   }
 }
 
-export { DELETE_EVENT_MUTATION }
+export { DELETE_EVENT_MUTATION, }
 export default DeleteEvent;
