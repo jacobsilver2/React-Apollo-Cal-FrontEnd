@@ -2,35 +2,62 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { Query} from 'react-apollo';
 import { format } from 'date-fns';
+import styled from 'styled-components';
+import Head from 'next/head';
 import {SINGLE_EVENT_QUERY} from './UpdateEvent';
-import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import DeleteEvent from './DeleteEvent';
+import Error from './ErrorMessage';
 
-
+const SingleEventStyles = styled.div`
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: ${props => props.theme.bs};
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  min-height: 800px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .details {
+    margin: 3rem;
+    font-size: 0.5rem;
+  }
+`;
 
 class SingleEvent extends Component {
   render() {
     const dateFormat = "MMMM d, YYYY"
     return (
         <Query query={SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
-          {({data, loading}) => {
+          {({error, loading, data}) => {
+            if (error) return <Error error={error} />
             if (loading) return <p>Loading</p>
             if (!data.event) return <p>No Item Found for ID {this.props.id}</p>
+            const event = data.event
+            console.log(event)
             return (
-              <ItemStyles>
-                { data.event.image && <img src={data.event.image} alt={data.event.title}/> }
-                <Title>{data.event.title}</Title>
-                <p>{format(data.event.date, dateFormat, { awareOfUnicodeTokens: true })}</p>
-                <p>{data.event.description}</p>
-                <img src={data.event.largeImage} alt={data.event.title}/>
+              
+              <SingleEventStyles>
+                <Head>
+                  <title>{event.title}</title>
+                </Head>
+                <img src={event.largeImage} alt={event.title}/>
+                <div className="details">
+                  <h2>{event.title}</h2>
+                  <p>{format(event.date, dateFormat, { awareOfUnicodeTokens: true })}</p>
+                  <p>{event.description}</p>
+                </div>
                 <div className="buttonlist">
                   <Link href={{ pathname: "updateEvent", query: {id: this.props.id}}}>
                     <a>Edit ✏️</a>
                   </Link>
-                  <DeleteEvent id={data.event.id}>Delete Event</DeleteEvent>
+                  <DeleteEvent id={event.id}>Delete Event</DeleteEvent>
                 </div>
-              </ItemStyles>
+              </SingleEventStyles>
             )
           }}
         </Query>

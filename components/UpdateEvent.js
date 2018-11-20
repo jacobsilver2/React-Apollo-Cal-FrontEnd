@@ -12,6 +12,7 @@ const SINGLE_EVENT_QUERY = gql`
       title
       description
       date
+      largeImage
     }
   }
 `;

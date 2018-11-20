@@ -770,10 +770,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "date-fns");
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _UpdateEvent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UpdateEvent */ "./components/UpdateEvent.js");
-/* harmony import */ var _styles_ItemStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/ItemStyles */ "./components/styles/ItemStyles.js");
-/* harmony import */ var _styles_Title__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Title */ "./components/styles/Title.js");
-/* harmony import */ var _DeleteEvent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DeleteEvent */ "./components/DeleteEvent.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _UpdateEvent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./UpdateEvent */ "./components/UpdateEvent.js");
+/* harmony import */ var _styles_Title__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/Title */ "./components/styles/Title.js");
+/* harmony import */ var _DeleteEvent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DeleteEvent */ "./components/DeleteEvent.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
 var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/SingleEvent.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -803,6 +807,14 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+var SingleEventStyles = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+  displayName: "SingleEvent__SingleEventStyles",
+  componentId: "sc-1qad3m3-0"
+})(["max-width:1200px;margin:2rem auto;box-shadow:", ";display:grid;grid-auto-columns:1fr;grid-auto-flow:column;min-height:800px;img{width:100%;height:100%;object-fit:contain;}.details{margin:3rem;font-size:0.5rem;}"], function (props) {
+  return props.theme.bs;
+});
+
 var SingleEvent =
 /*#__PURE__*/
 function (_Component) {
@@ -821,79 +833,101 @@ function (_Component) {
 
       var dateFormat = "MMMM d, YYYY";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-        query: _UpdateEvent__WEBPACK_IMPORTED_MODULE_4__["SINGLE_EVENT_QUERY"],
+        query: _UpdateEvent__WEBPACK_IMPORTED_MODULE_6__["SINGLE_EVENT_QUERY"],
         variables: {
           id: this.props.id
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 35
         },
         __self: this
       }, function (_ref) {
-        var data = _ref.data,
-            loading = _ref.loading;
+        var error = _ref.error,
+            loading = _ref.loading,
+            data = _ref.data;
+        if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          error: error,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 37
+          },
+          __self: this
+        });
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 38
           },
           __self: this
         }, "Loading");
         if (!data.event) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 39
           },
           __self: this
         }, "No Item Found for ID ", _this.props.id);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_ItemStyles__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        var event = data.event;
+        console.log(event);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SingleEventStyles, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 44
           },
           __self: this
-        }, data.event.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: data.event.image,
-          alt: data.event.title,
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_5___default.a, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 45
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Title__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 46
           },
           __self: this
-        }, data.event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, event.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: event.largeImage,
+          alt: event.title,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 48
           },
           __self: this
-        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(data.event.date, dateFormat, {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "details",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 49
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 50
+          },
+          __self: this
+        }, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51
+          },
+          __self: this
+        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(event.date, dateFormat, {
           awareOfUnicodeTokens: true
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 52
           },
           __self: this
-        }, data.event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: data.event.largeImage,
-          alt: data.event.title,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 26
-          },
-          __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, event.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "buttonlist",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 54
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -905,20 +939,20 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28
+            lineNumber: 55
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 56
           },
           __self: this
-        }, "Edit \u270F\uFE0F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteEvent__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          id: data.event.id,
+        }, "Edit \u270F\uFE0F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteEvent__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          id: event.id,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 58
           },
           __self: this
         }, "Delete Event")));
@@ -996,7 +1030,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SINGLE_EVENT_QUERY($id: ID!) {\n    event(where: {id: $id}) {\n      id\n      title\n      description\n      date\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SINGLE_EVENT_QUERY($id: ID!) {\n    event(where: {id: $id}) {\n      id\n      title\n      description\n      date\n      largeImage\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1099,7 +1133,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 70
         },
         __self: this
       }, function (_ref2) {
@@ -1108,14 +1142,14 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 72
           },
           __self: this
         }, "Loading...");
         if (!data.event) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 73
           },
           __self: this
         }, "No Event Found for ID ", _this2.props.id);
@@ -1124,7 +1158,7 @@ function (_Component) {
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 75
           },
           __self: this
         }, function (updateEvent, _ref3) {
@@ -1136,14 +1170,14 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 76
+              lineNumber: 77
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__["default"], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 78
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -1151,14 +1185,14 @@ function (_Component) {
             "aria-busy": loading,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 79
+              lineNumber: 80
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "title",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 82
             },
             __self: this
           }, "Title", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1171,14 +1205,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 84
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "date",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 86
+              lineNumber: 87
             },
             __self: this
           }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1191,14 +1225,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 89
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "description",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 91
+              lineNumber: 92
             },
             __self: this
           }, "Description", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1210,14 +1244,14 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 93
+              lineNumber: 94
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 96
+              lineNumber: 97
             },
             __self: this
           }, "Sav", loading ? 'ing' : 'e', " Changes")));
@@ -1283,34 +1317,6 @@ var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withCon
   return props.theme.red;
 }, loading);
 /* harmony default export */ __webpack_exports__["default"] = (Form);
-
-/***/ }),
-
-/***/ "./components/styles/ItemStyles.js":
-/*!*****************************************!*\
-  !*** ./components/styles/ItemStyles.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-
-var Item = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "ItemStyles__Item",
-  componentId: "sc-15l26ks-0"
-})(["background:white;border:1px solid ", ";box-shadow:", ";position:relative;display:flex;flex-direction:column;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";& > *{background:white;border:0;font-size:1rem;padding:1rem;}}"], function (props) {
-  return props.theme.offWhite;
-}, function (props) {
-  return props.theme.bs;
-}, function (props) {
-  return props.theme.lightgrey;
-}, function (props) {
-  return props.theme.lightgrey;
-});
-/* harmony default export */ __webpack_exports__["default"] = (Item);
 
 /***/ }),
 
@@ -1415,6 +1421,17 @@ module.exports = require("date-fns");
 /***/ (function(module, exports) {
 
 module.exports = require("graphql-tag");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 
