@@ -28,7 +28,7 @@ class SingleEvent extends Component {
                   <Link href={{ pathname: "updateEvent", query: {id: this.props.id}}}>
                     <a>Edit ✏️</a>
                   </Link>
-                  
+                  <DeleteEvent id={data.event.id}>Delete Event</DeleteEvent>
                 </div>
               </ItemStyles>
             )
