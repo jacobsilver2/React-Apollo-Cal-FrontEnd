@@ -20,20 +20,21 @@ const SINGLE_EVENT_QUERY = gql`
 
 const UPDATE_EVENT_MUTATION = gql`
   mutation UPDATE_EVENT_MUTATION(
-      $title: String!
+      $id: ID!
+      $title: String
       $description: String
-      $image: String
-      $largeImage: String
-      $date: DateTime!
+      $date: DateTime
   ) {
-    createEvent(
+    updateEvent(
+      id: $id
       title: $title
       description: $description
-      image: $image
-      largeImage: $largeImage
       date: $date
     ) {
       id
+      title
+      description
+      date
     }
   }
 `;
@@ -49,22 +50,30 @@ class UpdateEvent extends Component {
     })
   }
 
+  updateEvent = async (e, updateEventMutation) => {
+    e.preventDefault();
+    console.log('updating event');
+    console.log(this.state);
+    const res = await updateEventMutation({
+      variables: {
+        id: this.props.id,
+        ...this.state
+      },
+    });
+    console.log('updated');
+  }
+
 
   render() {
     return (
-      <Query query={SINGLE_EVENT_QUERY} variables={this.props.id}>
+      <Query query={SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
         {({data, loading}) => {
           if (loading) return <p>Loading...</p>
+          if (!data.event) return <p>No Event Found for ID {this.props.id}</p>
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
-              {(updateEvent, { loading, error, called, data }) => (
-                <Form onSubmit={ async (e) => {
-                  e.preventDefault();
-                  const res = await updateEvent();
-                  Router.push({
-                    pathname: '/'
-                  })
-                }}>
+              {(updateEvent, { loading, error }) => (
+                <Form onSubmit={e => this.updateEvent(e, updateEvent)}>
                   <Error error={error} />
               
                   <fieldset disabled={loading} aria-busy={loading}>
@@ -84,7 +93,8 @@ class UpdateEvent extends Component {
                       <textarea id="description" name="description" placeholder="Enter A Description" required defaultValue={data.event.description} onChange={this.handleChange}/>
                     </label>
               
-                    <button type="submit">Save Changes</button>
+                    <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
+
                   </fieldset>
                 </Form>      
               )}
