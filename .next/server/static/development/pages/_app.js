@@ -830,7 +830,7 @@ function (_App) {
             switch (_context.prev = _context.next) {
               case 0:
                 Component = _ref.Component, ctx = _ref.ctx;
-                pageProps = [];
+                pageProps = {};
 
                 if (!Component.getInitialProps) {
                   _context.next = 6;

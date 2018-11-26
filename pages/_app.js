@@ -6,7 +6,7 @@ import withData from '../lib/withData';
 class MyApp extends App {
   // this is a special Next.js lifecycle method
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = [];
+    let pageProps = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }

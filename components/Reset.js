@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
-import { CURRENT_USER_QUERY } from '../components/User';
+import { CURRENT_USER_QUERY } from './User';
 
 
 const RESET_MUTATION = gql`
