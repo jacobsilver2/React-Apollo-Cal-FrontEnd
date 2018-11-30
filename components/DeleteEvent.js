@@ -31,7 +31,9 @@ class DeleteEvent extends Component {
         {(deleteEvent, {error}) => (
           <button onClick={() => {
             if(confirm("Are you sure you want to delete this event?")) {
-              deleteEvent();
+              deleteEvent().catch(err => {
+                alert(err.message);
+              });
               Router.push({
                 pathname: '/'
               })
