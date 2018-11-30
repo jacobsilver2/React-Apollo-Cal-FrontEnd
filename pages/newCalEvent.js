@@ -1,8 +1,11 @@
 import CreateEvent from '../components/CreateEvent';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const NewCalEvent = () => (
   <div>
-    <CreateEvent />
+    <PleaseSignIn>
+      <CreateEvent />
+    </PleaseSignIn>
   </div>
 );
 
