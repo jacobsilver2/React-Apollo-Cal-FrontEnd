@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Nav from './Nav';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Sidebar from './Sidebar';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -69,7 +70,9 @@ const Header = () => (
     <div className="new-event">
       <p>New Event</p>
     </div>
+    <Sidebar />
   </StyledHeader>
+
 );
 
 export default Header;
