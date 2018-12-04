@@ -6,8 +6,8 @@ import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 
-const SEARCH_ITEMS_QUERY = gql`
-  query SEARCH_ITEMS_QUERY($searchTerm: String!) {
+const SEARCH_EVENTS_QUERY = gql`
+  query SEARCH_EVENTS_QUERY($searchTerm: String!) {
     events(where: {
       OR: [
         {title_contains: $searchTerm},
@@ -22,14 +22,20 @@ const SEARCH_ITEMS_QUERY = gql`
 `;
 
 class Autocomplete extends Component {
+  state = {
+    events: [],
+    loading: false,
 
-  onChange = async (e, client) => {
+  }
+  onChange = debounce(async (e, client) => {
+    // turn loading on
+    this.setState({ loading: true });
     const res = await client.query({
-      query: SEARCH_ITEMS_QUERY,
+      query: SEARCH_EVENTS_QUERY,
       variables: {searchTerm: e.target.value}
     });
-    console.log(res);
-  }
+    this.setState({ events: res.data.events, loading: false });
+  }, 350);
 
   render() {
     return (
@@ -44,7 +50,10 @@ class Autocomplete extends Component {
             )}
           </ApolloConsumer>
           <DropDown>
-            <p>Items Will Go Here</p>
+            {this.state.events.map(event => <DropDownItem key={event.id}>
+              <img width="50" src={event.image} alt={event.title}/>
+              {event.title}
+            </DropDownItem>)}
           </DropDown>
         </div>
       </SearchStyles>    

@@ -586,7 +586,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SEARCH_ITEMS_QUERY($searchTerm: String!) {\n    events(where: {\n      OR: [\n        {title_contains: $searchTerm},\n        {description_contains: $searchTerm},\n      ] }) \n      {\n        id \n        image\n        title\n      }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_EVENTS_QUERY($searchTerm: String!) {\n    events(where: {\n      OR: [\n        {title_contains: $searchTerm},\n        {description_contains: $searchTerm},\n      ] }) \n      {\n        id \n        image\n        title\n      }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -604,7 +604,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var SEARCH_ITEMS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
+var SEARCH_EVENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
 
 var Autocomplete =
 /*#__PURE__*/
@@ -624,7 +624,12 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Autocomplete)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange",
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      events: [],
+      loading: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(
     /*#__PURE__*/
     function () {
       var _ref = _asyncToGenerator(
@@ -635,19 +640,28 @@ function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                // turn loading on
+                _this.setState({
+                  loading: true
+                });
+
+                _context.next = 3;
                 return client.query({
-                  query: SEARCH_ITEMS_QUERY,
+                  query: SEARCH_EVENTS_QUERY,
                   variables: {
                     searchTerm: e.target.value
                   }
                 });
 
-              case 2:
+              case 3:
                 res = _context.sent;
-                console.log(res);
 
-              case 4:
+                _this.setState({
+                  events: res.data.events,
+                  loading: false
+                });
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -658,7 +672,7 @@ function (_Component) {
       return function (_x, _x2) {
         return _ref.apply(this, arguments);
       };
-    }());
+    }(), 350));
 
     return _this;
   }
@@ -671,19 +685,19 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 42
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 43
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 44
         },
         __self: this
       }, function (client) {
@@ -696,23 +710,35 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 46
           },
           __self: this
         });
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 52
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 47
-        },
-        __self: this
-      }, "Items Will Go Here"))));
+      }, this.state.events.map(function (event) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
+          key: event.id,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          width: "50",
+          src: event.image,
+          alt: event.title,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54
+          },
+          __self: this
+        }), event.title);
+      }))));
     }
   }]);
 
