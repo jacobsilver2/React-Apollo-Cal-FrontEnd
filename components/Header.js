@@ -4,6 +4,7 @@ import Nav from './Nav';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Sidebar from './Sidebar';
+import Search from './Search';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -65,10 +66,7 @@ const Header = () => (
       <Nav />
     </div>
     <div className="sub-bar">
-      <p>Search</p>
-    </div>
-    <div className="new-event">
-      <p>New Event</p>
+      <Search />
     </div>
     <Sidebar />
   </StyledHeader>
