@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Downshift from 'downshift';
+import Downshift, {resetIdCounter} from 'downshift';
 import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -21,6 +21,16 @@ const SEARCH_EVENTS_QUERY = gql`
   }
 `;
 
+function routeToEvent(event) {
+  console.log(event);
+  Router.push({
+    pathname: '/event',
+    query: {
+      id: event.id
+    }
+  })
+}
+
 class Autocomplete extends Component {
   state = {
     events: [],
@@ -38,24 +48,47 @@ class Autocomplete extends Component {
   }, 350);
 
   render() {
+    resetIdCounter();
     return (
       <SearchStyles>
-        <div>
-          <ApolloConsumer>
-            {(client) => (
-              <input type="search" onChange={(e) => {
-                e.persist();
-                this.onChange(e, client);
-              }}/>
+      <Downshift onChange={routeToEvent} itemToString={item => (item === null ? '' : item.title)} >
+        {({getInputProps, getItemProps, isOpen, inputValue, highlightedIndex}) => (
+          <div>
+            <ApolloConsumer>
+              {(client) => (
+                <input 
+                  {...getInputProps({
+                    type: "search",
+                    placeholder: 'search for an event',
+                    id: 'search',
+                    className: this.state.loading ? 'loading' : '',
+                    onChange: e => {
+                    e.persist();
+                    this.onChange(e, client);
+                  },
+                  })}
+                />
+              )}
+            </ApolloConsumer>
+            { isOpen && (
+              <DropDown>
+                {this.state.events.map((item, index) => 
+                  <DropDownItem 
+                    {...getItemProps({ item }) } 
+                    key={item.id}
+                    highlighted={index === highlightedIndex} 
+                  >
+                  <img width="50" src={item.image} alt={item.title}/>
+                  {item.title}
+                </DropDownItem>)}
+                {!this.state.events.length && !this.state.loading && (
+                  <DropDownItem>Nothing Found for {inputValue}</DropDownItem>
+                )}
+              </DropDown>
             )}
-          </ApolloConsumer>
-          <DropDown>
-            {this.state.events.map(event => <DropDownItem key={event.id}>
-              <img width="50" src={event.image} alt={event.title}/>
-              {event.title}
-            </DropDownItem>)}
-          </DropDown>
-        </div>
+          </div>
+        )}
+      </Downshift>
       </SearchStyles>    
     );
   }
