@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
+import Link from 'next/link';
+import Router from 'next/router';
 import gql from 'graphql-tag';
 import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth} from 'date-fns';
 import {StyledCal} from './styles/CalendarStyles';
@@ -24,6 +26,12 @@ class Calendar extends Component {
     currentMonth: new Date(),
     selectedDate: new Date(),
   };
+
+  goToEvents = () => {
+    Router.push({
+      pathname: '/newCalEvent'
+    })
+  }
 
   renderHeader = () => {
     const dateFormat = 'MMMM YYYY';
@@ -88,6 +96,7 @@ class Calendar extends Component {
                 : isSameDay(day, selectedDate) ? "selected" : ""
             }`}
             key={day.toString()}
+            onClick={this.goToEvents}
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
@@ -121,7 +130,6 @@ prevMonth = () => {
 
   render() {
     return (
-
         <Query query={ALL_EVENTS_QUERY}>
           { ({data, error, loading}) => {
             if (loading) return <p>Loading...</p>

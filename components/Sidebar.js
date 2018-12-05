@@ -23,7 +23,7 @@ const Sidebar = (props) => (
     {(toggleSidebarOpen) => (
       <Query query={LOCAL_STATE_QUERY}>
         {({data}) =>
-         console.log(data) || (
+          (
           <SidebarStyles open={data.sidebarOpen}>
             <header>
               <CloseButton onClick={toggleSidebarOpen} title="close">&times;</CloseButton>

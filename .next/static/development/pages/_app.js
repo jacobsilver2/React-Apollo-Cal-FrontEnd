@@ -767,7 +767,7 @@ var Sidebar = function Sidebar(props) {
       __self: this
     }, function (_ref) {
       var data = _ref.data;
-      return console.log(data) || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CartStyles__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CartStyles__WEBPACK_IMPORTED_MODULE_3__["default"], {
         open: data.sidebarOpen,
         __source: {
           fileName: _jsxFileName,
