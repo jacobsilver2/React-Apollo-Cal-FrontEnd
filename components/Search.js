@@ -35,8 +35,8 @@ class Autocomplete extends Component {
   state = {
     events: [],
     loading: false,
-
   }
+  
   onChange = debounce(async (e, client) => {
     // turn loading on
     this.setState({ loading: true });
