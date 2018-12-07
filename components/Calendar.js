@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import Link from 'next/link';
 import Router from 'next/router';
 import gql from 'graphql-tag';
 import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth} from 'date-fns';
 import {StyledCal} from './styles/CalendarStyles';
 import CalendarEvent from './CalendarEvent';
-import {CREATE_EVENT_MUTATION} from './CreateEvent';
 
 const ALL_EVENTS_QUERY = gql`
   query ALL_EVENTS_QUERY {

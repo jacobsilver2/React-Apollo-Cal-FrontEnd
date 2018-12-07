@@ -107,17 +107,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "next/link");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/CalendarStyles */ "./components/styles/CalendarStyles.js");
-/* harmony import */ var _CalendarEvent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CalendarEvent */ "./components/CalendarEvent.js");
-/* harmony import */ var _CreateEvent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CreateEvent */ "./components/CreateEvent.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "date-fns");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/CalendarStyles */ "./components/styles/CalendarStyles.js");
+/* harmony import */ var _CalendarEvent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CalendarEvent */ "./components/CalendarEvent.js");
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/React-Apollo-Cal/frontend/components/Calendar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -159,9 +156,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-
-var ALL_EVENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
+var ALL_EVENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
 
 var Calendar =
 /*#__PURE__*/
@@ -187,7 +182,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "goToEvents", function () {
-      next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
+      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
         pathname: '/newCalEvent'
       });
     });
@@ -198,14 +193,14 @@ function (_Component) {
         className: "header row flex-middle",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 37
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col col-start",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 38
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -213,37 +208,37 @@ function (_Component) {
         onClick: _this.prevMonth,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 39
         },
         __self: this
       }, "chevron_left")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col col-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 43
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 44
         },
         __self: this
-      }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(_this.state.currentMonth, dateFormat, {
+      }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this.state.currentMonth, dateFormat, {
         awareOfUnicodeTokens: true
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col col-end",
         onClick: _this.nextMonth,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 48
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icon",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 49
         },
         __self: this
       }, "chevron_right")));
@@ -252,7 +247,7 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderDays", function () {
       var dateFormat = 'EEEE';
       var days = [];
-      var startDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["startOfWeek"])(_this.state.currentMonth);
+      var startDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["startOfWeek"])(_this.state.currentMonth);
 
       for (var i = 0; i < 7; i++) {
         days.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -260,10 +255,10 @@ function (_Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 64
           },
           __self: this
-        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["addDays"])(startDate, i), dateFormat, {
+        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addDays"])(startDate, i), dateFormat, {
           awareOfUnicodeTokens: true
         })));
       }
@@ -272,7 +267,7 @@ function (_Component) {
         className: "days row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 69
         },
         __self: this
       }, days);
@@ -282,10 +277,10 @@ function (_Component) {
       var _this$state = _this.state,
           currentMonth = _this$state.currentMonth,
           selectedDate = _this$state.selectedDate;
-      var monthStart = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["startOfMonth"])(currentMonth);
-      var monthEnd = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["endOfMonth"])(monthStart);
-      var startDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["startOfWeek"])(monthStart);
-      var endDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["endOfWeek"])(monthEnd);
+      var monthStart = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["startOfMonth"])(currentMonth);
+      var monthEnd = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["endOfMonth"])(monthStart);
+      var startDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["startOfWeek"])(monthStart);
+      var endDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["endOfWeek"])(monthEnd);
       var dateFormat = "d";
       var rows = [];
       var days = [];
@@ -295,47 +290,47 @@ function (_Component) {
 
       while (day <= endDate) {
         for (var i = 0; i < 7; i++) {
-          formattedDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["format"])(day, dateFormat, {
+          formattedDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(day, dateFormat, {
             awareOfUnicodeTokens: true
           });
           var matchedEvent = events.filter(function (event) {
-            return Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["isSameDay"])(event.date, day);
+            return Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameDay"])(event.date, day);
           });
           days.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "col cell ".concat(!Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["isSameMonth"])(day, monthStart) ? "disabled" : Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["isSameDay"])(day, selectedDate) ? "selected" : ""),
+            className: "col cell ".concat(!Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameMonth"])(day, monthStart) ? "disabled" : Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameDay"])(day, selectedDate) ? "selected" : ""),
             key: day.toString(),
             onClick: _this.goToEvents,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 92
+              lineNumber: 90
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "number",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 101
+              lineNumber: 99
             },
             __self: this
           }, formattedDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "bg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 102
+              lineNumber: 100
             },
             __self: this
           }, formattedDate), matchedEvent.length > 0 && matchedEvent.map(function (e) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CalendarEvent__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CalendarEvent__WEBPACK_IMPORTED_MODULE_6__["default"], {
               event: e,
               key: e.id,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 103
+                lineNumber: 101
               },
               __self: this
             });
           })));
-          day = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["addDays"])(day, 1);
+          day = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addDays"])(day, 1);
         }
 
         rows.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -343,7 +338,7 @@ function (_Component) {
           key: day,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 108
           },
           __self: this
         }, days));
@@ -354,7 +349,7 @@ function (_Component) {
         className: "body",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 114
         },
         __self: this
       }, rows);
@@ -362,13 +357,13 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "nextMonth", function () {
       _this.setState({
-        currentMonth: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["addMonths"])(_this.state.currentMonth, 1)
+        currentMonth: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMonths"])(_this.state.currentMonth, 1)
       });
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "prevMonth", function () {
       _this.setState({
-        currentMonth: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["subMonths"])(_this.state.currentMonth, 1)
+        currentMonth: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["subMonths"])(_this.state.currentMonth, 1)
       });
     });
 
@@ -384,7 +379,7 @@ function (_Component) {
         query: ALL_EVENTS_QUERY,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 131
         },
         __self: this
       }, function (_ref) {
@@ -394,28 +389,28 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135
+            lineNumber: 133
           },
           __self: this
         }, "Loading...");
         if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136
+            lineNumber: 134
           },
           __self: this
         }, "Error: ", error.message);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_6__["StyledCal"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_5__["StyledCal"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 138
+            lineNumber: 136
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "calendar",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 139
+            lineNumber: 137
           },
           __self: this
         }, _this2.renderHeader(), _this2.renderDays(), _this2.renderCells(data.events)));
