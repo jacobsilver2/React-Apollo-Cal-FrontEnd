@@ -25,7 +25,7 @@ class Calendar extends Component {
     selectedDate: new Date(),
   };
 
-  goToEvents = () => {
+  createNewEvent = () => {
     Router.push({
       pathname: '/newCalEvent'
     })
@@ -81,7 +81,7 @@ class Calendar extends Component {
     let days = [];
     let day = startDate;
     let formattedDate = "";
-    let dateCheckFormat = "YYYY MMMM d";
+    // let dateCheckFormat = "YYYY MMMM d";
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat, { awareOfUnicodeTokens: true });
@@ -94,7 +94,7 @@ class Calendar extends Component {
                 : isSameDay(day, selectedDate) ? "selected" : ""
             }`}
             key={day.toString()}
-            onClick={this.goToEvents}
+            onClick={this.createNewEvent}
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>

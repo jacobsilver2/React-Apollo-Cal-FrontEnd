@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
 /* harmony import */ var _styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/CalendarStyles */ "./components/styles/CalendarStyles.js");
 /* harmony import */ var _CalendarEvent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CalendarEvent */ "./components/CalendarEvent.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/React-Apollo-Cal/frontend/components/Calendar.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Calendar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -87,7 +87,7 @@ function (_Component) {
       selectedDate: new Date()
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "goToEvents", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "createNewEvent", function () {
       next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
         pathname: '/newCalEvent'
       });
@@ -191,8 +191,7 @@ function (_Component) {
       var rows = [];
       var days = [];
       var day = startDate;
-      var formattedDate = "";
-      var dateCheckFormat = "YYYY MMMM d";
+      var formattedDate = ""; // let dateCheckFormat = "YYYY MMMM d";
 
       while (day <= endDate) {
         for (var i = 0; i < 7; i++) {
@@ -205,7 +204,7 @@ function (_Component) {
           days.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "col cell ".concat(!Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameMonth"])(day, monthStart) ? "disabled" : Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameDay"])(day, selectedDate) ? "selected" : ""),
             key: day.toString(),
-            onClick: _this.goToEvents,
+            onClick: _this.createNewEvent,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 90
@@ -349,7 +348,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/React-Apollo-Cal/frontend/components/CalendarEvent.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CalendarEvent.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -43155,7 +43154,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Calendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Calendar */ "./components/Calendar.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/React-Apollo-Cal/frontend/pages/index.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
 
 
 
