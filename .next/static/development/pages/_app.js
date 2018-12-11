@@ -261,30 +261,17 @@ var Nav = function Nav() {
         lineNumber: 18
       },
       __self: this
-    }, "New Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/newAct",
+    }, "New Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }, "New Act")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
       mutation: _Sidebar__WEBPACK_IMPORTED_MODULE_3__["TOGGLE_SIDEBAR_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 21
       },
       __self: this
     }, function (toggleSidebarOpen) {
@@ -292,7 +279,7 @@ var Nav = function Nav() {
         onClick: toggleSidebarOpen,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 23
         },
         __self: this
       }, "Sidebar");
@@ -300,13 +287,13 @@ var Nav = function Nav() {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 29
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 30
       },
       __self: this
     }, "Sign In")));

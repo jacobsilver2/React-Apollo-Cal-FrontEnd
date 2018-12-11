@@ -17,9 +17,6 @@ const Nav = () => (
             <Link href="/newCalEvent">
               <a>New Event</a>
             </Link>
-            <Link href="/newAct">
-              <a>New Act</a>
-            </Link>
             <Signout />
             <Mutation mutation={TOGGLE_SIDEBAR_MUTATION}>
               {(toggleSidebarOpen) => (
