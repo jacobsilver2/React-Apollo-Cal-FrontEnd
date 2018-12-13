@@ -5,34 +5,35 @@ import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { ALL_EVENTS_QUERY } from './Calendar'; 
+import { CREATE_ACT_MUTATION } from './NewAct';
 
 const CREATE_EVENT_MUTATION = gql`
   mutation CREATE_EVENT_MUTATION(
-      $title: String!
+      $date: DateTime!
+      $notes: String
+      $name: String
+      $email: String
       $description: String
       $image: String
       $largeImage: String
-      $date: DateTime!
   ) {
-    createEvent(
-      title: $title
-      description: $description
-      image: $image
-      largeImage: $largeImage
-      date: $date
-    ) {
-      id
-    }
+    createEvent( date: $date notes: $notes ) 
+    { id }
+    createAct( name: $name, email: $email, description: $description, image: $image, largeImage: $largeImage)
+    { id }
   }
 `;
 
+
 class CreateEvent extends Component {
   state = {
-    title: '',
-    description: '',
-    image: '',
-    largeImage: '',
-    date: '',
+      date: '',
+      notes: '',
+      name: '',
+      image: '',
+      largeImage: '',
+      email: '',
+      description: '',
   }
 
   update = (cache, payload) => {
@@ -87,25 +88,35 @@ class CreateEvent extends Component {
             <Error error={error} />
 
             <fieldset disabled={loading} aria-busy={loading}>
-              <label htmlFor="file">
-                Image
-                <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
-                {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
-              </label>
-            
-              <label htmlFor="title">
-                Title
-                <input type="text" id="title" name="title" placeholder="Title" required value={this.state.title} onChange={this.handleChange}/>
-              </label>
-        
               <label htmlFor="date">
                 Date
                 <input type="date" id="date" name="date" placeholder="Date" required value={this.state.date} onChange={this.handleChange}/>
               </label>
         
+              <label htmlFor="notes">
+                Notes
+                <textarea id="notes" name="notes" placeholder="Enter Some Notes" required value={this.state.notes} onChange={this.handleChange}/>
+              </label>
+
+              <label htmlFor="name">
+                Name
+                <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
+              </label>
+
               <label htmlFor="description">
                 Description
                 <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
+              </label>
+        
+              <label htmlFor="email">
+                Email
+                <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
+              </label>
+
+              <label htmlFor="file">
+                Image
+                <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
+                {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
               </label>
         
               <button type="submit">Submit</button>

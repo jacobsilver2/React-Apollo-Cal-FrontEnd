@@ -10,11 +10,8 @@ const ALL_EVENTS_QUERY = gql`
   query ALL_EVENTS_QUERY {
     events {
       id
-      title
-      description
-      image
-      largeImage
       date
+      notes
     }
   }
 `;

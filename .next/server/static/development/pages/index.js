@@ -138,7 +138,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_EVENTS_QUERY {\n    events {\n      id\n      title\n      description\n      image\n      largeImage\n      date\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query ALL_EVENTS_QUERY {\n    events {\n      id\n      date\n      notes\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -193,14 +193,14 @@ function (_Component) {
         className: "header row flex-middle",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 34
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col col-start",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 35
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -208,20 +208,20 @@ function (_Component) {
         onClick: _this.prevMonth,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 36
         },
         __self: this
       }, "chevron_left")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col col-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 40
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 41
         },
         __self: this
       }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this.state.currentMonth, dateFormat, {
@@ -231,14 +231,14 @@ function (_Component) {
         onClick: _this.nextMonth,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 45
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icon",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 46
         },
         __self: this
       }, "chevron_right")));
@@ -255,7 +255,7 @@ function (_Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 61
           },
           __self: this
         }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addDays"])(startDate, i), dateFormat, {
@@ -267,7 +267,7 @@ function (_Component) {
         className: "days row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 66
         },
         __self: this
       }, days);
@@ -301,21 +301,21 @@ function (_Component) {
             onClick: _this.createNewEvent,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 87
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "number",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 99
+              lineNumber: 96
             },
             __self: this
           }, formattedDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "bg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 100
+              lineNumber: 97
             },
             __self: this
           }, formattedDate), matchedEvent.length > 0 && matchedEvent.map(function (e) {
@@ -324,7 +324,7 @@ function (_Component) {
               key: e.id,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101
+                lineNumber: 98
               },
               __self: this
             });
@@ -337,7 +337,7 @@ function (_Component) {
           key: day,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108
+            lineNumber: 105
           },
           __self: this
         }, days));
@@ -348,7 +348,7 @@ function (_Component) {
         className: "body",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 111
         },
         __self: this
       }, rows);
@@ -378,7 +378,7 @@ function (_Component) {
         query: ALL_EVENTS_QUERY,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 128
         },
         __self: this
       }, function (_ref) {
@@ -388,28 +388,28 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 133
+            lineNumber: 130
           },
           __self: this
         }, "Loading...");
         if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134
+            lineNumber: 131
           },
           __self: this
         }, "Error: ", error.message);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_5__["StyledCal"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136
+            lineNumber: 133
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "calendar",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 137
+            lineNumber: 134
           },
           __self: this
         }, _this2.renderHeader(), _this2.renderDays(), _this2.renderCells(data.events)));
@@ -518,7 +518,7 @@ function (_Component) {
           lineNumber: 29
         },
         __self: this
-      }, "\u2022", event.title)));
+      }, "\u2022", formattedDay)));
     }
   }]);
 

@@ -15,15 +15,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/act": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/newAct": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/acts": [
+    "/newCalEvent": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

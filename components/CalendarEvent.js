@@ -26,7 +26,7 @@ class CalendarEvent extends Component {
           pathname: '/event',
           query: { id: event.id },
         }}>
-          <a>•{event.title}</a>
+          <a>•{formattedDay}</a>
         </Link>
       </StyledEvent>     
     );
