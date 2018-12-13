@@ -17,9 +17,15 @@ const CREATE_EVENT_MUTATION = gql`
       $image: String
       $largeImage: String
   ) {
-    createEvent( date: $date notes: $notes ) 
-    { id }
-    createAct( name: $name, email: $email, description: $description, image: $image, largeImage: $largeImage)
+    createEvent( 
+        date: $date
+        notes: $notes
+        name: $name
+        email: $email
+        description: $description
+        image: $image
+        largeImage: $largeImage
+    ) 
     { id }
   }
 `;
@@ -95,7 +101,7 @@ class CreateEvent extends Component {
         
               <label htmlFor="notes">
                 Notes
-                <textarea id="notes" name="notes" placeholder="Enter Some Notes" required value={this.state.notes} onChange={this.handleChange}/>
+                <textarea id="notes" name="notes" placeholder="Enter Some Notes" value={this.state.notes} onChange={this.handleChange}/>
               </label>
 
               <label htmlFor="name">
