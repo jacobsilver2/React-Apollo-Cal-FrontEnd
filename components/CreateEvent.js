@@ -8,8 +8,8 @@ import { ALL_EVENTS_QUERY } from './Calendar';
 import { ALL_ACTS_QUERY } from './Acts';
 
 
-const CREATE_EVENT_MUTATION = gql`
-  mutation CREATE_EVENT_MUTATION(
+const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
+  mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(
       $date: DateTime!
       $notes: String
       $name: String
@@ -17,8 +17,9 @@ const CREATE_EVENT_MUTATION = gql`
       $description: String
       $image: String
       $largeImage: String
+      $actId: String
   ) {
-    createEvent( 
+    createEventWithNewAct( 
         date: $date
         notes: $notes
         name: $name
@@ -26,8 +27,28 @@ const CREATE_EVENT_MUTATION = gql`
         description: $description
         image: $image
         largeImage: $largeImage
+        actId: $actId
     ) 
     { 
+      id
+      act {
+        id
+      }
+    }
+  }
+`;
+
+const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
+  mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(
+    $date: DateTime!
+    $notes: String
+    $actId: String
+  ){
+    createEventWithExistingAct(
+      date: $date
+      notes: $notes
+      actId: $actId
+    ){
       id
       act {
         id
@@ -46,6 +67,7 @@ class CreateEvent extends Component {
       largeImage: '',
       email: '',
       description: '',
+      actId: '',
   }
 
   update = (cache, payload) => {
@@ -54,24 +76,36 @@ class CreateEvent extends Component {
     const eventsData = cache.readQuery({ query: ALL_EVENTS_QUERY })
     const actsData = cache.readQuery({ query: ALL_ACTS_QUERY })
     // 2. Add the new event to the events
-    console.log(payload.data.createEvent.act)
-    console.log(actsData);
     eventsData.events = eventsData.events.push(payload.data);
-    actsData.acts = actsData.acts.push(payload.data.createEvent.act);
+    // console.log(eventsData);
+    // console.log(cache);
+    // actsData.acts = actsData.acts.push(payload.data.createEvent.act);
     // 3. Put the items back
     cache.writeQuery( {query: ALL_EVENTS_QUERY, eventsData });
-    cache.writeQuery( {query: ALL_ACTS_QUERY, actsData });
+    // cache.writeQuery( {query: ALL_ACTS_QUERY, actsData });
   }
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
+    if (type === 'select-one') {
+      return (
+        this.setState({
+          actId: val,
+          name: '',
+          email: '',
+          description: '',
+          image: '',
+          largeImage: ''
+        })
+      )
+    }
     this.setState({
       [name]: val
     })
   }
 
-    uploadFile = async (e) => {
+  uploadFile = async (e) => {
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
@@ -93,65 +127,76 @@ class CreateEvent extends Component {
         {({data, loading}) => {
           if (loading) return <p>Loading...</p>;
           return (
-          <Mutation mutation={CREATE_EVENT_MUTATION} update={this.update} variables={this.state}>
-            {(createEvent, { loading, error }) => (
-            
-              <Form onSubmit={ async (e) => {
-                e.preventDefault();
-                const res = await createEvent();
-                Router.push({
-                  pathname: '/'
-                })
-              }}>
-                <Error error={error} />
-            
-                <fieldset disabled={loading} aria-busy={loading}>
-                  <label htmlFor="date">
-                    Date
-                    <input type="date" id="date" name="date" placeholder="Date" required value={this.state.date} onChange={this.handleChange}/>
-                  </label>
-            
-                  <label htmlFor="notes">
-                    Notes
-                    <textarea id="notes" name="notes" placeholder="Enter Some Notes" value={this.state.notes} onChange={this.handleChange}/>
-                  </label>
-
-                  <label htmlFor="acts">
-                    Select An Act Already In The Database
-                    <select defaultValue="">
-                      <option value="" disabled>Acts</option>
-                      {
-                        data.acts.map(act => <option key={act.id} value={act.name}>{act.name}</option>)
-                      }
-                    </select>
-                  </label>
-                  <hr />
-                  <h4>Or Create A New Act</h4>
-                  <hr />
-                  <label htmlFor="name">
-                    Name
-                    <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
-                  </label>
-            
-                  <label htmlFor="description">
-                    Description
-                    <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
-                  </label>
-            
-                  <label htmlFor="email">
-                    Email
-                    <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
-                  </label>
-            
-                  <label htmlFor="file">
-                    Image
-                    <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
-                    {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
-                  </label>
-            
-                  <button type="submit">Submit</button>
-                </fieldset>
-              </Form>      
+          <Mutation 
+            mutation={CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
+            variables={this.state} 
+            refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
+          >
+            {(createEventWithNewAct, { loading, error }) => (
+              <Mutation 
+                mutation={CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
+                variables={{date: this.state.date, notes: this.state.notes, actId: this.state.actId}} 
+                refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
+              >
+                {(createEventWithExistingAct, { loading, error}) => (
+                  <Form onSubmit={ async (e) => {
+                    e.preventDefault();
+                    const res = !this.state.actId ? await createEventWithNewAct() : await createEventWithExistingAct();
+                    Router.push({
+                      pathname: '/'
+                    })
+                  }}>
+                    <Error error={error} />
+                
+                    <fieldset disabled={loading} aria-busy={loading}>
+                      <label htmlFor="date">
+                        Date
+                        <input type="date" id="date" name="date" placeholder="Date" required value={this.state.date} onChange={this.handleChange}/>
+                      </label>
+                
+                      <label htmlFor="notes">
+                        Notes
+                        <textarea id="notes" name="notes" placeholder="Enter Some Notes" value={this.state.notes} onChange={this.handleChange}/>
+                      </label>
+                
+                      <label htmlFor="acts">
+                        Select An Act Already In The Database
+                        <select defaultValue="" onChange={this.handleChange}>
+                          <option value="" disabled>Acts</option>
+                          {
+                            data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
+                          }
+                        </select>
+                      </label>
+                      <hr />
+                      <h4>Or Create A New Act</h4>
+                      <hr />
+                      <label htmlFor="name">
+                        Name
+                        <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
+                      </label>
+                        
+                      <label htmlFor="description">
+                        Description
+                        <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
+                      </label>
+                        
+                      <label htmlFor="email">
+                        Email
+                        <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
+                      </label>
+                        
+                      <label htmlFor="file">
+                        Image
+                        <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
+                        {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
+                      </label>
+                        
+                      <button type="submit">Submit</button>
+                    </fieldset>
+                  </Form>      
+                )}
+              </Mutation>
             )}
           </Mutation>
           );
