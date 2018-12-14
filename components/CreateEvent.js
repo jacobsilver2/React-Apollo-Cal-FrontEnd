@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Router from 'next/router';
+import { format } from 'date-fns';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { ALL_EVENTS_QUERY } from './Calendar'; 
@@ -70,24 +71,21 @@ class CreateEvent extends Component {
       actId: '',
   }
 
-  update = (cache, payload) => {
-    // manually update the cache on the client, so it matches the server
-    // 1. Read the events in the cache
-    const eventsData = cache.readQuery({ query: ALL_EVENTS_QUERY })
-    const actsData = cache.readQuery({ query: ALL_ACTS_QUERY })
-    // 2. Add the new event to the events
-    eventsData.events = eventsData.events.push(payload.data);
-    // console.log(eventsData);
-    // console.log(cache);
-    // actsData.acts = actsData.acts.push(payload.data.createEvent.act);
-    // 3. Put the items back
-    cache.writeQuery( {query: ALL_EVENTS_QUERY, eventsData });
-    // cache.writeQuery( {query: ALL_ACTS_QUERY, actsData });
-  }
-
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    const val = type === 'number' ? parseFloat(value) : value;
+    let val = null;
+    switch (type) {
+      case 'number':
+        val = parseFloat(value);
+        break;
+      case 'date':
+        val = value;
+        // val = new Date(value).toDateString();
+        break;
+      default: 
+        val = value;
+    }
+
     if (type === 'select-one') {
       return (
         this.setState({
@@ -151,7 +149,7 @@ class CreateEvent extends Component {
                     <fieldset disabled={loading} aria-busy={loading}>
                       <label htmlFor="date">
                         Date
-                        <input type="date" id="date" name="date" placeholder="Date" required value={this.state.date} onChange={this.handleChange}/>
+                        <input type="date" id="date" name="date" placeholder="Date" value={this.state.date} onChange={this.handleChange}/>
                       </label>
                 
                       <label htmlFor="notes">
@@ -173,22 +171,22 @@ class CreateEvent extends Component {
                       <hr />
                       <label htmlFor="name">
                         Name
-                        <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
+                        <input type="text" id="name" name="name" placeholder="Name" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.name} onChange={this.handleChange}/>
                       </label>
                         
                       <label htmlFor="description">
                         Description
-                        <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
+                        <textarea id="description" name="description" placeholder="Enter A Description" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.description} onChange={this.handleChange}/>
                       </label>
                         
                       <label htmlFor="email">
                         Email
-                        <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
+                        <input type="email" id="email" name="email" placeholder="email" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.email} onChange={this.handleChange}/>
                       </label>
                         
                       <label htmlFor="file">
                         Image
-                        <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
+                        <input type="file" id="file" name="file" disabled={!!this.state.actId} placeholder="Upload an image" onChange={this.uploadFile}/>
                         {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
                       </label>
                         

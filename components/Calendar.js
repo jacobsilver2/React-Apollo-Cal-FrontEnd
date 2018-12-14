@@ -11,7 +11,7 @@ const ALL_EVENTS_QUERY = gql`
     events {
       id
       date
-      notes
+      notes 
     }
   }
 `;

@@ -19,7 +19,7 @@ class CalendarEvent extends Component {
   render() {
     
     const {event} = this.props;
-    const formattedDay = format(event.date, ("MMMM d"))
+    const formattedDay = new Date(event.date).toUTCString();
     return (
       <StyledEvent>
         <Link href={{
