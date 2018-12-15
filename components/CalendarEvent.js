@@ -17,16 +17,14 @@ class CalendarEvent extends Component {
   }
 
   render() {
-    
     const {event} = this.props;
-    const formattedDay = new Date(event.date).toUTCString();
     return (
       <StyledEvent>
         <Link href={{
           pathname: '/event',
           query: { id: event.id },
         }}>
-          <a>•{formattedDay}</a>
+          <a>•{event.act.name}</a>
         </Link>
       </StyledEvent>     
     );

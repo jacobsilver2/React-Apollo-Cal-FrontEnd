@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import Router from 'next/router';
 import gql from 'graphql-tag';
-import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth} from 'date-fns';
+import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse} from 'date-fns';
+import moment from 'moment';
 import {StyledCal} from './styles/CalendarStyles';
 import CalendarEvent from './CalendarEvent';
 
@@ -11,7 +12,11 @@ const ALL_EVENTS_QUERY = gql`
     events {
       id
       date
-      notes 
+      notes
+      act {
+        id
+        name
+      }
     }
   }
 `;
@@ -82,7 +87,13 @@ class Calendar extends Component {
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat, { awareOfUnicodeTokens: true });
-        const matchedEvent = events.filter(event => isSameDay(event.date, day));
+        const matchedEvent = events.filter(event => {
+          // this is seriously stupid and only works on east coast time.
+          // todo: FIX THIS
+          let momentEvent = moment(event.date, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').add(5, 'hours').format();
+          let momentDay = moment(day, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').set({h: 0, m: 0}).format();
+          return moment(momentEvent).isSame(moment(momentDay))
+        });
         days.push(
           <div
             className={`col cell ${
