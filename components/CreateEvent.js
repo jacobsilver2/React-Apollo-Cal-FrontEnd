@@ -73,35 +73,25 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    let val = null;
-    switch (type) {
-      case 'number':
-        val = parseFloat(value);
-        break;
-      case 'date':
-        val = value;
-        // val = new Date(value).toDateString();
-        break;
-      default: 
-        val = value;
+    const val = type === 'number' ? parseFloat(value) : value;
+      if (type === 'select-one') {
+        return (
+          this.setState({
+            actId: val,
+            name: '',
+            email: '',
+            description: '',
+            image: '',
+            largeImage: ''
+          })
+        )
+      }
+      this.setState({
+        [name]: val
+      })
     }
+    
 
-    if (type === 'select-one') {
-      return (
-        this.setState({
-          actId: val,
-          name: '',
-          email: '',
-          description: '',
-          image: '',
-          largeImage: ''
-        })
-      )
-    }
-    this.setState({
-      [name]: val
-    })
-  }
 
   uploadFile = async (e) => {
     const files = e.target.files;
@@ -204,5 +194,5 @@ class CreateEvent extends Component {
   }
 }
 
-export { CREATE_EVENT_MUTATION };
+export { CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION };
 export default CreateEvent;

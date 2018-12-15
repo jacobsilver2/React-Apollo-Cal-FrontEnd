@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { adopt } from 'react-adopt';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import SidebarStyles from './styles/CartStyles';
@@ -19,30 +20,38 @@ const TOGGLE_SIDEBAR_MUTATION = gql`
   }
 `;
 
+/* eslint-disable */
+const Composed = adopt({
+  toggleSidebar: ({render}) => <Mutation mutation={TOGGLE_SIDEBAR_MUTATION}>{render}</Mutation>,
+  localState: ({render}) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
+})
+/* eslint-enable */
+
 
 const Sidebar = (props) => (
-  <Mutation mutation={TOGGLE_SIDEBAR_MUTATION}>
-    {(toggleSidebarOpen) => (
-      <Query query={LOCAL_STATE_QUERY}>
-        {({data}) =>
+  <Composed>
+        {({toggleSidebar, localState}) =>
           (
-          <SidebarStyles open={data.sidebarOpen}>
+          <SidebarStyles open={localState.data.sidebarOpen}>
             <header>
-              <CloseButton onClick={toggleSidebarOpen} title="close">&times;</CloseButton>
+              <CloseButton onClick={toggleSidebar} title="close">&times;</CloseButton>
               <Supreme>Sidebar</Supreme>
             </header>
-            <Link href="/newAct">
-              <a>New Act</a>
-            </Link>
-            <Link href="/acts">
-              <a>All Acts</a>
-            </Link>
-            
+            <ul>
+              <li>
+                <Link href="/newAct">
+                  <a>New Act</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/acts">
+                  <a>All Acts</a>
+                </Link>
+              </li>
+            </ul>
           </SidebarStyles>
-        )}
-      </Query>
     )}
-  </Mutation>
+  </Composed>
 );
 
 export { LOCAL_STATE_QUERY, TOGGLE_SIDEBAR_MUTATION };
