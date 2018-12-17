@@ -160,10 +160,9 @@ class UpdateAct extends Component {
 
                   <label htmlFor="file">
                     Image
-                  <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
-                {this.renderPreview(data)}
-                {/* {data.act.image && <img src={data.act.image} alt="Upload Preview" width="200"/>} */}
-              </label>
+                    <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
+                    {this.renderPreview(data)}
+                  </label>
                   <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
                 </fieldset>
               </Form>

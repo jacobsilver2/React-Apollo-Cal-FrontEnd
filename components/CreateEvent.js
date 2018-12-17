@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
+import Link from 'next/link'
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import { format } from 'date-fns';
@@ -69,6 +70,14 @@ class CreateEvent extends Component {
       email: '',
       description: '',
       actId: '',
+  }
+
+  componentDidMount() {
+    if (Router.query.date) {
+      this.setState({
+        date: Router.query.date
+      })
+    }
   }
 
   handleChange = (e) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import Router from 'next/router';
+import Link from 'next/link'
 import gql from 'graphql-tag';
 import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse} from 'date-fns';
 import moment from 'moment';
@@ -27,9 +28,10 @@ class Calendar extends Component {
     selectedDate: new Date(),
   };
 
-  createNewEvent = () => {
+  createNewEvent = (day) => {
     Router.push({
-      pathname: '/newCalEvent'
+      pathname: '/newCalEvent',
+      query: day
     })
   }
 
@@ -79,6 +81,7 @@ class Calendar extends Component {
     const endDate = endOfWeek(monthEnd);
   
     const dateFormat = "d";
+    const dateFormatQueryParam = "YYYY-MM-dd"
     const rows = [];
     let days = [];
     let day = startDate;
@@ -87,27 +90,25 @@ class Calendar extends Component {
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat, { awareOfUnicodeTokens: true });
+        
         const matchedEvent = events.filter(event => {
-          // this is seriously stupid and only works on east coast time.
+          //! this is seriously stupid and only works on east coast time.
           // todo: FIX THIS
           let momentEvent = moment(event.date, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').add(5, 'hours').format();
           let momentDay = moment(day, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').set({h: 0, m: 0}).format();
           return moment(momentEvent).isSame(moment(momentDay))
         });
         days.push(
-          <div
-            className={`col cell ${
-              !isSameMonth(day, monthStart)
-                ? "disabled"
-                : isSameDay(day, selectedDate) ? "selected" : ""
-            }`}
-            key={day.toString()}
-            onClick={this.createNewEvent}
-          >
-            <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
-            {matchedEvent.length > 0 && matchedEvent.map(e => <CalendarEvent event={e} key={e.id}/>)}
-          </div>
+          <Link key={day.toString()} href={{ pathname: '/newCalEvent', query: { date: format(day, dateFormatQueryParam, { awareOfUnicodeTokens: true })} }}>
+            <div
+              className={`col cell ${ !isSameMonth(day, monthStart) ? "disabled" : isSameDay(day, selectedDate) ? "selected" : "" }`}
+              key={day.toString()}
+            >
+              <span className="number">{formattedDate}</span>
+              <span className="bg">{formattedDate}</span>
+              {matchedEvent.length > 0 && matchedEvent.map(e => <CalendarEvent event={e} key={e.id}/>)}
+            </div>
+          </Link>
         );
         day = addDays(day, 1);
     }

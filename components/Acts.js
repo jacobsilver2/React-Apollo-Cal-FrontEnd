@@ -41,7 +41,6 @@ class Acts extends Component {
           {({error, loading, data}) => {
             if (error) return <Error error={error} />
             if (loading) return <p>Loading</p>
-            console.log(data.acts);
             const acts = data.acts;
             return (
               <ActsList>{acts.map(act => <Act act={act} key={act.id} />)}</ActsList>
