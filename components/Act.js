@@ -27,7 +27,18 @@ class Act extends Component {
           </Link>
         </Title>
         <p>{act.description}</p>
-        <p>{act.notes}</p>
+        {act.notes && <div><p>Notes</p> <ul> <li>{act.notes}</li> </ul></div>}
+        <div className="buttonList">
+          <Link
+            href={{
+              pathname: 'updateAct',
+              query: { id: act.id },
+            }}
+          >
+            <a>Edit ✏️</a>
+          </Link>
+          {/* <DeleteAct id={act.id}>Delete This Item</DeleteAct> */}
+        </div>
       </ActStyles>
     );
   }
