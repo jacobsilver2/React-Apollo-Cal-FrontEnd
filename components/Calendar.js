@@ -81,7 +81,7 @@ class Calendar extends Component {
     const endDate = endOfWeek(monthEnd);
   
     const dateFormat = "d";
-    const dateFormatQueryParam = "YYYY-MM-dd"
+    const dateFormatQueryParam = "YYYY-MM-dd";
     const rows = [];
     let days = [];
     let day = startDate;

@@ -45,11 +45,11 @@ class SingleEvent extends Component {
                 <Head>
                   <title>{event.title}</title>
                 </Head>
-                <img src={event.largeImage} alt={event.title}/>
+                <img src={event.act.largeImage} alt={event.act.name}/>
                 <div className="details">
-                  <h2>{event.title}</h2>
+                  <h2>{event.act.name}</h2>
                   <p>{format(event.date, dateFormat, { awareOfUnicodeTokens: true })}</p>
-                  <p>{event.description}</p>
+                  <p>{event.act.description}</p>
                 </div>
                 <div className="buttonlist">
                   <Link href={{ pathname: "updateEvent", query: {id: this.props.id}}}>

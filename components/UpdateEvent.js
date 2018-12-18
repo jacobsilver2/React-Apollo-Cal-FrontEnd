@@ -4,15 +4,22 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import { format, addHours } from 'date-fns'
 
 const SINGLE_EVENT_QUERY = gql`
   query SINGLE_EVENT_QUERY($id: ID!) {
     event(where: {id: $id}) {
       id
-      title
-      description
       date
-      largeImage
+      notes
+      act {
+        id
+        name
+        description
+        email
+        image
+        largeImage
+      }
     }
   }
 `;
@@ -22,26 +29,45 @@ const SINGLE_EVENT_QUERY = gql`
 const UPDATE_EVENT_MUTATION = gql`
   mutation UPDATE_EVENT_MUTATION(
       $id: ID!
-      $title: String
-      $description: String
       $date: DateTime
+      $notes: String
+      $name: String
+      $description: String
+      $email: String
+      $image: String
+      $largeImage: String
+      $actId: String
   ) {
     updateEvent(
       id: $id
-      title: $title
-      description: $description
       date: $date
+      notes: $notes
+      name: $name
+      description: $description
+      email: $email
+      image: $image
+      largeImage: $largeImage
+      actId: $actId
     ) {
       id
-      title
-      description
       date
+      notes
+      act {
+        id
+        name
+        description
+        email
+        image
+        largeImage
+      }
     }
   }
 `;
 
 class UpdateEvent extends Component {
-  state = {}
+  state = {
+    image: '',
+  }
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
@@ -53,15 +79,48 @@ class UpdateEvent extends Component {
 
   updateEvent = async (e, updateEventMutation) => {
     e.preventDefault();
-    console.log('updating event');
-    console.log(this.state);
+    // console.log('updating event');
+    // console.log(this.state);
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
         ...this.state
       },
     });
-    console.log('updated');
+    Router.push({
+      pathname: '/'
+    })
+  }
+
+  uploadFile = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'react-apollo-cal');
+    const res = await fetch('https://api.cloudinary.com/v1_1/dlskxwzm6/image/upload', {
+      method: 'POST',
+      body: data
+    });
+    const file = await res.json();
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url
+    })
+  }
+    // if a new image has been added, it will be put in state and previewed.
+  // otherwise, the image preview will be from the query
+  renderPreview = (data) => {
+    if (this.state.image) {
+      return (
+        <img src={this.state.image} alt="Upload Preview" width="200"/>
+      )
+    } 
+      this.setState({
+        image: data.event.act.image
+      })
+      return (
+        <img src={data.event.act.image} alt="Upload Preview" width="200"/>
+      )  
   }
 
 
@@ -71,6 +130,10 @@ class UpdateEvent extends Component {
         {({data, loading}) => {
           if (loading) return <p>Loading...</p>
           if (!data.event) return <p>No Event Found for ID {this.props.id}</p>
+          // !dumb as hell
+          // todo: fix this
+          let compensatedDate = addHours(data.event.date, 5);
+          let formattedDate = format(compensatedDate, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
               {(updateEvent, { loading, error }) => (
@@ -78,20 +141,35 @@ class UpdateEvent extends Component {
                   <Error error={error} />
               
                   <fieldset disabled={loading} aria-busy={loading}>
-
-                    <label htmlFor="title">
-                      Title
-                      <input type="text" id="title" name="title" placeholder="Title" required defaultValue={data.event.title} onChange={this.handleChange}/>
-                    </label>
-              
                     <label htmlFor="date">
                       Date
-                      <input type="date" id="date" name="date" placeholder="Date" required defaultValue={data.event.date} onChange={this.handleChange}/>
+                      <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={this.handleChange}/>
                     </label>
               
+                    <label htmlFor="notes">
+                      Notes
+                      <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={data.event.notes} onChange={this.handleChange}/>
+                    </label>
+
+                    <label htmlFor="name">
+                      Act Name
+                      <textarea id="name" name="name" placeholder="Act Name" required defaultValue={data.event.act.name} onChange={this.handleChange}/>
+                    </label>
+
                     <label htmlFor="description">
-                      Description
-                      <textarea id="description" name="description" placeholder="Enter A Description" required defaultValue={data.event.description} onChange={this.handleChange}/>
+                      Blurb
+                      <textarea id="description" name="description" placeholder="Blurb" required defaultValue={data.event.act.description} onChange={this.handleChange}/>
+                    </label>
+
+                    <label htmlFor="email">
+                      Email 
+                      <textarea id="email" name="email" placeholder="contact email" required defaultValue={data.event.act.email} onChange={this.handleChange}/>
+                    </label>
+
+                    <label htmlFor="image">
+                      Picture
+                      <input type="file" id="file" name="file"  placeholder="Upload an image" onChange={this.uploadFile}/>
+                      {this.renderPreview(data)}
                     </label>
               
                     <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
