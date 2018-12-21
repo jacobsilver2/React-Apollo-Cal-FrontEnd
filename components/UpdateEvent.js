@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
+import { adopt } from 'react-adopt';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { format, addHours } from 'date-fns'
+import {ALL_ACTS_QUERY} from './Acts';
 
 const SINGLE_EVENT_QUERY = gql`
   query SINGLE_EVENT_QUERY($id: ID!) {
@@ -64,6 +66,15 @@ const UPDATE_EVENT_MUTATION = gql`
   }
 `;
 
+/* eslint-disable */
+const Composed = adopt({
+  singleEventQuery: ({singleEventId, render}) => <Query query={SINGLE_EVENT_QUERY} variables={{id: singleEventId}}>{render}</Query>,
+  // allActsQuery: ({render}) => <Query query={ALL_ACTS_QUERY}>{render}</Query>,
+  // updateEventMutation:({updateVars, render}) => <Mutation mutation={UPDATE_EVENT_MUTATION} variables={updateVars}>{render}</Mutation>,
+})
+/* eslint-enable */
+
+
 class UpdateEvent extends Component {
   state = {
     image: '',
@@ -72,10 +83,22 @@ class UpdateEvent extends Component {
   handleChange = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
-    this.setState({
-      [name]: val
-    })
-  }
+      if (type === 'select-one') {
+        return (
+          this.setState({
+            actId: val,
+            name: '',
+            email: '',
+            description: '',
+            image: '',
+            largeImage: ''
+          })
+        )
+      }
+      this.setState({
+        [name]: val
+      })
+    }
 
   updateEvent = async (e, updateEventMutation) => {
     e.preventDefault();
@@ -84,6 +107,8 @@ class UpdateEvent extends Component {
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
+        newActId: this.state.actId,
+        oldActId: '',
         ...this.state
       },
     });
@@ -93,7 +118,7 @@ class UpdateEvent extends Component {
   }
 
   uploadFile = async (e) => {
-    const files = e.target.files;
+    const files = e.target.files;  
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'react-apollo-cal');
@@ -109,78 +134,91 @@ class UpdateEvent extends Component {
   }
     // if a new image has been added, it will be put in state and previewed.
   // otherwise, the image preview will be from the query
-  renderPreview = (data) => {
+  renderPreview = (img) => {
     if (this.state.image) {
       return (
         <img src={this.state.image} alt="Upload Preview" width="200"/>
       )
     } 
       this.setState({
-        image: data.event.act.image
+        image: img
       })
       return (
-        <img src={data.event.act.image} alt="Upload Preview" width="200"/>
+        <img src={img} alt="Upload Preview" width="200"/>
       )  
   }
 
 
   render() {
     return (
-      <Query query={SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
-        {({data, loading}) => {
-          if (loading) return <p>Loading...</p>
-          if (!data.event) return <p>No Event Found for ID {this.props.id}</p>
+      <Composed singleEventId={this.props.id}>
+        {({singleEventQuery}) => {
+          if (singleEventQuery.loading) return <p>Loading...</p>
+          if (!singleEventQuery.data.event) return <p>No Event Found for ID {this.props.id}</p>
+
           // !dumb as hell
           // todo: fix this
-          let compensatedDate = addHours(data.event.date, 5);
+          let compensatedDate = addHours(singleEventQuery.data.event.date, 5);
           let formattedDate = format(compensatedDate, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
               {(updateEvent, { loading, error }) => (
-                <Form onSubmit={e => this.updateEvent(e, updateEvent)}>
-                  <Error error={error} />
-              
-                  <fieldset disabled={loading} aria-busy={loading}>
-                    <label htmlFor="date">
-                      Date
-                      <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={this.handleChange}/>
-                    </label>
-              
-                    <label htmlFor="notes">
-                      Notes
-                      <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={data.event.notes} onChange={this.handleChange}/>
-                    </label>
+                <Query query={ALL_ACTS_QUERY}>
+                  {({data}) => 
+                  <Form onSubmit={e => this.updateEvent(e, updateEvent)}>
+                    <Error error={error} />
+                
+                    <fieldset disabled={loading} aria-busy={loading}>
+                      <label htmlFor="date">
+                        Date
+                        <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={this.handleChange}/>
+                      </label>
+                
+                      <label htmlFor="notes">
+                        Notes
+                        <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={singleEventQuery.data.event.notes} onChange={this.handleChange}/>
+                      </label>
 
-                    <label htmlFor="name">
-                      Act Name
-                      <textarea id="name" name="name" placeholder="Act Name" required defaultValue={data.event.act.name} onChange={this.handleChange}/>
-                    </label>
+                      <label htmlFor="name">
+                        Act Name
+                        <textarea id="name" name="name" placeholder="Act Name" required defaultValue={singleEventQuery.data.event.act.name} onChange={this.handleChange}/>
+                      </label>
 
-                    <label htmlFor="description">
-                      Blurb
-                      <textarea id="description" name="description" placeholder="Blurb" required defaultValue={data.event.act.description} onChange={this.handleChange}/>
-                    </label>
+                      <label htmlFor="description">
+                        Blurb
+                        <textarea id="description" name="description" placeholder="Blurb" required defaultValue={singleEventQuery.data.event.act.description} onChange={this.handleChange}/>
+                      </label>
 
-                    <label htmlFor="email">
-                      Email 
-                      <textarea id="email" name="email" placeholder="contact email" required defaultValue={data.event.act.email} onChange={this.handleChange}/>
-                    </label>
+                      <label htmlFor="email">
+                        Email 
+                        <textarea id="email" name="email" placeholder="contact email" required defaultValue={singleEventQuery.data.event.act.email} onChange={this.handleChange}/>
+                      </label>
 
-                    <label htmlFor="image">
-                      Picture
-                      <input type="file" id="file" name="file"  placeholder="Upload an image" onChange={this.uploadFile}/>
-                      {this.renderPreview(data)}
-                    </label>
-              
-                    <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
+                      <label htmlFor="image">
+                        Picture
+                        <input type="file" id="file" name="file"  placeholder="Upload an image" onChange={this.uploadFile}/>
+                        {this.renderPreview(singleEventQuery.data.event.act.image)}
+                      </label>
+                      <hr />
+                      <h3>Or Change To A Different Act</h3>
+                      <select defaultValue="" onChange={this.handleChange}>
+                        <option value="" disabled>Acts</option>
+                        {
+                          data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
+                        }
+                      </select>
+                      <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
 
-                  </fieldset>
-                </Form>      
+                    </fieldset>
+                  </Form>      
+                  }
+                </Query>
               )}
             </Mutation>
           )
         }}
-      </Query>
+      </Composed>
     );
   }
 }
