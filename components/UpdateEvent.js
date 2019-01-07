@@ -39,6 +39,7 @@ const UPDATE_EVENT_MUTATION = gql`
       $image: String
       $largeImage: String
       $actId: String
+      $newActId: String
   ) {
     updateEvent(
       id: $id
@@ -50,6 +51,7 @@ const UPDATE_EVENT_MUTATION = gql`
       image: $image
       largeImage: $largeImage
       actId: $actId
+      newActId: $newActId
     ) {
       id
       date
@@ -86,7 +88,7 @@ class UpdateEvent extends Component {
       if (type === 'select-one') {
         return (
           this.setState({
-            actId: val,
+            newActId: val,
             name: '',
             email: '',
             description: '',
@@ -104,6 +106,8 @@ class UpdateEvent extends Component {
     e.preventDefault();
     // console.log('updating event');
     // console.log(this.state);
+    console.log(this.props.id)
+    console.log(this.state)
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
