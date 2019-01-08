@@ -13,6 +13,7 @@ import { ALL_ACTS_QUERY } from './Acts';
 const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(
       $date: DateTime!
+      $time: DateTime!
       $notes: String
       $name: String
       $email: String
@@ -23,6 +24,7 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
   ) {
     createEventWithNewAct( 
         date: $date
+        time: $time
         notes: $notes
         name: $name
         email: $email
@@ -43,11 +45,13 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
 const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(
     $date: DateTime!
+    $time: DateTime!
     $notes: String
     $actId: String
   ){
     createEventWithExistingAct(
       date: $date
+      time: $time
       notes: $notes
       actId: $actId
     ){
@@ -63,6 +67,7 @@ const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
 class CreateEvent extends Component {
   state = {
       date: '',
+      time: '20:00',
       notes: '',
       name: '',
       image: '',
@@ -149,6 +154,11 @@ class CreateEvent extends Component {
                       <label htmlFor="date">
                         Date
                         <input type="date" id="date" name="date" placeholder="Date" value={this.state.date} onChange={this.handleChange}/>
+                      </label>
+
+                      <label htmlFor="time">
+                        Time
+                        <input type="time" id="time" name="time" placeholder={this.state.time} value={this.state.time} onChange={this.handleChange}/>
                       </label>
                 
                       <label htmlFor="notes">

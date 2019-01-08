@@ -102,17 +102,13 @@ class UpdateEvent extends Component {
       })
     }
 
-  updateEvent = async (e, updateEventMutation) => {
+  updateEvent = async (e, updateEventMutation, actId) => {
     e.preventDefault();
-    // console.log('updating event');
-    // console.log(this.state);
-    console.log(this.props.id)
-    console.log(this.state)
+
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
-        newActId: this.state.actId,
-        oldActId: '',
+        actId,
         ...this.state
       },
     });
@@ -170,7 +166,7 @@ class UpdateEvent extends Component {
               {(updateEvent, { loading, error }) => (
                 <Query query={ALL_ACTS_QUERY}>
                   {({data}) => 
-                  <Form onSubmit={e => this.updateEvent(e, updateEvent)}>
+                  <Form onSubmit={e => this.updateEvent(e, updateEvent, singleEventQuery.data.event.act.id)}>
                     <Error error={error} />
                 
                     <fieldset disabled={loading} aria-busy={loading}>
