@@ -13,6 +13,7 @@ const ALL_EVENTS_QUERY = gql`
     events {
       id
       date
+      time
       notes
       act {
         id

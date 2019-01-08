@@ -49,6 +49,7 @@ class SingleEvent extends Component {
                 <div className="details">
                   <h2>{event.act.name}</h2>
                   <p>{format(event.date, dateFormat, { awareOfUnicodeTokens: true })}</p>
+                  <p>{format(event.time, "h:mm a")}</p>
                   <p>{event.act.description}</p>
                 </div>
                 <div className="buttonlist">

@@ -13,6 +13,7 @@ const SINGLE_EVENT_QUERY = gql`
     event(where: {id: $id}) {
       id
       date
+      time
       notes
       act {
         id
@@ -32,6 +33,7 @@ const UPDATE_EVENT_MUTATION = gql`
   mutation UPDATE_EVENT_MUTATION(
       $id: ID!
       $date: DateTime
+      $time: DateTime
       $notes: String
       $name: String
       $description: String
@@ -44,6 +46,7 @@ const UPDATE_EVENT_MUTATION = gql`
     updateEvent(
       id: $id
       date: $date
+      time: $time
       notes: $notes
       name: $name
       description: $description
@@ -55,6 +58,7 @@ const UPDATE_EVENT_MUTATION = gql`
     ) {
       id
       date
+      time
       notes
       act {
         id
@@ -102,9 +106,13 @@ class UpdateEvent extends Component {
       })
     }
 
-  updateEvent = async (e, updateEventMutation, actId) => {
+  updateEvent = async (e, updateEventMutation, actId, date) => {
     e.preventDefault();
-
+    if (this.state.time){
+      this.setState({
+        time: new Date(`${date} ${this.state.time}`)
+      })
+    }
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
@@ -160,19 +168,24 @@ class UpdateEvent extends Component {
           // todo: fix this
           let compensatedDate = addHours(singleEventQuery.data.event.date, 5);
           let formattedDate = format(compensatedDate, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-
+          let formattedTime = format(singleEventQuery.data.event.time, "HH:mm");
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
               {(updateEvent, { loading, error }) => (
                 <Query query={ALL_ACTS_QUERY}>
                   {({data}) => 
-                  <Form onSubmit={e => this.updateEvent(e, updateEvent, singleEventQuery.data.event.act.id)}>
+                  <Form onSubmit={e => this.updateEvent(e, updateEvent, singleEventQuery.data.event.act.id, formattedDate)}>
                     <Error error={error} />
                 
                     <fieldset disabled={loading} aria-busy={loading}>
                       <label htmlFor="date">
                         Date
                         <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={this.handleChange}/>
+                      </label>
+
+                      <label htmlFor="time">
+                        Time
+                        <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={this.handleChange}/>
                       </label>
                 
                       <label htmlFor="notes">

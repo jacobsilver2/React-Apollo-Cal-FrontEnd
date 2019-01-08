@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { format } from 'date-fns';
+import { format, getMinutes } from 'date-fns';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -18,13 +18,15 @@ class CalendarEvent extends Component {
 
   render() {
     const {event} = this.props;
+    const minutes = getMinutes(event.time);
+    const formattedTime = minutes > 0 ? format(event.time, "h:mma") : format(event.time, "ha");
     return (
       <StyledEvent>
         <Link href={{
           pathname: '/event',
           query: { id: event.id },
         }}>
-          <a>•{event.act.name}</a>
+          <a>•{formattedTime} {event.act.name}</a>
         </Link>
       </StyledEvent>     
     );

@@ -80,9 +80,10 @@ class CreateEvent extends Component {
   componentDidMount() {
     if (Router.query.date) {
       this.setState({
-        date: Router.query.date
+        date: Router.query.date,
       })
-    }
+    };
+
   }
 
   handleChange = (e) => {
@@ -131,7 +132,17 @@ class CreateEvent extends Component {
           return (
           <Mutation 
             mutation={CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
-            variables={this.state} 
+            variables={{
+              date: this.state.date,
+              time: new Date(`${Router.query.date} ${this.state.time}`),
+              notes: this.state.notes,
+              name: this.state.name,
+              image: this.state.image,
+              largeImage: this.state.largeImage,
+              email: this.state.email,
+              description: this.state.description,
+
+              }} 
             refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
           >
             {(createEventWithNewAct, { loading, error }) => (
