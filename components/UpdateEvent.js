@@ -109,13 +109,16 @@ class UpdateEvent extends Component {
   updateEvent = async (e, updateEventMutation, actId, date) => {
     e.preventDefault();
     if (this.state.time){
-      this.setState({
-        time: new Date(`${date} ${this.state.time}`)
-      })
+      let newState = {...this.state};
+      let dateString = date + " " + newState.time;
+      let time = new Date(dateString).toISOString();
+      this.setState({ time });
     }
+    debugger;
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
+        date: this.state.date ? this.state.date : date,
         actId,
         ...this.state
       },

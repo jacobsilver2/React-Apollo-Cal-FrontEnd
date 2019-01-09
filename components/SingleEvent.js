@@ -38,12 +38,11 @@ class SingleEvent extends Component {
             if (loading) return <p>Loading</p>
             if (!data.event) return <p>No Item Found for ID {this.props.id}</p>
             const event = data.event
-            console.log(event)
             return (
               
               <SingleEventStyles>
                 <Head>
-                  <title>{event.title}</title>
+                  {event.title}
                 </Head>
                 <img src={event.act.largeImage} alt={event.act.name}/>
                 <div className="details">
