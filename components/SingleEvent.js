@@ -31,6 +31,7 @@ const SingleEventStyles = styled.div`
 class SingleEvent extends Component {
   render() {
     const dateFormat = "MMMM d, YYYY"
+    const timeFormat = "h:mm a"
     return (
         <Query query={SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
           {({error, loading, data}) => {
@@ -47,8 +48,8 @@ class SingleEvent extends Component {
                 <img src={event.act.largeImage} alt={event.act.name}/>
                 <div className="details">
                   <h2>{event.act.name}</h2>
-                  <p>{format(event.date, dateFormat, { awareOfUnicodeTokens: true })}</p>
-                  <p>{format(event.time, "h:mm a")}</p>
+                  <p>{format(event.start, dateFormat, { awareOfUnicodeTokens: true })}</p>
+                  <p>{format(event.start, timeFormat)}</p>
                   <p>{event.act.description}</p>
                 </div>
                 <div className="buttonlist">

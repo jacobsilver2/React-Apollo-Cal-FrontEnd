@@ -18,8 +18,8 @@ class CalendarEvent extends Component {
 
   render() {
     const {event} = this.props;
-    const minutes = getMinutes(event.time);
-    const formattedTime = minutes > 0 ? format(event.time, "h:mma") : format(event.time, "ha");
+    const minutes = getMinutes(event.start);
+    const formattedTime = minutes > 0 ? format(event.start, "h:mma") : format(event.start, "ha");
     return (
       <StyledEvent>
         <Link href={{

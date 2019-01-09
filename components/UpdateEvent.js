@@ -12,8 +12,7 @@ const SINGLE_EVENT_QUERY = gql`
   query SINGLE_EVENT_QUERY($id: ID!) {
     event(where: {id: $id}) {
       id
-      date
-      time
+      start
       notes
       act {
         id
@@ -32,8 +31,7 @@ const SINGLE_EVENT_QUERY = gql`
 const UPDATE_EVENT_MUTATION = gql`
   mutation UPDATE_EVENT_MUTATION(
       $id: ID!
-      $date: DateTime
-      $time: DateTime
+      $start: DateTime
       $notes: String
       $name: String
       $description: String
@@ -45,8 +43,7 @@ const UPDATE_EVENT_MUTATION = gql`
   ) {
     updateEvent(
       id: $id
-      date: $date
-      time: $time
+      start: $date
       notes: $notes
       name: $name
       description: $description
@@ -57,8 +54,7 @@ const UPDATE_EVENT_MUTATION = gql`
       newActId: $newActId
     ) {
       id
-      date
-      time
+      start
       notes
       act {
         id
@@ -88,7 +84,7 @@ class UpdateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    const val = type === 'number' ? parseFloat(value) : value;
+    let val = type === 'number' ? parseFloat(value) : value;
       if (type === 'select-one') {
         return (
           this.setState({
@@ -106,15 +102,16 @@ class UpdateEvent extends Component {
       })
     }
 
+
   updateEvent = async (e, updateEventMutation, actId, date) => {
     e.preventDefault();
-    if (this.state.time){
-      let newState = {...this.state};
-      let dateString = date + " " + newState.time;
-      let time = new Date(dateString).toISOString();
-      this.setState({ time });
-    }
-    debugger;
+    // if (this.state.time){
+    //   let newState = {...this.state};
+    //   let dateString = date + " " + newState.time;
+    //   let time = new Date(dateString).toISOString();
+    //   this.setState({ time });
+    // }
+    
     const res = await updateEventMutation({
       variables: {
         id: this.props.id,
@@ -188,7 +185,7 @@ class UpdateEvent extends Component {
 
                       <label htmlFor="time">
                         Time
-                        <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={this.handleChange}/>
+                        <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={(e, formattedDate) => this.handleTimeChange(e, formattedDate)}/>
                       </label>
                 
                       <label htmlFor="notes">

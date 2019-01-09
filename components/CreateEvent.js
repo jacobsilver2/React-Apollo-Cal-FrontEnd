@@ -12,8 +12,7 @@ import { ALL_ACTS_QUERY } from './Acts';
 
 const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(
-      $date: DateTime!
-      $time: DateTime!
+      $start: DateTime!
       $notes: String
       $name: String
       $email: String
@@ -23,8 +22,7 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
       $actId: String
   ) {
     createEventWithNewAct( 
-        date: $date
-        time: $time
+        start: $start
         notes: $notes
         name: $name
         email: $email
@@ -44,14 +42,12 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
 
 const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(
-    $date: DateTime!
-    $time: DateTime!
+    $start: DateTime!
     $notes: String
     $actId: String
   ){
     createEventWithExistingAct(
-      date: $date
-      time: $time
+      start: $date
       notes: $notes
       actId: $actId
     ){
@@ -66,8 +62,7 @@ const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
 
 class CreateEvent extends Component {
   state = {
-      date: '',
-      time: '20:00',
+      start: '',
       notes: '',
       name: '',
       image: '',
@@ -80,7 +75,7 @@ class CreateEvent extends Component {
   componentDidMount() {
     if (Router.query.date) {
       this.setState({
-        date: Router.query.date,
+        start: decodeURIComponent(Router.query.date),
       })
     };
 
@@ -88,7 +83,26 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    const val = type === 'number' ? parseFloat(value) : value;
+    let val = type === 'number' ? parseFloat(value) : value;
+    // todo: refactor this into a switch statement
+    if (type === 'date') {
+      const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
+      const start = new Date(`${value} ${time}`);
+      return (
+        this.setState({
+          start
+        })
+      )
+    }
+
+    if (type === 'time') {
+      const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+      const start = new Date(`${date} ${value}`);
+      return (
+        this.setState({start})
+      )
+    }
+
       if (type === 'select-one') {
         return (
           this.setState({
@@ -125,6 +139,8 @@ class CreateEvent extends Component {
   }
 
   render() {
+    const dateFormat="YYYY-MM-dd"
+    const timeFormat="H:MM"
     return (
       <Query query={ALL_ACTS_QUERY}>
         {({data, loading}) => {
@@ -133,8 +149,7 @@ class CreateEvent extends Component {
           <Mutation 
             mutation={CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
             variables={{
-              date: this.state.date,
-              time: new Date(`${Router.query.date} ${this.state.time}`),
+              start: this.state.start,
               notes: this.state.notes,
               name: this.state.name,
               image: this.state.image,
@@ -148,7 +163,7 @@ class CreateEvent extends Component {
             {(createEventWithNewAct, { loading, error }) => (
               <Mutation 
                 mutation={CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
-                variables={{date: this.state.date, notes: this.state.notes, actId: this.state.actId}} 
+                variables={{start: this.state.start, notes: this.state.notes, actId: this.state.actId}} 
                 refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
               >
                 {(createEventWithExistingAct, { loading, error}) => (
@@ -164,12 +179,12 @@ class CreateEvent extends Component {
                     <fieldset disabled={loading} aria-busy={loading}>
                       <label htmlFor="date">
                         Date
-                        <input type="date" id="date" name="date" placeholder="Date" value={this.state.date} onChange={this.handleChange}/>
+                        <input type="date" id="date" name="date" placeholder="Date" value={format(this.state.start, dateFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
                       </label>
 
                       <label htmlFor="time">
                         Time
-                        <input type="time" id="time" name="time" placeholder={this.state.time} value={this.state.time} onChange={this.handleChange}/>
+                        <input type="time" id="time" name="time" placeholder={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} value={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
                       </label>
                 
                       <label htmlFor="notes">
