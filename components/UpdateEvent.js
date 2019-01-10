@@ -113,7 +113,7 @@ class UpdateEvent extends Component {
         this.setState({ newActId: val, name: '', email: '', description: '', image: '', largeImage: '' })
         break;
       default:
-        this.setState({ [name]: val });
+        this.setState({ [name]: value });
     }
     }
 

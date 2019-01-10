@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
+import {addMinutes, addHours} from 'date-fns';
 import Link from 'next/link'
 import gql from 'graphql-tag';
 import Router from 'next/router';
@@ -12,7 +13,10 @@ import { ALL_ACTS_QUERY } from './Acts';
 
 const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(
+      $title: String!
       $start: DateTime!
+      $end: DateTime!
+      $allDay: Boolean!
       $notes: String
       $name: String
       $email: String
@@ -22,7 +26,10 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
       $actId: String
   ) {
     createEventWithNewAct( 
+        title: $title
         start: $start
+        end: $end
+        allDay: $allDay
         notes: $notes
         name: $name
         email: $email
@@ -62,7 +69,11 @@ const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
 
 class CreateEvent extends Component {
   state = {
-      start: '',
+      duration: 45,
+      title: format(new Date(), "MM-dd-YYYY", {awareOfUnicodeTokens: true}),
+      start: new Date(),
+      end: addMinutes(new Date(), 45),
+      allDay: false,
       notes: '',
       name: '',
       image: '',
@@ -73,9 +84,13 @@ class CreateEvent extends Component {
   }
 
   componentDidMount() {
-    if (Router.query.date) {
+    if (Router.query.start) {
+      const decodedStart = decodeURIComponent(Router.query.start);
+      const decodedEnd = decodeURIComponent(Router.query.end);
       this.setState({
-        start: new Date(decodeURIComponent(Router.query.date)),
+        title: format(new Date(decodedStart), "YYYY-MM-dd", {awareOfUnicodeTokens: true}),
+        start: new Date(decodedStart),
+        end: new Date(decodedEnd),
       })
     };
 
@@ -83,42 +98,34 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    let val = type === 'number' ? parseFloat(value) : value;
-    // todo: refactor this into a switch statement
-    if (type === 'date') {
-      const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
-      const start = new Date(`${value} ${time}`);
-      return (
-        this.setState({
-          start
-        })
-      )
+    switch (type) {
+      case 'date':
+        const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
+        let startDateTime = new Date(`${value} ${time}`);
+        const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        let end = addMinutes(startDateTime, this.state.duration);
+        this.setState({ start: startDateTime, title, end });
+        break;
+      case 'time':
+        const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        startDateTime = new Date(`${date} ${value}`);
+        end = addMinutes(startDateTime, this.state.duration);
+        this.setState({ start: startDateTime, end });
+        break;
+      case 'number':
+        const val = parseFloat(value);
+        this.setState({duration: val, end: addMinutes(this.state.start, val)})
+        break;
+      case 'checkbox':
+        this.setState({ allDay: !this.state.allDay })
+        break;
+      case ('select-one'):
+        this.setState({ newActId: val, name: '', email: '', description: '', image: '', largeImage: '' })
+        break;
+      default: 
+        this.setState({ [name]: value });
     }
-
-    if (type === 'time') {
-      const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
-      const start = new Date(`${date} ${value}`);
-      return (
-        this.setState({start})
-      )
-    }
-
-      if (type === 'select-one') {
-        return (
-          this.setState({
-            actId: val,
-            name: '',
-            email: '',
-            description: '',
-            image: '',
-            largeImage: ''
-          })
-        )
-      }
-      this.setState({
-        [name]: val
-      })
-    }
+  }
     
 
   
@@ -140,7 +147,7 @@ class CreateEvent extends Component {
 
   render() {
     const dateFormat="yyyy-MM-dd"
-    const timeFormat="H:MM"
+    const timeFormat="H:mm"
     return (
       <Query query={ALL_ACTS_QUERY}>
         {({data, loading}) => {
@@ -149,7 +156,10 @@ class CreateEvent extends Component {
           <Mutation 
             mutation={CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
             variables={{
+              title: this.state.title,
               start: this.state.start,
+              end: this.state.end,
+              allDay: this.state.allDay,
               notes: this.state.notes,
               name: this.state.name,
               image: this.state.image,
@@ -184,7 +194,17 @@ class CreateEvent extends Component {
 
                       <label htmlFor="time">
                         Time
-                        <input type="time" id="time" name="time" placeholder={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} value={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
+                        <input type="time" id="time" name="time" placeholder={format(addHours(new Date(this.state.start), 20), timeFormat)} value={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
+                      </label>
+
+                      <label htmlFor="duration">
+                        Duration (minutes)
+                        <input type="number" id="duration" name="duration" placeholder="45" value={this.state.duration} onChange={this.handleChange} />
+                      </label>
+
+                      <label>
+                        All Day
+                        <input type="checkbox" id="allday" name="allday" checked={this.state.allDay} onChange={this.handleChange} />
                       </label>
                 
                       <label htmlFor="notes">
