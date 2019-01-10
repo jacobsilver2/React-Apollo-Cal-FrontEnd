@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import Router from 'next/router';
 import Link from 'next/link'
 import gql from 'graphql-tag';
-import {format, setHours ,addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse} from 'date-fns';
+import {format,setHours, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse} from 'date-fns';
 import moment from 'moment';
 import {StyledCal} from './styles/CalendarStyles';
 import CalendarEvent from './CalendarEvent';
@@ -99,6 +99,7 @@ class Calendar extends Component {
         const matchedEvent = events.filter(event => {
           //! this is seriously stupid and only works on east coast time.
           // todo: FIX THIS
+          // todo: refactor to not use moment.js
           // let momentEvent = moment(event.start, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').add(5, 'hours').format();
           let momentEvent = moment(event.start, 'YYYY-MM-DD').format();
           let momentDay = moment(day, 'YYYY-MM-DD').format();
@@ -121,7 +122,7 @@ class Calendar extends Component {
     }
   
     rows.push(
-        <div className="row" key={day}>
+        <div className="row" key={day.toDateString()}>
           {days}
         </div>
       );

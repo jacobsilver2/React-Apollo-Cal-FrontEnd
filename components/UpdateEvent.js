@@ -78,6 +78,7 @@ const Composed = adopt({
 
 
 class UpdateEvent extends Component {
+  // todo: it would be great to not have the image preloaded into state
   state = {
     image: '',
   }
@@ -166,9 +167,13 @@ class UpdateEvent extends Component {
 
           // !dumb as hell
           // todo: fix this
-          let compensatedDate = addHours(singleEventQuery.data.event.date, 5);
-          let formattedDate = format(compensatedDate, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-          let formattedTime = format(singleEventQuery.data.event.time, "HH:mm");
+          {/* let compensatedDate = addHours(singleEventQuery.data.event.start, 5); */}
+          {/* let formattedDate = format(compensatedDate, "YYYY-MM-dd", { awareOfUnicodeTokens: true }); */}
+          {/* let formattedTime = format(singleEventQuery.data.event.start, "HH:mm");  */}
+          const {event} = singleEventQuery.data; 
+          const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+          const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
+          
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
               {(updateEvent, { loading, error }) => (

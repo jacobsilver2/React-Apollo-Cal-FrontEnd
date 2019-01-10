@@ -47,7 +47,7 @@ const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
     $actId: String
   ){
     createEventWithExistingAct(
-      start: $date
+      start: $start
       notes: $notes
       actId: $actId
     ){
