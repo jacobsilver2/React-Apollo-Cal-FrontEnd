@@ -75,7 +75,7 @@ class CreateEvent extends Component {
   componentDidMount() {
     if (Router.query.date) {
       this.setState({
-        start: decodeURIComponent(Router.query.date),
+        start: new Date(decodeURIComponent(Router.query.date)),
       })
     };
 
@@ -139,7 +139,7 @@ class CreateEvent extends Component {
   }
 
   render() {
-    const dateFormat="YYYY-MM-dd"
+    const dateFormat="yyyy-MM-dd"
     const timeFormat="H:MM"
     return (
       <Query query={ALL_ACTS_QUERY}>

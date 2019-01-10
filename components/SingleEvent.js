@@ -53,7 +53,7 @@ class SingleEvent extends Component {
                   <p>{event.act.description}</p>
                 </div>
                 <div className="buttonlist">
-                  <Link href={{ pathname: "updateEvent", query: {id: this.props.id}}}>
+                  <Link href={{ pathname: "updateEvent", query: {id: this.props.id, start: encodeURIComponent(event.start)}}}>
                     <a>Edit ✏️</a>
                   </Link>
                   <DeleteEvent id={event.id}>Delete Event</DeleteEvent>

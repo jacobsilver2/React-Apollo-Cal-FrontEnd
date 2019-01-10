@@ -3,8 +3,7 @@ import { Query } from 'react-apollo';
 import Router from 'next/router';
 import Link from 'next/link'
 import gql from 'graphql-tag';
-import {format,setHours, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse} from 'date-fns';
-import moment from 'moment';
+import {format,setHours, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse, isEqual} from 'date-fns';
 import {StyledCal} from './styles/CalendarStyles';
 import CalendarEvent from './CalendarEvent';
 
@@ -81,7 +80,7 @@ class Calendar extends Component {
     const endDate = endOfWeek(monthEnd);
   
     const dateFormat = "d";
-    const dateFormatQueryParam = "YYYY-MM-dd H:MM";
+    const dateFormatQueryParam = "yyyy-MM-dd H:MM";
     const rows = [];
     let days = [];
     let day = startDate;
@@ -99,11 +98,10 @@ class Calendar extends Component {
         const matchedEvent = events.filter(event => {
           //! this is seriously stupid and only works on east coast time.
           // todo: FIX THIS
-          // todo: refactor to not use moment.js
           // let momentEvent = moment(event.start, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').add(5, 'hours').format();
-          let momentEvent = moment(event.start, 'YYYY-MM-DD').format();
-          let momentDay = moment(day, 'YYYY-MM-DD').format();
-          return moment(momentEvent).isSame(moment(momentDay))
+          // let momentEvent = moment(event.start, 'yyyy-MM-dd').format();
+          // let momentDay = moment(day, 'yyyy-MM-dd').format();
+          return isEqual(format(event.start, "yyyy-MM-dd"), format(day, "yyyy-MM-dd"))
         });
 
         days.push(
