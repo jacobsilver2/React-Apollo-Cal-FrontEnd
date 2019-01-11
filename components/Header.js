@@ -7,6 +7,7 @@ import NProgress from 'nprogress';
 import Sidebar from './Sidebar';
 import Search from './Search';
 import { CURRENT_USER_QUERY } from './User';
+import User from './User';
 
 
 
@@ -25,7 +26,7 @@ const Logo = styled.h1`
   margin-left: 2rem;
   position: relative;
   z-index: 2;
-  transform: skew(-7deg);
+  /* transform: skew(-7deg); */
   a {
     padding: 0.5rem 1rem;
     background: ${props => props.theme.mainColor};
@@ -60,23 +61,31 @@ const StyledHeader = styled.header`
 
 
 const Header = () => (
-  <Query query={CURRENT_USER_QUERY}>
-  {({data}) => 
-    <StyledHeader>
-      <div className="bar">
-        <Logo>
-          <Link href="/">
-            <a>{data.me.name}</a>
-          </Link>
-        </Logo>
-        <Nav />
-      </div>
-      <div className="sub-bar">
-        <Search />
-      </div>
-      <Sidebar />
-    </StyledHeader>
-  }</Query>
+  <User>
+    { ({data: { me } }) => (
+      <StyledHeader>
+        <div className="bar">
+          <Logo>
+            {me && (
+            <Link href="/">
+              <a>{me.name}</a>
+            </Link>
+            )}
+            {!me && (
+            <Link href="/">
+              <a>React-Cal</a>
+            </Link>
+            )}
+          </Logo>
+          <Nav />
+        </div>
+        <div className="sub-bar">
+          <Search />
+        </div>
+        <Sidebar />
+      </StyledHeader>
+    )}
+  </User>
 );
 
 export default Header;

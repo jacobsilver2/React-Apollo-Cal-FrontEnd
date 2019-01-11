@@ -36,6 +36,7 @@ var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apol
 
 
 
+
 next_router__WEBPACK_IMPORTED_MODULE_5___default.a.onRouteChangeStart = function () {
   nprogress__WEBPACK_IMPORTED_MODULE_6___default.a.start();
 };
@@ -51,7 +52,7 @@ next_router__WEBPACK_IMPORTED_MODULE_5___default.a.onRouteChangeError = function
 var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h1.withConfig({
   displayName: "Header__Logo",
   componentId: "yiwodm-0"
-})(["font-size:4rem;margin-left:2rem;position:relative;z-index:2;transform:skew(-7deg);a{padding:0.5rem 1rem;background:", ";color:white;text-transform:uppercase;text-decoration:none;}@media (max-width:1300px){margin:0;text-align:center;}"], function (props) {
+})(["font-size:4rem;margin-left:2rem;position:relative;z-index:2;a{padding:0.5rem 1rem;background:", ";color:white;text-transform:uppercase;text-decoration:none;}@media (max-width:1300px){margin:0;text-align:center;}"], function (props) {
   return props.theme.mainColor;
 });
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].header.withConfig({
@@ -64,70 +65,82 @@ var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].hea
 });
 
 var Header = function Header() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Query"], {
-    query: _User__WEBPACK_IMPORTED_MODULE_9__["CURRENT_USER_QUERY"],
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_9__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 64
     },
     __self: this
   }, function (_ref) {
-    var data = _ref.data;
+    var me = _ref.data.me;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 66
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bar",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 67
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 68
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 70
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 71
       },
       __self: this
-    }, data.me.name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, me.name)), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 75
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76
+      },
+      __self: this
+    }, "React-Cal"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sub-bar",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 82
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Search__WEBPACK_IMPORTED_MODULE_8__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 83
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 85
       },
       __self: this
     }));
@@ -1108,7 +1121,7 @@ __webpack_require__.r(__webpack_exports__);
 var NavStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].ul.withConfig({
   displayName: "NavStyles",
   componentId: "wea9k1-0"
-})(["margin:0;padding:0;display:flex;justify-self:end;font-size:2rem;a,button{padding:1rem 3rem;display:flex;align-items:center;position:relative;text-transform:uppercase;font-weight:900;font-size:1em;background:none;border:0;cursor:pointer;color:", ";@media (max-width:700px){font-size:10px;padding:0 10px;}&:before{content:'';width:2px;background:", ";height:100%;left:0;position:absolute;transform:skew(-20deg);top:0;bottom:0;}&:after{height:2px;background:red;content:'';width:0;position:absolute;transform:translateX(-50%);transition:width 0.4s;transition-timing-function:cubic-bezier(1,-0.65,0,2.31);left:50%;margin-top:2rem;}&:hover,&:focus{outline:none;&:after{width:calc(100% - 60px);}}}@media (max-width:1300px){border-top:1px solid ", ";width:100%;justify-content:center;font-size:1.5rem;}"], function (props) {
+})(["margin:0;padding:0;display:flex;justify-self:end;font-size:2rem;a,button{padding:1rem 3rem;display:flex;align-items:center;position:relative;text-transform:uppercase;font-weight:900;font-size:.8em;background:none;border:0;cursor:pointer;color:", ";@media (max-width:700px){font-size:10px;padding:0 10px;}&:before{content:'';width:2px;background:", ";height:100%;left:0;position:absolute;top:0;bottom:0;}&:after{height:2px;background:red;content:'';width:0;position:absolute;transform:translateX(-50%);transition:width 0.4s;transition-timing-function:cubic-bezier(1,-0.65,0,2.31);left:50%;margin-top:2rem;}&:hover,&:focus{outline:none;&:after{width:calc(100% - 60px);}}}@media (max-width:1300px){border-top:1px solid ", ";width:100%;justify-content:center;font-size:1.5rem;}"], function (props) {
   return props.theme.black;
 }, function (props) {
   return props.theme.lightgrey;
