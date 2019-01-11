@@ -20,11 +20,15 @@ const SingleEventStyles = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
   }
   .details {
     margin: 3rem;
-    font-size: 0.5rem;
+    font-size: 1.5rem;
+    align-self: center;
+  }
+  .buttonlist {
+    align-self: center;
   }
 `;
 
@@ -49,13 +53,16 @@ class SingleEvent extends Component {
                 <div className="details">
                   <h2>{event.act.name}</h2>
                   <p>{format(event.start, dateFormat, { awareOfUnicodeTokens: true })}</p>
-                  <p>{format(event.start, timeFormat)}</p>
+                  <p>{!event.allDay ? format(event.start, timeFormat) : "This Event is All-Day"}
+                  </p>
                   <p>{event.act.description}</p>
                 </div>
                 <div className="buttonlist">
-                  <Link href={{ pathname: "updateEvent", query: {id: this.props.id, start: encodeURIComponent(event.start)}}}>
-                    <a>Edit ✏️</a>
-                  </Link>
+                  <p>
+                    <Link href={{ pathname: "updateEvent", query: {id: this.props.id, start: encodeURIComponent(event.start)}}}>
+                      <a>Edit ✏️</a>
+                    </Link>
+                  </p>
                   <DeleteEvent id={event.id}>Delete Event</DeleteEvent>
                 </div>
               </SingleEventStyles>

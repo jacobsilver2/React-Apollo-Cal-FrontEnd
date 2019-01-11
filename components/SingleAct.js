@@ -24,15 +24,17 @@ const SingleActStyles = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
   }
   .details {
-    margin: 3rem;
-    font-size: 2rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    align-self: center;
   }
   .shows {
     margin: 1rem;
     font-size: 1rem;
+    align-self: center;
   }
 `;
 
@@ -48,6 +50,7 @@ const SINGLE_ACT_QUERY = gql`
       event{
         id
         start
+        allDay
       }
     }
   }
@@ -76,9 +79,13 @@ class SingleAct extends Component {
               </Head>
               <img src={act.image} alt={act.name} />
               <div className="details">
+
                 <h2>{act.name}</h2>
+                <h3>Description</h3>
                 <p>{act.description}</p>
-                <p>{act.email}</p>
+                <h3>Contact</h3>
+                <p><a href={`mailto:${act.email}`}>{act.email}</a></p>
+                <h3>Notes</h3>
                 <p>{act.notes}</p>
               </div>
               <div className="shows">
@@ -86,7 +93,7 @@ class SingleAct extends Component {
                 <ul>
                   {futureShows.length > 0 && futureShows.map(e => 
                   <Link key={e.id} href={{pathname: '/event', query: {id: e.id}}}>
-                    <li><a>{format(e.start, "MM-d-YYYY - h:mma", {awareOfUnicodeTokens: true})}</a></li>
+                    <li><a>{format(e.start, "EEEE, MMMM do, uu - h:mma")}</a></li>
                   </Link>
                   )}
                 </ul>
@@ -94,7 +101,7 @@ class SingleAct extends Component {
                 <ul>
                   {pastShows.length > 0 && pastShows.map(e => 
                   <Link key={e.id} href={{pathname: '/event', query: {id: e.id}}}>
-                    <li><a>{format(e.start, "MM-d-YYYY - h:mma", {awareOfUnicodeTokens: true})}</a></li>
+                    <li><a>{format(e.start, "EEEE, MMMM do, uu - h:mma")}</a></li>
                   </Link>
                   )}
                 </ul>
