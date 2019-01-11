@@ -5,14 +5,17 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
-import { format, addHours } from 'date-fns'
+import { format, addHours, addMinutes, differenceInMinutes } from 'date-fns'
 import {ALL_ACTS_QUERY} from './Acts';
 
 const SINGLE_EVENT_QUERY = gql`
   query SINGLE_EVENT_QUERY($id: ID!) {
     event(where: {id: $id}) {
       id
+      title
       start
+      end
+      allDay
       notes
       act {
         id
@@ -31,7 +34,10 @@ const SINGLE_EVENT_QUERY = gql`
 const UPDATE_EVENT_MUTATION = gql`
   mutation UPDATE_EVENT_MUTATION(
       $id: ID!
+      $title: String
       $start: DateTime
+      $end: DateTime
+      $allDay: Boolean
       $notes: String
       $name: String
       $description: String
@@ -43,7 +49,10 @@ const UPDATE_EVENT_MUTATION = gql`
   ) {
     updateEvent(
       id: $id
+      title: $title
       start: $start
+      end: $end
+      allDay: $allDay
       notes: $notes
       name: $name
       description: $description
@@ -97,20 +106,26 @@ class UpdateEvent extends Component {
     switch (type) {
       case 'date':
         const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
-        const startDateTime = new Date(`${value} ${time}`);
-        this.setState({ start: startDateTime });
+        let startDateTime = new Date(`${value} ${time}`);
+        const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        let end = addMinutes(startDateTime, this.state.duration);
+        this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
         const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
-        const start = new Date(`${date} ${value}`);
-        this.setState({start})
+        startDateTime = new Date(`${date} ${value}`);
+        end = addMinutes(startDateTime, this.state.duration);
+        this.setState({ start: startDateTime, end });
         break;
       case 'number':
         const val = parseFloat(value);
-        this.setState({ [name]: val });
+        this.setState({duration: val, end: addMinutes(this.state.start, val)})
+        break;
+      case 'checkbox':
+        this.setState({ allDay: !this.state.allDay })
         break;
       case ('select-one'):
-        this.setState({ newActId: val, name: '', email: '', description: '', image: '', largeImage: '' })
+        this.setState({ newActId: value, name: '', email: '', description: '', image: '', largeImage: '' })
         break;
       default:
         this.setState({ [name]: value });
@@ -178,13 +193,13 @@ class UpdateEvent extends Component {
           const {event} = singleEventQuery.data; 
           const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
           const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
-          
+          console.log(event)
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
               {(updateEvent, { loading, error }) => (
                 <Query query={ALL_ACTS_QUERY}>
                   {({data}) => 
-                  <Form onSubmit={e => this.updateEvent(e, updateEvent, singleEventQuery.data.event.act.id)}>
+                  <Form onSubmit={e => this.updateEvent(e, updateEvent, event.act.id)}>
                     <Error error={error} />
                 
                     <fieldset disabled={loading} aria-busy={loading}>
@@ -197,31 +212,41 @@ class UpdateEvent extends Component {
                         Time
                         <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={this.handleChange}/>
                       </label>
+
+                      <label htmlFor="duration">
+                        Duration (minutes)
+                        <input type="number" id="duration" name="duration" defaultValue={differenceInMinutes(event.end, event.start)} onChange={this.handleChange} />
+                      </label>
+
+                      <label htmlFor="allDay">
+                        All Day
+                        <input type="checkbox" id="allday" name="allday" checked={event.allDay} onChange={this.handleChange} />
+                      </label>
                 
                       <label htmlFor="notes">
                         Notes
-                        <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={singleEventQuery.data.event.notes} onChange={this.handleChange}/>
+                        <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={event.notes} onChange={this.handleChange}/>
                       </label>
 
                       <label htmlFor="name">
                         Act Name
-                        <textarea id="name" name="name" placeholder="Act Name" required defaultValue={singleEventQuery.data.event.act.name} onChange={this.handleChange}/>
+                        <textarea id="name" name="name" placeholder="Act Name" required defaultValue={event.act.name} onChange={this.handleChange}/>
                       </label>
 
                       <label htmlFor="description">
                         Blurb
-                        <textarea id="description" name="description" placeholder="Blurb" required defaultValue={singleEventQuery.data.event.act.description} onChange={this.handleChange}/>
+                        <textarea id="description" name="description" placeholder="Blurb" required defaultValue={event.act.description} onChange={this.handleChange}/>
                       </label>
 
                       <label htmlFor="email">
                         Email 
-                        <textarea id="email" name="email" placeholder="contact email" required defaultValue={singleEventQuery.data.event.act.email} onChange={this.handleChange}/>
+                        <textarea id="email" name="email" placeholder="contact email" required defaultValue={event.act.email} onChange={this.handleChange}/>
                       </label>
 
                       <label htmlFor="image">
                         Picture
                         <input type="file" id="file" name="file"  placeholder="Upload an image" onChange={this.uploadFile}/>
-                        {this.renderPreview(singleEventQuery.data.event.act.image)}
+                        {this.renderPreview(event.act.image)}
                       </label>
                       <hr />
                       <h3>Or Change To A Different Act</h3>

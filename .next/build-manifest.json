@@ -11,11 +11,23 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/newCalEvent": [
+    "/bigCalendar": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/bigCalendar": [
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/updateEvent": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/event": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

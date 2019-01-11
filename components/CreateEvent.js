@@ -49,12 +49,18 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
 
 const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(
+    $title: String
     $start: DateTime!
+    $end: DateTime!
+    $allDay: Boolean!
     $notes: String
     $actId: String
   ){
     createEventWithExistingAct(
+      title: $title
       start: $start
+      end: $end
+      allDay: $allDay
       notes: $notes
       actId: $actId
     ){
@@ -98,6 +104,7 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
+    
     switch (type) {
       case 'date':
         const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
@@ -120,7 +127,7 @@ class CreateEvent extends Component {
         this.setState({ allDay: !this.state.allDay })
         break;
       case ('select-one'):
-        this.setState({ newActId: val, name: '', email: '', description: '', image: '', largeImage: '' })
+        this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' })
         break;
       default: 
         this.setState({ [name]: value });
@@ -173,7 +180,7 @@ class CreateEvent extends Component {
             {(createEventWithNewAct, { loading, error }) => (
               <Mutation 
                 mutation={CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
-                variables={{start: this.state.start, notes: this.state.notes, actId: this.state.actId}} 
+                variables={{title: this.state.title, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId}} 
                 refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
               >
                 {(createEventWithExistingAct, { loading, error}) => (
