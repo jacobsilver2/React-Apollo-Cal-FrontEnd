@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import {Query} from 'react-apollo';
 import Nav from './Nav';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Sidebar from './Sidebar';
 import Search from './Search';
+import { CURRENT_USER_QUERY } from './User';
+
+
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -56,21 +60,23 @@ const StyledHeader = styled.header`
 
 
 const Header = () => (
-  <StyledHeader>
-    <div className="bar">
-      <Logo>
-        <Link href="/">
-          <a>Calendar</a>
-        </Link>
-      </Logo>
-      <Nav />
-    </div>
-    <div className="sub-bar">
-      <Search />
-    </div>
-    <Sidebar />
-  </StyledHeader>
-
+  <Query query={CURRENT_USER_QUERY}>
+  {({data}) => 
+    <StyledHeader>
+      <div className="bar">
+        <Logo>
+          <Link href="/">
+            <a>{data.me.name}</a>
+          </Link>
+        </Logo>
+        <Nav />
+      </div>
+      <div className="sub-bar">
+        <Search />
+      </div>
+      <Sidebar />
+    </StyledHeader>
+  }</Query>
 );
 
 export default Header;

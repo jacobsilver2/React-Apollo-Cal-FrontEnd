@@ -5,23 +5,23 @@ import Meta from './Meta';
 
 const theme = {
   mainColor: '#1a8fff',
-  textColor: '#111',
+  textColor: '#373a42',
   textColorLight: '#ccc',
   borderColor: '#eee',
-  bgColor: '#f9f9f9',
+  bgColor: '#eeecf0',
   neutralColor: '#fff',
-  maxWidth: '1000px',
+  maxWidth: '90vw',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   offWhite: '#EDEDED',
   red: '#FF0000',
-  black: '#393939',
+  black: '#373a42',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
 };
 
 const StyledPage = styled.div`
   background: white;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.theme.black};
 `;
 
 const Inner = styled.div`
@@ -31,49 +31,31 @@ const Inner = styled.div`
 `;
 
 injectGlobal`
-
   @font-face {
-    font-family: 'radnika-next';
+    font-family: 'radnika_next';
     src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
-
-  
-
-  @font-face {
-    font-family: 'material-icons';
-    src: url('https://fonts.googleapis.com/icon?family=Material+Icons') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  html{
+  html {
     box-sizing: border-box;
+    font-size: .8rem;
   }
-
   *, *:before, *:after {
     box-sizing: inherit;
-  } 
-
+  }
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     line-height: 2;
-    font-family: 'radnika-next';
-    font-weight: 300;
-    line-height: 1.5;
-    color: ${theme.textColor};
-    background: ${theme.bgColor};
-    position: relative;
+    font-family: 'radnika_next';
   }
   a {
     text-decoration: none;
-    color: ${theme.textColor};
+    color: ${theme.black};
   }
-
-
+  button {  font-family: 'radnika_next'; }
 `;
 
 
