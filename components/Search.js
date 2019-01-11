@@ -6,34 +6,37 @@ import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 
-const SEARCH_EVENTS_QUERY = gql`
-  query SEARCH_EVENTS_QUERY($searchTerm: String!) {
-    events(where: {
+const SEARCH_ACTS_QUERY = gql`
+  query SEARCH_ACTS_QUERY($searchTerm: String!) {
+    acts(where: {
       OR: [
-        {title_contains: $searchTerm},
+        {name_contains: $searchTerm},
         {description_contains: $searchTerm},
       ] }) 
       {
         id 
+        name
         image
-        title
+        event{
+          id
+          start
+        }
       }
   }
 `;
 
-function routeToEvent(event) {
-  console.log(event);
+function routeToAct(act) {
   Router.push({
-    pathname: '/event',
+    pathname: '/act',
     query: {
-      id: event.id
+      id: act.id
     }
   })
 }
 
 class Autocomplete extends Component {
   state = {
-    events: [],
+    acts: [],
     loading: false,
   }
   
@@ -41,17 +44,17 @@ class Autocomplete extends Component {
     // turn loading on
     this.setState({ loading: true });
     const res = await client.query({
-      query: SEARCH_EVENTS_QUERY,
+      query: SEARCH_ACTS_QUERY,
       variables: {searchTerm: e.target.value}
     });
-    this.setState({ events: res.data.events, loading: false });
+    this.setState({ acts: res.data.acts, loading: false });
   }, 350);
 
   render() {
     resetIdCounter();
     return (
       <SearchStyles>
-      <Downshift onChange={routeToEvent} itemToString={item => (item === null ? '' : item.title)} >
+      <Downshift onChange={routeToAct} itemToString={item => (item === null ? '' : item.name)} >
         {({getInputProps, getItemProps, isOpen, inputValue, highlightedIndex}) => (
           <div>
             <ApolloConsumer>
@@ -59,7 +62,7 @@ class Autocomplete extends Component {
                 <input 
                   {...getInputProps({
                     type: "search",
-                    placeholder: 'search for an event',
+                    placeholder: 'search for an Act',
                     id: 'search',
                     className: this.state.loading ? 'loading' : '',
                     onChange: e => {
@@ -72,16 +75,16 @@ class Autocomplete extends Component {
             </ApolloConsumer>
             { isOpen && (
               <DropDown>
-                {this.state.events.map((item, index) => 
+                {this.state.acts.map((item, index) => 
                   <DropDownItem 
                     {...getItemProps({ item }) } 
                     key={item.id}
                     highlighted={index === highlightedIndex} 
                   >
-                  <img width="50" src={item.image} alt={item.title}/>
-                  {item.title}
+                  <img width="50" src={item.image} alt={item.name}/>
+                  {item.name}
                 </DropDownItem>)}
-                {!this.state.events.length && !this.state.loading && (
+                {!this.state.acts.length && !this.state.loading && (
                   <DropDownItem>Nothing Found for {inputValue}</DropDownItem>
                 )}
               </DropDown>

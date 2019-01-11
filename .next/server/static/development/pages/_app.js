@@ -588,7 +588,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SEARCH_EVENTS_QUERY($searchTerm: String!) {\n    events(where: {\n      OR: [\n        {title_contains: $searchTerm},\n        {description_contains: $searchTerm},\n      ] }) \n      {\n        id \n        image\n        title\n      }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_ACTS_QUERY($searchTerm: String!) {\n    acts(where: {\n      OR: [\n        {name_contains: $searchTerm},\n        {description_contains: $searchTerm},\n      ] }) \n      {\n        id \n        name\n        image\n        event{\n          id\n          start\n        }\n      }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -606,14 +606,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var SEARCH_EVENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
+var SEARCH_ACTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
 
-function routeToEvent(event) {
-  console.log(event);
+function routeToAct(act) {
   next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
-    pathname: '/event',
+    pathname: '/act',
     query: {
-      id: event.id
+      id: act.id
     }
   });
 }
@@ -637,7 +636,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Autocomplete)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      events: [],
+      acts: [],
       loading: false
     });
 
@@ -659,7 +658,7 @@ function (_Component) {
 
                 _context.next = 3;
                 return client.query({
-                  query: SEARCH_EVENTS_QUERY,
+                  query: SEARCH_ACTS_QUERY,
                   variables: {
                     searchTerm: e.target.value
                   }
@@ -669,7 +668,7 @@ function (_Component) {
                 res = _context.sent;
 
                 _this.setState({
-                  events: res.data.events,
+                  acts: res.data.acts,
                   loading: false
                 });
 
@@ -698,17 +697,17 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 56
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(downshift__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        onChange: routeToEvent,
+        onChange: routeToAct,
         itemToString: function itemToString(item) {
-          return item === null ? '' : item.title;
+          return item === null ? '' : item.name;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 57
         },
         __self: this
       }, function (_ref2) {
@@ -720,19 +719,19 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 59
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 60
           },
           __self: this
         }, function (client) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", _extends({}, getInputProps({
             type: "search",
-            placeholder: 'search for an event',
+            placeholder: 'search for an Act',
             id: 'search',
             className: _this2.state.loading ? 'loading' : '',
             onChange: function onChange(e) {
@@ -743,17 +742,17 @@ function (_Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 62
             },
             __self: this
           }));
         }), isOpen && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 77
           },
           __self: this
-        }, _this2.state.events.map(function (item, index) {
+        }, _this2.state.acts.map(function (item, index) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], _extends({}, getItemProps({
             item: item
           }), {
@@ -761,23 +760,23 @@ function (_Component) {
             highlighted: index === highlightedIndex,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 76
+              lineNumber: 79
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
             width: "50",
             src: item.image,
-            alt: item.title,
+            alt: item.name,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 84
             },
             __self: this
-          }), item.title);
-        }), !_this2.state.events.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
+          }), item.name);
+        }), !_this2.state.acts.length && !_this2.state.loading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 88
           },
           __self: this
         }, "Nothing Found for ", inputValue)));
