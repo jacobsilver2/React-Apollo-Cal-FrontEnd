@@ -7,12 +7,16 @@ import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { format, addHours, addMinutes, differenceInMinutes } from 'date-fns'
 import {ALL_ACTS_QUERY} from './Acts';
+import {ALL_EVENTS_QUERY} from './BigCalendar';
+import {possibleStatus} from './CreateEvent';
+
 
 const SINGLE_EVENT_QUERY = gql`
   query SINGLE_EVENT_QUERY($id: ID!) {
     event(where: {id: $id}) {
       id
       title
+      status
       start
       end
       allDay
@@ -35,6 +39,7 @@ const UPDATE_EVENT_MUTATION = gql`
   mutation UPDATE_EVENT_MUTATION(
       $id: ID!
       $title: String
+      $status: EventStatus
       $start: DateTime
       $end: DateTime
       $allDay: Boolean
@@ -50,6 +55,7 @@ const UPDATE_EVENT_MUTATION = gql`
     updateEvent(
       id: $id
       title: $title
+      status: $status
       start: $start
       end: $end
       allDay: $allDay
@@ -103,6 +109,14 @@ class UpdateEvent extends Component {
   handleChange = (e) => {
     const { name, type, value } = e.target;
     // let val = type === 'number' ? parseFloat(value) : value;
+
+    switch (name) {
+      case 'status':
+        return this.setState({status: value});
+      case 'select-existing-act':
+        return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
+    };
+
     switch (type) {
       case 'date':
         const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
@@ -124,13 +138,10 @@ class UpdateEvent extends Component {
       case 'checkbox':
         this.setState({ allDay: !this.state.allDay })
         break;
-      case ('select-one'):
-        this.setState({ newActId: value, name: '', email: '', description: '', image: '', largeImage: '' })
-        break;
       default:
         this.setState({ [name]: value });
     }
-    }
+  }
 
 
   updateEvent = async (e, updateEventMutation, actId) => {
@@ -193,9 +204,9 @@ class UpdateEvent extends Component {
           const {event} = singleEventQuery.data; 
           const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
           const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
-          console.log(event)
+          // console.log(event)
           return (
-            <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state}>
+            <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: ALL_EVENTS_QUERY }]}>
               {(updateEvent, { loading, error }) => (
                 <Query query={ALL_ACTS_QUERY}>
                   {({data}) => 
@@ -216,6 +227,13 @@ class UpdateEvent extends Component {
                       <label htmlFor="duration">
                         Duration (minutes)
                         <input type="number" id="duration" name="duration" defaultValue={differenceInMinutes(event.end, event.start)} onChange={this.handleChange} />
+                      </label>
+
+                      <label htmlFor="status">
+                        Status
+                        <select name="status" defaultValue={event.status} onChange={this.handleChange}>
+                        { possibleStatus.map(status => <option key={status} value={status}>{status}</option>) }
+                        </select>
                       </label>
 
                       <label htmlFor="allDay">

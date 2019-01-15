@@ -19,6 +19,7 @@ const ALL_EVENTS_QUERY = gql`
     events {
       id
       title
+      status
       start
       end
       allDay
@@ -31,6 +32,8 @@ const ALL_EVENTS_QUERY = gql`
     }
   }
 `;
+
+
 
 class BigCalendar extends Component {
 
@@ -108,4 +111,5 @@ class BigCalendar extends Component {
   }
 }
 
+export { ALL_EVENTS_QUERY };
 export default BigCalendar;

@@ -7,13 +7,20 @@ import Router from 'next/router';
 import { format } from 'date-fns';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
-import { ALL_EVENTS_QUERY } from './Calendar'; 
+import { ALL_EVENTS_QUERY } from './BigCalendar'; 
 import { ALL_ACTS_QUERY } from './Acts';
+
+const possibleStatus = [
+  'CONFIRMED',
+  'HELD',
+  'CANCELLED',
+];
 
 
 const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(
       $title: String!
+      $status: EventStatus!
       $start: DateTime!
       $end: DateTime!
       $allDay: Boolean!
@@ -27,6 +34,7 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
   ) {
     createEventWithNewAct( 
         title: $title
+        status: $status
         start: $start
         end: $end
         allDay: $allDay
@@ -50,6 +58,7 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
 const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
   mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(
     $title: String
+    $status: EventStatus!
     $start: DateTime!
     $end: DateTime!
     $allDay: Boolean!
@@ -58,6 +67,7 @@ const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
   ){
     createEventWithExistingAct(
       title: $title
+      status: $status
       start: $start
       end: $end
       allDay: $allDay
@@ -77,6 +87,7 @@ class CreateEvent extends Component {
   state = {
       duration: 45,
       title: format(new Date(), "MM-dd-YYYY", {awareOfUnicodeTokens: true}),
+      status: 'CONFIRMED',
       start: new Date(),
       end: addMinutes(new Date(), 45),
       allDay: false,
@@ -104,7 +115,17 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    
+    console.log(name)
+    // console.log(type)
+    // console.log(value)
+
+    switch (name) {
+      case 'status':
+        return this.setState({status: value});
+      case 'select-existing-act':
+        return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
+    }
+
     switch (type) {
       case 'date':
         const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
@@ -125,9 +146,6 @@ class CreateEvent extends Component {
         break;
       case 'checkbox':
         this.setState({ allDay: !this.state.allDay })
-        break;
-      case ('select-one'):
-        this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' })
         break;
       default: 
         this.setState({ [name]: value });
@@ -164,6 +182,7 @@ class CreateEvent extends Component {
             mutation={CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
             variables={{
               title: this.state.title,
+              status: this.state.status,
               start: this.state.start,
               end: this.state.end,
               allDay: this.state.allDay,
@@ -179,7 +198,7 @@ class CreateEvent extends Component {
             {(createEventWithNewAct, { loading, error }) => (
               <Mutation 
                 mutation={CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
-                variables={{title: this.state.title, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId}} 
+                variables={{title: this.state.title,  status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId,}} 
                 refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
               >
                 {(createEventWithExistingAct, { loading, error}) => (
@@ -208,6 +227,13 @@ class CreateEvent extends Component {
                         <input type="number" id="duration" name="duration" placeholder="45" value={this.state.duration} onChange={this.handleChange} />
                       </label>
 
+                      <label htmlFor="status">
+                        Status
+                        <select name="status" defaultValue={this.state.status} onChange={this.handleChange}>
+                        { possibleStatus.map(status => <option key={status} value={status}>{status}</option>) }
+                        </select>
+                      </label>
+
                       <label>
                         All Day
                         <input type="checkbox" id="allday" name="allday" checked={this.state.allDay} onChange={this.handleChange} />
@@ -220,7 +246,7 @@ class CreateEvent extends Component {
                 
                       <label htmlFor="acts">
                         Select An Act Already In The Database
-                        <select defaultValue="" onChange={this.handleChange}>
+                        <select name="select-existing-act" defaultValue="" onChange={this.handleChange}>
                           <option value="" disabled>Acts</option>
                           {
                             data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
@@ -265,5 +291,5 @@ class CreateEvent extends Component {
   }
 }
 
-export { CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION };
+export { CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, possibleStatus};
 export default CreateEvent;
