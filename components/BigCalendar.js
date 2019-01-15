@@ -24,6 +24,7 @@ const ALL_EVENTS_QUERY = gql`
       end
       allDay
       notes
+      draw
       act {
         id
         name

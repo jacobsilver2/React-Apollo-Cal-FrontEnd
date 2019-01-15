@@ -6,6 +6,8 @@ import { Query } from 'react-apollo';
 import Error from './ErrorMessage';
 import styled from 'styled-components';
 import Head from 'next/head';
+import {ReactVisStyled} from './styles/React-Vis';
+import {XYPlot, LineSeries} from 'react-vis';
 
 const SingleActStyles = styled.div`
   max-width: 1200px;
@@ -36,6 +38,11 @@ const SingleActStyles = styled.div`
     font-size: 1rem;
     align-self: center;
   }
+  .react-vis {
+    margin: 1rem;
+    font-size: 1rem;
+    align-self: center;
+  }
 `;
 
 const SINGLE_ACT_QUERY = gql`
@@ -51,6 +58,7 @@ const SINGLE_ACT_QUERY = gql`
         id
         start
         allDay
+        draw
       }
     }
   }
@@ -71,7 +79,8 @@ class SingleAct extends Component {
           const act = data.act;
           const pastShows = act.event.filter(e => isBefore(e.start, new Date()));
           const futureShows = act.event.filter(e => isAfter(e.start, new Date()));
-
+          const drawObject = act.event.map(e => new Object({x: parseFloat(format(e.start, "d")), y: e.draw}));
+          console.log(drawObject)
           return (
             <SingleActStyles>
               <Head>
@@ -105,6 +114,13 @@ class SingleAct extends Component {
                   </Link>
                   )}
                 </ul>
+              </div>
+              <div className="react-vis">
+                <ReactVisStyled>
+                  <XYPlot height={300} width={300}>
+                    <LineSeries data={drawObject} />
+                  </XYPlot>
+                </ReactVisStyled>
               </div>
             </SingleActStyles>
           );

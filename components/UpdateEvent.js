@@ -21,6 +21,7 @@ const SINGLE_EVENT_QUERY = gql`
       end
       allDay
       notes
+      draw
       act {
         id
         name
@@ -44,6 +45,7 @@ const UPDATE_EVENT_MUTATION = gql`
       $end: DateTime
       $allDay: Boolean
       $notes: String
+      $draw: Int
       $name: String
       $description: String
       $email: String
@@ -60,6 +62,7 @@ const UPDATE_EVENT_MUTATION = gql`
       end: $end
       allDay: $allDay
       notes: $notes
+      draw: $draw
       name: $name
       description: $description
       email: $email
@@ -71,6 +74,7 @@ const UPDATE_EVENT_MUTATION = gql`
       id
       start
       notes
+      draw
       act {
         id
         name
@@ -115,7 +119,14 @@ class UpdateEvent extends Component {
         return this.setState({status: value});
       case 'select-existing-act':
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
+      case 'duration':
+        let val = parseFloat(value);
+        return this.setState({duration: val, end: addMinutes(this.state.start, val)});
+      case 'draw':
+        val = parseFloat(value);
+        return this.setState({ [name]: value })
     };
+
 
     switch (type) {
       case 'date':
@@ -130,10 +141,6 @@ class UpdateEvent extends Component {
         startDateTime = new Date(`${date} ${value}`);
         end = addMinutes(startDateTime, this.state.duration);
         this.setState({ start: startDateTime, end });
-        break;
-      case 'number':
-        const val = parseFloat(value);
-        this.setState({duration: val, end: addMinutes(this.state.start, val)})
         break;
       case 'checkbox':
         this.setState({ allDay: !this.state.allDay })
@@ -206,7 +213,7 @@ class UpdateEvent extends Component {
           const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
           // console.log(event)
           return (
-            <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: ALL_EVENTS_QUERY }]}>
+            <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: ALL_EVENTS_QUERY, query: ALL_ACTS_QUERY }]}>
               {(updateEvent, { loading, error }) => (
                 <Query query={ALL_ACTS_QUERY}>
                   {({data}) => 
@@ -244,6 +251,11 @@ class UpdateEvent extends Component {
                       <label htmlFor="notes">
                         Notes
                         <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={event.notes} onChange={this.handleChange}/>
+                      </label>
+
+                      <label htmlFor="draw">
+                        Draw
+                        <input type="number" id="draw" name="draw" placeholder={event.draw || 0} onChange={this.handleChange} />
                       </label>
 
                       <label htmlFor="name">

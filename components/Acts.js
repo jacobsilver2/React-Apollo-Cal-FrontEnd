@@ -16,6 +16,11 @@ const ALL_ACTS_QUERY = gql`
       largeImage
       email
       notes
+      event{
+        id
+        title
+        draw
+      }
     }
   }
 `;
