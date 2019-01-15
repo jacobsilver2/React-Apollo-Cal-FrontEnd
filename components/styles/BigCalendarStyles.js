@@ -118,7 +118,7 @@ button.rbc-input::-moz-focus-inner {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 25px;
 }
 .rbc-toolbar .rbc-toolbar-label {
   -webkit-flex-grow: 1;
@@ -206,10 +206,11 @@ button.rbc-input::-moz-focus-inner {
   border: none;
   box-shadow: none;
   margin: 0;
-  padding: 2px 5px;
-  background-color: #3174ad;
+  padding: 0px 5px;
+  background-color: ${props => props.theme.mainColor};
   border-radius: 5px;
   color: #fff;
+  font-size: .5em;
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -323,6 +324,7 @@ button.rbc-input::-moz-focus-inner {
   min-width: 0;
   padding-right: 5px;
   text-align: right;
+  font-size: .5em;
 }
 .rbc-date-cell.rbc-now {
   font-weight: bold;

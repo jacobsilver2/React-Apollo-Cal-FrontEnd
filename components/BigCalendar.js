@@ -26,6 +26,7 @@ const ALL_EVENTS_QUERY = gql`
       act {
         id
         name
+        description
       }
     }
   }
@@ -52,6 +53,24 @@ class BigCalendar extends Component {
     })
   }
 
+  onSelectSlot = e => {
+    switch (e.action) {
+      case 'click':
+        console.log('slot was clicked');
+        break;
+      case 'doubleClick':
+        Router.push({pathname: '/newCalEvent', query: {start: encodeURIComponent(e.start), end: encodeURIComponent(e.end) }});
+        break;
+      case 'select':
+        console.log('slot was selected');
+        break;
+    }
+
+  }
+
+  onToolTipAccess = e => (
+    format(e.start, "h:mmaaaaa") + " " + e.act.name + " | " + e.notes
+  )
 
   render() {
     return (
@@ -59,6 +78,7 @@ class BigCalendar extends Component {
         {({data, error, loading}) => {
           if (loading) return <p>Loading...</p>
           if (error) return <p>Error: {error.message}</p>
+
           return (
           <StyledBigCal>
             <DnDCalendar
@@ -67,14 +87,16 @@ class BigCalendar extends Component {
               events={data.events}
               onEventDrop={this.onEventDrop}
               resizable
-              titleAccessor={e => (format(e.start, "h:mmaaaaa") + " " + e.act.name)}
-              onSelectEvent={(e) => this.onSelectEvent(e)}
+              popup={true}
+              popupOffset={{x: 30, y: 20}}
+              titleAccessor={e => format(e.start, "h:mmaaaaa") + " " + e.act.name}
+              // onSelectEvent={(e) => this.onSelectEvent(e)}
               onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
-              onSelectSlot={e => Router.push({pathname: '/newCalEvent', query: {start: encodeURIComponent(e.start), end: encodeURIComponent(e.end) }})}
-              tooltipAccessor={e => e.act.name}
+              onSelectSlot={e => this.onSelectSlot(e)}
+              tooltipAccessor={e => this.onToolTipAccess(e)}
               defaultView="month"
               defaultDate={new Date()}
-              views={['month', 'week', 'day']}
+              views={['month']}
               onEventResize={this.onEventResize}
               style={{ height: "100vh" }}
             />

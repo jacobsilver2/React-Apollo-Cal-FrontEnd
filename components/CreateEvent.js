@@ -173,7 +173,6 @@ class CreateEvent extends Component {
               largeImage: this.state.largeImage,
               email: this.state.email,
               description: this.state.description,
-
               }} 
             refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
           >
