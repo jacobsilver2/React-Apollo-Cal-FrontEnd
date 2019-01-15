@@ -7,7 +7,7 @@ import Error from './ErrorMessage';
 import styled from 'styled-components';
 import Head from 'next/head';
 import {ReactVisStyled} from './styles/React-Vis';
-import {XYPlot, LineSeries} from 'react-vis';
+import {XYPlot, LineSeries, VerticalBarSeries} from 'react-vis';
 
 const SingleActStyles = styled.div`
   max-width: 1200px;
@@ -17,6 +17,7 @@ const SingleActStyles = styled.div`
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
   min-height: 800px;
+  text-align: center;
   a {
     cursor: pointer;
   }
@@ -27,6 +28,9 @@ const SingleActStyles = styled.div`
     width: 100%;
     height: 100%;
     object-fit: scale-down;
+  }
+  p {
+    font-weight: 2;
   }
   .details {
     margin: 1rem;
@@ -116,9 +120,10 @@ class SingleAct extends Component {
                 </ul>
               </div>
               <div className="react-vis">
+                <h3>Draw Graph</h3>
                 <ReactVisStyled>
-                  <XYPlot height={300} width={300}>
-                    <LineSeries data={drawObject} />
+                  <XYPlot height={300} width={300} domain={[0, 50]}>
+                    <VerticalBarSeries data={drawObject} />
                   </XYPlot>
                 </ReactVisStyled>
               </div>
