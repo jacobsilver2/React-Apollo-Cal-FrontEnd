@@ -271,6 +271,7 @@ button.rbc-input::-moz-focus-inner {
   white-space: nowrap;
 }
 .rbc-month-view {
+  left: 5%;
   position: relative;
   border: 1px solid #DDD;
   display: -webkit-flex;
