@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/act": [
+    "/newCalEvent": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/acts": [
+    "/act": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

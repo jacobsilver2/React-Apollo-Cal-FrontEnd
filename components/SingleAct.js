@@ -7,7 +7,7 @@ import Error from './ErrorMessage';
 import styled from 'styled-components';
 import Head from 'next/head';
 import {ReactVisStyled} from './styles/React-Vis';
-import {XYPlot, LineSeries, VerticalBarSeries} from 'react-vis';
+import {XYPlot, LineSeries, VerticalBarSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, Hint, Crosshair} from 'react-vis';
 
 const SingleActStyles = styled.div`
   max-width: 1200px;
@@ -83,7 +83,7 @@ class SingleAct extends Component {
           const act = data.act;
           const pastShows = act.event.filter(e => isBefore(e.start, new Date()));
           const futureShows = act.event.filter(e => isAfter(e.start, new Date()));
-          const drawObject = act.event.map(e => new Object({x: parseFloat(format(e.start, "d")), y: e.draw}));
+          const drawObject = act.event.map(e => new Object({x: format(e.start, "M/d/yy"), y: e.draw}));
           console.log(drawObject)
           return (
             <SingleActStyles>
@@ -102,7 +102,7 @@ class SingleAct extends Component {
                 <p>{act.notes}</p>
               </div>
               <div className="shows">
-                <h3>Upcoming Shows</h3>
+                {futureShows.length > 0 && <h3>Upcoming Shows</h3>}
                 <ul>
                   {futureShows.length > 0 && futureShows.map(e => 
                   <Link key={e.id} href={{pathname: '/event', query: {id: e.id}}}>
@@ -110,7 +110,7 @@ class SingleAct extends Component {
                   </Link>
                   )}
                 </ul>
-                <h3>Past Shows</h3>
+                {pastShows.length > 0 && <h3>Past Shows</h3>}
                 <ul>
                   {pastShows.length > 0 && pastShows.map(e => 
                   <Link key={e.id} href={{pathname: '/event', query: {id: e.id}}}>
@@ -122,8 +122,11 @@ class SingleAct extends Component {
               <div className="react-vis">
                 <h3>Draw Graph</h3>
                 <ReactVisStyled>
-                  <XYPlot height={300} width={300} domain={[0, 50]}>
+                  <XYPlot height={300} width={500} domain={[0, 50]} color="#1a8fff" xType="ordinal">
                     <VerticalBarSeries data={drawObject} />
+                    <XAxis title="date"/>
+                    <YAxis title="draw"/>
+                    <HorizontalGridLines />
                   </XYPlot>
                 </ReactVisStyled>
               </div>
