@@ -27,7 +27,6 @@ class Act extends Component {
           </Link>
         </Title>
         <p>{act.description}</p>
-        {act.notes && <div><p>Notes</p> <ul> <li>{act.notes}</li> </ul></div>}
         <div className="buttonList">
           <Link
             href={{

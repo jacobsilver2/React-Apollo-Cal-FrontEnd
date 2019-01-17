@@ -10,7 +10,6 @@ import { CURRENT_USER_QUERY } from './User';
 import User from './User';
 
 
-
 Router.onRouteChangeStart = () => {
   NProgress.start();
 } 
@@ -22,8 +21,8 @@ Router.onRouteChangeError = () => {
 }
 
 const Logo = styled.h1`
-  font-size: 4rem;
-  margin-left: 2rem;
+  font-size: 2.5rem;
+  margin-left: 4rem;
   position: relative;
   z-index: 2;
   /* transform: skew(-7deg); */
@@ -42,10 +41,10 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
       .bar {
-        border-bottom: 10px solid ${props => props.theme.black};
+        border-bottom: 5px solid ${props => props.theme.black};
         display: grid;
-        grid-template-columns: auto 1fr;
-        justify-content: space-between;
+        grid-template-columns: repeat(auto-fit, 1fr);
+        justify-content: center;
         align-items: stretch;
         @media (max-width: 1300px){
             grid-template-columns: 1fr;
@@ -77,7 +76,6 @@ const Header = () => (
             </Link>
             )}
           </Logo>
-          <Nav />
         </div>
         <div className="sub-bar">
           <Search />

@@ -47,8 +47,10 @@ const SidebarStyles = styled.div`
   }
   a {
     color: white;
+    font-size: .9rem;
   }
   h3 {
+    font-size: .91rem;
     color: white;
   }
 `;
