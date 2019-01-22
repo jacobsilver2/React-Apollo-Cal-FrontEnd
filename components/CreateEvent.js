@@ -24,7 +24,7 @@ const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
       $start: DateTime!
       $end: DateTime!
       $allDay: Boolean!
-      $notes: String
+      $notes: [String!]
       $name: String
       $email: String
       $description: String
@@ -62,7 +62,7 @@ const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
     $start: DateTime!
     $end: DateTime!
     $allDay: Boolean!
-    $notes: String
+    $notes: [String!]
     $actId: String
   ){
     createEventWithExistingAct(
@@ -91,7 +91,7 @@ class CreateEvent extends Component {
       start: new Date(),
       end: addMinutes(new Date(), 45),
       allDay: false,
-      notes: '',
+      notes: [''],
       name: '',
       image: '',
       largeImage: '',
@@ -115,7 +115,6 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    console.log(name)
     // console.log(type)
     // console.log(value)
 
@@ -124,6 +123,11 @@ class CreateEvent extends Component {
         return this.setState({status: value});
       case 'select-existing-act':
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
+      case 'notes':
+        const notes = [...this.state.notes];
+        const selectedIndex = parseInt(e.target.dataset.key);
+        notes[selectedIndex] = value;
+        return this.setState({ notes });
     }
 
     switch (type) {
@@ -170,9 +174,19 @@ class CreateEvent extends Component {
     })
   }
 
+  addNoteField = (e) => {
+    e.preventDefault();
+    const notes = [...this.state.notes];
+    notes.push('');
+    this.setState({notes});
+  }
+
   render() {
     const dateFormat="yyyy-MM-dd"
     const timeFormat="H:mm"
+    const notes = this.state.notes.map((note, index) => {
+      return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
+    })
     return (
       <Query query={ALL_ACTS_QUERY}>
         {({data, loading}) => {
@@ -241,7 +255,8 @@ class CreateEvent extends Component {
                 
                       <label htmlFor="notes">
                         Notes
-                        <textarea id="notes" name="notes" placeholder="Enter Some Notes" value={this.state.notes} onChange={this.handleChange}/>
+                        {notes}
+                        <button onClick={this.addNoteField}>&#43;</button>
                       </label>
                 
                       <label htmlFor="acts">

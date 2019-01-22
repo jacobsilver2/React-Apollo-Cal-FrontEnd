@@ -44,7 +44,7 @@ const UPDATE_EVENT_MUTATION = gql`
       $start: DateTime
       $end: DateTime
       $allDay: Boolean
-      $notes: String
+      $notes: [String!]
       $draw: Int
       $name: String
       $description: String
@@ -124,7 +124,12 @@ class UpdateEvent extends Component {
         return this.setState({duration: val, end: addMinutes(this.state.start, val)});
       case 'draw':
         val = parseFloat(value);
-        return this.setState({ [name]: value })
+        return this.setState({ [name]: value });
+      case 'notes':
+        const notes = [...this.state.notes];
+        const selectedIndex = parseInt(e.target.dataset.key);
+        notes[selectedIndex] = value;
+        return this.setState({ notes });
     };
 
 
@@ -197,6 +202,18 @@ class UpdateEvent extends Component {
     )  
   }
 
+  addNoteField = (e, notes) => {
+    e.preventDefault();
+    if (notes){
+      const notesCopy = [...notes];
+      notesCopy.push('')
+      return this.setState({notes: notesCopy});
+    }
+    const notesCopy = [...this.state.notes];
+    notesCopy.push('');
+    return this.setState({ notes: notesCopy });
+  }
+
 
   render() {
     return (
@@ -204,14 +221,17 @@ class UpdateEvent extends Component {
         {({singleEventQuery}) => {
           if (singleEventQuery.loading) return <p>Loading...</p>
           if (!singleEventQuery.data.event) return <p>No Event Found for ID {this.props.id}</p>
-
-          {/* let compensatedDate = addHours(singleEventQuery.data.event.start, 5); */}
-          {/* let formattedDate = format(compensatedDate, "YYYY-MM-dd", { awareOfUnicodeTokens: true }); */}
-          {/* let formattedTime = format(singleEventQuery.data.event.start, "HH:mm");  */}
           const {event} = singleEventQuery.data; 
+          // const notes = this.state.notes || event.notes.length > 0  ? event.notes.map((note, index) => <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>) : null
+
+          let notes = null;
+          if (this.state.notes) {
+            notes = this.state.notes.map((note, index) => <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>)
+          } else if (event.notes.length > 0 ) {
+            notes = event.notes.map((note, index) => <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/>)
+          } 
           const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
           const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
-          // console.log(event)
           return (
             <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: ALL_EVENTS_QUERY, query: ALL_ACTS_QUERY }]}>
               {(updateEvent, { loading, error }) => (
@@ -250,7 +270,8 @@ class UpdateEvent extends Component {
                 
                       <label htmlFor="notes">
                         Notes
-                        <textarea id="notes" name="notes" placeholder="Enter A Description" required defaultValue={event.notes} onChange={this.handleChange}/>
+                        {notes}
+                        <button onClick={(e) => this.addNoteField(e, this.state.notes ? null : event.notes)}>&#43;</button>
                       </label>
 
                       <label htmlFor="draw">
