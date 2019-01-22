@@ -9,6 +9,7 @@ import { format, addHours, addMinutes, differenceInMinutes } from 'date-fns'
 import {ALL_ACTS_QUERY} from './Acts';
 import {ALL_EVENTS_QUERY} from './BigCalendar';
 import {possibleStatus} from './CreateEvent';
+import Button from './styles/DeleteButtonStyles';
 
 
 const SINGLE_EVENT_QUERY = gql`
@@ -214,6 +215,18 @@ class UpdateEvent extends Component {
     return this.setState({ notes: notesCopy });
   }
 
+  handleDeleteNote = (e, index, notes) => {
+    e.preventDefault();
+    if (notes){
+      const notesCopy = [...notes];
+      const notesFiltered = notesCopy.filter((note, i) => i !== index );
+      return this.setState({notes: notesFiltered});
+    }
+    const notesCopy = [...this.state.notes];
+    const notesFiltered = notesCopy.filter((note, i) => i != index );
+    return this.setState({notes: notesFiltered});    
+  }
+
 
   render() {
     return (
@@ -226,9 +239,9 @@ class UpdateEvent extends Component {
 
           let notes = null;
           if (this.state.notes) {
-            notes = this.state.notes.map((note, index) => <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>)
+            notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/><Button onClick={(e)=>this.handleDeleteNote(e, index)}>-</Button></div>)
           } else if (event.notes.length > 0 ) {
-            notes = event.notes.map((note, index) => <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/>)
+            notes = event.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/> <Button onClick={(e)=>this.handleDeleteNote(e, index, event.notes)}>-</Button></div>)
           } 
           const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
           const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
@@ -271,7 +284,7 @@ class UpdateEvent extends Component {
                       <label htmlFor="notes">
                         Notes
                         {notes}
-                        <button onClick={(e) => this.addNoteField(e, this.state.notes ? null : event.notes)}>&#43;</button>
+                        <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : event.notes)}>&#43;</Button>
                       </label>
 
                       <label htmlFor="draw">

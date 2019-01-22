@@ -36,7 +36,6 @@ const Form = styled.form`
       border-color: ${props => props.theme.mainColor};
     }
   }
-  button,
   input[type='submit'] {
     width: auto;
     background: ${props => props.theme.mainColor};
