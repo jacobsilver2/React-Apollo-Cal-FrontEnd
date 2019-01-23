@@ -13,7 +13,7 @@ const CREATE_ACT_MUTATION = gql`
       $image: String
       $largeImage: String
       $email: String
-      $notes: String
+      $notes: [String!]
   ) {
     createAct(
       name: $name
@@ -36,7 +36,7 @@ class CreateAct extends Component {
     image: '',
     largeImage: '',
     email: '',
-    notes: '',
+    notes: [''],
   }
 
   // update = (cache, payload) => {
@@ -54,7 +54,20 @@ class CreateAct extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    const val = type === 'number' ? parseFloat(value) : value;
+    // const val = type === 'number' ? parseFloat(value) : value;
+    let val = value;
+
+    if (type === 'number') {
+      val = parseFloat(value);
+    }
+
+    if (name === 'notes') {
+      const notes = [...this.state.notes];
+      const selectedIndex = parseInt(e.target.dataset.key);
+      notes[selectedIndex] = value;
+      return this.setState({ notes });
+    }
+
     this.setState({
       [name]: val
     })
@@ -76,11 +89,20 @@ class CreateAct extends Component {
     })
   }
 
+  addNoteField = (e) => {
+    e.preventDefault();
+    const notes = [...this.state.notes];
+    notes.push('');
+    this.setState({notes});
+  }
+
   render() {
+    const notes = this.state.notes.map((note, index) => {
+      return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
+    })
     return (
       <Mutation mutation={CREATE_ACT_MUTATION} variables={this.state}>
         {(createEvent, { loading, error, called, data }) => (
-
           <Form onSubmit={ async (e) => {
             e.preventDefault();
             const res = await createEvent();
@@ -114,7 +136,8 @@ class CreateAct extends Component {
 
               <label htmlFor="notes">
                 Notes
-                <textarea id="notes" name="notes" placeholder="Enter Notes Here" required value={this.state.notes} onChange={this.handleChange} />
+                {notes}
+                <button onClick={this.addNoteField}>&#43;</button>
               </label>
 
               <button type="submit">Submit</button>

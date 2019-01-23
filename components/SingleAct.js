@@ -81,10 +81,24 @@ class SingleAct extends Component {
           if (loading) return <p>Loading...</p>;
           if (!data.act) return <p>No Act Found for {this.props.id}</p>;
           const act = data.act;
+          const notes = act.notes.map((note,i) => <ul key={i}>{note}</ul>);
           const pastShows = act.event.filter(e => isBefore(e.start, new Date()));
           const futureShows = act.event.filter(e => isAfter(e.start, new Date()));
           const drawObject = act.event.map(e => new Object({x: format(e.start, "M/d/yy"), y: e.draw}));
-          console.log(drawObject)
+
+          const drawGraph = act.event.length > 0 ? 
+            <div className="react-vis">
+              <h3>Draw Graph</h3>
+              <ReactVisStyled>
+                <XYPlot height={300} width={500} domain={[0, 50]} color="#1a8fff" xType="ordinal">
+                  <VerticalBarSeries data={drawObject} />
+                  <XAxis title="date"/>
+                  <YAxis title="draw"/>
+                  <HorizontalGridLines />
+                </XYPlot>
+              </ReactVisStyled>
+            </div> : null
+
           return (
             <SingleActStyles>
               <Head>
@@ -98,8 +112,7 @@ class SingleAct extends Component {
                 <p>{act.description}</p>
                 <h3>Contact</h3>
                 <p><a href={`mailto:${act.email}`}>{act.email}</a></p>
-                <h3>Notes</h3>
-                <p>{act.notes}</p>
+                { notes.length > 0 ? <div><h3>Notes</h3><ul>{notes}</ul></div> : null}
               </div>
               <div className="shows">
                 {futureShows.length > 0 && <h3>Upcoming Shows</h3>}
@@ -119,17 +132,7 @@ class SingleAct extends Component {
                   )}
                 </ul>
               </div>
-              <div className="react-vis">
-                <h3>Draw Graph</h3>
-                <ReactVisStyled>
-                  <XYPlot height={300} width={500} domain={[0, 50]} color="#1a8fff" xType="ordinal">
-                    <VerticalBarSeries data={drawObject} />
-                    <XAxis title="date"/>
-                    <YAxis title="draw"/>
-                    <HorizontalGridLines />
-                  </XYPlot>
-                </ReactVisStyled>
-              </div>
+              {drawGraph}
             </SingleActStyles>
           );
         }}

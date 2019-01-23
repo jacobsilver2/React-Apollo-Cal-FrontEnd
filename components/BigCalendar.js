@@ -29,6 +29,7 @@ const ALL_EVENTS_QUERY = gql`
         id
         name
         description
+        notes
       }
     }
   }
@@ -72,9 +73,10 @@ class BigCalendar extends Component {
 
   }
 
-  onToolTipAccess = e => (
-    format(e.start, "h:mmaaaaa") + " " + e.act.name + " | " + e.notes
-  )
+  onToolTipAccess = e => {
+    const name = e.act.name ? ` ${e.act.name} | ` : null 
+    return format(e.start, "h:mmaaaaa") + name + e.notes;
+  }
 
   render() {
     return (
@@ -93,7 +95,7 @@ class BigCalendar extends Component {
               resizable
               popup={true}
               popupOffset={{x: 30, y: 20}}
-              titleAccessor={e => format(e.start, "h:mmaaaaa") + " " + e.act.name}
+              titleAccessor={e => format(e.start, "h:mmaaaaa") + e.act.name ? " " + e.act.name : null}
               // onSelectEvent={(e) => this.onSelectEvent(e)}
               onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
               onSelectSlot={e => this.onSelectSlot(e)}

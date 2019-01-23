@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import Button from './styles/DeleteButtonStyles';
 
 const SINGLE_ACT_QUERY = gql`
   query SINGLE_ACT_QUERY($id: ID!) {
@@ -19,7 +20,7 @@ const SINGLE_ACT_QUERY = gql`
   }
 `;
 const UPDATE_ACT_MUTATION = gql`
-  mutation UPDATE_ACT_MUTATION($id: ID!, $name: String, $description: String, $image: String, $largeImage: String, $notes: String) {
+  mutation UPDATE_ACT_MUTATION($id: ID!, $name: String, $description: String, $image: String, $largeImage: String, $notes: [String!]) {
     updateAct(id: $id, name: $name, description: $description, image: $image, largeImage: $largeImage, notes: $notes) {
       id
       name
@@ -40,6 +41,12 @@ class UpdateAct extends Component {
   handleChange = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
+    if (name === 'notes') {
+      const notes = [...this.state.notes];
+      const selectedIndex = parseInt(e.target.dataset.key);
+      notes[selectedIndex] = value;
+      return this.setState({ notes });
+    }
     this.setState({
       [name]: val
     })
@@ -90,6 +97,30 @@ class UpdateAct extends Component {
       )  
   }
 
+  handleDeleteNote = (e, index, notes) => {
+    e.preventDefault();
+    if (notes){
+      const notesCopy = [...notes];
+      const notesFiltered = notesCopy.filter((note, i) => i !== index );
+      return this.setState({notes: notesFiltered});
+    }
+    const notesCopy = [...this.state.notes];
+    const notesFiltered = notesCopy.filter((note, i) => i != index );
+    return this.setState({notes: notesFiltered});    
+  }
+
+  addNoteField = (e, notes) => {
+    e.preventDefault();
+    if (notes){
+      const notesCopy = [...notes];
+      notesCopy.push('')
+      return this.setState({notes: notesCopy});
+    }
+    const notesCopy = [...this.state.notes];
+    notesCopy.push('');
+    return this.setState({ notes: notesCopy });
+  }
+
 
   render() {
 
@@ -101,8 +132,17 @@ class UpdateAct extends Component {
       }}
     >
       {({ data, loading }) => {
+        const {act} = data;
         if (loading) return <p>Loading...</p>;
         if (!data.act) return <p>No Act Found for ID {this.props.id}</p>;
+
+        let notes = null;
+        if (this.state.notes) {
+          notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/><Button onClick={(e)=>this.handleDeleteNote(e, index)}>-</Button></div>)
+        } else if (act.notes.length > 0 ){
+          notes = act.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/> <Button onClick={(e)=>this.handleDeleteNote(e, index, act.notes)}>-</Button></div>)
+        }
+
         return (
           <Mutation mutation={UPDATE_ACT_MUTATION} variables={this.state}>
             {(updateAct, { loading, error }) => (
@@ -117,7 +157,7 @@ class UpdateAct extends Component {
                       name="name"
                       placeholder="Name"
                       required
-                      defaultValue={data.act.name}
+                      defaultValue={act.name}
                       onChange={this.handleChange}
                     />
                   </label>
@@ -130,7 +170,7 @@ class UpdateAct extends Component {
                       name="email"
                       placeholder="Email"
                       required
-                      defaultValue={data.act.email}
+                      defaultValue={act.email}
                       onChange={this.handleChange}
                     />
                   </label>
@@ -142,20 +182,15 @@ class UpdateAct extends Component {
                       id="description"
                       name="description"
                       placeholder="Description"
-                      defaultValue={data.act.description}
+                      defaultValue={act.description}
                       onChange={this.handleChange}
                     />
                   </label>
 
-                  <label htmlFor="notes">
+                  <label htmlFor='notes'>
                     Notes
-                    <textarea
-                      id="notes"
-                      name="notes"
-                      placeholder="Enter Your Notes"
-                      defaultValue={data.act.notes}
-                      onChange={this.handleChange}
-                    />
+                    {notes}
+                    <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : act.notes)}>&#43;</Button>
                   </label>
 
                   <label htmlFor="file">
