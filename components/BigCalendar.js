@@ -74,8 +74,15 @@ class BigCalendar extends Component {
   }
 
   onToolTipAccess = e => {
-    const name = e.act.name ? ` ${e.act.name} | ` : null 
-    return format(e.start, "h:mmaaaaa") + name + e.notes;
+    const name = e.act.name ? `${e.act.name}` : null 
+    const time = format(e.start, "h:mmaaaaa")
+    return `${time} ${name}`;
+  }
+
+  titleAccessor = e => {
+    const time = format(e.start, "h:mmaaaaa");
+    const name = e.act.name ? ` ${e.act.name}`: null;
+    return time + name;
   }
 
   render() {
@@ -95,7 +102,7 @@ class BigCalendar extends Component {
               resizable
               popup={true}
               popupOffset={{x: 30, y: 20}}
-              titleAccessor={e => format(e.start, "h:mmaaaaa") + e.act.name ? " " + e.act.name : null}
+              titleAccessor={this.titleAccessor}
               // onSelectEvent={(e) => this.onSelectEvent(e)}
               onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
               onSelectSlot={e => this.onSelectSlot(e)}
