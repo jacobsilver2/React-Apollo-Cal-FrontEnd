@@ -6,6 +6,8 @@ import Link from 'next/link'
 import gql from 'graphql-tag';
 import moment from 'moment';
 import {format} from 'date-fns';
+import CustomEvent from './CustomEvent';
+import QuickUpdate from './QuickUpdate';
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import {StyledBigCal} from './styles/BigCalendarStyles';
 import {StyledBigCalDnd} from './styles/BigCalendarDndStyles';
@@ -92,6 +94,23 @@ class BigCalendar extends Component {
     return time + name;
   }
 
+  eventStyleGetter = e => {
+    let backGroundColor = ''
+    switch (e.status){
+      case 'HELD':
+        backGroundColor = 'grey';
+        break;
+      case 'CANCELLED':
+        backGroundColor = 'red';
+        break;
+    }
+
+    let style = {
+      backgroundColor: backGroundColor
+    }
+    return {style}
+  }
+
   moveEvent = (moveEventMutation, { event, start, end, isAllDay: droppedOnAllDaySlot }) => {
     this.setState({
       start,
@@ -128,6 +147,7 @@ class BigCalendar extends Component {
               <StyledBigCal>
                 <DnDCalendar
                   events={data.events}
+                  eventPropGetter={e => this.eventStyleGetter(e)}
                   selectable
                   localizer={localizer}
                   startAccessor={e => moment(e.start).toDate()}
@@ -137,7 +157,6 @@ class BigCalendar extends Component {
                   popup={true}
                   popupOffset={{x: 30, y: 20}}
                   titleAccessor={this.titleAccessor}
-                  // onSelectEvent={(e) => this.onSelectEvent(e)}
                   onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
                   onSelectSlot={e => this.onSelectSlot(e)}
                   tooltipAccessor={e => this.onToolTipAccess(e)}
@@ -145,6 +164,7 @@ class BigCalendar extends Component {
                   defaultDate={new Date()}
                   views={['month']}
                   style={{ height: "100vh" }}
+                  components={{ event: CustomEvent }}
                 />
               </StyledBigCal>
             )}
@@ -158,3 +178,6 @@ class BigCalendar extends Component {
 
 export { ALL_EVENTS_QUERY };
 export default BigCalendar;
+
+
+

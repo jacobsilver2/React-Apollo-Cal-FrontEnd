@@ -214,7 +214,7 @@ button.rbc-input::-moz-focus-inner {
   cursor: pointer;
   width: 100%;
   text-align: left;
-}
+} 
 .rbc-slot-selecting .rbc-event {
   cursor: inherit;
   pointer-events: none;
