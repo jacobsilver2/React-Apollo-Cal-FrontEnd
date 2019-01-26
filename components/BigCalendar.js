@@ -59,7 +59,7 @@ const TOGGLE_MODAL_MUTATION = gql`
 `;
 
 const Composed = adopt({
-  moveEvent: ({ render, updates, updateCache }) => <Mutation mutation={MOVE_EVENT_MUTATION} variables={updates} update={updateCache}>{render}</Mutation>,
+  moveEvent: ({ updates, updateCache, render }) => <Mutation mutation={MOVE_EVENT_MUTATION} variables={updates} update={updateCache}>{render}</Mutation>,
   allEvents: ({ render }) => <Query query={ALL_EVENTS_QUERY}>{render}</Query>,
   toggleModal: ({ render }) => <Mutation mutation={TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
   localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>,
@@ -121,13 +121,13 @@ class BigCalendar extends Component {
     return {style}
   }
 
-  onMoveEvent = (moveEventMutation, { event, start, end, isAllDay: droppedOnAllDaySlot }) => {
+  onMoveEvent = ({ event, start, end, isAllDay: droppedOnAllDaySlot }, moveEventMutation) => {
     this.setState({
       start,
       end,
       id: event.id,
     })
-    moveEventMutation(this.state, this.updateCache).catch(err => {
+    moveEventMutation().catch(err => {
       alert(err.message)
     })
   }
@@ -146,7 +146,7 @@ class BigCalendar extends Component {
 
   render() {
     return (
-      <Composed>
+      <Composed updates={this.state} updateCache={this.updateCache}>
         {({ moveEvent, allEvents, toggleModal, localState }) => {
           if (allEvents.loading) return <p>Loading...</p>
           if (allEvents.error) return <p>Error: {allEvents.error.message}</p>
@@ -158,23 +158,23 @@ class BigCalendar extends Component {
                   events={allEvents.data.events}
                   eventPropGetter={e => this.eventStyleGetter(e)}
                   onSelectEvent={e => toggleModal()}
+                  onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
+                  onEventDrop={e => this.onMoveEvent(e, moveEvent)}
                   selectable
                   localizer={localizer}
                   startAccessor={e => moment(e.start).toDate()}
                   endAccessor={e => moment(e.end).toDate()}
-                  onEventDrop={(e) => this.onMoveEvent(moveEvent, e)}
                   onEventResize={this.onEventResize}
                   popup={true}
                   popupOffset={{x: 30, y: 20}}
                   titleAccessor={this.titleAccessor}
-                  onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
                   onSelectSlot={e => this.onSelectSlot(e)}
                   tooltipAccessor={e => this.onToolTipAccess(e)}
                   defaultView="month"
                   defaultDate={new Date()}
                   views={['month']}
                   style={{ height: "100vh" }}
-                  components={{ event: CustomEvent }}
+                  // components={{ event: CustomEvent }}
                 />
             </StyledBigCal>
             </>

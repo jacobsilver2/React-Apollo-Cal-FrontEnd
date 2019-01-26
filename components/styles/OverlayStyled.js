@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const OverlayedStyled = styled.div`
+  z-index: 10;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
   top: 0;

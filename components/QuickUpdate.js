@@ -10,15 +10,20 @@ import OverlayStyled from './styles/OverlayStyled';
 
 class QuickUpdate extends Component {
 
+  onClose = (e, toggle) => {
+    e.stopPropagation();
+    toggle();
+  } 
+
   render() {
     return (
         <Mutation mutation={TOGGLE_MODAL_MUTATION}>
-          {(updateEvent, { loading, error }) => (
+          {(toggleModal) => (
               <Portal selector='#modal'>
                 <OverlayStyled>
                   <QuickUpdateStyled>
-                    <h1>Welcome to Quick Update</h1>
-                    <Closebutton onClick={updateEvent}>X</Closebutton>
+                    <h1>Update Event</h1>
+                    <Closebutton onClick={(e) => this.onClose(e, toggleModal)}>X</Closebutton>
                   </QuickUpdateStyled>
                 </OverlayStyled>
               </Portal>
