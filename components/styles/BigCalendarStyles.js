@@ -210,7 +210,7 @@ button.rbc-input::-moz-focus-inner {
   background-color: ${props => props.theme.mainColor};
   border-radius: 5px;
   color: #fff;
-  font-size: .5em;
+  /* font-size: .5em; */
   cursor: pointer;
   width: 100%;
   text-align: left;
