@@ -8,14 +8,27 @@ const Event = styled.div`
 
 class CustomEvent extends Component {
 
+  handleContextMenu = e => {
+    console.log('right clicked')
+  }
+
+  handleMouseOver = e => {
+    setTimeout(
+      () => console.log('moused over')
+      ,1500)
+  }
+
+  handleClick = e => {
+    console.log('clicked');
+  }
   
   render() {
     const {event} = this.props
     const start = format(event.start, "h:mmaaaaa");
     return (
-      <Event>
+      <div onClick={this.handleClick}>
          <p>{start} {event.act.name}</p>
-      </Event>
+      </div>
     );
   }
 }

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const QuickUpdateStyled = styled.div`
     z-index: 11;
-    display: grid;
     background-color: whitesmoke;
     text-align: center;
     position: absolute;

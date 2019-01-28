@@ -335,5 +335,5 @@ class UpdateEvent extends Component {
   }
 }
 
-export { UPDATE_EVENT_MUTATION, SINGLE_EVENT_QUERY };
+export { UPDATE_EVENT_MUTATION, SINGLE_EVENT_QUERY, addNoteField };
 export default UpdateEvent;

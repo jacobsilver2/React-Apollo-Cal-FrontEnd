@@ -144,6 +144,11 @@ class BigCalendar extends Component {
     cache.writeQuery({ query: ALL_EVENTS_QUERY, data });
   };
 
+  onToggleModal = (e, toggleModal) => {
+    this.setState({event: e})
+    toggleModal();
+  }
+
   render() {
     return (
       <Composed updates={this.state} updateCache={this.updateCache}>
@@ -152,14 +157,14 @@ class BigCalendar extends Component {
           if (allEvents.error) return <p>Error: {allEvents.error.message}</p>
           return (
             <>
-            {localState.data.modalOpen && <QuickUpdate />}
+            {localState.data.modalOpen && <QuickUpdate event={this.state.event}/>}
             <StyledBigCal>
                 <DnDCalendar
                   events={allEvents.data.events}
                   eventPropGetter={e => this.eventStyleGetter(e)}
-                  onSelectEvent={e => toggleModal()}
+                  onSelectEvent={e => this.onToggleModal(e, toggleModal)}
                   onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
-                  onEventDrop={e => this.onMoveEvent(e, moveEvent)}
+                  onEventDrop={e => this.onMoveEvent(e,moveEvent)}
                   selectable
                   localizer={localizer}
                   startAccessor={e => moment(e.start).toDate()}
@@ -174,60 +179,18 @@ class BigCalendar extends Component {
                   defaultDate={new Date()}
                   views={['month']}
                   style={{ height: "100vh" }}
-                  // components={{ event: CustomEvent }}
+                  components={{ event: CustomEvent }}
                 />
             </StyledBigCal>
             </>
           )
         }
-          
-
-        
         }
       </Composed>
-
-      // <Query query={ALL_EVENTS_QUERY}>
-      //   {({data, error, loading}) => {
-      //     if (loading) return <p>Loading...</p>
-      //     if (error) return <p>Error: {error.message}</p>
-
-      //     return (
-      //     <Mutation mutation={MOVE_EVENT_MUTATION} variables={this.state} update={this.updateCache}>
-      //       {(moveEvent, { error }) => (
-      //         <StyledBigCal>
-      //           <DnDCalendar
-      //             events={data.events}
-      //             eventPropGetter={e => this.eventStyleGetter(e)}
-      //             onSelectEvent={e => this.setState({eventSelected: true})}
-      //             selectable
-      //             localizer={localizer}
-      //             startAccessor={e => moment(e.start).toDate()}
-      //             endAccessor={e => moment(e.end).toDate()}
-      //             onEventDrop={(e) => this.moveEvent(moveEvent, e)}
-      //             onEventResize={this.onEventResize}
-      //             popup={true}
-      //             popupOffset={{x: 30, y: 20}}
-      //             titleAccessor={this.titleAccessor}
-      //             onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
-      //             onSelectSlot={e => this.onSelectSlot(e)}
-      //             tooltipAccessor={e => this.onToolTipAccess(e)}
-      //             defaultView="month"
-      //             defaultDate={new Date()}
-      //             views={['month']}
-      //             style={{ height: "100vh" }}
-      //             components={{ event: CustomEvent }}
-      //           />
-      //         </StyledBigCal>
-      //       )}
-      //     </Mutation>
-      //     )
-      //   }}
-      // </Query>
     );
   }
 }
-
-export { ALL_EVENTS_QUERY };
+export { ALL_EVENTS_QUERY, LOCAL_STATE_QUERY, TOGGLE_MODAL_MUTATION };
 export default BigCalendar;
 
 
