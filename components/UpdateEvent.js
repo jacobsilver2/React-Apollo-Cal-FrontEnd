@@ -6,91 +6,15 @@ import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { format, addHours, addMinutes, differenceInMinutes } from 'date-fns'
-import {ALL_ACTS_QUERY} from './Acts';
-import {ALL_EVENTS_QUERY} from './BigCalendar';
-import {possibleStatus} from './CreateEvent';
+import * as mutations from './globals/mutations/mutations';
+import * as queries from './globals/queries/queries';
+import {possibleStatus} from '../lib/possibleStatus';
 import Button from './styles/DeleteButtonStyles';
 
 
-const SINGLE_EVENT_QUERY = gql`
-  query SINGLE_EVENT_QUERY($id: ID!) {
-    event(where: {id: $id}) {
-      id
-      title
-      status
-      start
-      end
-      allDay
-      notes
-      draw
-      act {
-        id
-        name
-        description
-        email
-        image
-        largeImage
-      }
-    }
-  }
-`;
-
-
-
-const UPDATE_EVENT_MUTATION = gql`
-  mutation UPDATE_EVENT_MUTATION(
-      $id: ID!
-      $title: String
-      $status: EventStatus
-      $start: DateTime
-      $end: DateTime
-      $allDay: Boolean
-      $notes: [String!]
-      $draw: Int
-      $name: String
-      $description: String
-      $email: String
-      $image: String
-      $largeImage: String
-      $actId: String
-      $newActId: String
-  ) {
-    updateEvent(
-      id: $id
-      title: $title
-      status: $status
-      start: $start
-      end: $end
-      allDay: $allDay
-      notes: $notes
-      draw: $draw
-      name: $name
-      description: $description
-      email: $email
-      image: $image
-      largeImage: $largeImage
-      actId: $actId
-      newActId: $newActId
-    ) {
-      id
-      start
-      notes
-      draw
-      act {
-        id
-        name
-        description
-        email
-        image
-        largeImage
-      }
-    }
-  }
-`;
-
 /* eslint-disable */
 const Composed = adopt({
-  singleEventQuery: ({singleEventId, render}) => <Query query={SINGLE_EVENT_QUERY} variables={{id: singleEventId}}>{render}</Query>,
+  singleEventQuery: ({singleEventId, render}) => <Query query={queries.SINGLE_EVENT_QUERY} variables={{id: singleEventId}}>{render}</Query>,
   // allActsQuery: ({render}) => <Query query={ALL_ACTS_QUERY}>{render}</Query>,
   // updateEventMutation:({updateVars, render}) => <Mutation mutation={UPDATE_EVENT_MUTATION} variables={updateVars}>{render}</Mutation>,
 })
@@ -246,9 +170,9 @@ class UpdateEvent extends Component {
           const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
           const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
           return (
-            <Mutation mutation={UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: ALL_EVENTS_QUERY, query: ALL_ACTS_QUERY }]}>
+            <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY, query: queries.ALL_ACTS_QUERY }]}>
               {(updateEvent, { loading, error }) => (
-                <Query query={ALL_ACTS_QUERY}>
+                <Query query={queries.ALL_ACTS_QUERY}>
                   {({data}) => 
                   <Form onSubmit={e => this.updateEvent(e, updateEvent, event.act.id)}>
                     <Error error={error} />
@@ -335,5 +259,4 @@ class UpdateEvent extends Component {
   }
 }
 
-export { UPDATE_EVENT_MUTATION, SINGLE_EVENT_QUERY, addNoteField };
 export default UpdateEvent;

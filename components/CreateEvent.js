@@ -7,80 +7,15 @@ import Router from 'next/router';
 import { format } from 'date-fns';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
-import { ALL_EVENTS_QUERY } from './BigCalendar'; 
-import { ALL_ACTS_QUERY } from './Acts';
-
-const possibleStatus = [
-  'CONFIRMED',
-  'HELD',
-  'CANCELLED',
-];
+import * as queries from './globals/queries/queries';
+import * as mutations from './globals/mutations/mutations';
+import {possibleStatus} from '../lib/possibleStatus';
 
 
-const CREATE_EVENT_WITH_NEW_ACT_MUTATION = gql`
-  mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(
-      $title: String!
-      $status: EventStatus!
-      $start: DateTime!
-      $end: DateTime!
-      $allDay: Boolean!
-      $notes: [String!]
-      $name: String
-      $email: String
-      $description: String
-      $image: String
-      $largeImage: String
-      $actId: String
-  ) {
-    createEventWithNewAct( 
-        title: $title
-        status: $status
-        start: $start
-        end: $end
-        allDay: $allDay
-        notes: $notes
-        name: $name
-        email: $email
-        description: $description
-        image: $image
-        largeImage: $largeImage
-        actId: $actId
-    ) 
-    { 
-      id
-      act {
-        id
-      }
-    }
-  }
-`;
 
-const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
-  mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(
-    $title: String
-    $status: EventStatus!
-    $start: DateTime!
-    $end: DateTime!
-    $allDay: Boolean!
-    $notes: [String!]
-    $actId: String
-  ){
-    createEventWithExistingAct(
-      title: $title
-      status: $status
-      start: $start
-      end: $end
-      allDay: $allDay
-      notes: $notes
-      actId: $actId
-    ){
-      id
-      act {
-        id
-      }
-    }
-  }
-`;
+
+
+
 
 
 class CreateEvent extends Component {
@@ -188,12 +123,12 @@ class CreateEvent extends Component {
       return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
     })
     return (
-      <Query query={ALL_ACTS_QUERY}>
+      <Query query={queries.ALL_ACTS_QUERY}>
         {({data, loading}) => {
           if (loading) return <p>Loading...</p>;
           return (
           <Mutation 
-            mutation={CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
+            mutation={mutations.CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
             variables={{
               title: this.state.title,
               status: this.state.status,
@@ -207,13 +142,13 @@ class CreateEvent extends Component {
               email: this.state.email,
               description: this.state.description,
               }} 
-            refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
+            refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: queries.ALL_ACTS_QUERY}]}
           >
             {(createEventWithNewAct, { loading, error }) => (
               <Mutation 
-                mutation={CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
+                mutation={mutations.CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
                 variables={{title: this.state.title,  status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId,}} 
-                refetchQueries={[{ query: ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
+                refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
               >
                 {(createEventWithExistingAct, { loading, error}) => (
                   <Form onSubmit={ async (e) => {
@@ -306,5 +241,4 @@ class CreateEvent extends Component {
   }
 }
 
-export { CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, possibleStatus};
 export default CreateEvent;

@@ -10,59 +10,19 @@ import CustomEvent from './CustomEvent';
 import QuickUpdate from './QuickUpdate';
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import {StyledBigCal} from './styles/BigCalendarStyles';
+import * as queries from './globals/queries/queries';
+import * as mutations from './globals/mutations/mutations';
 
 
 const localizer = Calendar.momentLocalizer(moment)
 const DnDCalendar = withDragAndDrop(Calendar);
 
-const ALL_EVENTS_QUERY = gql`
-  query ALL_EVENTS_QUERY {
-    events {
-      id
-      title
-      status
-      start
-      end
-      allDay
-      notes
-      draw
-      act {
-        id
-        name
-        description
-        notes
-      }
-    }
-  }
-`;
-
-const MOVE_EVENT_MUTATION = gql`
-  mutation MOVE_EVENT_MUTATION($id: ID!, $start: DateTime, $end: DateTime, $allDay: Boolean) {
-    moveEvent(id: $id, start: $start, end: $end, allDay: $allDay) {
-      id
-      start
-      end
-    }
-  }
-`;
-
-const LOCAL_STATE_QUERY = gql`
-  query {
-    modalOpen @client
-  }
-`;
-
-const TOGGLE_MODAL_MUTATION = gql`
-  mutation {
-    toggleModal @client
-  }
-`;
 
 const Composed = adopt({
-  moveEvent: ({ updates, updateCache, render }) => <Mutation mutation={MOVE_EVENT_MUTATION} variables={updates} update={updateCache}>{render}</Mutation>,
-  allEvents: ({ render }) => <Query query={ALL_EVENTS_QUERY}>{render}</Query>,
-  toggleModal: ({ render }) => <Mutation mutation={TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
-  localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>,
+  moveEvent: ({ updates, updateCache, render }) => <Mutation mutation={mutations.MOVE_EVENT_MUTATION} variables={updates} update={updateCache}>{render}</Mutation>,
+  allEvents: ({ render }) => <Query query={queries.ALL_EVENTS_QUERY}>{render}</Query>,
+  toggleModal: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
+  localState: ({ render }) => <Query query={queries.LOCAL_STATE_QUERY}>{render}</Query>,
 });
 
 class BigCalendar extends Component {
@@ -135,13 +95,13 @@ class BigCalendar extends Component {
   updateCache = (cache, payload) => {
     // manually update the cache on the client, so it matches the server
     // 1. Read the cache for the items we want
-    const data = cache.readQuery({ query: ALL_EVENTS_QUERY });
+    const data = cache.readQuery({ query: queries.ALL_EVENTS_QUERY });
     // 2. Filter the deleted itemout of the page
     const eventIndex = data.events.findIndex(event => event.id === payload.data.moveEvent.id)
     data.events[eventIndex].start = payload.data.moveEvent.start;
     data.events[eventIndex].end = payload.data.moveEvent.end;
     // 3. Put the items back!
-    cache.writeQuery({ query: ALL_EVENTS_QUERY, data });
+    cache.writeQuery({ query: queries.ALL_EVENTS_QUERY, data });
   };
 
   onToggleModal = (e, toggleModal) => {
@@ -190,7 +150,6 @@ class BigCalendar extends Component {
     );
   }
 }
-export { ALL_EVENTS_QUERY, LOCAL_STATE_QUERY, TOGGLE_MODAL_MUTATION };
 export default BigCalendar;
 
 
