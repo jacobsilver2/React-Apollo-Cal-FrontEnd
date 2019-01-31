@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { format, differenceInMinutes, addMinutes } from 'date-fns';
-import * as updateEventMethods from './globals/functions/updateEventMethods';
 import QuickUpdateStyled from './styles/QuickUpdateStyles';
 import Closebutton from './styles/CloseButton';
 import Error from './ErrorMessage';
@@ -12,11 +11,12 @@ import Form from './styles/Form';
 import Button from './styles/DeleteButtonStyles';
 import * as mutations from './globals/mutations/mutations';
 import * as queries from './globals/queries/queries';
+import * as updateEventMethods from './globals/functions/updateEventMethods';
 import { possibleStatus } from '../lib/possibleStatus';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
-  updateEventMutation: ({ updates, render }) => <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={updates}>{render}</Mutation>,
+  updateEventMutation: ({ updates, render }) => <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={updates} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY}]}>{render}</Mutation>,
   toggleModalMutation: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>
 });
 
@@ -26,6 +26,7 @@ class QuickUpdate extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
+
     switch (name) {
       case 'status':
         return this.setState({ status: value });
@@ -43,7 +44,6 @@ class QuickUpdate extends Component {
         notes[selectedIndex] = value;
         return this.setState({ notes });
     };
-
     switch (type) {
       case 'date':
         const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
@@ -61,6 +61,8 @@ class QuickUpdate extends Component {
       case 'checkbox':
         this.setState({ allDay: !!this.state.allDay ? !this.state.allDay : !this.props.allDay})
         break;
+      default:
+        this.setState({ [name]: value});
     }
   }
 
@@ -166,7 +168,6 @@ class QuickUpdate extends Component {
                       <label htmlFor="allDay">
                         All Day
                             <input type="checkbox" id="allday" name="allDay" defaultChecked={event.allDay} onChange={this.handleChange} />
-                            
                       </label>
 
                       <label htmlFor="draw">
@@ -187,7 +188,7 @@ class QuickUpdate extends Component {
                     <h6>note: this will alter every event this act is associated with</h6>
                       <label htmlFor="name">
                         Act Name
-                          <textarea id="name" name="name" placeholder={event.act.name}  value={this.state.name} onChange={this.handleChange} />
+                          <textarea id="name" name="name" placeholder="Act Name" defaultValue={event.act.name} onChange={this.handleChange} />
                       </label>
                       <label htmlFor="description">
                         Blurb

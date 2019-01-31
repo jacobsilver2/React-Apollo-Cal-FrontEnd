@@ -7,13 +7,19 @@ export const updateCache = (cache, payload) => {
   // 1. Read the cache for the items we want
   const data = cache.readQuery({ query: ALL_EVENTS_QUERY });
   // 2. Filter the deleted itemout of the page
-  const eventIndex = data.events.findIndex(event => event.id === payload.data.moveEvent.id)
+  const eventIndex = data.events.findIndex(event => event.id === payload.data.updateEventMutation.id)
   // data.events[eventIndex].start = payload.data.moveEvent.start;
   // data.events[eventIndex].end = payload.data.moveEvent.end;
   console.log(eventIndex)
   // 3. Put the items back!
   cache.writeQuery({ query: ALL_EVENTS_QUERY, data });
 };
+
+// export const quickUpdateCache = (cache, payload) => {
+//   const data = cache.readQuery({ query: ALL_EVENTS_QUERY });
+//   const eventIndex = data.events.findIndex(event => event.id === payload.data.moveEvent.id)
+//   cache.writeQuery({ query: ALL_EVENTS_QUERY, data });
+// }
 
 export const handleDeleteNote = (e, index, notes) => {
   e.preventDefault();

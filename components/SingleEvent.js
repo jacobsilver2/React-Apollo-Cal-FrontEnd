@@ -4,7 +4,7 @@ import { Query} from 'react-apollo';
 import { format } from 'date-fns';
 import styled from 'styled-components';
 import Head from 'next/head';
-import {SINGLE_EVENT_QUERY} from './UpdateEvent';
+import * as queries from './globals/queries/queries';
 import Title from './styles/Title';
 import DeleteEvent from './DeleteEvent';
 import Error from './ErrorMessage';
@@ -37,7 +37,7 @@ class SingleEvent extends Component {
     const dateFormat = "MMMM d, YYYY"
     const timeFormat = "h:mm a"
     return (
-        <Query query={SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
+        <Query query={queries.SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
           {({error, loading, data}) => {
             if (error) return <Error error={error} />
             if (loading) return <p>Loading</p>
