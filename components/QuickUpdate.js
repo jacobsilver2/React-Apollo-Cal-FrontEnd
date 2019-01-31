@@ -33,7 +33,7 @@ class QuickUpdate extends Component {
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
       case 'duration':
         let val = parseFloat(value);
-        return this.setState({ duration: val, end: addMinutes(this.state.start, val) });
+        return this.setState({ duration: val, end: addMinutes(!!this.state.start ? this.state.start : this.props.start, val) });
       case 'draw':
         val = parseFloat(value);
         return this.setState({ [name]: value });
@@ -42,8 +42,6 @@ class QuickUpdate extends Component {
         const selectedIndex = parseInt(e.target.dataset.key);
         notes[selectedIndex] = value;
         return this.setState({ notes });
-        default:
-          this.setState({ [name]: value });
     };
 
     switch (type) {
@@ -51,17 +49,17 @@ class QuickUpdate extends Component {
         const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
         let startDateTime = new Date(`${value} ${time}`);
         const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-        let end = addMinutes(startDateTime, this.state.duration);
+        let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
         this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
-        const date = format(this.state.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+        const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
         startDateTime = new Date(`${date} ${value}`);
-        end = addMinutes(startDateTime, this.state.duration);
+        end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
         this.setState({ start: startDateTime, end });
         break;
       case 'checkbox':
-        this.setState({ allDay: !this.state.allDay })
+        this.setState({ allDay: !!this.state.allDay ? !this.state.allDay : !this.props.allDay})
         break;
     }
   }
@@ -167,7 +165,8 @@ class QuickUpdate extends Component {
 
                       <label htmlFor="allDay">
                         All Day
-                            <input type="checkbox" id="allday" name="allday" checked={event.allDay} onChange={this.handleChange} />
+                            <input type="checkbox" id="allday" name="allDay" defaultChecked={event.allDay} onChange={this.handleChange} />
+                            
                       </label>
 
                       <label htmlFor="draw">
