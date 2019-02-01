@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import {perPage} from '../../../config';
 
  export const ALL_EVENTS_QUERY = gql`
   query ALL_EVENTS_QUERY {
@@ -63,10 +64,38 @@ export const ALL_ACTS_QUERY = gql`
     }
   }
 `;
+export const ALL_ACTS_QUERY_PAGINATION = gql`
+  query ALL_ACTS_QUERY($skip: Int=0, $first: Int=${perPage}) {
+    acts(first: $first, skip: $skip, orderBy: name_ASC) {
+      id
+      name
+      description
+      image
+      largeImage
+      email
+      notes
+      event{
+        id
+        title
+        draw
+      }
+    }
+  }
+`;
 
 export const LOCAL_STATE_QUERY = gql`
   query {
     modalOpen @client
+  }
+`;
+
+export const PAGINATION_QUERY = gql`
+  query PAGINATION_QUERY{
+    actsConnection {
+      aggregate {
+        count
+      }
+    }
   }
 `;
 

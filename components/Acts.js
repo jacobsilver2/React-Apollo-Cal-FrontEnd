@@ -1,29 +1,12 @@
 import React, { Component } from 'react';
 import {Query} from 'react-apollo';
-import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Act from './Act';
 import Error from './ErrorMessage';
+import * as queries from './globals/queries/queries';
+import Pagination from './Pagination';
+import { perPage } from '../config';
 
-
-const ALL_ACTS_QUERY = gql`
-  query ALL_ACTS_QUERY {
-    acts {
-      id
-      name
-      description
-      image
-      largeImage
-      email
-      notes
-      event{
-        id
-        title
-        draw
-      }
-    }
-  }
-`;
 
 const Center = styled.div`
   text-align: center;
@@ -42,7 +25,8 @@ class Acts extends Component {
   render() {
     return (
       <Center>
-        <Query query={ALL_ACTS_QUERY}>
+        <Pagination page={this.props.page}/>
+        <Query query={queries.ALL_ACTS_QUERY_PAGINATION} variables={{skip: this.props.page*perPage-perPage}}>
           {({error, loading, data}) => {
             if (error) return <Error error={error} />
             if (loading) return <p>Loading</p>
@@ -52,11 +36,11 @@ class Acts extends Component {
             )
           }}
         </Query>
+        <Pagination page={this.props.page}/>
       </Center>
     );
   }
 }
 
 
-export {ALL_ACTS_QUERY};
 export default Acts;
