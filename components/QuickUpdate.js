@@ -34,6 +34,7 @@ class QuickUpdate extends Component {
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
       case 'duration':
         let val = parseFloat(value);
+        debugger;
         return this.setState({ duration: val, end: addMinutes(!!this.state.start ? this.state.start : this.props.start, val) });
       case 'draw':
         val = parseFloat(value);
