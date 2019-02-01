@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import {addMinutes, addHours} from 'date-fns';
 import Link from 'next/link'
-import gql from 'graphql-tag';
+import { adopt } from 'react-adopt';
+import { Spring } from 'react-spring';
 import Router from 'next/router';
 import { format } from 'date-fns';
 import Form from './styles/Form';
@@ -13,10 +14,12 @@ import {possibleStatus} from '../lib/possibleStatus';
 
 
 
-
-
-
-
+const Composed = adopt({
+  allActsQuery: ({render}) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
+  createEventWithNewActMutation: ({eventNewActUpdates, render}) => <Mutation variables={eventNewActUpdates} mutation={mutations.CREATE_EVENT_WITH_NEW_ACT_MUTATION} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: queries.ALL_ACTS_QUERY}]}>{render}</Mutation>,
+  createEventWithExistingActMutation: ({eventExistingActUpdates, render}) => <Mutation variables={eventExistingActUpdates} mutation={mutations.CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: queries.ALL_ACTS_QUERY}]}>{render}</Mutation>,
+  spring: ({render}) => <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>{render}</Spring>,
+})
 
 class CreateEvent extends Component {
   state = {
@@ -123,120 +126,96 @@ class CreateEvent extends Component {
       return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
     })
     return (
-      <Query query={queries.ALL_ACTS_QUERY}>
-        {({data, loading}) => {
-          if (loading) return <p>Loading...</p>;
-          return (
-          <Mutation 
-            mutation={mutations.CREATE_EVENT_WITH_NEW_ACT_MUTATION} 
-            variables={{
-              title: this.state.title,
-              status: this.state.status,
-              start: this.state.start,
-              end: this.state.end,
-              allDay: this.state.allDay,
-              notes: this.state.notes,
-              name: this.state.name,
-              image: this.state.image,
-              largeImage: this.state.largeImage,
-              email: this.state.email,
-              description: this.state.description,
-              }} 
-            refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: queries.ALL_ACTS_QUERY}]}
-          >
-            {(createEventWithNewAct, { loading, error }) => (
-              <Mutation 
-                mutation={mutations.CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} 
-                variables={{title: this.state.title,  status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId,}} 
-                refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: ALL_ACTS_QUERY}]}
-              >
-                {(createEventWithExistingAct, { loading, error}) => (
-                  <Form onSubmit={ async (e) => {
-                    e.preventDefault();
-                    const res = !this.state.actId ? await createEventWithNewAct() : await createEventWithExistingAct();
-                    Router.push({
-                      pathname: '/'
-                    })
-                  }}>
-                    <Error error={error} />
-                
-                    <fieldset disabled={loading} aria-busy={loading}>
-                      <label htmlFor="date">
-                        Date
-                        <input type="date" id="date" name="date" placeholder="Date" value={format(this.state.start, dateFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
-                      </label>
+      <Composed 
+        eventNewActUpdates={{title: this.state.title, status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay, notes: this.state.notes, name: this.state.name, image: this.state.image, largeImage: this.state.largeImage, email: this.state.email, description: this.state.description,}}
+        eventExistingActUpdates={{title: this.state.title,  status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId}}
+      >
+        {({allActsQuery, createEventWithNewActMutation, createEventWithExistingActMutation, spring}) => {
+          if (allActsQuery.loading) return <p>Loading...</p>;
+            return (
+              <div style={spring}>
+              <Form onSubmit={ async (e) => {
+                e.preventDefault();
+                const res = !this.state.actId ? await createEventWithNewActMutation() : await createEventWithExistingActMutation();
+                Router.push({
+                  pathname: '/'
+                })
+              }}>
+                <Error error={allActsQuery.error} />
+                <fieldset disabled={allActsQuery.loading} aria-busy={allActsQuery.loading}>
+                  <label htmlFor="date">
+                    Date
+                    <input type="date" id="date" name="date" placeholder="Date" value={format(this.state.start, dateFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
+                  </label>
 
-                      <label htmlFor="time">
-                        Time
-                        <input type="time" id="time" name="time" placeholder={format(addHours(new Date(this.state.start), 20), timeFormat)} value={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
-                      </label>
+                  <label htmlFor="time">
+                    Time
+                    <input type="time" id="time" name="time" placeholder={format(addHours(new Date(this.state.start), 20), timeFormat)} value={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
+                  </label>
 
-                      <label htmlFor="duration">
-                        Duration (minutes)
-                        <input type="number" id="duration" name="duration" placeholder="45" value={this.state.duration} onChange={this.handleChange} />
-                      </label>
+                  <label htmlFor="duration">
+                    Duration (minutes)
+                    <input type="number" id="duration" name="duration" placeholder="45" value={this.state.duration} onChange={this.handleChange} />
+                  </label>
 
-                      <label htmlFor="status">
-                        Status
-                        <select name="status" defaultValue={this.state.status} onChange={this.handleChange}>
-                        { possibleStatus.map(status => <option key={status} value={status}>{status}</option>) }
-                        </select>
-                      </label>
+                  <label htmlFor="status">
+                    Status
+                    <select name="status" defaultValue={this.state.status} onChange={this.handleChange}>
+                      { possibleStatus.map(status => <option key={status} value={status}>{status}</option>) }
+                    </select>
+                  </label>
 
-                      <label>
-                        All Day
-                        <input type="checkbox" id="allday" name="allday" checked={this.state.allDay} onChange={this.handleChange} />
-                      </label>
-                
-                      <label htmlFor="notes">
-                        Notes
-                        {notes}
-                        <button onClick={this.addNoteField}>&#43;</button>
-                      </label>
-                
-                      <label htmlFor="acts">
-                        Select An Act Already In The Database
-                        <select name="select-existing-act" defaultValue="" onChange={this.handleChange}>
-                          <option value="" disabled>Acts</option>
-                          {
-                            data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
-                          }
-                        </select>
-                      </label>
-                      <hr />
-                      <h4>Or Create A New Act</h4>
-                      <hr />
-                      <label htmlFor="name">
-                        Name
-                        <input type="text" id="name" name="name" placeholder="Name" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.name} onChange={this.handleChange}/>
-                      </label>
-                        
-                      <label htmlFor="description">
-                        Description
-                        <textarea id="description" name="description" placeholder="Enter A Description" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.description} onChange={this.handleChange}/>
-                      </label>
-                        
-                      <label htmlFor="email">
-                        Email
-                        <input type="email" id="email" name="email" placeholder="email" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.email} onChange={this.handleChange}/>
-                      </label>
-                        
-                      <label htmlFor="file">
-                        Image
-                        <input type="file" id="file" name="file" disabled={!!this.state.actId} placeholder="Upload an image" onChange={this.uploadFile}/>
-                        {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
-                      </label>
-                        
-                      <button type="submit">Submit</button>
-                    </fieldset>
-                  </Form>      
-                )}
-              </Mutation>
-            )}
-          </Mutation>
-          );
+                  <label>
+                    All Day
+                    <input type="checkbox" id="allday" name="allday" checked={this.state.allDay} onChange={this.handleChange} />
+                  </label>
+
+                  <label htmlFor="notes">
+                    Notes
+                    {notes}
+                    <button onClick={this.addNoteField}>&#43;</button>
+                  </label>
+
+                  <label htmlFor="acts">
+                    Select An Act Already In The Database
+                    <select name="select-existing-act" defaultValue="" onChange={this.handleChange}>
+                      <option value="" disabled>Acts</option>
+                      {
+                        allActsQuery.data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
+                      }
+                    </select>
+                  </label>
+                  <hr />
+                  <h4>Or Create A New Act</h4>
+                  <hr />
+                  <label htmlFor="name">
+                    Name
+                    <input type="text" id="name" name="name" placeholder="Name" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.name} onChange={this.handleChange}/>
+                  </label>
+
+                  <label htmlFor="description">
+                    Description
+                    <textarea id="description" name="description" placeholder="Enter A Description" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.description} onChange={this.handleChange}/>
+                  </label>
+
+                  <label htmlFor="email">
+                    Email
+                    <input type="email" id="email" name="email" placeholder="email" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.email} onChange={this.handleChange}/>
+                  </label>
+
+                  <label htmlFor="file">
+                    Image
+                    <input type="file" id="file" name="file" disabled={!!this.state.actId} placeholder="Upload an image" onChange={this.uploadFile}/>
+                    {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
+                  </label>
+
+                  <button type="submit">Submit</button>
+                  </fieldset>
+                </Form> 
+                </div>     
+          )
         }}
-      </Query>
+      </Composed>
     );
   }
 }

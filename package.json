@@ -38,6 +38,7 @@
     "react-datetime-picker": "^2.1.1",
     "react-dom": "^16.5.2",
     "react-modal": "^3.8.1",
+    "react-spring": "^7.2.10",
     "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^2.5.0",
     "react-vis": "^1.11.6",

@@ -3,7 +3,7 @@ import Calendar from 'react-big-calendar';
 import { Query, Mutation } from 'react-apollo';
 import Router from 'next/router';
 import { adopt } from 'react-adopt';
-import gql from 'graphql-tag';
+import { Spring } from 'react-spring';
 import moment from 'moment';
 import {format} from 'date-fns';
 import CustomEvent from './CustomEvent';
@@ -23,6 +23,7 @@ const Composed = adopt({
   allEvents: ({ render }) => <Query query={queries.ALL_EVENTS_QUERY}>{render}</Query>,
   toggleModal: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
   localState: ({ render }) => <Query query={queries.LOCAL_STATE_QUERY}>{render}</Query>,
+  spring: ({render}) => <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>{render}</Spring>,
 });
 
 class BigCalendar extends Component {
@@ -112,12 +113,13 @@ class BigCalendar extends Component {
   render() {
     return (
       <Composed updates={this.state} updateCache={this.updateCache}>
-        {({ moveEvent, allEvents, toggleModal, localState }) => {
+        {({ moveEvent, allEvents, toggleModal, localState, spring }) => {
           if (allEvents.loading) return <p>Loading...</p>
           if (allEvents.error) return <p>Error: {allEvents.error.message}</p>
           return (
             <>
             {localState.data.modalOpen && <QuickUpdate event={this.state.event}/>}
+            <div style={spring}>
             <StyledBigCal>
                 <DnDCalendar
                   events={allEvents.data.events}
@@ -142,6 +144,7 @@ class BigCalendar extends Component {
                   components={{ event: CustomEvent }}
                 />
             </StyledBigCal>
+            </div>
             </>
           )
         }

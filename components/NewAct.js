@@ -1,32 +1,18 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { adopt } from 'react-adopt';
+import { Spring } from 'react-spring'
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
+import * as mutations from './globals/mutations/mutations';
 // import { ALL_EVENTS_QUERY } from './Calendar'; 
 
-const CREATE_ACT_MUTATION = gql`
-  mutation CREATE_ACT_MUTATION(
-      $name: String!
-      $description: String
-      $image: String
-      $largeImage: String
-      $email: String
-      $notes: [String!]
-  ) {
-    createAct(
-      name: $name
-      description: $description
-      image: $image
-      largeImage: $largeImage
-      email: $email
-      notes: $notes
-    ) {
-      id
-    }
-  }
-`;
+const Composed = adopt({
+  createAct: ({updates, render}) => <Mutation mutation={mutations.CREATE_ACT_MUTATION} variables={updates}>{render}</Mutation>,
+  spring: ({render}) => <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>{render}</Spring>,
+})
 
 
 class CreateAct extends Component {
@@ -101,53 +87,55 @@ class CreateAct extends Component {
       return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
     })
     return (
-      <Mutation mutation={CREATE_ACT_MUTATION} variables={this.state}>
-        {(createEvent, { loading, error, called, data }) => (
-          <Form onSubmit={ async (e) => {
-            e.preventDefault();
-            const res = await createEvent();
-            Router.push({
-              pathname: '/'
-            })
-          }}>
-            <Error error={error} />
-            <h2>Create A New Act</h2>
-            <fieldset disabled={loading} aria-busy={loading}>
-              <label htmlFor="file">
-                Image
-                <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
-                {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
-              </label>
-            
-              <label htmlFor="name">
-                Name
-                <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
-              </label>
-        
-              <label htmlFor="description">
-                Description
-                <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
-              </label>
-        
-              <label htmlFor="email">
-                Email
-                <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
-              </label>
+      <Composed updates={this.state}>
+        {({createAct, spring} ) => (
+          <div style={spring}>
+            <Form onSubmit={ async (e) => {
+              e.preventDefault();
+              const res = await createAct();
+              Router.push({
+                pathname: '/'
+              })
+            }}>
+              <Error error={createAct.error} />
+              <h2>Create A New Act</h2>
+              <fieldset disabled={createAct.loading} aria-busy={createAct.loading}>
+                <label htmlFor="file">
+                  Image
+                  <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
+                  {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
+                </label>
 
-              <label htmlFor="notes">
-                Notes
-                {notes}
-                <button onClick={this.addNoteField}>&#43;</button>
-              </label>
+                <label htmlFor="name">
+                  Name
+                  <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
+                </label>
+          
+                <label htmlFor="description">
+                  Description
+                  <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
+                </label>
+          
+                <label htmlFor="email">
+                  Email
+                  <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
+                </label>
 
-              <button type="submit">Submit</button>
-            </fieldset>
-          </Form>      
+                <label htmlFor="notes">
+                  Notes
+                  {notes}
+                  <button onClick={this.addNoteField}>&#43;</button>
+                </label>
+
+                <button type="submit">Submit</button>
+              </fieldset>
+            </Form>  
+          </div>    
         )}
-      </Mutation>
+      </Composed>
     );
   }
 }
 
-export { CREATE_ACT_MUTATION };
+
 export default CreateAct;

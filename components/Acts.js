@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Query} from 'react-apollo';
+import { adopt } from 'react-adopt';
+import { Spring } from 'react-spring';
 import styled from 'styled-components';
 import Act from './Act';
 import Error from './ErrorMessage';
@@ -20,22 +22,29 @@ const ActsList = styled.div`
   margin: 0 auto;
 `;
 
+const Composed = adopt({
+  allActs: ({skip, render}) => <Query query={queries.ALL_ACTS_QUERY_PAGINATION} variables={skip}>{render}</Query>,
+  spring: ({render}) => <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>{render}</Spring>,
+})
+
 class Acts extends Component {
   
   render() {
     return (
       <Center>
         <Pagination page={this.props.page}/>
-        <Query query={queries.ALL_ACTS_QUERY_PAGINATION} variables={{skip: this.props.page*perPage-perPage}}>
-          {({error, loading, data}) => {
-            if (error) return <Error error={error} />
-            if (loading) return <p>Loading</p>
-            const acts = data.acts;
+        <Composed skip={{skip: this.props.page*perPage-perPage}}>
+          {({allActs, spring}) => {
+            if (allActs.error) return <Error error={allActs.error} />
+            if (allActs.loading) return <p>Loading</p>
+            const acts = allActs.data.acts;
             return (
-              <ActsList>{acts.map(act => <Act act={act} key={act.id} />)}</ActsList>
+              <div style={spring}>
+                <ActsList>{acts.map(act => <Act act={act} key={act.id} />)}</ActsList>
+              </div>
             )
           }}
-        </Query>
+        </Composed>
         <Pagination page={this.props.page}/>
       </Center>
     );

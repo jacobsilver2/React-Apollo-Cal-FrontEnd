@@ -64,6 +64,7 @@ export const ALL_ACTS_QUERY = gql`
     }
   }
 `;
+
 export const ALL_ACTS_QUERY_PAGINATION = gql`
   query ALL_ACTS_QUERY($skip: Int=0, $first: Int=${perPage}) {
     acts(first: $first, skip: $skip, orderBy: name_ASC) {

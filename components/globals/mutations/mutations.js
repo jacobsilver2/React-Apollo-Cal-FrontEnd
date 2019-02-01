@@ -134,3 +134,25 @@ export const CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = gql`
     }
   }
 `;
+
+export const CREATE_ACT_MUTATION = gql`
+  mutation CREATE_ACT_MUTATION(
+      $name: String!
+      $description: String
+      $image: String
+      $largeImage: String
+      $email: String
+      $notes: [String!]
+  ) {
+    createAct(
+      name: $name
+      description: $description
+      image: $image
+      largeImage: $largeImage
+      email: $email
+      notes: $notes
+    ) {
+      id
+    }
+  }
+`;
