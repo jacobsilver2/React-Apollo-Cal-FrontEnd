@@ -19,7 +19,7 @@ const DnDCalendar = withDragAndDrop(Calendar);
 
 
 const Composed = adopt({
-  moveEvent: ({ updates, updateCache, render }) => <Mutation mutation={mutations.MOVE_EVENT_MUTATION} variables={updates} update={updateCache}>{render}</Mutation>,
+  moveEvent: ({ updates, updateCache, render }) => <Mutation mutation={mutations.MOVE_EVENT_MUTATION} variables={updates} update={updateCache} optimisticResponse={{ __typename: 'Mutation', moveEvent: {start: updates.start, end: updates.end, id: updates.id, __typename: 'Event'} }}>{render}</Mutation>,
   allEvents: ({ render }) => <Query query={queries.ALL_EVENTS_QUERY}>{render}</Query>,
   toggleModal: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
   localState: ({ render }) => <Query query={queries.LOCAL_STATE_QUERY}>{render}</Query>,
