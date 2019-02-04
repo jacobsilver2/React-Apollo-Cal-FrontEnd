@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PaginationStyles = styled.div`
+const ActsViewPickerStyles = styled.div`
   text-align: center;
   display: inline-grid;
   grid-template-columns: repeat(4, auto);
@@ -22,7 +22,13 @@ const PaginationStyles = styled.div`
     color: grey;
     pointer-events: none;
   }
+  .btn-grp{
+    .active {
+      background-color: ${props => props.theme.mainColor};
+    }
+
+  }
 
 `;
 
-export default PaginationStyles;
+export default ActsViewPickerStyles;

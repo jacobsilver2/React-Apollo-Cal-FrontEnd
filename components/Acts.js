@@ -3,7 +3,7 @@ import {Query} from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring';
 import styled from 'styled-components';
-import Act from './Act';
+import ActCard from './ActCard';
 import Error from './ErrorMessage';
 import * as queries from './globals/queries/queries';
 import Pagination from './Pagination';
@@ -15,9 +15,17 @@ const Center = styled.div`
   text-align: center;
 `;
 
-const ActsList = styled.div`
+const ActsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+`;
+
+const ActsList = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
   grid-gap: 30px;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
@@ -30,7 +38,7 @@ const Composed = adopt({
 
 class Acts extends Component {
   state = {
-    viewAs: 'block',
+    viewAs: 'grid',
   };
 
   handleChangeView = view => {
@@ -41,7 +49,7 @@ class Acts extends Component {
     return (
       <>
         <Center>
-        <ViewPicker changeView={this.handleChangeView} />
+        <ViewPicker changeView={this.handleChangeView} activeView={this.state.viewAs}/>
           <Pagination page={this.props.page}/>
           <Composed skip={{skip: this.props.page*perPage-perPage}}>
             {({allActs, spring}) => {
@@ -50,7 +58,8 @@ class Acts extends Component {
               const acts = allActs.data.acts;
               return (
                 <div style={spring}>
-                  <ActsList>{acts.map(act => <Act act={act} key={act.id} />)}</ActsList>
+                  {this.state.viewAs === 'grid' && <ActsGrid>{acts.map(act => <ActCard act={act} key={act.id} view={this.state.viewAs}/>)}</ActsGrid>}
+                  {this.state.viewAs === 'list' && <ActsList>{acts.map(act => <ActCard act={act} key={act.id} view={this.state.viewAs}/>)}</ActsList>}
                 </div>
               )
             }}

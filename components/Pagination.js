@@ -17,12 +17,12 @@ const Pagination = (props) => (
             <Head>
               <title>page {props.page} of {pages}</title>
             </Head>
-            <Link className='prev' prefetch href={{pathname: 'acts', query: {page: props.page - 1}}}>
+            <Link  prefetch href={{pathname: 'acts', query: {page: props.page - 1}}}>
               <a aria-disabled={props.page <= 1}>⬅️ Prev</a>
             </Link>
             <p>Page {props.page} of {pages}</p> 
             <p>{count} acts</p>
-            <Link className='next' prefetch href={{pathname: 'acts', query: {page: props.page + 1}}}>
+            <Link  prefetch href={{pathname: 'acts', query: {page: props.page + 1}}}>
               <a aria-disabled={props.page >= pages}>➡️ Next</a>
             </Link>
           </PaginationStyles>
