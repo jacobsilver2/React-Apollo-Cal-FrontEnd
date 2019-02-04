@@ -9,7 +9,6 @@ const Olay = styled.div`
 
 const Overlay = () => (
   <Olay />
-  
 );
 
 export default Overlay;

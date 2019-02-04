@@ -19,7 +19,7 @@ const SidebarStyles = styled.div`
   grid-template-rows: auto 1fr auto;
   width: 7%;
   &:hover {
-    width:20%;
+    width:15%;
   };
   header {
     border-bottom: 5px solid ${props => props.theme.black};

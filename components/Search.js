@@ -2,28 +2,11 @@ import React, { Component } from 'react';
 import Downshift, {resetIdCounter} from 'downshift';
 import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
-import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
+import {SEARCH_ACTS_QUERY} from './globals/queries/queries';
 
-const SEARCH_ACTS_QUERY = gql`
-  query SEARCH_ACTS_QUERY($searchTerm: String!) {
-    acts(where: {
-      OR: [
-        {name_contains: $searchTerm},
-        {description_contains: $searchTerm},
-      ] }) 
-      {
-        id 
-        name
-        image
-        event{
-          id
-          start
-        }
-      }
-  }
-`;
+
 
 function routeToAct(act) {
   Router.push({

@@ -8,6 +8,7 @@ import Error from './ErrorMessage';
 import * as queries from './globals/queries/queries';
 import Pagination from './Pagination';
 import { perPage } from '../config';
+import ViewPicker from './ActsViewPicker';
 
 
 const Center = styled.div`
@@ -16,7 +17,7 @@ const Center = styled.div`
 
 const ActsList = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
@@ -28,25 +29,35 @@ const Composed = adopt({
 })
 
 class Acts extends Component {
-  
+  state = {
+    viewAs: 'block',
+  };
+
+  handleChangeView = view => {
+    this.setState({ viewAs: view });
+  }
+
   render() {
     return (
-      <Center>
-        <Pagination page={this.props.page}/>
-        <Composed skip={{skip: this.props.page*perPage-perPage}}>
-          {({allActs, spring}) => {
-            if (allActs.error) return <Error error={allActs.error} />
-            if (allActs.loading) return <p>Loading</p>
-            const acts = allActs.data.acts;
-            return (
-              <div style={spring}>
-                <ActsList>{acts.map(act => <Act act={act} key={act.id} />)}</ActsList>
-              </div>
-            )
-          }}
-        </Composed>
-        <Pagination page={this.props.page}/>
-      </Center>
+      <>
+        <Center>
+        <ViewPicker changeView={this.handleChangeView} />
+          <Pagination page={this.props.page}/>
+          <Composed skip={{skip: this.props.page*perPage-perPage}}>
+            {({allActs, spring}) => {
+              if (allActs.error) return <Error error={allActs.error} />
+              if (allActs.loading) return <p>Loading</p>
+              const acts = allActs.data.acts;
+              return (
+                <div style={spring}>
+                  <ActsList>{acts.map(act => <Act act={act} key={act.id} />)}</ActsList>
+                </div>
+              )
+            }}
+          </Composed>
+          <Pagination page={this.props.page}/>
+        </Center>
+      </>
     );
   }
 }

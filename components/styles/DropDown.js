@@ -2,7 +2,8 @@ import styled, { keyframes } from 'styled-components';
 
 const DropDown = styled.div`
   position: absolute;
-  width: 100%;
+  text-align: right;
+  width: 50%;
   z-index: 2;
   border: 1px solid ${props => props.theme.lightgrey};
 `;
@@ -14,6 +15,7 @@ const DropDownItem = styled.div`
   transition: all 0.2s;
   ${props => (props.highlighted ? 'padding-left: 2rem;' : null)};
   display: flex;
+  text-align: right;
   align-items: center;
   border-left: 10px solid ${props => (props.highlighted ? props.theme.lightgrey : 'white')};
   img {
@@ -33,8 +35,11 @@ const glow = keyframes`
 
 const SearchStyles = styled.div`
   position: relative;
+  text-align: right;
+  
   input {
-    width: 100%;
+    text-align: right;
+    width: 50%;
     padding: 10px;
     border: 0;
     font-size: 2rem;

@@ -100,6 +100,42 @@ export const PAGINATION_QUERY = gql`
   }
 `;
 
+export const SEARCH_ACTS_QUERY = gql`
+  query SEARCH_ACTS_QUERY($searchTerm: String!) {
+    acts(where: {
+      OR: [
+        {name_contains: $searchTerm},
+        {description_contains: $searchTerm},
+      ] }) 
+      {
+        id 
+        name
+        image
+        event{
+          id
+          start
+        }
+      }
+  }
+`;
 
 
+export const SINGLE_ACT_QUERY = gql`
+  query SINGLE_ACT_QUERY($id: ID!) {
+    act(where: { id: $id }) {
+      id
+      name
+      description
+      image
+      email
+      notes
+      event{
+        id
+        start
+        allDay
+        draw
+      }
+    }
+  }
+`;
 
