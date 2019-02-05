@@ -13,6 +13,8 @@ const loading = keyframes`
 `;
 
 const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
   border: 5px solid white;
@@ -33,18 +35,17 @@ const Form = styled.form`
     border: 1px solid black;
     &:focus {
       outline: 0;
-      border-color: ${props => props.theme.red};
+      border-color: ${props => props.theme.mainColor};
     }
   }
-  button,
   input[type='submit'] {
     width: auto;
-    background: red;
+    background: ${props => props.theme.mainColor};
     color: white;
     border: 0;
     font-size: 2rem;
     font-weight: 600;
-    padding: 0.5rem 1.2rem;
+    padding: 0.5rem 1.0rem;
   }
   fieldset {
     border: 0;
@@ -64,6 +65,10 @@ const Form = styled.form`
       animation: ${loading} 0.5s linear infinite;
     }
   }
+
+
+
+
 `;
 
 export default Form;

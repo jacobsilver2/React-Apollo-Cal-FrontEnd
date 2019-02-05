@@ -2,7 +2,7 @@ import AllActs from '../components/Acts';
 
 const Acts = (props) => (
   <div>
-    <AllActs />
+    <AllActs page={parseFloat(props.query.page) || 1}/>
   </div>
 );
 

@@ -29,7 +29,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
+=======
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -415,7 +419,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
+=======
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -523,7 +531,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
+=======
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 
 
@@ -678,6 +690,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-adopt */ "./node_modules/react-adopt/dist/index.m.js");
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
+<<<<<<< HEAD
 /* harmony import */ var _styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/QuickUpdateStyles */ "./components/styles/QuickUpdateStyles.js");
 /* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
@@ -691,6 +704,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
 
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate.js";
+=======
+/* harmony import */ var _Portal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Portal */ "./components/Portal.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
+/* harmony import */ var _styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/QuickUpdateStyles */ "./components/styles/QuickUpdateStyles.js");
+/* harmony import */ var _styles_OverlayStyled__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/OverlayStyled */ "./components/styles/OverlayStyled.js");
+/* harmony import */ var _styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/QuickUpdateFormStyles */ "./components/styles/QuickUpdateFormStyles.js");
+/* harmony import */ var _styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./styles/DeleteButtonStyles */ "./components/styles/DeleteButtonStyles.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
+/* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
+
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate.js";
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -741,14 +771,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   allActs: function allActs(_ref) {
     var render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
+<<<<<<< HEAD
       query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_ACTS_QUERY"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 18
+=======
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_14__["ALL_ACTS_QUERY"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
       },
       __self: this
     }, render);
@@ -757,6 +798,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
     var updates = _ref2.updates,
         render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+<<<<<<< HEAD
       mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["UPDATE_EVENT_MUTATION"],
       variables: updates,
       refetchQueries: [{
@@ -765,6 +807,16 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
       __source: {
         fileName: _jsxFileName,
         lineNumber: 19
+=======
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["UPDATE_EVENT_MUTATION"],
+      variables: updates,
+      refetchQueries: [{
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_14__["ALL_EVENTS_QUERY"]
+      }],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
       },
       __self: this
     }, render);
@@ -772,10 +824,17 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   toggleModalMutation: function toggleModalMutation(_ref3) {
     var render = _ref3.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+<<<<<<< HEAD
       mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["TOGGLE_MODAL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
+=======
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["TOGGLE_MODAL_MUTATION"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
       },
       __self: this
     }, render);
@@ -1024,6 +1083,19 @@ function (_Component) {
       };
     }());
 
+<<<<<<< HEAD
+=======
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleAutomationClick", function (id, toggleModal) {
+      toggleModal();
+      next_router__WEBPACK_IMPORTED_MODULE_6___default.a.push({
+        pathname: '/automations',
+        query: {
+          id: encodeURIComponent(id)
+        }
+      });
+    });
+
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
     return _this;
   }
 
@@ -1034,10 +1106,17 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Composed, {
         singleEventId: this.props.id,
+<<<<<<< HEAD
         updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__["updateCache"],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 126
+=======
+        updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_15__["updateCache"],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 136
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
         },
         __self: this
       }, function (_ref6) {
@@ -1059,7 +1138,11 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
+<<<<<<< HEAD
                 lineNumber: 133
+=======
+                lineNumber: 143
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1071,16 +1154,27 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
+<<<<<<< HEAD
                 lineNumber: 133
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
+=======
+                lineNumber: 143
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               onClick: function onClick(e) {
                 return _this2.handleDeleteNote(e, index);
               },
               __source: {
                 fileName: _jsxFileName,
+<<<<<<< HEAD
                 lineNumber: 133
+=======
+                lineNumber: 143
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               },
               __self: this
             }, "-"));
@@ -1091,7 +1185,11 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
+<<<<<<< HEAD
                 lineNumber: 135
+=======
+                lineNumber: 145
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1104,16 +1202,27 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
+<<<<<<< HEAD
                 lineNumber: 135
               },
               __self: this
             }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
+=======
+                lineNumber: 145
+              },
+              __self: this
+            }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               onClick: function onClick(e) {
                 return _this2.handleDeleteNote(e, index, event.notes);
               },
               __source: {
                 fileName: _jsxFileName,
+<<<<<<< HEAD
                 lineNumber: 135
+=======
+                lineNumber: 145
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               },
               __self: this
             }, "-"));
@@ -1126,11 +1235,16 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
+<<<<<<< HEAD
               lineNumber: 137
+=======
+              lineNumber: 147
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
             },
             __self: this
           }, act.name);
         }) : null;
+<<<<<<< HEAD
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Portal__WEBPACK_IMPORTED_MODULE_8__["Portal"], {
           selector: "#modal",
           __source: {
@@ -1155,22 +1269,59 @@ function (_Component) {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 142
+=======
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Portal__WEBPACK_IMPORTED_MODULE_5__["Portal"], {
+          selector: "#modal",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 149
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_OverlayStyled__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 150
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 151
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          onClick: toggleModalMutation,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 152
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "X"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 143
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_10__["default"], {
+=======
+            lineNumber: 153
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           onSubmit: function onSubmit(e) {
             return _this2.updateEvent(e, updateEventMutation, toggleModalMutation);
           },
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 144
+=======
+            lineNumber: 154
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -1178,20 +1329,32 @@ function (_Component) {
           "aria-busy": updateEventMutation.loading,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 145
+=======
+            lineNumber: 155
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 146
+=======
+            lineNumber: 156
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "date",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 147
+=======
+            lineNumber: 157
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1204,14 +1367,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 149
+=======
+            lineNumber: 159
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "time",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 152
+=======
+            lineNumber: 162
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1224,14 +1395,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 154
+=======
+            lineNumber: 164
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "duration",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 157
+=======
+            lineNumber: 167
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1242,14 +1421,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 159
+=======
+            lineNumber: 169
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "status",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 162
+=======
+            lineNumber: 172
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1258,16 +1445,27 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 164
           },
           __self: this
         }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__["possibleStatus"].map(function (status) {
+=======
+            lineNumber: 174
+          },
+          __self: this
+        }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_16__["possibleStatus"].map(function (status) {
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
             key: status,
             value: status,
             __source: {
               fileName: _jsxFileName,
+<<<<<<< HEAD
               lineNumber: 165
+=======
+              lineNumber: 175
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
             },
             __self: this
           }, status);
@@ -1275,7 +1473,11 @@ function (_Component) {
           htmlFor: "allDay",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 169
+=======
+            lineNumber: 179
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1286,14 +1488,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 171
+=======
+            lineNumber: 181
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "draw",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 174
+=======
+            lineNumber: 184
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1304,22 +1514,34 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 176
+=======
+            lineNumber: 186
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "notes",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 179
           },
           __self: this
         }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
+=======
+            lineNumber: 189
+          },
+          __self: this
+        }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           onClick: function onClick(e) {
             return _this2.addNoteField(e, _this2.state.notes ? null : event.notes);
           },
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 182
           },
           __self: this
@@ -1327,25 +1549,62 @@ function (_Component) {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 187
+=======
+            lineNumber: 192
+          },
+          __self: this
+        }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "automations",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 195
+          },
+          __self: this
+        }, "Automations", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this2.handleAutomationClick(event.id, toggleModalMutation);
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 197
+          },
+          __self: this
+        }, "CLICK HERE TO CREATE AUTOMATIONS"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 202
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 188
+=======
+            lineNumber: 203
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 189
+=======
+            lineNumber: 204
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "name",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 190
+=======
+            lineNumber: 205
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1356,14 +1615,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 192
+=======
+            lineNumber: 207
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 194
+=======
+            lineNumber: 209
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1374,14 +1641,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 196
+=======
+            lineNumber: 211
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 199
+=======
+            lineNumber: 214
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1392,14 +1667,22 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 201
+=======
+            lineNumber: 216
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "image",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 204
+=======
+            lineNumber: 219
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1410,7 +1693,11 @@ function (_Component) {
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 206
+=======
+            lineNumber: 221
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -1419,31 +1706,51 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 208
+=======
+            lineNumber: 223
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 210
+=======
+            lineNumber: 225
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 213
+=======
+            lineNumber: 228
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 214
+=======
+            lineNumber: 229
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 215
+=======
+            lineNumber: 230
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1451,7 +1758,11 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 216
+=======
+            lineNumber: 231
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
@@ -1459,32 +1770,52 @@ function (_Component) {
           disabled: true,
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 217
+=======
+            lineNumber: 232
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 222
+=======
+            lineNumber: 237
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 223
+=======
+            lineNumber: 238
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 224
+=======
+            lineNumber: 239
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
+<<<<<<< HEAD
             lineNumber: 225
+=======
+            lineNumber: 240
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))))));
@@ -1521,7 +1852,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined,
+<<<<<<< HEAD
     _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
+=======
+    _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 
 
@@ -1671,7 +2006,11 @@ function () {
 /*!***************************************************!*\
   !*** ./components/globals/mutations/mutations.js ***!
   \***************************************************/
+<<<<<<< HEAD
 /*! exports provided: TOGGLE_MODAL_MUTATION, UPDATE_EVENT_MUTATION, MOVE_EVENT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_ACT_MUTATION */
+=======
+/*! exports provided: TOGGLE_MODAL_MUTATION, UPDATE_EVENT_MUTATION, MOVE_EVENT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_ACT_MUTATION, CREATE_EMAIL_MUTATION */
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1682,8 +2021,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_WITH_NEW_ACT_MUTATION", function() { return CREATE_EVENT_WITH_NEW_ACT_MUTATION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_WITH_EXISTING_ACT_MUTATION", function() { return CREATE_EVENT_WITH_EXISTING_ACT_MUTATION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ACT_MUTATION", function() { return CREATE_ACT_MUTATION; });
+<<<<<<< HEAD
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EMAIL_MUTATION", function() { return CREATE_EMAIL_MUTATION; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n  mutation CREATE_EMAIL_MUTATION($from: String!, $to: String!, $subject: String!, $message: String!)\n    {createEmail(\n      from: $from\n      to: $to\n      subject: $subject\n      message: $message\n    ){\n      message\n    }\n  }   \n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 function _templateObject6() {
   var data = _taggedTemplateLiteral(["\n  mutation CREATE_ACT_MUTATION(\n      $name: String!\n      $description: String\n      $image: String\n      $largeImage: String\n      $email: String\n      $notes: [String!]\n  ) {\n    createAct(\n      name: $name\n      description: $description\n      image: $image\n      largeImage: $largeImage\n      email: $email\n      notes: $notes\n    ) {\n      id\n    }\n  }\n"]);
 
@@ -1753,6 +2108,10 @@ var MOVE_EVENT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_te
 var CREATE_EVENT_WITH_NEW_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4());
 var CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
 var CREATE_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
+<<<<<<< HEAD
+=======
+var CREATE_EMAIL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 /***/ }),
 
@@ -1760,7 +2119,11 @@ var CREATE_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_te
 /*!***********************************************!*\
   !*** ./components/globals/queries/queries.js ***!
   \***********************************************/
+<<<<<<< HEAD
 /*! exports provided: ALL_EVENTS_QUERY, SINGLE_EVENT_QUERY, ALL_ACTS_QUERY, ALL_ACTS_QUERY_PAGINATION, LOCAL_STATE_QUERY, PAGINATION_QUERY, SEARCH_ACTS_QUERY, SINGLE_ACT_QUERY */
+=======
+/*! exports provided: ALL_EVENTS_QUERY, SINGLE_EVENT_QUERY, ALL_ACTS_QUERY, ALL_ACTS_QUERY_PAGINATION, LOCAL_STATE_QUERY, PAGINATION_QUERY, SEARCH_ACTS_QUERY, SINGLE_ACT_QUERY, CURRENT_USER_QUERY */
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1773,9 +2136,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PAGINATION_QUERY", function() { return PAGINATION_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_ACTS_QUERY", function() { return SEARCH_ACTS_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SINGLE_ACT_QUERY", function() { return SINGLE_ACT_QUERY; });
+<<<<<<< HEAD
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../config */ "./config.js");
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENT_USER_QUERY", function() { return CURRENT_USER_QUERY; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../config */ "./config.js");
+function _templateObject9() {
+  var data = _taggedTemplateLiteral(["\n  query {\n    me{\n      id\n      email\n      name\n      permissions\n    }\n  }\n"]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 function _templateObject8() {
   var data = _taggedTemplateLiteral(["\n  query SINGLE_ACT_QUERY($id: ID!) {\n    act(where: { id: $id }) {\n      id\n      name\n      description\n      image\n      email\n      notes\n      event{\n        id\n        start\n        allDay\n        draw\n      }\n    }\n  }\n"]);
 
@@ -1868,6 +2248,10 @@ var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_temp
 var PAGINATION_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
 var SEARCH_ACTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
 var SINGLE_ACT_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject8());
+<<<<<<< HEAD
+=======
+var CURRENT_USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject9());
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 /***/ }),
 
@@ -1935,10 +2319,17 @@ var DeleteButtonStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./components/styles/Form.js":
 /*!***********************************!*\
   !*** ./components/styles/Form.js ***!
   \***********************************/
+=======
+/***/ "./components/styles/OverlayStyled.js":
+/*!********************************************!*\
+  !*** ./components/styles/OverlayStyled.js ***!
+  \********************************************/
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1946,6 +2337,7 @@ var DeleteButtonStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
+<<<<<<< HEAD
 var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{background-position:0 0;}to{background-position:100% 100%;}"]);
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].form.withConfig({
   displayName: "Form",
@@ -1963,6 +2355,20 @@ var Form = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].form.withCo
 /*!********************************************!*\
   !*** ./components/styles/OverlayStyled.js ***!
   \********************************************/
+=======
+var OverlayedStyled = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  displayName: "OverlayStyled__OverlayedStyled",
+  componentId: "sc-12gv6z4-0"
+})(["z-index:10;position:fixed;background-color:rgba(0,0,0,0.7);top:0;right:0;bottom:0;left:0;"]);
+/* harmony default export */ __webpack_exports__["default"] = (OverlayedStyled);
+
+/***/ }),
+
+/***/ "./components/styles/QuickUpdateFormStyles.js":
+/*!****************************************************!*\
+  !*** ./components/styles/QuickUpdateFormStyles.js ***!
+  \****************************************************/
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1970,11 +2376,24 @@ var Form = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].form.withCo
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
+<<<<<<< HEAD
 var OverlayedStyled = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "OverlayStyled__OverlayedStyled",
   componentId: "sc-12gv6z4-0"
 })(["z-index:10;position:fixed;background-color:rgba(0,0,0,0.7);top:0;right:0;bottom:0;left:0;"]);
 /* harmony default export */ __webpack_exports__["default"] = (OverlayedStyled);
+=======
+var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{background-position:0 0;}to{background-position:100% 100%;}"]);
+var Form = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].form.withConfig({
+  displayName: "QuickUpdateFormStyles__Form",
+  componentId: "sc-1s7v8rz-0"
+})(["display:grid;grid-template-columns:1fr 1fr 1fr 1fr;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding:0.5rem;font-size:1rem;border:1px solid black;&:focus{outline:0;border-color:", ";}}input[type='submit']{width:auto;background:", ";color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.0rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;content:'';display:block;background-image:linear-gradient(to right,#ff3019 0%,#e2b04a 50%,#ff3019 100%);}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], function (props) {
+  return props.theme.mainColor;
+}, function (props) {
+  return props.theme.mainColor;
+}, loading);
+/* harmony default export */ __webpack_exports__["default"] = (Form);
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 /***/ }),
 
@@ -82782,7 +83201,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_BigCalendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/BigCalendar */ "./components/BigCalendar.js");
+<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
+=======
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
+>>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 
 
