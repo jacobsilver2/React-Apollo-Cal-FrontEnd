@@ -156,3 +156,16 @@ export const CREATE_ACT_MUTATION = gql`
     }
   }
 `;
+
+export const CREATE_EMAIL_MUTATION = gql`
+  mutation CREATE_EMAIL_MUTATION($from: String!, $to: String!, $subject: String!, $message: String!)
+    {createEmail(
+      from: $from
+      to: $to
+      subject: $subject
+      message: $message
+    ){
+      message
+    }
+  }   
+`
