@@ -3,6 +3,7 @@ import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { format, differenceInMinutes, addMinutes } from 'date-fns';
 import { Portal } from './Portal'
+import Router from 'next/router';
 
 import Error from './ErrorMessage';
 import Closebutton from './styles/CloseButton';
@@ -121,6 +122,13 @@ class QuickUpdate extends Component {
     await closeModal();
   }
 
+  handleAutomationClick = (id) => {
+    Router.push({
+      pathname: '/automations',
+      query: {id: encodeURIComponent(id)}
+    })
+  }
+
 
   render() {
     return (
@@ -181,6 +189,11 @@ class QuickUpdate extends Component {
                         Notes
                             {notes}
                         <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : event.notes)}>&#43;</Button>
+                      </label>
+
+                      <label htmlFor="automations">
+                        Automations
+                        <button onClick={() => this.handleAutomationClick(event.id)}>CLICK HERE TO CREATE AUTOMATIONS</button>
                       </label>
 
                     </fieldset>
