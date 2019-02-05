@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { format, differenceInMinutes, addMinutes } from 'date-fns';
-import QuickUpdateStyled from './styles/QuickUpdateStyles';
-import Closebutton from './styles/CloseButton';
-import Error from './ErrorMessage';
 import { Portal } from './Portal'
+
+import Error from './ErrorMessage';
+import Closebutton from './styles/CloseButton';
+import QuickUpdateStyled from './styles/QuickUpdateStyles';
 import OverlayStyled from './styles/OverlayStyled';
-import Form from './styles/Form';
+import Form from './styles/QuickUpdateFormStyles';
 import Button from './styles/DeleteButtonStyles';
 import * as mutations from './globals/mutations/mutations';
 import * as queries from './globals/queries/queries';
