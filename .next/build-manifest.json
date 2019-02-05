@@ -10,6 +10,7 @@
     "/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+<<<<<<< HEAD
     ],
     "/automations": [
       "static/runtime/webpack.js",
@@ -22,6 +23,8 @@
     "/": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+=======
+>>>>>>> b5043c0f3f356062c0c3cb978a5963f39623dbb6
     ]
   }
 }

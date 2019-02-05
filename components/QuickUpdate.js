@@ -122,10 +122,11 @@ class QuickUpdate extends Component {
     await closeModal();
   }
 
-  handleAutomationClick = (id) => {
+  handleAutomationClick = (id, toggleModal) => {
+    toggleModal();
     Router.push({
       pathname: '/automations',
-      query: {id: encodeURIComponent(id)}
+      query: {id: encodeURIComponent(id)} 
     })
   }
 
@@ -193,7 +194,7 @@ class QuickUpdate extends Component {
 
                       <label htmlFor="automations">
                         Automations
-                        <button onClick={() => this.handleAutomationClick(event.id)}>CLICK HERE TO CREATE AUTOMATIONS</button>
+                        <button onClick={() => this.handleAutomationClick(event.id, toggleModalMutation)}>CLICK HERE TO CREATE AUTOMATIONS</button>
                       </label>
 
                     </fieldset>
