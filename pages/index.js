@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Calendar from '../components/Calendar';
+import Calendar from '../components/BigCalendar';
 
 const Home = () => (
   <div>

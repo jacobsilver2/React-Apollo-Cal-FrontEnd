@@ -93,469 +93,36 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./components/Calendar.js":
-/*!********************************!*\
-  !*** ./components/Calendar.js ***!
-  \********************************/
-/*! exports provided: ALL_EVENTS_QUERY, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_EVENTS_QUERY", function() { return ALL_EVENTS_QUERY; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/CalendarStyles */ "./components/styles/CalendarStyles.js");
-/* harmony import */ var _CalendarEvent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CalendarEvent */ "./components/CalendarEvent.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Calendar.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_EVENTS_QUERY {\n    events {\n      id\n      title\n      description\n      image\n      largeImage\n      date\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-
-
-
-
-
-var ALL_EVENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
-
-var Calendar =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Calendar, _Component);
-
-  function Calendar() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Calendar);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Calendar)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      currentMonth: new Date(),
-      selectedDate: new Date()
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "createNewEvent", function () {
-      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
-        pathname: '/newCalEvent'
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderHeader", function () {
-      var dateFormat = 'MMMM YYYY';
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header row flex-middle",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col col-start",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon",
-        onClick: _this.prevMonth,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
-      }, "chevron_left")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col col-center",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 43
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 44
-        },
-        __self: this
-      }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this.state.currentMonth, dateFormat, {
-        awareOfUnicodeTokens: true
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col col-end",
-        onClick: _this.nextMonth,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 48
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "icon",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 49
-        },
-        __self: this
-      }, "chevron_right")));
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderDays", function () {
-      var dateFormat = 'EEEE';
-      var days = [];
-      var startDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["startOfWeek"])(_this.state.currentMonth);
-
-      for (var i = 0; i < 7; i++) {
-        days.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col col-center",
-          key: i,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 64
-          },
-          __self: this
-        }, Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addDays"])(startDate, i), dateFormat, {
-          awareOfUnicodeTokens: true
-        })));
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "days row",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 69
-        },
-        __self: this
-      }, days);
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderCells", function (events) {
-      var _this$state = _this.state,
-          currentMonth = _this$state.currentMonth,
-          selectedDate = _this$state.selectedDate;
-      var monthStart = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["startOfMonth"])(currentMonth);
-      var monthEnd = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["endOfMonth"])(monthStart);
-      var startDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["startOfWeek"])(monthStart);
-      var endDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["endOfWeek"])(monthEnd);
-      var dateFormat = "d";
-      var rows = [];
-      var days = [];
-      var day = startDate;
-      var formattedDate = ""; // let dateCheckFormat = "YYYY MMMM d";
-
-      while (day <= endDate) {
-        for (var i = 0; i < 7; i++) {
-          formattedDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(day, dateFormat, {
-            awareOfUnicodeTokens: true
-          });
-          var matchedEvent = events.filter(function (event) {
-            return Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameDay"])(event.date, day);
-          });
-          days.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "col cell ".concat(!Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameMonth"])(day, monthStart) ? "disabled" : Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameDay"])(day, selectedDate) ? "selected" : ""),
-            key: day.toString(),
-            onClick: _this.createNewEvent,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 90
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-            className: "number",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 99
-            },
-            __self: this
-          }, formattedDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-            className: "bg",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 100
-            },
-            __self: this
-          }, formattedDate), matchedEvent.length > 0 && matchedEvent.map(function (e) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CalendarEvent__WEBPACK_IMPORTED_MODULE_6__["default"], {
-              event: e,
-              key: e.id,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 101
-              },
-              __self: this
-            });
-          })));
-          day = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addDays"])(day, 1);
-        }
-
-        rows.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row",
-          key: day,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 108
-          },
-          __self: this
-        }, days));
-        days = [];
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "body",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 114
-        },
-        __self: this
-      }, rows);
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "nextMonth", function () {
-      _this.setState({
-        currentMonth: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMonths"])(_this.state.currentMonth, 1)
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "prevMonth", function () {
-      _this.setState({
-        currentMonth: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["subMonths"])(_this.state.currentMonth, 1)
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(Calendar, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-        query: ALL_EVENTS_QUERY,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 131
-        },
-        __self: this
-      }, function (_ref) {
-        var data = _ref.data,
-            error = _ref.error,
-            loading = _ref.loading;
-        if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 133
-          },
-          __self: this
-        }, "Loading...");
-        if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 134
-          },
-          __self: this
-        }, "Error: ", error.message);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CalendarStyles__WEBPACK_IMPORTED_MODULE_5__["StyledCal"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 136
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "calendar",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 137
-          },
-          __self: this
-        }, _this2.renderHeader(), _this2.renderDays(), _this2.renderCells(data.events)));
-      });
-    }
-  }]);
-
-  return Calendar;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (Calendar);
-
-/***/ }),
-
-/***/ "./components/CalendarEvent.js":
-/*!*************************************!*\
-  !*** ./components/CalendarEvent.js ***!
-  \*************************************/
+/***/ "./components/CreateEvent.js":
+/*!***********************************!*\
+  !*** ./components/CreateEvent.js ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "next/link");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CalendarEvent.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-var StyledEvent = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
-  displayName: "CalendarEvent__StyledEvent",
-  componentId: "dgr0vy-0"
-})(["background:white;border:1px solid ", ";font-size:.4em;position:relative;"], function (props) {
-  return props.theme.offWhite;
-});
-
-var CalendarEvent =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CalendarEvent, _Component);
-
-  function CalendarEvent() {
-    _classCallCheck(this, CalendarEvent);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CalendarEvent).apply(this, arguments));
-  }
-
-  _createClass(CalendarEvent, [{
-    key: "render",
-    value: function render() {
-      var event = this.props.event;
-      var formattedDay = Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["format"])(event.date, "MMMM d");
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledEvent, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 24
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        href: {
-          pathname: '/event',
-          query: {
-            id: event.id
-          }
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 25
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 29
-        },
-        __self: this
-      }, "\u2022", event.title)));
-    }
-  }]);
-
-  return CalendarEvent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-_defineProperty(CalendarEvent, "propTypes", {
-  event: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
-});
-
-/* harmony default export */ __webpack_exports__["default"] = (CalendarEvent);
-
-/***/ }),
-
-/***/ "./components/CreateEvent.js":
-/*!***********************************!*\
-  !*** ./components/CreateEvent.js ***!
-  \***********************************/
-/*! exports provided: CREATE_EVENT_MUTATION, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_MUTATION", function() { return CREATE_EVENT_MUTATION; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _Calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Calendar */ "./components/Calendar.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "date-fns");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "next/link");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-adopt */ "react-adopt");
+/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-spring */ "react-spring");
+/* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_spring__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
 
 var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CreateEvent.js";
 
@@ -565,6 +132,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -583,17 +158,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation CREATE_EVENT_MUTATION(\n      $title: String!\n      $description: String\n      $image: String\n      $largeImage: String\n      $date: DateTime!\n  ) {\n    createEvent(\n      title: $title\n      description: $description\n      image: $image\n      largeImage: $largeImage\n      date: $date\n    ) {\n      id\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -602,7 +166,76 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var CREATE_EVENT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+
+
+
+
+
+var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_5__["adopt"])({
+  allActsQuery: function allActsQuery(_ref) {
+    var render = _ref.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_10__["ALL_ACTS_QUERY"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, render);
+  },
+  createEventWithNewActMutation: function createEventWithNewActMutation(_ref2) {
+    var eventNewActUpdates = _ref2.eventNewActUpdates,
+        render = _ref2.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+      variables: eventNewActUpdates,
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_11__["CREATE_EVENT_WITH_NEW_ACT_MUTATION"],
+      refetchQueries: [{
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_10__["ALL_EVENTS_QUERY"]
+      }, {
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_10__["ALL_ACTS_QUERY"]
+      }],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, render);
+  },
+  createEventWithExistingActMutation: function createEventWithExistingActMutation(_ref3) {
+    var eventExistingActUpdates = _ref3.eventExistingActUpdates,
+        render = _ref3.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+      variables: eventExistingActUpdates,
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_11__["CREATE_EVENT_WITH_EXISTING_ACT_MUTATION"],
+      refetchQueries: [{
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_10__["ALL_EVENTS_QUERY"]
+      }, {
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_10__["ALL_ACTS_QUERY"]
+      }],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, render);
+  },
+  spring: function spring(_ref4) {
+    var render = _ref4.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_6__["Spring"], {
+      from: {
+        opacity: 0
+      },
+      to: {
+        opacity: 1
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      },
+      __self: this
+    }, render);
+  }
+});
 
 var CreateEvent =
 /*#__PURE__*/
@@ -623,42 +256,116 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CreateEvent)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      title: '',
-      description: '',
+      duration: 45,
+      title: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(new Date(), "MM-dd-YYYY", {
+        awareOfUnicodeTokens: true
+      }),
+      status: 'CONFIRMED',
+      start: new Date(),
+      end: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addMinutes"])(new Date(), 45),
+      allDay: false,
+      notes: [''],
+      name: '',
       image: '',
       largeImage: '',
-      date: ''
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "update", function (cache, payload) {
-      // manually update the cache on the client, so it matches the server
-      // 1. Read the events in the cache
-      var data = cache.readQuery({
-        query: _Calendar__WEBPACK_IMPORTED_MODULE_7__["ALL_EVENTS_QUERY"]
-      }); // 2. Add the new event to the events
-
-      data.events = data.events.push(payload.data); // 3. Put the items back
-
-      cache.writeQuery({
-        query: _Calendar__WEBPACK_IMPORTED_MODULE_7__["ALL_EVENTS_QUERY"],
-        data: data
-      });
+      email: '',
+      description: '',
+      actId: ''
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
       var _e$target = e.target,
           name = _e$target.name,
           type = _e$target.type,
-          value = _e$target.value;
-      var val = type === 'number' ? parseFloat(value) : value;
+          value = _e$target.value; // console.log(type)
+      // console.log(value)
 
-      _this.setState(_defineProperty({}, name, val));
+      switch (name) {
+        case 'status':
+          return _this.setState({
+            status: value
+          });
+
+        case 'select-existing-act':
+          return _this.setState({
+            actId: value,
+            name: '',
+            email: '',
+            description: '',
+            image: '',
+            largeImage: ''
+          });
+
+        case 'notes':
+          var notes = _toConsumableArray(_this.state.notes);
+
+          var selectedIndex = parseInt(e.target.dataset.key);
+          notes[selectedIndex] = value;
+          return _this.setState({
+            notes: notes
+          });
+      }
+
+      switch (type) {
+        case 'date':
+          var time = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this.state.start, "H:MM", {
+            awareOfUnicodeTokens: true
+          });
+          var startDateTime = new Date("".concat(value, " ").concat(time));
+          var title = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(value, "YYYY-MM-dd", {
+            awareOfUnicodeTokens: true
+          });
+          var end = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addMinutes"])(startDateTime, _this.state.duration);
+
+          _this.setState({
+            start: startDateTime,
+            title: title,
+            end: end
+          });
+
+          break;
+
+        case 'time':
+          var date = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this.state.start, "YYYY-MM-dd", {
+            awareOfUnicodeTokens: true
+          });
+          startDateTime = new Date("".concat(date, " ").concat(value));
+          end = Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addMinutes"])(startDateTime, _this.state.duration);
+
+          _this.setState({
+            start: startDateTime,
+            end: end
+          });
+
+          break;
+
+        case 'number':
+          var val = parseFloat(value);
+
+          _this.setState({
+            duration: val,
+            end: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addMinutes"])(_this.state.start, val)
+          });
+
+          break;
+
+        case 'checkbox':
+          _this.setState({
+            allDay: !_this.state.allDay
+          });
+
+          break;
+
+        default:
+          _this.setState(_defineProperty({}, name, value));
+
+      }
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "uploadFile",
     /*#__PURE__*/
     function () {
-      var _ref = _asyncToGenerator(
+      var _ref5 = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
         var files, data, res, file;
@@ -698,37 +405,117 @@ function (_Component) {
       }));
 
       return function (_x) {
-        return _ref.apply(this, arguments);
+        return _ref5.apply(this, arguments);
       };
     }());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addNoteField", function (e) {
+      e.preventDefault();
+
+      var notes = _toConsumableArray(_this.state.notes);
+
+      notes.push('');
+
+      _this.setState({
+        notes: notes
+      });
+    });
 
     return _this;
   }
 
   _createClass(CreateEvent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (next_router__WEBPACK_IMPORTED_MODULE_7___default.a.query.start) {
+        var decodedStart = decodeURIComponent(next_router__WEBPACK_IMPORTED_MODULE_7___default.a.query.start);
+        var decodedEnd = decodeURIComponent(next_router__WEBPACK_IMPORTED_MODULE_7___default.a.query.end);
+        this.setState({
+          title: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(new Date(decodedStart), "YYYY-MM-dd", {
+            awareOfUnicodeTokens: true
+          }),
+          start: new Date(decodedStart),
+          end: new Date(decodedEnd)
+        });
+      }
+
+      ;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-        mutation: CREATE_EVENT_MUTATION,
-        update: this.update,
-        variables: this.state,
+      var dateFormat = "yyyy-MM-dd";
+      var timeFormat = "H:mm";
+      var notes = this.state.notes.map(function (note, index) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+          id: "notes",
+          key: index,
+          "data-key": index,
+          name: "notes",
+          placeholder: "Enter A Note",
+          value: note,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 126
+          },
+          __self: this
+        });
+      });
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Composed, {
+        eventNewActUpdates: {
+          title: this.state.title,
+          status: this.state.status,
+          start: this.state.start,
+          end: this.state.end,
+          allDay: this.state.allDay,
+          notes: this.state.notes,
+          name: this.state.name,
+          image: this.state.image,
+          largeImage: this.state.largeImage,
+          email: this.state.email,
+          description: this.state.description
+        },
+        eventExistingActUpdates: {
+          title: this.state.title,
+          status: this.state.status,
+          start: this.state.start,
+          end: this.state.end,
+          allDay: this.state.allDay,
+          notes: this.state.notes,
+          actId: this.state.actId
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 129
         },
         __self: this
-      }, function (createEvent, _ref2) {
-        var loading = _ref2.loading,
-            error = _ref2.error,
-            called = _ref2.called,
-            data = _ref2.data;
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, function (_ref6) {
+        var allActsQuery = _ref6.allActsQuery,
+            createEventWithNewActMutation = _ref6.createEventWithNewActMutation,
+            createEventWithExistingActMutation = _ref6.createEventWithExistingActMutation,
+            spring = _ref6.spring;
+        if (allActsQuery.loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 134
+          },
+          __self: this
+        }, "Loading...");
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          style: spring,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 136
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_8__["default"], {
           onSubmit:
           /*#__PURE__*/
           function () {
-            var _ref3 = _asyncToGenerator(
+            var _ref7 = _asyncToGenerator(
             /*#__PURE__*/
             _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
               var res;
@@ -737,16 +524,34 @@ function (_Component) {
                   switch (_context2.prev = _context2.next) {
                     case 0:
                       e.preventDefault();
-                      _context2.next = 3;
-                      return createEvent();
 
-                    case 3:
-                      res = _context2.sent;
-                      next_router__WEBPACK_IMPORTED_MODULE_4___default.a.push({
+                      if (_this2.state.actId) {
+                        _context2.next = 7;
+                        break;
+                      }
+
+                      _context2.next = 4;
+                      return createEventWithNewActMutation();
+
+                    case 4:
+                      _context2.t0 = _context2.sent;
+                      _context2.next = 10;
+                      break;
+
+                    case 7:
+                      _context2.next = 9;
+                      return createEventWithExistingActMutation();
+
+                    case 9:
+                      _context2.t0 = _context2.sent;
+
+                    case 10:
+                      res = _context2.t0;
+                      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push({
                         pathname: '/'
                       });
 
-                    case 5:
+                    case 12:
                     case "end":
                       return _context2.stop();
                   }
@@ -755,45 +560,290 @@ function (_Component) {
             }));
 
             return function (_x2) {
-              return _ref3.apply(this, arguments);
+              return _ref7.apply(this, arguments);
             };
           }(),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 137
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          error: error,
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          error: allActsQuery.error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 144
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
-          disabled: loading,
-          "aria-busy": loading,
+          disabled: allActsQuery.loading,
+          "aria-busy": allActsQuery.loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 145
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "date",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 146
+          },
+          __self: this
+        }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "date",
+          id: "date",
+          name: "date",
+          placeholder: "Date",
+          value: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.state.start, dateFormat, {
+            awareOfUnicodeTokens: true
+          }),
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 148
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "time",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 151
+          },
+          __self: this
+        }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "time",
+          id: "time",
+          name: "time",
+          placeholder: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["addHours"])(new Date(_this2.state.start), 20), timeFormat),
+          value: Object(date_fns__WEBPACK_IMPORTED_MODULE_3__["format"])(_this2.state.start, timeFormat, {
+            awareOfUnicodeTokens: true
+          }),
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 153
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "duration",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 156
+          },
+          __self: this
+        }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "number",
+          id: "duration",
+          name: "duration",
+          placeholder: "45",
+          value: _this2.state.duration,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 158
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "status",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 161
+          },
+          __self: this
+        }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+          name: "status",
+          defaultValue: _this2.state.status,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 163
+          },
+          __self: this
+        }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_12__["possibleStatus"].map(function (status) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+            key: status,
+            value: status,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 164
+            },
+            __self: this
+          }, status);
+        }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 168
+          },
+          __self: this
+        }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "checkbox",
+          id: "allday",
+          name: "allday",
+          checked: _this2.state.allDay,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 170
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "notes",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 173
+          },
+          __self: this
+        }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          onClick: _this2.addNoteField,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 176
+          },
+          __self: this
+        }, "+"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 180
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "acts",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 181
+          },
+          __self: this
+        }, "Select An Act Already In The Database", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+          name: "select-existing-act",
+          defaultValue: "",
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 183
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+          value: "",
+          disabled: true,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 184
+          },
+          __self: this
+        }, "Acts"), allActsQuery.data.acts.map(function (act) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+            key: act.id,
+            value: act.id,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 186
+            },
+            __self: this
+          }, act.name);
+        }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 190
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 193
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 194
+          },
+          __self: this
+        }, "Or Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 195
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "name",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 196
+          },
+          __self: this
+        }, "Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "text",
+          id: "name",
+          name: "name",
+          placeholder: "Name",
+          disabled: !!_this2.state.actId,
+          required: !_this2.state.actId,
+          value: _this2.state.name,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 198
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "description",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 201
+          },
+          __self: this
+        }, "Description", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+          id: "description",
+          name: "description",
+          placeholder: "Enter A Description",
+          disabled: !!_this2.state.actId,
+          required: !_this2.state.actId,
+          value: _this2.state.description,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 203
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "email",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 206
+          },
+          __self: this
+        }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "email",
+          id: "email",
+          name: "email",
+          placeholder: "email",
+          disabled: !!_this2.state.actId,
+          required: !_this2.state.actId,
+          value: _this2.state.email,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 208
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "file",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90
+            lineNumber: 211
           },
           __self: this
         }, "Image", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "file",
           id: "file",
           name: "file",
+          disabled: !!_this2.state.actId,
           placeholder: "Upload an image",
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 92
+            lineNumber: 213
           },
           __self: this
         }), _this2.state.image && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -802,83 +852,23 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 93
-          },
-          __self: this
-        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-          htmlFor: "title",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 96
-          },
-          __self: this
-        }, "Title", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-          type: "text",
-          id: "title",
-          name: "title",
-          placeholder: "Title",
-          required: true,
-          value: _this2.state.title,
-          onChange: _this2.handleChange,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 98
-          },
-          __self: this
-        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-          htmlFor: "date",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 101
-          },
-          __self: this
-        }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-          type: "date",
-          id: "date",
-          name: "date",
-          placeholder: "Date",
-          required: true,
-          value: _this2.state.date,
-          onChange: _this2.handleChange,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 103
-          },
-          __self: this
-        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-          htmlFor: "description",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 106
-          },
-          __self: this
-        }, "Description", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
-          id: "description",
-          name: "description",
-          placeholder: "Enter A Description",
-          required: true,
-          value: _this2.state.description,
-          onChange: _this2.handleChange,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 108
+            lineNumber: 214
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111
+            lineNumber: 217
           },
           __self: this
-        }, "Submit")));
+        }, "Submit"))));
       });
     }
   }]);
 
   return CreateEvent;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
-
 
 /* harmony default export */ __webpack_exports__["default"] = (CreateEvent);
 
@@ -1334,32 +1324,207 @@ User.propTypes = {
 
 /***/ }),
 
-/***/ "./components/styles/CalendarStyles.js":
-/*!*********************************************!*\
-  !*** ./components/styles/CalendarStyles.js ***!
-  \*********************************************/
-/*! exports provided: StyledCal */
+/***/ "./components/globals/mutations/mutations.js":
+/*!***************************************************!*\
+  !*** ./components/globals/mutations/mutations.js ***!
+  \***************************************************/
+/*! exports provided: TOGGLE_MODAL_MUTATION, UPDATE_EVENT_MUTATION, MOVE_EVENT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_ACT_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledCal", function() { return StyledCal; });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_MODAL_MUTATION", function() { return TOGGLE_MODAL_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_EVENT_MUTATION", function() { return UPDATE_EVENT_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MOVE_EVENT_MUTATION", function() { return MOVE_EVENT_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_WITH_NEW_ACT_MUTATION", function() { return CREATE_EVENT_WITH_NEW_ACT_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_WITH_EXISTING_ACT_MUTATION", function() { return CREATE_EVENT_WITH_EXISTING_ACT_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ACT_MUTATION", function() { return CREATE_ACT_MUTATION; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n  mutation CREATE_ACT_MUTATION(\n      $name: String!\n      $description: String\n      $image: String\n      $largeImage: String\n      $email: String\n      $notes: [String!]\n  ) {\n    createAct(\n      name: $name\n      description: $description\n      image: $image\n      largeImage: $largeImage\n      email: $email\n      notes: $notes\n    ) {\n      id\n    }\n  }\n"]);
 
-var calTheme = {
-  mainColor: '#1a8fff',
-  textColor: '#777',
-  textColorLight: '#ccc',
-  borderColor: '#eee',
-  bgColor: '#f9f9f9',
-  neutralColor: '#fff'
-};
-var StyledCal = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "CalendarStyles__StyledCal",
-  componentId: "sc-1j3issn-0"
-})([".icon{font-family:'material-icons';font-style:normal;font-style:normal;display:inline-block;vertical-align:middle;line-height:1;text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;direction:ltr;}.header{display:block;width:100%;padding:1.75em 0;border-bottom:1px solid ", ";background:", ";}.row{margin:0;padding:0;display:flex;flex-direction:row;flex-wrap:wrap;width:100%;}.row-middle{align-items:center;}.col{flex-grow:1;flex-basis:0;max-width:100%;}.col-start{justify-content:flex-start;text-align:left;}.col-center{justify-content:center;text-align:center;}.col-end{justify-content:flex-end;text-align:right;}.calendar{display:block;position:relative;width:100%;background:", ";border:1px solid ", ";}.calendar .header{text-transform:uppercase;font-weight:700;font-size:115%;padding:1.5em 0;border-bottom:1px solid ", ";}.calendar .header .icon{cursor:pointer;transition:.15s ease-out;}.calendar .header .icon:hover{transform:scale(1.75);transition:.25s ease-out;color:", ";}.calendar .header .icon:first-of-type{margin-left:1em;}.calendar .header .icon:last-of-type{margin-right:1em;}.calendar .days{text-transform:uppercase;font-weight:400;color:", ";font-size:70%;padding:.75em 0;border-bottom:1px solid ", ";}.calendar .body .cell{position:relative;height:5em;border-right:1px solid ", ";overflow:hidden;cursor:pointer;background:", ";transition:0.25s ease-out;}.calendar .body .cell:hover{background:", ";transition:0.5s ease-out;}.calendar .body .selected{border-left:10px solid transparent;border-image:linear-gradient(45deg,#1a8fff 0%,#53cbf1 40%);border-image-slice:1;}.calendar .body .row{border-bottom:1px solid ", ";}.calendar .body .row:last-child{border-bottom:none;}.calendar .body .cell:last-child{border-right:none;}.calendar .body .cell .number{position:absolute;font-size:82.5%;line-height:1;top:.75em;right:.75em;font-weight:700;}.calendar .body .disabled{color:", ";pointer-events:none;}.calendar .body .cell .bg{font-weight:700;line-height:1;color:", ";opacity:0;font-size:8em;position:absolute;top:-.2em;right:-.05em;transition:.25s ease-out;letter-spacing:-.07em;}.calendar .body .cell:hover .bg,.calendar .body .selected .bg{opacity:0.05;transition:.5s ease-in;}.calendar .body .col{flex-grow:0;flex-basis:calc(100%/7);width:calc(100%/7);}"], calTheme.borderColor, calTheme.neutralColor, calTheme.bgColor, calTheme.borderColor, calTheme.borderColor, calTheme.mainColor, calTheme.textColorLight, calTheme.borderColor, calTheme.borderColor, calTheme.neutralColor, calTheme.bgColor, calTheme.borderColor, calTheme.textColorLight, calTheme.mainColor);
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
 
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  mutation CREATE_EVENT_WITH_EXISTING_ACT_MUTATION(\n    $title: String\n    $status: EventStatus!\n    $start: DateTime!\n    $end: DateTime!\n    $allDay: Boolean!\n    $notes: [String!]\n    $actId: String\n  ){\n    createEventWithExistingAct(\n      title: $title\n      status: $status\n      start: $start\n      end: $end\n      allDay: $allDay\n      notes: $notes\n      actId: $actId\n    ){\n      id\n      act {\n        id\n      }\n    }\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  mutation CREATE_EVENT_WITH_NEW_ACT_MUTATION(\n      $title: String!\n      $status: EventStatus!\n      $start: DateTime!\n      $end: DateTime!\n      $allDay: Boolean!\n      $notes: [String!]\n      $name: String\n      $email: String\n      $description: String\n      $image: String\n      $largeImage: String\n      $actId: String\n  ) {\n    createEventWithNewAct( \n        title: $title\n        status: $status\n        start: $start\n        end: $end\n        allDay: $allDay\n        notes: $notes\n        name: $name\n        email: $email\n        description: $description\n        image: $image\n        largeImage: $largeImage\n        actId: $actId\n    ) \n    { \n      id\n      act {\n        id\n      }\n    }\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  mutation MOVE_EVENT_MUTATION($id: ID!, $start: DateTime, $end: DateTime, $allDay: Boolean) {\n    moveEvent(id: $id, start: $start, end: $end, allDay: $allDay) {\n      id\n      start\n      end\n    }\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  mutation UPDATE_EVENT_MUTATION(\n      $id: ID!\n      $title: String\n      $status: EventStatus\n      $start: DateTime\n      $end: DateTime\n      $allDay: Boolean\n      $notes: [String!]\n      $draw: Int\n      $name: String\n      $description: String\n      $email: String\n      $image: String\n      $largeImage: String\n      $actId: String\n      $newActId: String\n  ) {\n    updateEvent(\n      id: $id\n      title: $title\n      status: $status\n      start: $start\n      end: $end\n      allDay: $allDay\n      notes: $notes\n      draw: $draw\n      name: $name\n      description: $description\n      email: $email\n      image: $image\n      largeImage: $largeImage\n      actId: $actId\n      newActId: $newActId\n    ) {\n      id\n      start\n      notes\n      draw\n      act {\n        id\n        name\n        description\n        email\n        image\n        largeImage\n      }\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation {\n    toggleModal @client\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var TOGGLE_MODAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject());
+var UPDATE_EVENT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject2());
+var MOVE_EVENT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject3());
+var CREATE_EVENT_WITH_NEW_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4());
+var CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
+var CREATE_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
+
+/***/ }),
+
+/***/ "./components/globals/queries/queries.js":
+/*!***********************************************!*\
+  !*** ./components/globals/queries/queries.js ***!
+  \***********************************************/
+/*! exports provided: ALL_EVENTS_QUERY, SINGLE_EVENT_QUERY, ALL_ACTS_QUERY, ALL_ACTS_QUERY_PAGINATION, LOCAL_STATE_QUERY, PAGINATION_QUERY, SEARCH_ACTS_QUERY, SINGLE_ACT_QUERY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_EVENTS_QUERY", function() { return ALL_EVENTS_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SINGLE_EVENT_QUERY", function() { return SINGLE_EVENT_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_ACTS_QUERY", function() { return ALL_ACTS_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_ACTS_QUERY_PAGINATION", function() { return ALL_ACTS_QUERY_PAGINATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOCAL_STATE_QUERY", function() { return LOCAL_STATE_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PAGINATION_QUERY", function() { return PAGINATION_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_ACTS_QUERY", function() { return SEARCH_ACTS_QUERY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SINGLE_ACT_QUERY", function() { return SINGLE_ACT_QUERY; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../config */ "./config.js");
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["\n  query SINGLE_ACT_QUERY($id: ID!) {\n    act(where: { id: $id }) {\n      id\n      name\n      description\n      image\n      email\n      notes\n      event{\n        id\n        start\n        allDay\n        draw\n      }\n    }\n  }\n"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n  query SEARCH_ACTS_QUERY($searchTerm: String!) {\n    acts(where: {\n      OR: [\n        {name_contains: $searchTerm},\n        {description_contains: $searchTerm},\n      ] }) \n      {\n        id \n        name\n        image\n        event{\n          id\n          start\n        }\n      }\n  }\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n  query PAGINATION_QUERY{\n    actsConnection {\n      aggregate {\n        count\n      }\n    }\n  }\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  query {\n    modalOpen @client\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  query ALL_ACTS_QUERY($skip: Int=0, $first: Int=", ") {\n    acts(first: $first, skip: $skip, orderBy: name_ASC) {\n      id\n      name\n      description\n      image\n      largeImage\n      email\n      notes\n      event{\n        id\n        title\n        draw\n      }\n    }\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  query ALL_ACTS_QUERY {\n    acts {\n      id\n      name\n      description\n      image\n      largeImage\n      email\n      notes\n      event{\n        id\n        title\n        draw\n      }\n    }\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  query SINGLE_EVENT_QUERY($id: ID!) {\n    event(where: {id: $id}) {\n      id\n      title\n      status\n      start\n      end\n      allDay\n      notes\n      draw\n      act {\n        id\n        name\n        description\n        email\n        image\n        largeImage\n      }\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query ALL_EVENTS_QUERY {\n    events {\n      id\n      title\n      status\n      start\n      end\n      allDay\n      notes\n      draw\n      act {\n        id\n        name\n        description\n        notes\n        image\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var ALL_EVENTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject());
+var SINGLE_EVENT_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject2());
+var ALL_ACTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject3());
+var ALL_ACTS_QUERY_PAGINATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4(), _config__WEBPACK_IMPORTED_MODULE_1__["perPage"]);
+var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
+var PAGINATION_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
+var SEARCH_ACTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
+var SINGLE_ACT_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject8());
 
 /***/ }),
 
@@ -1379,10 +1544,43 @@ var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"]
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withConfig({
   displayName: "Form",
   componentId: "sc-193v0pb-0"
-})(["box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding:0.5rem;font-size:1rem;border:1px solid black;&:focus{outline:0;border-color:", ";}}button,input[type='submit']{width:auto;background:red;color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.2rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;content:'';display:block;background-image:linear-gradient(to right,#ff3019 0%,#e2b04a 50%,#ff3019 100%);}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], function (props) {
-  return props.theme.red;
+})(["display:grid;grid-template-columns:1fr 1fr 1fr;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding:0.5rem;font-size:1rem;border:1px solid black;&:focus{outline:0;border-color:", ";}}input[type='submit']{width:auto;background:", ";color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.0rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;content:'';display:block;background-image:linear-gradient(to right,#ff3019 0%,#e2b04a 50%,#ff3019 100%);}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], function (props) {
+  return props.theme.mainColor;
+}, function (props) {
+  return props.theme.mainColor;
 }, loading);
 /* harmony default export */ __webpack_exports__["default"] = (Form);
+
+/***/ }),
+
+/***/ "./config.js":
+/*!*******************!*\
+  !*** ./config.js ***!
+  \*******************/
+/*! exports provided: endpoint, perPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
+// This is client side config only - don't put anything in here that shouldn't be public!
+var endpoint = "http://localhost:4444";
+var perPage = 16;
+
+/***/ }),
+
+/***/ "./lib/possibleStatus.js":
+/*!*******************************!*\
+  !*** ./lib/possibleStatus.js ***!
+  \*******************************/
+/*! exports provided: possibleStatus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "possibleStatus", function() { return possibleStatus; });
+var possibleStatus = ['CONFIRMED', 'HELD', 'CANCELLED'];
 
 /***/ }),
 
@@ -1519,6 +1717,17 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ "react-adopt":
+/*!******************************!*\
+  !*** external "react-adopt" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-adopt");
+
+/***/ }),
+
 /***/ "react-apollo":
 /*!*******************************!*\
   !*** external "react-apollo" ***!
@@ -1527,6 +1736,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-apollo");
+
+/***/ }),
+
+/***/ "react-spring":
+/*!*******************************!*\
+  !*** external "react-spring" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-spring");
 
 /***/ }),
 

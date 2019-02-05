@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import Router from 'next/router';
+import Link from 'next/link'
 import gql from 'graphql-tag';
-import {format, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth} from 'date-fns';
+import {format,setHours, addDays, addMonths, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, getMilliseconds, isSameDay, isSameMonth, parse, isEqual} from 'date-fns';
 import {StyledCal} from './styles/CalendarStyles';
 import CalendarEvent from './CalendarEvent';
 
@@ -10,11 +11,12 @@ const ALL_EVENTS_QUERY = gql`
   query ALL_EVENTS_QUERY {
     events {
       id
-      title
-      description
-      image
-      largeImage
-      date
+      start
+      notes
+      act {
+        id
+        name
+      }
     }
   }
 `;
@@ -25,9 +27,10 @@ class Calendar extends Component {
     selectedDate: new Date(),
   };
 
-  createNewEvent = () => {
+  createNewEvent = (day) => {
     Router.push({
-      pathname: '/newCalEvent'
+      pathname: '/newCalEvent',
+      query: day
     })
   }
 
@@ -77,6 +80,7 @@ class Calendar extends Component {
     const endDate = endOfWeek(monthEnd);
   
     const dateFormat = "d";
+    const dateFormatQueryParam = "yyyy-MM-dd H:MM";
     const rows = [];
     let days = [];
     let day = startDate;
@@ -85,27 +89,38 @@ class Calendar extends Component {
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat, { awareOfUnicodeTokens: true });
-        const matchedEvent = events.filter(event => isSameDay(event.date, day));
+
+        // this block of code is for putting in a default time of 8pm on the query param
+        const dateWithDefaultTime = setHours(day, 20);
+        const queryParam = format(dateWithDefaultTime, dateFormatQueryParam, { awareOfUnicodeTokens: true });
+        const queryParamURI = encodeURIComponent(queryParam);
+
+        const matchedEvent = events.filter(event => {
+          //! this is seriously stupid and only works on east coast time.
+          // todo: FIX THIS
+          // let momentEvent = moment(event.start, 'YYYY-MM-DDTHH:mm:ss.SSSSZ').add(5, 'hours').format();
+          // let momentEvent = moment(event.start, 'yyyy-MM-dd').format();
+          // let momentDay = moment(day, 'yyyy-MM-dd').format();
+          return isEqual(format(event.start, "yyyy-MM-dd"), format(day, "yyyy-MM-dd"))
+        });
+
         days.push(
-          <div
-            className={`col cell ${
-              !isSameMonth(day, monthStart)
-                ? "disabled"
-                : isSameDay(day, selectedDate) ? "selected" : ""
-            }`}
-            key={day.toString()}
-            onClick={this.createNewEvent}
-          >
-            <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
-            {matchedEvent.length > 0 && matchedEvent.map(e => <CalendarEvent event={e} key={e.id}/>)}
-          </div>
+          <Link key={day.toString()} href={{ pathname: '/newCalEvent', query: { date: queryParamURI} }}>
+            <div
+              className={`col cell ${ !isSameMonth(day, monthStart) ? "disabled" : isSameDay(day, selectedDate) ? "selected" : "" }`}
+              key={day.toString()}
+            >
+              <span className="number">{formattedDate}</span>
+              <span className="bg">{formattedDate}</span>
+              {matchedEvent.length > 0 && matchedEvent.map(e => <CalendarEvent event={e} key={e.id}/>)}
+            </div>
+          </Link>
         );
         day = addDays(day, 1);
     }
   
     rows.push(
-        <div className="row" key={day}>
+        <div className="row" key={day.toDateString()}>
           {days}
         </div>
       );

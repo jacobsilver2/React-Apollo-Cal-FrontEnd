@@ -4,7 +4,7 @@ import { Query} from 'react-apollo';
 import { format } from 'date-fns';
 import styled from 'styled-components';
 import Head from 'next/head';
-import {SINGLE_EVENT_QUERY} from './UpdateEvent';
+import * as queries from './globals/queries/queries';
 import Title from './styles/Title';
 import DeleteEvent from './DeleteEvent';
 import Error from './ErrorMessage';
@@ -20,41 +20,49 @@ const SingleEventStyles = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
   }
   .details {
     margin: 3rem;
-    font-size: 0.5rem;
+    font-size: 1.5rem;
+    align-self: center;
+  }
+  .buttonlist {
+    align-self: center;
   }
 `;
 
 class SingleEvent extends Component {
   render() {
     const dateFormat = "MMMM d, YYYY"
+    const timeFormat = "h:mm a"
     return (
-        <Query query={SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
+        <Query query={queries.SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
           {({error, loading, data}) => {
             if (error) return <Error error={error} />
             if (loading) return <p>Loading</p>
             if (!data.event) return <p>No Item Found for ID {this.props.id}</p>
             const event = data.event
-            console.log(event)
             return (
               
               <SingleEventStyles>
                 <Head>
-                  <title>{event.title}</title>
+                  {event.title}
                 </Head>
-                <img src={event.largeImage} alt={event.title}/>
+                <img src={event.act.largeImage} alt={event.act.name}/>
                 <div className="details">
-                  <h2>{event.title}</h2>
-                  <p>{format(event.date, dateFormat, { awareOfUnicodeTokens: true })}</p>
-                  <p>{event.description}</p>
+                  <h2>{event.act.name}</h2>
+                  <p>{format(event.start, dateFormat, { awareOfUnicodeTokens: true })}</p>
+                  <p>{!event.allDay ? format(event.start, timeFormat) : "This Event is All-Day"}
+                  </p>
+                  <p>{event.act.description}</p>
                 </div>
                 <div className="buttonlist">
-                  <Link href={{ pathname: "updateEvent", query: {id: this.props.id}}}>
-                    <a>Edit ✏️</a>
-                  </Link>
+                  <p>
+                    <Link href={{ pathname: "updateEvent", query: {id: this.props.id, start: encodeURIComponent(event.start)}}}>
+                      <a>Edit ✏️</a>
+                    </Link>
+                  </p>
                   <DeleteEvent id={event.id}>Delete Event</DeleteEvent>
                 </div>
               </SingleEventStyles>
