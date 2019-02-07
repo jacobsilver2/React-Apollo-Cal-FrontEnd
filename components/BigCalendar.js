@@ -8,6 +8,7 @@ import moment from 'moment';
 import {format} from 'date-fns';
 import CustomEvent from './CustomEvent';
 import QuickUpdate from './QuickUpdate';
+import ModalContainer from './ModalContainer';
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import {StyledBigCal} from './styles/BigCalendarStyles';
 import * as queries from './globals/queries/queries';
@@ -118,7 +119,7 @@ class BigCalendar extends Component {
           if (allEvents.error) return <p>Error: {allEvents.error.message}</p>
           return (
             <>
-            {localState.data.modalOpen && <QuickUpdate event={this.state.event}/>}
+            {localState.data.modalOpen && <ModalContainer event={this.state.event}/>}
             <div style={spring}>
             <StyledBigCal>
                 <DnDCalendar
