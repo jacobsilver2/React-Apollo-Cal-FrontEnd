@@ -344,7 +344,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html {\n    box-sizing: border-box;\n    font-size: .8rem;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 100;\n    margin: 0;\n    font-size: 1.5rem;\n    line-height: 2;\n    font-family: 'radnika_next';\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n  button {  font-family: 'radnika_next'; }\n"]);
+  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html {\n    box-sizing: border-box;\n    font-size: .8rem;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 100;\n    margin: 0;\n    font-size: 1.5rem;\n    line-height: 2;\n    font-family: 'radnika_next';\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n  button {  font-family: 'radnika_next'; }\n\n  .modal-cover {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 10;\n    transform: translateZ(0);\n    background-color: rgba(0, 0, 0, 0.8);\n  }\n\n  .modal-area {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 2.5em 1.5em 1.5em 1.5em;\n    background-color: #ffffff;\n    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);\n    overflow-y: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n\n  @media screen and (min-width: 500px) {\n    /* Center the Modal! */\n    .modal-area {\n      left: 50%;\n      top: 50%;\n      height: auto;\n      transform: translate(-50%, -50%);\n      max-width: calc(100% - 20em);\n      max-height: calc(100% - 1em);\n    }\n  }\n\n  ._modal-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 0.5em;\n    line-height: 1;\n    background: #f6f6f7;\n    border: 0;\n    box-shadow: 0;\n    cursor: pointer;\n  }\n\n  ._modal-close-icon {\n    width: 25px;\n    height: 25px;\n    fill: transparent;\n    stroke: black;\n    stroke-linecap: round;\n    stroke-width: 2;\n  }\n\n  .modal-body {\n    padding-top: 0.25em;\n  }\n  ._hide-visual {\n    border: 0 !important;\n    clip: rect(0 0 0 0) !important;\n    height: 1px !important;\n    margin: -1px !important;\n    overflow: hidden !important;\n    padding: 0 !important;\n    position: absolute !important;\n    width: 1px !important;\n    white-space: nowrap !important;\n  }\n\n  .scroll-lock {\n    overflow: hidden;\n    margin-right: 17px;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -407,31 +407,31 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 144
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 145
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 146
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 147
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 148
         },
         __self: this
       }, this.props.children)));

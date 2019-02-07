@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { format, differenceInMinutes, addMinutes } from 'date-fns';
-import { Portal } from './Portal'
 import Router from 'next/router';
 
 import Error from './ErrorMessage';
-import Closebutton from './styles/CloseButton';
 import QuickUpdateStyled from './styles/QuickUpdateStyles';
-import ModalStyled from './styles/OverlayStyled';
 import Form from './styles/QuickUpdateFormStyles';
 import Button from './styles/DeleteButtonStyles';
 import * as mutations from './globals/mutations/mutations';
@@ -145,10 +142,7 @@ class QuickUpdate extends Component {
           }
           const acts = allActs.data.acts ? allActs.data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>) : null;
           return (
-            <Portal selector='#modal' closeFn={toggleModalMutation}>
-              <ModalStyled>
-                <QuickUpdateStyled>
-                  <Closebutton onClick={toggleModalMutation}>X</Closebutton>
+                  <>
                   <Error error={updateEventMutation.error} />
                   <Form onSubmit={e => this.updateEvent(e, updateEventMutation, toggleModalMutation)} >
                     <fieldset disabled={updateEventMutation.loading} aria-busy={updateEventMutation.loading}>
@@ -239,9 +233,7 @@ class QuickUpdate extends Component {
                       <button type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</button>
                     </fieldset>
                   </Form>
-                </QuickUpdateStyled>
-              </ModalStyled>
-            </Portal>
+                </>
           )
         }}
       </Composed>

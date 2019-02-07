@@ -24,11 +24,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
 /* harmony import */ var _CustomEvent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CustomEvent */ "./components/CustomEvent.js");
 /* harmony import */ var _QuickUpdate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./QuickUpdate */ "./components/QuickUpdate.js");
-/* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-big-calendar/lib/addons/dragAndDrop */ "./node_modules/react-big-calendar/lib/addons/dragAndDrop/index.js");
-/* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
-/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
-/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _ModalContainer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ModalContainer */ "./components/ModalContainer.js");
+/* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-big-calendar/lib/addons/dragAndDrop */ "./node_modules/react-big-calendar/lib/addons/dragAndDrop/index.js");
+/* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
 var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -65,15 +66,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var localizer = react_big_calendar__WEBPACK_IMPORTED_MODULE_1___default.a.momentLocalizer(moment__WEBPACK_IMPORTED_MODULE_6___default.a);
-var DnDCalendar = react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10___default()(react_big_calendar__WEBPACK_IMPORTED_MODULE_1___default.a);
+var DnDCalendar = react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11___default()(react_big_calendar__WEBPACK_IMPORTED_MODULE_1___default.a);
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   moveEvent: function moveEvent(_ref) {
     var updates = _ref.updates,
         updateCache = _ref.updateCache,
         render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["MOVE_EVENT_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_14__["MOVE_EVENT_MUTATION"],
       variables: updates,
       update: updateCache,
       optimisticResponse: {
@@ -87,7 +89,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 23
       },
       __self: this
     }, render);
@@ -95,18 +97,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   allEvents: function allEvents(_ref2) {
     var render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"],
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
-      },
-      __self: this
-    }, render);
-  },
-  toggleModal: function toggleModal(_ref3) {
-    var render = _ref3.render;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["TOGGLE_MODAL_MUTATION"],
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 24
@@ -114,13 +105,24 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
       __self: this
     }, render);
   },
-  localState: function localState(_ref4) {
-    var render = _ref4.render;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["LOCAL_STATE_QUERY"],
+  toggleModal: function toggleModal(_ref3) {
+    var render = _ref3.render;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_14__["TOGGLE_MODAL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 25
+      },
+      __self: this
+    }, render);
+  },
+  localState: function localState(_ref4) {
+    var render = _ref4.render;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["LOCAL_STATE_QUERY"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
       },
       __self: this
     }, render);
@@ -136,7 +138,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: this
     }, render);
@@ -256,7 +258,7 @@ function (_Component) {
       // manually update the cache on the client, so it matches the server
       // 1. Read the cache for the items we want
       var data = cache.readQuery({
-        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"]
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"]
       }); // 2. Filter the deleted itemout of the page
 
       var eventIndex = data.events.findIndex(function (event) {
@@ -266,7 +268,7 @@ function (_Component) {
       data.events[eventIndex].end = payload.data.moveEvent.end; // 3. Put the items back!
 
       cache.writeQuery({
-        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"],
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"],
         data: data
       });
     });
@@ -292,7 +294,7 @@ function (_Component) {
         updateCache: this.updateCache,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 116
         },
         __self: this
       }, function (_ref8) {
@@ -304,35 +306,35 @@ function (_Component) {
         if (allEvents.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 118
           },
           __self: this
         }, "Loading...");
         if (allEvents.error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 119
           },
           __self: this
         }, "Error: ", allEvents.error.message);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, localState.data.modalOpen && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdate__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, localState.data.modalOpen && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ModalContainer__WEBPACK_IMPORTED_MODULE_10__["default"], {
           event: _this2.state.event,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 122
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           style: spring,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 123
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_11__["StyledBigCal"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_12__["StyledBigCal"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 124
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DnDCalendar, {
@@ -387,7 +389,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124
+            lineNumber: 125
           },
           __self: this
         }))));
@@ -594,6 +596,262 @@ DisplayError.propTypes = {
 
 /***/ }),
 
+/***/ "./components/Modal.js":
+/*!*****************************!*\
+  !*** ./components/Modal.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuickUpdateForm */ "./components/QuickUpdateForm.js");
+/* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! focus-trap-react */ "./node_modules/focus-trap-react/dist/focus-trap-react.js");
+/* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styles_ModalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ModalStyles */ "./components/styles/ModalStyles.js");
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
+
+
+
+
+
+
+var Modal = function Modal(_ref) {
+  var event = _ref.event,
+      modalRef = _ref.modalRef,
+      buttonRef = _ref.buttonRef,
+      closeModal = _ref.closeModal,
+      onKeyDown = _ref.onKeyDown,
+      onClickOutside = _ref.onClickOutside;
+  return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createPortal(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+    tag: "aside",
+    role: "dialog",
+    tabIndex: "-1",
+    "aria-modal": "true",
+    className: "modal-cover",
+    onClick: onClickOutside,
+    onKeyDown: onKeyDown,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-area",
+    ref: modalRef,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    ref: buttonRef,
+    "aria-label": "Close Modal",
+    "aria-lablledby": "close-modal",
+    className: "_modal-close",
+    onClick: closeModal,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "close-modal",
+    className: "_hide-visual",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: this
+  }, "Close"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "_modal-close-icon",
+    viewBox: "0 0 40 40",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M 10,10 L 30,30 M 30,10 L 10,30",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: this
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-body",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    event: event,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }))))), document.body);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
+
+/***/ }),
+
+/***/ "./components/ModalContainer.js":
+/*!**************************************!*\
+  !*** ./components/ModalContainer.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var ModalContainer =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ModalContainer, _Component);
+
+  function ModalContainer() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ModalContainer);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ModalContainer)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggleScrollLock", function () {
+      document.querySelector('html').classList.toggle('scroll-lock');
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "closeModal", function (toggleModalMutation) {
+      _this.setState({
+        isShown: false
+      }); // this.TriggerButton.focus();
+
+
+      _this.toggleScrollLock();
+
+      toggleModalMutation();
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onKeyDown", function (event, toggleModalMutation) {
+      if (event.keyCode === 27) {
+        _this.closeModal(toggleModalMutation);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickOutside", function (event, toggleModalMutation) {
+      if (_this.modal && _this.modal.contains(event.target)) return;
+
+      _this.closeModal(toggleModalMutation);
+    });
+
+    return _this;
+  }
+
+  _createClass(ModalContainer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.closeButton.focus();
+      this.toggleScrollLock();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+        mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__["TOGGLE_MODAL_MUTATION"],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        },
+        __self: this
+      }, function (toggleModal) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          event: _this2.props.event,
+          modalRef: function modalRef(n) {
+            return _this2.modal = n;
+          },
+          buttonRef: function buttonRef(n) {
+            return _this2.closeButton = n;
+          },
+          closeModal: function closeModal() {
+            return _this2.closeModal(toggleModal);
+          },
+          onKeyDown: function onKeyDown(e) {
+            return _this2.onKeyDown(e, toggleModal);
+          },
+          onClickOutside: function onClickOutside(e) {
+            return _this2.onClickOutside(e, toggleModal);
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 38
+          },
+          __self: this
+        });
+      });
+    }
+  }]);
+
+  return ModalContainer;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ModalContainer);
+
+/***/ }),
+
 /***/ "./components/Portal.js":
 /*!******************************!*\
   !*** ./components/Portal.js ***!
@@ -618,13 +876,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -634,9 +894,33 @@ function (_React$Component) {
   _inherits(Portal, _React$Component);
 
   function Portal() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Portal);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Portal).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Portal)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "modalRef", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "escapeClicked", function (e) {
+      if (e.keyCode === 27) {
+        _this.props.closeFn();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "documentClicked", function (e) {
+      if (e.target === _this.modalRef.current || _this.modalRef.current.contains(e.target)) return;
+
+      _this.props.closeFn();
+    });
+
+    return _this;
   }
 
   _createClass(Portal, [{
@@ -644,13 +928,23 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.element = document.querySelector(this.props.selector);
       this.forceUpdate();
+      document.addEventListener('keydown', this.escapeClicked, false); // document.addEventListener('click', this.documentClicked, false);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener('keydown', this.escapeClicked, false); // document.removeEventListener('click', this.documentClicked, false);
     }
   }, {
     key: "render",
     value: function render() {
       if (this.element === undefined) {
         return null;
-      }
+      } // const { children } = this.props;
+      // const childrenWithProps = React.Children.map(children, child =>
+      //   React.cloneElement(child, { modalRef: this.modalRef })
+      // );
+
 
       return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createPortal(this.props.children, this.element);
     }
@@ -829,7 +1123,6 @@ function (_Component) {
 
         case 'duration':
           var val = parseFloat(value);
-          debugger;
           return _this.setState({
             duration: val,
             end: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(!!_this.state.start ? _this.state.start : _this.props.start, val)
@@ -1050,7 +1343,7 @@ function (_Component) {
         updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_15__["updateCache"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 135
         },
         __self: this
       }, function (_ref6) {
@@ -1072,7 +1365,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 143
+                lineNumber: 142
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1084,7 +1377,7 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 143
+                lineNumber: 142
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -1093,7 +1386,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 143
+                lineNumber: 142
               },
               __self: this
             }, "-"));
@@ -1104,7 +1397,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 145
+                lineNumber: 144
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1117,7 +1410,7 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 145
+                lineNumber: 144
               },
               __self: this
             }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -1126,7 +1419,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 145
+                lineNumber: 144
               },
               __self: this
             }, "-"));
@@ -1139,42 +1432,43 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 146
             },
             __self: this
           }, act.name);
         }) : null;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Portal__WEBPACK_IMPORTED_MODULE_5__["Portal"], {
           selector: "#modal",
+          closeFn: toggleModalMutation,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149
+            lineNumber: 148
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_OverlayStyled__WEBPACK_IMPORTED_MODULE_10__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150
+            lineNumber: 149
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 151
+            lineNumber: 150
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
           onClick: toggleModalMutation,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 152
+            lineNumber: 151
           },
           __self: this
         }, "X"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153
+            lineNumber: 152
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -1183,7 +1477,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 154
+            lineNumber: 153
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -1191,20 +1485,20 @@ function (_Component) {
           "aria-busy": updateEventMutation.loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 155
+            lineNumber: 154
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156
+            lineNumber: 155
           },
           __self: this
         }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "date",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 157
+            lineNumber: 156
           },
           __self: this
         }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1217,14 +1511,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 159
+            lineNumber: 158
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "time",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 162
+            lineNumber: 161
           },
           __self: this
         }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1237,14 +1531,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 164
+            lineNumber: 163
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "duration",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 167
+            lineNumber: 166
           },
           __self: this
         }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1255,14 +1549,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169
+            lineNumber: 168
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "status",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 172
+            lineNumber: 171
           },
           __self: this
         }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1271,7 +1565,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 174
+            lineNumber: 173
           },
           __self: this
         }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_16__["possibleStatus"].map(function (status) {
@@ -1280,7 +1574,7 @@ function (_Component) {
             value: status,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 175
+              lineNumber: 174
             },
             __self: this
           }, status);
@@ -1288,7 +1582,7 @@ function (_Component) {
           htmlFor: "allDay",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 179
+            lineNumber: 178
           },
           __self: this
         }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1299,14 +1593,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 181
+            lineNumber: 180
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "draw",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184
+            lineNumber: 183
           },
           __self: this
         }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1317,14 +1611,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 186
+            lineNumber: 185
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "notes",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 189
+            lineNumber: 188
           },
           __self: this
         }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -1333,14 +1627,14 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 192
+            lineNumber: 191
           },
           __self: this
         }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "automations",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 195
+            lineNumber: 194
           },
           __self: this
         }, "Automations", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -1349,32 +1643,32 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 197
+            lineNumber: 196
           },
           __self: this
         }, "CLICK HERE TO CREATE AUTOMATIONS"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 202
+            lineNumber: 201
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 203
+            lineNumber: 202
           },
           __self: this
         }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 204
+            lineNumber: 203
           },
           __self: this
         }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "name",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 205
+            lineNumber: 204
           },
           __self: this
         }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1385,14 +1679,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 207
+            lineNumber: 206
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 209
+            lineNumber: 208
           },
           __self: this
         }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1403,14 +1697,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 211
+            lineNumber: 210
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 214
+            lineNumber: 213
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1421,14 +1715,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 216
+            lineNumber: 215
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "image",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 219
+            lineNumber: 218
           },
           __self: this
         }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1439,7 +1733,7 @@ function (_Component) {
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 221
+            lineNumber: 220
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -1448,31 +1742,31 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 223
+            lineNumber: 222
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 225
+            lineNumber: 224
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 228
+            lineNumber: 227
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 229
+            lineNumber: 228
           },
           __self: this
         }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 230
+            lineNumber: 229
           },
           __self: this
         }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1480,7 +1774,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 231
+            lineNumber: 230
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
@@ -1488,35 +1782,869 @@ function (_Component) {
           disabled: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 232
+            lineNumber: 231
           },
           __self: this
         }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 237
+            lineNumber: 236
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 238
+            lineNumber: 237
           },
           __self: this
         }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 239
+            lineNumber: 238
           },
           __self: this
         }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 240
+            lineNumber: 239
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))))));
+      });
+    }
+  }]);
+
+  return QuickUpdate;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (QuickUpdate);
+
+/***/ }),
+
+/***/ "./components/QuickUpdateForm.js":
+/*!***************************************!*\
+  !*** ./components/QuickUpdateForm.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-adopt */ "./node_modules/react-adopt/dist/index.m.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/QuickUpdateStyles */ "./components/styles/QuickUpdateStyles.js");
+/* harmony import */ var _styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/QuickUpdateFormStyles */ "./components/styles/QuickUpdateFormStyles.js");
+/* harmony import */ var _styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/DeleteButtonStyles */ "./components/styles/DeleteButtonStyles.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
+/* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
+
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
+  allActs: function allActs(_ref) {
+    var render = _ref.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_11__["ALL_ACTS_QUERY"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, render);
+  },
+  updateEventMutation: function updateEventMutation(_ref2) {
+    var updates = _ref2.updates,
+        render = _ref2.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_10__["UPDATE_EVENT_MUTATION"],
+      variables: updates,
+      refetchQueries: [{
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_11__["ALL_EVENTS_QUERY"]
+      }],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, render);
+  },
+  toggleModalMutation: function toggleModalMutation(_ref3) {
+    var render = _ref3.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_10__["TOGGLE_MODAL_MUTATION"],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, render);
+  }
+});
+
+var QuickUpdate =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(QuickUpdate, _Component);
+
+  function QuickUpdate() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, QuickUpdate);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(QuickUpdate)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          type = _e$target.type,
+          value = _e$target.value;
+
+      switch (name) {
+        case 'status':
+          return _this.setState({
+            status: value
+          });
+
+        case 'select-existing-act':
+          return _this.setState({
+            actId: value,
+            name: '',
+            email: '',
+            description: '',
+            image: '',
+            largeImage: ''
+          });
+
+        case 'duration':
+          var val = parseFloat(value);
+          return _this.setState({
+            duration: val,
+            end: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(!!_this.state.start ? _this.state.start : _this.props.start, val)
+          });
+
+        case 'draw':
+          val = parseFloat(value);
+          return _this.setState(_defineProperty({}, name, value));
+
+        case 'notes':
+          var notes = _toConsumableArray(_this.state.notes);
+
+          var selectedIndex = parseInt(e.target.dataset.key);
+          notes[selectedIndex] = value;
+          return _this.setState({
+            notes: notes
+          });
+      }
+
+      ;
+
+      switch (type) {
+        case 'date':
+          var time = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this.state.start, "H:MM", {
+            awareOfUnicodeTokens: true
+          });
+          var startDateTime = new Date("".concat(value, " ").concat(time));
+          var title = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(value, "YYYY-MM-dd", {
+            awareOfUnicodeTokens: true
+          });
+          var end = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(startDateTime, !!_this.state.duration ? _this.state.duration : _this.props.duration);
+
+          _this.setState({
+            start: startDateTime,
+            title: title,
+            end: end
+          });
+
+          break;
+
+        case 'time':
+          var date = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(!!_this.state.start ? _this.state.start : _this.props.start, "YYYY-MM-dd", {
+            awareOfUnicodeTokens: true
+          });
+          startDateTime = new Date("".concat(date, " ").concat(value));
+          end = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(startDateTime, !!_this.state.duration ? _this.state.duration : _this.props.duration);
+
+          _this.setState({
+            start: startDateTime,
+            end: end
+          });
+
+          break;
+
+        case 'checkbox':
+          _this.setState({
+            allDay: !!_this.state.allDay ? !_this.state.allDay : !_this.props.allDay
+          });
+
+          break;
+
+        default:
+          _this.setState(_defineProperty({}, name, value));
+
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addNoteField", function (e, notes) {
+      e.preventDefault();
+
+      if (notes) {
+        var _notesCopy = _toConsumableArray(notes);
+
+        _notesCopy.push('');
+
+        return _this.setState({
+          notes: _notesCopy
+        });
+      }
+
+      var notesCopy = _toConsumableArray(_this.state.notes);
+
+      notesCopy.push('');
+      return _this.setState({
+        notes: notesCopy
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDeleteNote", function (e, index, notes) {
+      e.preventDefault();
+
+      if (notes) {
+        var _notesCopy2 = _toConsumableArray(notes);
+
+        var _notesFiltered = _notesCopy2.filter(function (note, i) {
+          return i !== index;
+        });
+
+        return _this.setState({
+          notes: _notesFiltered
+        });
+      }
+
+      var notesCopy = _toConsumableArray(_this.state.notes);
+
+      var notesFiltered = notesCopy.filter(function (note, i) {
+        return i != index;
+      });
+      return _this.setState({
+        notes: notesFiltered
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "uploadFile",
+    /*#__PURE__*/
+    function () {
+      var _ref4 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+        var files, data, res, file;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                files = e.target.files;
+                data = new FormData();
+                data.append('file', files[0]);
+                data.append('upload_preset', 'react-apollo-cal');
+                _context.next = 6;
+                return fetch('https://api.cloudinary.com/v1_1/dlskxwzm6/image/upload', {
+                  method: 'POST',
+                  body: data
+                });
+
+              case 6:
+                res = _context.sent;
+                _context.next = 9;
+                return res.json();
+
+              case 9:
+                file = _context.sent;
+
+                _this.setState({
+                  image: file.secure_url,
+                  largeImage: file.eager[0].secure_url
+                });
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x) {
+        return _ref4.apply(this, arguments);
+      };
+    }());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateEvent",
+    /*#__PURE__*/
+    function () {
+      var _ref5 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, updateEventMutation, closeModal) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                e.preventDefault();
+                _context2.next = 3;
+                return updateEventMutation({
+                  variables: _objectSpread({
+                    id: _this.props.event.id
+                  }, _this.state)
+                });
+
+              case 3:
+                res = _context2.sent;
+                _context2.next = 6;
+                return closeModal();
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      return function (_x2, _x3, _x4) {
+        return _ref5.apply(this, arguments);
+      };
+    }());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleAutomationClick", function (id, toggleModal) {
+      toggleModal();
+      next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push({
+        pathname: '/automations',
+        query: {
+          id: encodeURIComponent(id)
+        }
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(QuickUpdate, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Composed, {
+        singleEventId: this.props.id,
+        updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_12__["updateCache"],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 132
+        },
+        __self: this
+      }, function (_ref6) {
+        var allActs = _ref6.allActs,
+            updateEventMutation = _ref6.updateEventMutation,
+            toggleModalMutation = _ref6.toggleModalMutation;
+        var event = _this2.props.event;
+        var formattedDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(event.start, "YYYY-MM-dd", {
+          awareOfUnicodeTokens: true
+        });
+        var formattedTime = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(event.start, "HH:mm", {
+          awareOfUnicodeTokens: true
+        });
+        var notes = null;
+
+        if (_this2.state.notes) {
+          notes = _this2.state.notes.map(function (note, index) {
+            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+              key: index,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 139
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+              id: "notes",
+              "data-key": index,
+              name: "notes",
+              placeholder: "Enter A Note",
+              value: note,
+              onChange: _this2.handleChange,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 139
+              },
+              __self: this
+            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              onClick: function onClick(e) {
+                return _this2.handleDeleteNote(e, index);
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 139
+              },
+              __self: this
+            }, "-"));
+          });
+        } else if (event.notes.length > 0) {
+          notes = event.notes.map(function (note, index) {
+            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+              key: index,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 141
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+              id: "notes",
+              "data-key": index,
+              name: "notes",
+              placeholder: "Enter A Note",
+              value: note,
+              onChange: _this2.handleChange,
+              disabled: true,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 141
+              },
+              __self: this
+            }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              onClick: function onClick(e) {
+                return _this2.handleDeleteNote(e, index, event.notes);
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 141
+              },
+              __self: this
+            }, "-"));
+          });
+        }
+
+        var acts = allActs.data.acts ? allActs.data.acts.map(function (act) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+            key: act.id,
+            value: act.id,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 143
+            },
+            __self: this
+          }, act.name);
+        }) : null;
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          error: updateEventMutation.error,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 146
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          onSubmit: function onSubmit(e) {
+            return _this2.updateEvent(e, updateEventMutation, toggleModalMutation);
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 147
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          disabled: updateEventMutation.loading,
+          "aria-busy": updateEventMutation.loading,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 148
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 149
+          },
+          __self: this
+        }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "date",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 150
+          },
+          __self: this
+        }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "date",
+          id: "date",
+          name: "date",
+          placeholder: "Date",
+          required: true,
+          defaultValue: formattedDate,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 152
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "time",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 155
+          },
+          __self: this
+        }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "time",
+          id: "time",
+          name: "time",
+          placeholder: "Date",
+          required: true,
+          defaultValue: formattedTime,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 157
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "duration",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 160
+          },
+          __self: this
+        }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "number",
+          id: "duration",
+          name: "duration",
+          defaultValue: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["differenceInMinutes"])(event.end, event.start),
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 162
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "status",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 165
+          },
+          __self: this
+        }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+          name: "status",
+          defaultValue: event.status,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 167
+          },
+          __self: this
+        }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_13__["possibleStatus"].map(function (status) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+            key: status,
+            value: status,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 168
+            },
+            __self: this
+          }, status);
+        }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "allDay",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 172
+          },
+          __self: this
+        }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "checkbox",
+          id: "allday",
+          name: "allDay",
+          defaultChecked: event.allDay,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 174
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "draw",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 177
+          },
+          __self: this
+        }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "number",
+          id: "draw",
+          name: "draw",
+          placeholder: event.draw || 0,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 179
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "notes",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 182
+          },
+          __self: this
+        }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          onClick: function onClick(e) {
+            return _this2.addNoteField(e, _this2.state.notes ? null : event.notes);
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 185
+          },
+          __self: this
+        }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "automations",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 188
+          },
+          __self: this
+        }, "Automations", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this2.handleAutomationClick(event.id, toggleModalMutation);
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 190
+          },
+          __self: this
+        }, "CLICK HERE TO CREATE AUTOMATIONS"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 195
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 196
+          },
+          __self: this
+        }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 197
+          },
+          __self: this
+        }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "name",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 198
+          },
+          __self: this
+        }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+          id: "name",
+          name: "name",
+          placeholder: "Act Name",
+          defaultValue: event.act.name,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 200
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "description",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 202
+          },
+          __self: this
+        }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+          id: "description",
+          name: "description",
+          placeholder: "Blurb",
+          defaultValue: event.act.description,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 204
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "email",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 207
+          },
+          __self: this
+        }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+          id: "email",
+          name: "email",
+          placeholder: "contact email",
+          defaultValue: event.act.email,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 209
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "image",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 212
+          },
+          __self: this
+        }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "file",
+          id: "file",
+          name: "file",
+          placeholder: "Upload an image",
+          onChange: _this2.uploadFile,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 214
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          src: _this2.state.image ? _this2.state.image : event.act.image,
+          alt: "Image Preview",
+          width: "200",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 216
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 218
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 221
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 222
+          },
+          __self: this
+        }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 223
+          },
+          __self: this
+        }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+          defaultValue: "",
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 224
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+          value: "",
+          disabled: true,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 225
+          },
+          __self: this
+        }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 230
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 231
+          },
+          __self: this
+        }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 232
+          },
+          __self: this
+        }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          type: "submit",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 233
+          },
+          __self: this
+        }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))));
       });
     }
   }]);
@@ -1988,6 +3116,25 @@ var DeleteButtonStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 
 /***/ }),
 
+/***/ "./components/styles/ModalStyles.js":
+/*!******************************************!*\
+  !*** ./components/styles/ModalStyles.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var ModalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  displayName: "ModalStyles",
+  componentId: "egtond-0"
+})([".modal-cover{position:fixed;top:0;left:0;width:100%;height:100%;z-index:10;transform:translateZ(0);background-color:rgba(0,0,0,0.8);}.modal-area{position:fixed;top:0;left:0;width:100%;height:100%;padding:2.5em 1.5em 1.5em 1.5em;background-color:#ffffff;box-shadow:0 0 10px 3px rgba(0,0,0,0.1);overflow-y:auto;-webkit-overflow-scrolling:touch;}@media screen and (min-width:500px){.modal-area{left:50%;top:50%;height:auto;transform:translate(-50%,-50%);max-width:30em;max-height:calc(100% - 1em);}}._modal-close{position:absolute;top:0;right:0;padding:0.5em;line-height:1;background:#f6f6f7;border:0;box-shadow:0;cursor:pointer;}._modal-close-icon{width:25px;height:25px;fill:transparent;stroke:black;stroke-linecap:round;stroke-width:2;}.modal-body{padding-top:0.25em;}._hide-visual{border:0 !important;clip:rect(0 0 0 0) !important;height:1px !important;margin:-1px !important;overflow:hidden !important;padding:0 !important;position:absolute !important;width:1px !important;white-space:nowrap !important;}.scroll-lock{overflow:hidden;margin-right:17px;}"]);
+/* harmony default export */ __webpack_exports__["default"] = (ModalStyles);
+
+/***/ }),
+
 /***/ "./components/styles/OverlayStyled.js":
 /*!********************************************!*\
   !*** ./components/styles/OverlayStyled.js ***!
@@ -1999,11 +3146,11 @@ var DeleteButtonStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-var OverlayedStyled = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
-  displayName: "OverlayStyled__OverlayedStyled",
+var ModalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  displayName: "OverlayStyled__ModalStyles",
   componentId: "sc-12gv6z4-0"
-})(["z-index:10;position:fixed;background-color:rgba(0,0,0,0.7);top:0;right:0;bottom:0;left:0;"]);
-/* harmony default export */ __webpack_exports__["default"] = (OverlayedStyled);
+})(["position:fixed;top:0px;left:0px;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;"]);
+/* harmony default export */ __webpack_exports__["default"] = (ModalStyles);
 
 /***/ }),
 
@@ -27779,6 +28926,454 @@ fclone.default = fclone;
   return fclone
 }));
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
+
+/***/ }),
+
+/***/ "./node_modules/focus-trap-react/dist/focus-trap-react.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/focus-trap-react/dist/focus-trap-react.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+var createFocusTrap = __webpack_require__(/*! focus-trap */ "./node_modules/focus-trap/index.js");
+
+var FocusTrap = function (_React$Component) {
+  _inherits(FocusTrap, _React$Component);
+
+  function FocusTrap(props) {
+    _classCallCheck(this, FocusTrap);
+
+    var _this = _possibleConstructorReturn(this, (FocusTrap.__proto__ || Object.getPrototypeOf(FocusTrap)).call(this, props));
+
+    _this.setFocusTrapElement = function (element) {
+      _this.focusTrapElement = element;
+    };
+
+    if (typeof document !== 'undefined') {
+      _this.previouslyFocusedElement = document.activeElement;
+    }
+    return _this;
+  }
+
+  _createClass(FocusTrap, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // We need to hijack the returnFocusOnDeactivate option,
+      // because React can move focus into the element before we arrived at
+      // this lifecycle hook (e.g. with autoFocus inputs). So the component
+      // captures the previouslyFocusedElement in componentWillMount,
+      // then (optionally) returns focus to it in componentWillUnmount.
+      var specifiedFocusTrapOptions = this.props.focusTrapOptions;
+      var tailoredFocusTrapOptions = {
+        returnFocusOnDeactivate: false
+      };
+      for (var optionName in specifiedFocusTrapOptions) {
+        if (!specifiedFocusTrapOptions.hasOwnProperty(optionName)) continue;
+        if (optionName === 'returnFocusOnDeactivate') continue;
+        tailoredFocusTrapOptions[optionName] = specifiedFocusTrapOptions[optionName];
+      }
+
+      var focusTrapElementDOMNode = ReactDOM.findDOMNode(this.focusTrapElement);
+
+      this.focusTrap = this.props._createFocusTrap(focusTrapElementDOMNode, tailoredFocusTrapOptions);
+      if (this.props.active) {
+        this.focusTrap.activate();
+      }
+      if (this.props.paused) {
+        this.focusTrap.pause();
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.active && !this.props.active) {
+        var returnFocusOnDeactivate = this.props.focusTrapOptions.returnFocusOnDeactivate;
+
+        var returnFocus = returnFocusOnDeactivate || false;
+        var config = { returnFocus: returnFocus };
+        this.focusTrap.deactivate(config);
+      } else if (!prevProps.active && this.props.active) {
+        this.focusTrap.activate();
+      }
+
+      if (prevProps.paused && !this.props.paused) {
+        this.focusTrap.unpause();
+      } else if (!prevProps.paused && this.props.paused) {
+        this.focusTrap.pause();
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.focusTrap.deactivate();
+      if (this.props.focusTrapOptions.returnFocusOnDeactivate !== false && this.previouslyFocusedElement && this.previouslyFocusedElement.focus) {
+        this.previouslyFocusedElement.focus();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var child = React.Children.only(this.props.children);
+
+      var composedRefCallback = function composedRefCallback(element) {
+        _this2.setFocusTrapElement(element);
+        if (typeof child.ref === 'function') {
+          child.ref(element);
+        }
+      };
+
+      var childWithRef = React.cloneElement(child, { ref: composedRefCallback });
+
+      return childWithRef;
+    }
+  }]);
+
+  return FocusTrap;
+}(React.Component);
+
+FocusTrap.defaultProps = {
+  active: true,
+  paused: false,
+  focusTrapOptions: {},
+  _createFocusTrap: createFocusTrap
+};
+
+module.exports = FocusTrap;
+
+/***/ }),
+
+/***/ "./node_modules/focus-trap/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/focus-trap/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var tabbable = __webpack_require__(/*! tabbable */ "./node_modules/tabbable/index.js");
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+
+var activeFocusTraps = (function() {
+  var trapQueue = [];
+  return {
+    activateTrap: function(trap) {
+      if (trapQueue.length > 0) {
+        var activeTrap = trapQueue[trapQueue.length - 1];
+        if (activeTrap !== trap) {
+          activeTrap.pause();
+        }
+      }
+
+      var trapIndex = trapQueue.indexOf(trap);
+      if (trapIndex === -1) {
+        trapQueue.push(trap);
+      } else {
+        // move this existing trap to the front of the queue
+        trapQueue.splice(trapIndex, 1);
+        trapQueue.push(trap);
+      }
+    },
+
+    deactivateTrap: function(trap) {
+      var trapIndex = trapQueue.indexOf(trap);
+      if (trapIndex !== -1) {
+        trapQueue.splice(trapIndex, 1);
+      }
+
+      if (trapQueue.length > 0) {
+        trapQueue[trapQueue.length - 1].unpause();
+      }
+    }
+  };
+})();
+
+function focusTrap(element, userOptions) {
+  var doc = document;
+  var container =
+    typeof element === 'string' ? doc.querySelector(element) : element;
+
+  var config = xtend(
+    {
+      returnFocusOnDeactivate: true,
+      escapeDeactivates: true
+    },
+    userOptions
+  );
+
+  var state = {
+    firstTabbableNode: null,
+    lastTabbableNode: null,
+    nodeFocusedBeforeActivation: null,
+    mostRecentlyFocusedNode: null,
+    active: false,
+    paused: false
+  };
+
+  var trap = {
+    activate: activate,
+    deactivate: deactivate,
+    pause: pause,
+    unpause: unpause
+  };
+
+  return trap;
+
+  function activate(activateOptions) {
+    if (state.active) return;
+
+    updateTabbableNodes();
+
+    state.active = true;
+    state.paused = false;
+    state.nodeFocusedBeforeActivation = doc.activeElement;
+
+    var onActivate =
+      activateOptions && activateOptions.onActivate
+        ? activateOptions.onActivate
+        : config.onActivate;
+    if (onActivate) {
+      onActivate();
+    }
+
+    addListeners();
+    return trap;
+  }
+
+  function deactivate(deactivateOptions) {
+    if (!state.active) return;
+
+    removeListeners();
+    state.active = false;
+    state.paused = false;
+
+    activeFocusTraps.deactivateTrap(trap);
+
+    var onDeactivate =
+      deactivateOptions && deactivateOptions.onDeactivate !== undefined
+        ? deactivateOptions.onDeactivate
+        : config.onDeactivate;
+    if (onDeactivate) {
+      onDeactivate();
+    }
+
+    var returnFocus =
+      deactivateOptions && deactivateOptions.returnFocus !== undefined
+        ? deactivateOptions.returnFocus
+        : config.returnFocusOnDeactivate;
+    if (returnFocus) {
+      delay(function() {
+        tryFocus(state.nodeFocusedBeforeActivation);
+      });
+    }
+
+    return trap;
+  }
+
+  function pause() {
+    if (state.paused || !state.active) return;
+    state.paused = true;
+    removeListeners();
+  }
+
+  function unpause() {
+    if (!state.paused || !state.active) return;
+    state.paused = false;
+    addListeners();
+  }
+
+  function addListeners() {
+    if (!state.active) return;
+
+    // There can be only one listening focus trap at a time
+    activeFocusTraps.activateTrap(trap);
+
+    updateTabbableNodes();
+
+    // Delay ensures that the focused element doesn't capture the event
+    // that caused the focus trap activation.
+    delay(function() {
+      tryFocus(getInitialFocusNode());
+    });
+    doc.addEventListener('focusin', checkFocusIn, true);
+    doc.addEventListener('mousedown', checkPointerDown, true);
+    doc.addEventListener('touchstart', checkPointerDown, true);
+    doc.addEventListener('click', checkClick, true);
+    doc.addEventListener('keydown', checkKey, true);
+
+    return trap;
+  }
+
+  function removeListeners() {
+    if (!state.active) return;
+
+    doc.removeEventListener('focusin', checkFocusIn, true);
+    doc.removeEventListener('mousedown', checkPointerDown, true);
+    doc.removeEventListener('touchstart', checkPointerDown, true);
+    doc.removeEventListener('click', checkClick, true);
+    doc.removeEventListener('keydown', checkKey, true);
+
+    return trap;
+  }
+
+  function getNodeForOption(optionName) {
+    var optionValue = config[optionName];
+    var node = optionValue;
+    if (!optionValue) {
+      return null;
+    }
+    if (typeof optionValue === 'string') {
+      node = doc.querySelector(optionValue);
+      if (!node) {
+        throw new Error('`' + optionName + '` refers to no known node');
+      }
+    }
+    if (typeof optionValue === 'function') {
+      node = optionValue();
+      if (!node) {
+        throw new Error('`' + optionName + '` did not return a node');
+      }
+    }
+    return node;
+  }
+
+  function getInitialFocusNode() {
+    var node;
+    if (getNodeForOption('initialFocus') !== null) {
+      node = getNodeForOption('initialFocus');
+    } else if (container.contains(doc.activeElement)) {
+      node = doc.activeElement;
+    } else {
+      node = state.firstTabbableNode || getNodeForOption('fallbackFocus');
+    }
+
+    if (!node) {
+      throw new Error(
+        "You can't have a focus-trap without at least one focusable element"
+      );
+    }
+
+    return node;
+  }
+
+  // This needs to be done on mousedown and touchstart instead of click
+  // so that it precedes the focus event.
+  function checkPointerDown(e) {
+    if (container.contains(e.target)) return;
+    if (config.clickOutsideDeactivates) {
+      deactivate({
+        returnFocus: !tabbable.isFocusable(e.target)
+      });
+    } else {
+      e.preventDefault();
+    }
+  }
+
+  // In case focus escapes the trap for some strange reason, pull it back in.
+  function checkFocusIn(e) {
+    // In Firefox when you Tab out of an iframe the Document is briefly focused.
+    if (container.contains(e.target) || e.target instanceof Document) {
+      return;
+    }
+    e.stopImmediatePropagation();
+    tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
+  }
+
+  function checkKey(e) {
+    if (config.escapeDeactivates !== false && isEscapeEvent(e)) {
+      e.preventDefault();
+      deactivate();
+      return;
+    }
+    if (isTabEvent(e)) {
+      checkTab(e);
+      return;
+    }
+  }
+
+  // Hijack Tab events on the first and last focusable nodes of the trap,
+  // in order to prevent focus from escaping. If it escapes for even a
+  // moment it can end up scrolling the page and causing confusion so we
+  // kind of need to capture the action at the keydown phase.
+  function checkTab(e) {
+    updateTabbableNodes();
+    if (e.shiftKey && e.target === state.firstTabbableNode) {
+      e.preventDefault();
+      tryFocus(state.lastTabbableNode);
+      return;
+    }
+    if (!e.shiftKey && e.target === state.lastTabbableNode) {
+      e.preventDefault();
+      tryFocus(state.firstTabbableNode);
+      return;
+    }
+  }
+
+  function checkClick(e) {
+    if (config.clickOutsideDeactivates) return;
+    if (container.contains(e.target)) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }
+
+  function updateTabbableNodes() {
+    var tabbableNodes = tabbable(container);
+    state.firstTabbableNode = tabbableNodes[0] || getInitialFocusNode();
+    state.lastTabbableNode =
+      tabbableNodes[tabbableNodes.length - 1] || getInitialFocusNode();
+  }
+
+  function tryFocus(node) {
+    if (node === doc.activeElement) return;
+    if (!node || !node.focus) {
+      tryFocus(getInitialFocusNode());
+      return;
+    }
+
+    node.focus();
+    state.mostRecentlyFocusedNode = node;
+    if (isSelectableInput(node)) {
+      node.select();
+    }
+  }
+}
+
+function isSelectableInput(node) {
+  return (
+    node.tagName &&
+    node.tagName.toLowerCase() === 'input' &&
+    typeof node.select === 'function'
+  );
+}
+
+function isEscapeEvent(e) {
+  return e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27;
+}
+
+function isTabEvent(e) {
+  return e.key === 'Tab' || e.keyCode === 9;
+}
+
+function delay(fn) {
+  return setTimeout(fn, 0);
+}
+
+module.exports = focusTrap;
+
 
 /***/ }),
 
@@ -80947,6 +82542,217 @@ function symbolObservablePonyfill(root) {
 
 /***/ }),
 
+/***/ "./node_modules/tabbable/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/tabbable/index.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var candidateSelectors = [
+  'input',
+  'select',
+  'textarea',
+  'a[href]',
+  'button',
+  '[tabindex]',
+  'audio[controls]',
+  'video[controls]',
+  '[contenteditable]:not([contenteditable="false"])',
+];
+var candidateSelector = candidateSelectors.join(',');
+
+var matches = typeof Element === 'undefined'
+  ? function () {}
+  : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+
+function tabbable(el, options) {
+  options = options || {};
+
+  var elementDocument = el.ownerDocument || el;
+  var regularTabbables = [];
+  var orderedTabbables = [];
+
+  var untouchabilityChecker = new UntouchabilityChecker(elementDocument);
+  var candidates = el.querySelectorAll(candidateSelector);
+
+  if (options.includeContainer) {
+    if (matches.call(el, candidateSelector)) {
+      candidates = Array.prototype.slice.apply(candidates);
+      candidates.unshift(el);
+    }
+  }
+
+  var i, candidate, candidateTabindex;
+  for (i = 0; i < candidates.length; i++) {
+    candidate = candidates[i];
+
+    if (!isNodeMatchingSelectorTabbable(candidate, untouchabilityChecker)) continue;
+
+    candidateTabindex = getTabindex(candidate);
+    if (candidateTabindex === 0) {
+      regularTabbables.push(candidate);
+    } else {
+      orderedTabbables.push({
+        documentOrder: i,
+        tabIndex: candidateTabindex,
+        node: candidate,
+      });
+    }
+  }
+
+  var tabbableNodes = orderedTabbables
+    .sort(sortOrderedTabbables)
+    .map(function(a) { return a.node })
+    .concat(regularTabbables);
+
+  return tabbableNodes;
+}
+
+tabbable.isTabbable = isTabbable;
+tabbable.isFocusable = isFocusable;
+
+function isNodeMatchingSelectorTabbable(node, untouchabilityChecker) {
+  if (
+    !isNodeMatchingSelectorFocusable(node, untouchabilityChecker)
+    || isNonTabbableRadio(node)
+    || getTabindex(node) < 0
+  ) {
+    return false;
+  }
+  return true;
+}
+
+function isTabbable(node, untouchabilityChecker) {
+  if (!node) throw new Error('No node provided');
+  if (matches.call(node, candidateSelector) === false) return false;
+  return isNodeMatchingSelectorTabbable(node, untouchabilityChecker);
+}
+
+function isNodeMatchingSelectorFocusable(node, untouchabilityChecker) {
+  untouchabilityChecker = untouchabilityChecker || new UntouchabilityChecker(node.ownerDocument || node);
+  if (
+    node.disabled
+    || isHiddenInput(node)
+    || untouchabilityChecker.isUntouchable(node)
+  ) {
+    return false;
+  }
+  return true;
+}
+
+var focusableCandidateSelector = candidateSelectors.concat('iframe').join(',');
+function isFocusable(node, untouchabilityChecker) {
+  if (!node) throw new Error('No node provided');
+  if (matches.call(node, focusableCandidateSelector) === false) return false;
+  return isNodeMatchingSelectorFocusable(node, untouchabilityChecker);
+}
+
+function getTabindex(node) {
+  var tabindexAttr = parseInt(node.getAttribute('tabindex'), 10);
+  if (!isNaN(tabindexAttr)) return tabindexAttr;
+  // Browsers do not return `tabIndex` correctly for contentEditable nodes;
+  // so if they don't have a tabindex attribute specifically set, assume it's 0.
+  if (isContentEditable(node)) return 0;
+  return node.tabIndex;
+}
+
+function sortOrderedTabbables(a, b) {
+  return a.tabIndex === b.tabIndex ? a.documentOrder - b.documentOrder : a.tabIndex - b.tabIndex;
+}
+
+// Array.prototype.find not available in IE.
+function find(list, predicate) {
+  for (var i = 0, length = list.length; i < length; i++) {
+    if (predicate(list[i])) return list[i];
+  }
+}
+
+function isContentEditable(node) {
+  return node.contentEditable === 'true';
+}
+
+function isInput(node) {
+  return node.tagName === 'INPUT';
+}
+
+function isHiddenInput(node) {
+  return isInput(node) && node.type === 'hidden';
+}
+
+function isRadio(node) {
+  return isInput(node) && node.type === 'radio';
+}
+
+function isNonTabbableRadio(node) {
+  return isRadio(node) && !isTabbableRadio(node);
+}
+
+function getCheckedRadio(nodes) {
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i].checked) {
+      return nodes[i];
+    }
+  }
+}
+
+function isTabbableRadio(node) {
+  if (!node.name) return true;
+  // This won't account for the edge case where you have radio groups with the same
+  // in separate forms on the same page.
+  var radioSet = node.ownerDocument.querySelectorAll('input[type="radio"][name="' + node.name + '"]');
+  var checked = getCheckedRadio(radioSet);
+  return !checked || checked === node;
+}
+
+// An element is "untouchable" if *it or one of its ancestors* has
+// `visibility: hidden` or `display: none`.
+function UntouchabilityChecker(elementDocument) {
+  this.doc = elementDocument;
+  // Node cache must be refreshed on every check, in case
+  // the content of the element has changed. The cache contains tuples
+  // mapping nodes to their boolean result.
+  this.cache = [];
+}
+
+// getComputedStyle accurately reflects `visibility: hidden` of ancestors
+// but not `display: none`, so we need to recursively check parents.
+UntouchabilityChecker.prototype.hasDisplayNone = function hasDisplayNone(node, nodeComputedStyle) {
+  if (node.nodeType !== Node.ELEMENT_NODE) return false;
+
+    // Search for a cached result.
+    var cached = find(this.cache, function(item) {
+      return item === node;
+    });
+    if (cached) return cached[1];
+
+    nodeComputedStyle = nodeComputedStyle || this.doc.defaultView.getComputedStyle(node);
+
+    var result = false;
+
+    if (nodeComputedStyle.display === 'none') {
+      result = true;
+    } else if (node.parentNode) {
+      result = this.hasDisplayNone(node.parentNode);
+    }
+
+    this.cache.push([node, result]);
+
+    return result;
+}
+
+UntouchabilityChecker.prototype.isUntouchable = function isUntouchable(node) {
+  if (node === this.doc.documentElement) return false;
+  var computedStyle = this.doc.defaultView.getComputedStyle(node);
+  if (this.hasDisplayNone(node, computedStyle)) return true;
+  return computedStyle.visibility === 'hidden';
+}
+
+module.exports = tabbable;
+
+
+/***/ }),
+
 /***/ "./node_modules/uncontrollable/lib/index.js":
 /*!**************************************************!*\
   !*** ./node_modules/uncontrollable/lib/index.js ***!
@@ -82151,6 +83957,36 @@ module.exports = function(module) {
 	}
 	return module;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/xtend/immutable.js":
+/*!*****************************************!*\
+  !*** ./node_modules/xtend/immutable.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = extend
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+function extend() {
+    var target = {}
+
+    for (var i = 0; i < arguments.length; i++) {
+        var source = arguments[i]
+
+        for (var key in source) {
+            if (hasOwnProperty.call(source, key)) {
+                target[key] = source[key]
+            }
+        }
+    }
+
+    return target
+}
 
 
 /***/ }),

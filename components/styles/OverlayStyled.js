@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-const OverlayedStyled = styled.div`
-  z-index: 10;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.7);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+const ModalStyles = styled.div`
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 1000;
 `;
 
-export default OverlayedStyled;
+export default ModalStyles;
