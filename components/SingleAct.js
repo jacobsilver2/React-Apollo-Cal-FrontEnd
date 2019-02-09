@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import Link from 'next/link'
-import { format, isBefore, isAfter } from 'date-fns';
+import moment from 'moment';
 import { Query } from 'react-apollo';
 import { Spring } from 'react-spring';
 import { adopt } from 'react-adopt';
@@ -29,9 +29,12 @@ class SingleAct extends Component {
           if (!singleActQuery.data.act) return <p>No Act Found for {this.props.id}</p>;
           const act = singleActQuery.data.act;
           const notes = act.notes.map((note,i) => <ul key={i}>{note}</ul>);
-          const pastShows = act.event.filter(e => isBefore(e.start, new Date()));
-          const futureShows = act.event.filter(e => isAfter(e.start, new Date()));
-          const drawObject = act.event.map(e => new Object({x: format(e.start, "M/d/yy"), y: e.draw}));
+          // const pastShows = act.event.filter(e => isBefore(parse(e.start), new Date()));
+          const pastShows = act.event.filter(e => moment(e.start).isBefore(new Date()));
+          // const futureShows = act.event.filter(e => isAfter(parse(e.start), new Date()))
+          const futureShows = act.event.filter(e => moment(e.start).isAfter(new Date()));
+          // const drawObject = act.event.map(e => new Object({x: format(e.start, "M/d/yy"), y: e.draw}));
+          const drawObject = act.event.map(e => new Object({x: moment(e.start).format("M/D/YY"), y: e.draw}))
 
           const drawGraph = act.event.length > 0 ? 
             <div className="react-vis">
@@ -67,7 +70,7 @@ class SingleAct extends Component {
                   <ul>
                     {futureShows.length > 0 && futureShows.map(e => 
                     <Link key={e.id} href={{pathname: '/event', query: {id: e.id}}}>
-                      <li><a>{format(e.start, "EEEE, MMMM do, uu - h:mma")}</a></li>
+                      <li><a>{moment(e.start).format("dddd, MMMM Do, YYYY - h:mma")}</a></li>
                     </Link>
                     )}
                   </ul>
@@ -75,7 +78,7 @@ class SingleAct extends Component {
                   <ul>
                     {pastShows.length > 0 && pastShows.map(e => 
                     <Link key={e.id} href={{pathname: '/event', query: {id: e.id}}}>
-                      <li><a>{format(e.start, "EEEE, MMMM do, uu - h:mma")}</a></li>
+                    <li><a>{moment(e.start).format("dddd, MMMM Do, YYYY - h:mma")}</a></li>
                     </Link>
                     )}
                   </ul>

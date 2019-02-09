@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
-import { format, differenceInMinutes, addMinutes } from 'date-fns';
+import moment from 'moment';
 import { Portal } from './Portal'
 import Router from 'next/router';
 
@@ -36,7 +36,8 @@ class QuickUpdate extends Component {
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
       case 'duration':
         let val = parseFloat(value);
-        return this.setState({ duration: val, end: addMinutes(!!this.state.start ? this.state.start : this.props.start, val) });
+        // return this.setState({ duration: val, end: addMinutes(!!this.state.start ? this.state.start : this.props.start, val) });
+        return this.setState({ duration: val, end: !!this.state.start ? moment(this.state.start).add(val, 'minutes') : moment(this.props.start).add(val, 'minutes') });
       case 'draw':
         val = parseFloat(value);
         return this.setState({ [name]: value });
@@ -48,16 +49,21 @@ class QuickUpdate extends Component {
     };
     switch (type) {
       case 'date':
-        const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
+        // const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
+        const time = moment(this.state.start).format('hh:mm');
         let startDateTime = new Date(`${value} ${time}`);
-        const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-        let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+        // const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+        const title = moment(value).format("YYYY-M-D");
+        // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+        let end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes') : moment(startDateTime).add(this.props.duration, 'minutes');
         this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
-        const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+        // const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+        const date = !!this.state.start ? moment(this.state.start).format("YYYY-M-D") : moment(this.props.start).format("YYYY-M-D");
         startDateTime = new Date(`${date} ${value}`);
-        end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+        // end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+        end = !!this.state.duration ? moment(this.state.duration).add(startDateTime, 'minutes') : moment(this.props.duration).add(startDateTime, 'minutes');
         this.setState({ start: startDateTime, end });
         break;
       case 'checkbox':
@@ -135,8 +141,10 @@ class QuickUpdate extends Component {
       <Composed singleEventId={this.props.id} updateCache={updateEventMethods.updateCache}>
         {({ allActs, updateEventMutation, toggleModalMutation }) => {
           const { event } = this.props;
-          const formattedDate = format(event.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-          const formattedTime = format(event.start, "HH:mm", { awareOfUnicodeTokens: true });
+          // const formattedDate = format(event.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+          const formattedDate = moment(event.start).format("YYYY-M-D");
+          // const formattedTime = format(event.start, "HH:mm", { awareOfUnicodeTokens: true });
+          const formattedTime = moment(event.start).format("hh:mma");
           let notes = null;
           if (this.state.notes) {
             notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} /><Button onClick={(e) => this.handleDeleteNote(e, index)}>-</Button></div>)
@@ -165,7 +173,7 @@ class QuickUpdate extends Component {
 
                       <label htmlFor="duration">
                         Duration (minutes)
-                            <input type="number" id="duration" name="duration" defaultValue={differenceInMinutes(event.end, event.start)} onChange={this.handleChange} />
+                            <input type="number" id="duration" name="duration" defaultValue={moment(event.end).diff(moment(event.start), 'minutes')} onChange={this.handleChange} />
                       </label>
 
                       <label htmlFor="status">

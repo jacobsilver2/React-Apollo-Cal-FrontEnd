@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { Query} from 'react-apollo';
-import { format } from 'date-fns';
+import moment from 'moment';
 import styled from 'styled-components';
 import Head from 'next/head';
 import * as queries from './globals/queries/queries';
@@ -34,7 +34,7 @@ const SingleEventStyles = styled.div`
 
 class SingleEvent extends Component {
   render() {
-    const dateFormat = "MMMM d, YYYY"
+    const dateFormat = "MMMM D, YYYY"
     const timeFormat = "h:mm a"
     return (
         <Query query={queries.SINGLE_EVENT_QUERY} variables={{id: this.props.id}}>
@@ -52,8 +52,8 @@ class SingleEvent extends Component {
                 <img src={event.act.largeImage} alt={event.act.name}/>
                 <div className="details">
                   <h2>{event.act.name}</h2>
-                  <p>{format(event.start, dateFormat, { awareOfUnicodeTokens: true })}</p>
-                  <p>{!event.allDay ? format(event.start, timeFormat) : "This Event is All-Day"}
+                  <p>{moment(event.start).format(dateFormat)}</p>
+                  <p>{!event.allDay ? moment(event.start).format(timeFormat) : "This Event is All-Day"}
                   </p>
                   <p>{event.act.description}</p>
                 </div>

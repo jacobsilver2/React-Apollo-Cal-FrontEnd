@@ -22,7 +22,6 @@ const Modal = ({event, modalRef, buttonRef, closeModal, onKeyDown, onClickOutsid
           <button
             ref={buttonRef}
             aria-label="Close Modal"
-            aria-lablledby="close-modal"
             className="_modal-close"
             onClick={closeModal}
           >

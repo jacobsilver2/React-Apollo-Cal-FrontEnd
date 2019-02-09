@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -116,29 +116,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_spring__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "moment");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _CustomEvent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CustomEvent */ "./components/CustomEvent.js");
-/* harmony import */ var _QuickUpdate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./QuickUpdate */ "./components/QuickUpdate.js");
-<<<<<<< HEAD
+/* harmony import */ var _CustomEvent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CustomEvent */ "./components/CustomEvent.js");
+/* harmony import */ var _QuickUpdate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./QuickUpdate */ "./components/QuickUpdate.js");
+/* harmony import */ var _ModalContainer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ModalContainer */ "./components/ModalContainer.js");
 /* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-big-calendar/lib/addons/dragAndDrop */ "react-big-calendar/lib/addons/dragAndDrop");
 /* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
-=======
-=======
-/* harmony import */ var _ModalContainer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ModalContainer */ "./components/ModalContainer.js");
-/* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-big-calendar/lib/addons/dragAndDrop */ "react-big-calendar/lib/addons/dragAndDrop");
-/* harmony import */ var react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
-/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
-/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -174,16 +160,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 var localizer = react_big_calendar__WEBPACK_IMPORTED_MODULE_1___default.a.momentLocalizer(moment__WEBPACK_IMPORTED_MODULE_6___default.a);
-var DnDCalendar = react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_11___default()(react_big_calendar__WEBPACK_IMPORTED_MODULE_1___default.a);
+var DnDCalendar = react_big_calendar_lib_addons_dragAndDrop__WEBPACK_IMPORTED_MODULE_10___default()(react_big_calendar__WEBPACK_IMPORTED_MODULE_1___default.a);
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   moveEvent: function moveEvent(_ref) {
     var updates = _ref.updates,
         updateCache = _ref.updateCache,
         render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_14__["MOVE_EVENT_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["MOVE_EVENT_MUTATION"],
       variables: updates,
       update: updateCache,
       optimisticResponse: {
@@ -197,7 +182,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 22
       },
       __self: this
     }, render);
@@ -205,10 +190,10 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   allEvents: function allEvents(_ref2) {
     var render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"],
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 23
       },
       __self: this
     }, render);
@@ -216,10 +201,10 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   toggleModal: function toggleModal(_ref3) {
     var render = _ref3.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_14__["TOGGLE_MODAL_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["TOGGLE_MODAL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 24
       },
       __self: this
     }, render);
@@ -227,10 +212,10 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   localState: function localState(_ref4) {
     var render = _ref4.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["LOCAL_STATE_QUERY"],
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["LOCAL_STATE_QUERY"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 25
       },
       __self: this
     }, render);
@@ -246,7 +231,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 26
       },
       __self: this
     }, render);
@@ -313,13 +298,15 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToolTipAccess", function (e) {
-      var name = e.act.name ? "".concat(e.act.name) : null;
-      var time = Object(date_fns__WEBPACK_IMPORTED_MODULE_7__["format"])(e.start, "h:mmaaaaa");
+      var name = e.act.name ? "".concat(e.act.name) : null; // const time = format(parseISO(e.start), "h:mmaaaaa")
+
+      var time = moment__WEBPACK_IMPORTED_MODULE_6___default()(e.start).format("h:mma");
       return "".concat(time, " ").concat(name);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "titleAccessor", function (e) {
-      var time = Object(date_fns__WEBPACK_IMPORTED_MODULE_7__["format"])(e.start, "h:mmaaaaa");
+      var time = moment__WEBPACK_IMPORTED_MODULE_6___default()(e.start).format("hh:mma"); // const time = format(parseISO(e.start), "h:mmaaaaa");
+
       var name = e.act.name ? " ".concat(e.act.name) : null;
       return time + name;
     });
@@ -366,7 +353,7 @@ function (_Component) {
       // manually update the cache on the client, so it matches the server
       // 1. Read the cache for the items we want
       var data = cache.readQuery({
-        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"]
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"]
       }); // 2. Filter the deleted itemout of the page
 
       var eventIndex = data.events.findIndex(function (event) {
@@ -376,7 +363,7 @@ function (_Component) {
       data.events[eventIndex].end = payload.data.moveEvent.end; // 3. Put the items back!
 
       cache.writeQuery({
-        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"],
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"],
         data: data
       });
     });
@@ -402,7 +389,7 @@ function (_Component) {
         updateCache: this.updateCache,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 117
         },
         __self: this
       }, function (_ref8) {
@@ -414,35 +401,35 @@ function (_Component) {
         if (allEvents.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 119
           },
           __self: this
         }, "Loading...");
         if (allEvents.error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 120
           },
           __self: this
         }, "Error: ", allEvents.error.message);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, localState.data.modalOpen && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ModalContainer__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, localState.data.modalOpen && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ModalContainer__WEBPACK_IMPORTED_MODULE_9__["default"], {
           event: _this2.state.event,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 123
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           style: spring,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 124
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_12__["StyledBigCal"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_11__["StyledBigCal"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124
+            lineNumber: 125
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DnDCalendar, {
@@ -493,11 +480,11 @@ function (_Component) {
             height: "100vh"
           },
           components: {
-            event: _CustomEvent__WEBPACK_IMPORTED_MODULE_8__["default"]
+            event: _CustomEvent__WEBPACK_IMPORTED_MODULE_7__["default"]
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 126
           },
           __self: this
         }))));
@@ -525,13 +512,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "date-fns");
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-<<<<<<< HEAD
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
-=======
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -556,7 +541,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Event = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
+
+var Event = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "CustomEvent__Event",
   componentId: "sc-11ix3ah-0"
 })([""]);
@@ -599,19 +585,20 @@ function (_Component) {
   _createClass(CustomEvent, [{
     key: "render",
     value: function render() {
-      var event = this.props.event;
-      var start = Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["format"])(event.start, "h:mmaaaaa");
+      var event = this.props.event; // const start = format(parseISO(event.start), "h:mmaaaaa");
+
+      var start = moment__WEBPACK_IMPORTED_MODULE_2___default()(event.start).format("h:mma");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.handleClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 31
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 32
         },
         __self: this
       }, start, " ", event.act.name));
@@ -640,11 +627,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
-=======
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 
 
@@ -732,7 +715,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! focus-trap-react */ "focus-trap-react");
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _styles_ModalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ModalStyles */ "./components/styles/ModalStyles.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
 
 
 
@@ -776,7 +759,6 @@ var Modal = function Modal(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     ref: buttonRef,
     "aria-label": "Close Modal",
-    "aria-lablledby": "close-modal",
     className: "_modal-close",
     onClick: closeModal,
     __source: {
@@ -789,7 +771,7 @@ var Modal = function Modal(_ref) {
     className: "_hide-visual",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 28
     },
     __self: this
   }, "Close"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -797,28 +779,28 @@ var Modal = function Modal(_ref) {
     viewBox: "0 0 40 40",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 29
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M 10,10 L 30,30 M 30,10 L 10,30",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     event: event,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 35
     },
     __self: this
   }))))), document.body);
@@ -843,7 +825,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1091,23 +1073,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-adopt */ "react-adopt");
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_4__);
-<<<<<<< HEAD
-/* harmony import */ var _styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/QuickUpdateStyles */ "./components/styles/QuickUpdateStyles.js");
-/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _Portal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Portal */ "./components/Portal.js");
-/* harmony import */ var _styles_OverlayStyled__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/OverlayStyled */ "./components/styles/OverlayStyled.js");
-/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
-/* harmony import */ var _styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/DeleteButtonStyles */ "./components/styles/DeleteButtonStyles.js");
-/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
-/* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
-/* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
-
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate.js";
-=======
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Portal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Portal */ "./components/Portal.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
@@ -1122,8 +1089,7 @@ var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/Rea
 /* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
 /* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
 
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate.js";
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1174,25 +1140,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   allActs: function allActs(_ref) {
     var render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-<<<<<<< HEAD
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_ACTS_QUERY"],
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 18
-=======
       query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_14__["ALL_ACTS_QUERY"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
       },
       __self: this
     }, render);
@@ -1201,16 +1157,6 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
     var updates = _ref2.updates,
         render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-<<<<<<< HEAD
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["UPDATE_EVENT_MUTATION"],
-      variables: updates,
-      refetchQueries: [{
-        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"]
-      }],
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19
-=======
       mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["UPDATE_EVENT_MUTATION"],
       variables: updates,
       refetchQueries: [{
@@ -1219,7 +1165,6 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
       __source: {
         fileName: _jsxFileName,
         lineNumber: 21
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
       },
       __self: this
     }, render);
@@ -1227,17 +1172,10 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   toggleModalMutation: function toggleModalMutation(_ref3) {
     var render = _ref3.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-<<<<<<< HEAD
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["TOGGLE_MODAL_MUTATION"],
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-=======
       mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_13__["TOGGLE_MODAL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 22
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
       },
       __self: this
     }, render);
@@ -1287,10 +1225,11 @@ function (_Component) {
           });
 
         case 'duration':
-          var val = parseFloat(value);
+          var val = parseFloat(value); // return this.setState({ duration: val, end: addMinutes(!!this.state.start ? this.state.start : this.props.start, val) });
+
           return _this.setState({
             duration: val,
-            end: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(!!_this.state.start ? _this.state.start : _this.props.start, val)
+            end: !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).add(val, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.start).add(val, 'minutes')
           });
 
         case 'draw':
@@ -1311,14 +1250,13 @@ function (_Component) {
 
       switch (type) {
         case 'date':
-          var time = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this.state.start, "H:MM", {
-            awareOfUnicodeTokens: true
-          });
-          var startDateTime = new Date("".concat(value, " ").concat(time));
-          var title = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(value, "YYYY-MM-dd", {
-            awareOfUnicodeTokens: true
-          });
-          var end = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(startDateTime, !!_this.state.duration ? _this.state.duration : _this.props.duration);
+          // const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
+          var time = moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).format('hh:mm');
+          var startDateTime = new Date("".concat(value, " ").concat(time)); // const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+
+          var title = moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("YYYY-M-D"); // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+
+          var end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_4___default()(startDateTime).add(_this.state.duration, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(startDateTime).add(_this.props.duration, 'minutes');
 
           _this.setState({
             start: startDateTime,
@@ -1329,11 +1267,11 @@ function (_Component) {
           break;
 
         case 'time':
-          var date = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(!!_this.state.start ? _this.state.start : _this.props.start, "YYYY-MM-dd", {
-            awareOfUnicodeTokens: true
-          });
-          startDateTime = new Date("".concat(date, " ").concat(value));
-          end = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(startDateTime, !!_this.state.duration ? _this.state.duration : _this.props.duration);
+          // const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+          var date = !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).format("YYYY-M-D") : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.start).format("YYYY-M-D");
+          startDateTime = new Date("".concat(date, " ").concat(value)); // end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+
+          end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.duration).add(startDateTime, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.duration).add(startDateTime, 'minutes');
 
           _this.setState({
             start: startDateTime,
@@ -1485,8 +1423,6 @@ function (_Component) {
       };
     }());
 
-<<<<<<< HEAD
-=======
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleAutomationClick", function (id, toggleModal) {
       toggleModal();
       next_router__WEBPACK_IMPORTED_MODULE_6___default.a.push({
@@ -1497,7 +1433,6 @@ function (_Component) {
       });
     });
 
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
     return _this;
   }
 
@@ -1508,34 +1443,21 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Composed, {
         singleEventId: this.props.id,
-<<<<<<< HEAD
-        updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__["updateCache"],
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 126
-=======
         updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_15__["updateCache"],
         __source: {
           fileName: _jsxFileName,
-<<<<<<< HEAD
-          lineNumber: 136
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-          lineNumber: 135
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+          lineNumber: 141
         },
         __self: this
       }, function (_ref6) {
         var allActs = _ref6.allActs,
             updateEventMutation = _ref6.updateEventMutation,
             toggleModalMutation = _ref6.toggleModalMutation;
-        var event = _this2.props.event;
-        var formattedDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(event.start, "YYYY-MM-dd", {
-          awareOfUnicodeTokens: true
-        });
-        var formattedTime = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(event.start, "HH:mm", {
-          awareOfUnicodeTokens: true
-        });
+        var event = _this2.props.event; // const formattedDate = format(event.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+
+        var formattedDate = moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start).format("YYYY-M-D"); // const formattedTime = format(event.start, "HH:mm", { awareOfUnicodeTokens: true });
+
+        var formattedTime = moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start).format("hh:mma");
         var notes = null;
 
         if (_this2.state.notes) {
@@ -1544,15 +1466,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 133
-=======
-                lineNumber: 143
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-                lineNumber: 142
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+                lineNumber: 150
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1564,35 +1478,16 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 133
-              },
-              __self: this
-            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
-=======
-                lineNumber: 143
-=======
-                lineNumber: 142
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+                lineNumber: 150
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               onClick: function onClick(e) {
                 return _this2.handleDeleteNote(e, index);
               },
               __source: {
                 fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 133
-=======
-                lineNumber: 143
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-                lineNumber: 142
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+                lineNumber: 150
               },
               __self: this
             }, "-"));
@@ -1603,15 +1498,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 135
-=======
-                lineNumber: 145
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-                lineNumber: 144
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+                lineNumber: 152
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1624,35 +1511,16 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 135
-              },
-              __self: this
-            }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
-=======
-                lineNumber: 145
-=======
-                lineNumber: 144
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+                lineNumber: 152
               },
               __self: this
             }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
               onClick: function onClick(e) {
                 return _this2.handleDeleteNote(e, index, event.notes);
               },
               __source: {
                 fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-                lineNumber: 135
-=======
-                lineNumber: 145
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-                lineNumber: 144
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+                lineNumber: 152
               },
               __self: this
             }, "-"));
@@ -1665,110 +1533,52 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-              lineNumber: 137
-=======
-              lineNumber: 147
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-              lineNumber: 146
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+              lineNumber: 154
             },
             __self: this
           }, act.name);
         }) : null;
-<<<<<<< HEAD
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Portal__WEBPACK_IMPORTED_MODULE_8__["Portal"], {
-          selector: "#modal",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 139
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_OverlayStyled__WEBPACK_IMPORTED_MODULE_9__["default"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 140
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 141
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          onClick: toggleModalMutation,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 142
-=======
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Portal__WEBPACK_IMPORTED_MODULE_5__["Portal"], {
           selector: "#modal",
           closeFn: toggleModalMutation,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148
+            lineNumber: 156
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_OverlayStyled__WEBPACK_IMPORTED_MODULE_10__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149
+            lineNumber: 157
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150
+            lineNumber: 158
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_CloseButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
           onClick: toggleModalMutation,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-            lineNumber: 152
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 151
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 159
           },
           __self: this
         }, "X"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 143
-          },
-          __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_10__["default"], {
-=======
-            lineNumber: 153
-=======
-            lineNumber: 152
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 160
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           onSubmit: function onSubmit(e) {
             return _this2.updateEvent(e, updateEventMutation, toggleModalMutation);
           },
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 144
-=======
-            lineNumber: 154
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 153
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 161
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -1776,44 +1586,20 @@ function (_Component) {
           "aria-busy": updateEventMutation.loading,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 145
-=======
-            lineNumber: 155
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 154
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 162
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 146
-=======
-            lineNumber: 156
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 155
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 163
           },
           __self: this
         }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "date",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 147
-=======
-            lineNumber: 157
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 156
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 164
           },
           __self: this
         }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1826,30 +1612,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 149
-=======
-            lineNumber: 159
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 158
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 166
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "time",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 152
-=======
-            lineNumber: 162
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 161
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 169
           },
           __self: this
         }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1862,64 +1632,32 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 154
-=======
-            lineNumber: 164
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 163
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 171
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "duration",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 157
-=======
-            lineNumber: 167
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 166
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 174
           },
           __self: this
         }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "number",
           id: "duration",
           name: "duration",
-          defaultValue: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["differenceInMinutes"])(event.end, event.start),
+          defaultValue: moment__WEBPACK_IMPORTED_MODULE_4___default()(event.end).diff(moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start), 'minutes'),
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 159
-=======
-            lineNumber: 169
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 168
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 176
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "status",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 162
-=======
-            lineNumber: 172
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 171
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 179
           },
           __self: this
         }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1928,35 +1666,16 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 164
-          },
-          __self: this
-        }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__["possibleStatus"].map(function (status) {
-=======
-            lineNumber: 174
-=======
-            lineNumber: 173
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 181
           },
           __self: this
         }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_16__["possibleStatus"].map(function (status) {
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
             key: status,
             value: status,
             __source: {
               fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-              lineNumber: 165
-=======
-              lineNumber: 175
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-              lineNumber: 174
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+              lineNumber: 182
             },
             __self: this
           }, status);
@@ -1964,15 +1683,7 @@ function (_Component) {
           htmlFor: "allDay",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 169
-=======
-            lineNumber: 179
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 178
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 186
           },
           __self: this
         }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1983,30 +1694,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 171
-=======
-            lineNumber: 181
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 180
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 188
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "draw",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 174
-=======
-            lineNumber: 184
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 183
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 191
           },
           __self: this
         }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2017,62 +1712,30 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 176
-=======
-            lineNumber: 186
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 185
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 193
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "notes",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 179
-          },
-          __self: this
-        }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_11__["default"], {
-=======
-            lineNumber: 189
-=======
-            lineNumber: 188
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 196
           },
           __self: this
         }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
           onClick: function onClick(e) {
             return _this2.addNoteField(e, _this2.state.notes ? null : event.notes);
           },
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 182
-          },
-          __self: this
-        }, "+"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 187
-=======
-            lineNumber: 192
-=======
-            lineNumber: 191
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 199
           },
           __self: this
         }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "automations",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 194
+            lineNumber: 202
           },
           __self: this
         }, "Automations", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -2081,61 +1744,32 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 196
+            lineNumber: 204
           },
           __self: this
         }, "CLICK HERE TO CREATE AUTOMATIONS"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-            lineNumber: 202
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 201
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 209
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 188
-=======
-            lineNumber: 203
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 202
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 210
           },
           __self: this
         }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 189
-=======
-            lineNumber: 204
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 203
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 211
           },
           __self: this
         }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "name",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 190
-=======
-            lineNumber: 205
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 204
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 212
           },
           __self: this
         }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -2146,30 +1780,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 192
-=======
-            lineNumber: 207
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 206
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 214
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 194
-=======
-            lineNumber: 209
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 208
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 216
           },
           __self: this
         }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -2180,30 +1798,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 196
-=======
-            lineNumber: 211
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 210
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 218
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 199
-=======
-            lineNumber: 214
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 213
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 221
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -2214,30 +1816,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 201
-=======
-            lineNumber: 216
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 215
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 223
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "image",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 204
-=======
-            lineNumber: 219
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 218
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 226
           },
           __self: this
         }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2248,15 +1834,7 @@ function (_Component) {
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 206
-=======
-            lineNumber: 221
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 220
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 228
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -2265,71 +1843,31 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 208
-=======
-            lineNumber: 223
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 222
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 230
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 210
-=======
-            lineNumber: 225
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 224
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 232
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 213
-=======
-            lineNumber: 228
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 227
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 235
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 214
-=======
-            lineNumber: 229
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 228
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 236
           },
           __self: this
         }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 215
-=======
-            lineNumber: 230
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 229
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 237
           },
           __self: this
         }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -2337,15 +1875,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 216
-=======
-            lineNumber: 231
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 230
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 238
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
@@ -2353,72 +1883,32 @@ function (_Component) {
           disabled: true,
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 217
-=======
-            lineNumber: 232
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 231
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 239
           },
           __self: this
         }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 222
-=======
-            lineNumber: 237
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 236
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 244
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 223
-=======
-            lineNumber: 238
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 237
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 245
           },
           __self: this
         }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 224
-=======
-            lineNumber: 239
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 238
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 246
           },
           __self: this
         }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-<<<<<<< HEAD
-<<<<<<< HEAD
-            lineNumber: 225
-=======
-            lineNumber: 240
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
-=======
-            lineNumber: 239
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
+            lineNumber: 247
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))))));
@@ -2450,8 +1940,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-adopt */ "react-adopt");
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "date-fns");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
@@ -2463,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
 /* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
 
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2599,7 +2089,7 @@ function (_Component) {
           var val = parseFloat(value);
           return _this.setState({
             duration: val,
-            end: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(!!_this.state.start ? _this.state.start : _this.props.start, val)
+            end: !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).add(val, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.start).add(val, 'minutes')
           });
 
         case 'draw':
@@ -2620,14 +2110,13 @@ function (_Component) {
 
       switch (type) {
         case 'date':
-          var time = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(_this.state.start, "H:MM", {
-            awareOfUnicodeTokens: true
-          });
-          var startDateTime = new Date("".concat(value, " ").concat(time));
-          var title = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(value, "YYYY-MM-dd", {
-            awareOfUnicodeTokens: true
-          });
-          var end = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(startDateTime, !!_this.state.duration ? _this.state.duration : _this.props.duration);
+          // const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
+          var time = moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).format('hh:mm');
+          var startDateTime = new Date("".concat(value, " ").concat(time)); // const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+
+          var title = moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("YYYY-M-D"); // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+
+          var end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_4___default()(startDateTime).add(_this.state.duration, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(startDateTime).add(_this.props.duration, 'minutes');
 
           _this.setState({
             start: startDateTime,
@@ -2638,11 +2127,11 @@ function (_Component) {
           break;
 
         case 'time':
-          var date = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(!!_this.state.start ? _this.state.start : _this.props.start, "YYYY-MM-dd", {
-            awareOfUnicodeTokens: true
-          });
-          startDateTime = new Date("".concat(date, " ").concat(value));
-          end = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["addMinutes"])(startDateTime, !!_this.state.duration ? _this.state.duration : _this.props.duration);
+          // const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+          var date = !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).format("YYYY-M-D") : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.start).format("YYYY-M-D");
+          startDateTime = new Date("".concat(date, " ").concat(value)); // end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+
+          end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.duration).add(startDateTime, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.duration).add(startDateTime, 'minutes');
 
           _this.setState({
             start: startDateTime,
@@ -2817,20 +2306,20 @@ function (_Component) {
         updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_12__["updateCache"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 139
         },
         __self: this
       }, function (_ref6) {
         var allActs = _ref6.allActs,
             updateEventMutation = _ref6.updateEventMutation,
             toggleModalMutation = _ref6.toggleModalMutation;
-        var event = _this2.props.event;
-        var formattedDate = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(event.start, "YYYY-MM-dd", {
-          awareOfUnicodeTokens: true
-        });
-        var formattedTime = Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["format"])(event.start, "HH:mm", {
-          awareOfUnicodeTokens: true
-        });
+        var event = _this2.props.event; // const formattedDate = format(parseISO(event.start), "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+
+        var formattedDate = moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start).format("YYYY-MM-DD");
+        console.log(formattedDate); // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
+
+        var formattedTime = moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start).format("HH:mm");
+        console.log(formattedTime);
         var notes = null;
 
         if (_this2.state.notes) {
@@ -2839,7 +2328,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 139
+                lineNumber: 150
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -2851,7 +2340,7 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 139
+                lineNumber: 150
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2860,7 +2349,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 139
+                lineNumber: 150
               },
               __self: this
             }, "-"));
@@ -2871,7 +2360,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 141
+                lineNumber: 152
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -2884,7 +2373,7 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 141
+                lineNumber: 152
               },
               __self: this
             }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2893,7 +2382,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 141
+                lineNumber: 152
               },
               __self: this
             }, "-"));
@@ -2906,7 +2395,7 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 143
+              lineNumber: 154
             },
             __self: this
           }, act.name);
@@ -2915,7 +2404,7 @@ function (_Component) {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146
+            lineNumber: 157
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -2924,7 +2413,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 147
+            lineNumber: 158
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -2932,20 +2421,20 @@ function (_Component) {
           "aria-busy": updateEventMutation.loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148
+            lineNumber: 159
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149
+            lineNumber: 160
           },
           __self: this
         }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "date",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150
+            lineNumber: 161
           },
           __self: this
         }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2958,14 +2447,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 152
+            lineNumber: 163
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "time",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 155
+            lineNumber: 166
           },
           __self: this
         }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2978,32 +2467,32 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 157
+            lineNumber: 168
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "duration",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 160
+            lineNumber: 171
           },
           __self: this
         }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "number",
           id: "duration",
           name: "duration",
-          defaultValue: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["differenceInMinutes"])(event.end, event.start),
+          defaultValue: moment__WEBPACK_IMPORTED_MODULE_4___default()(event.end).diff(moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start), 'minutes'),
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 162
+            lineNumber: 173
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "status",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 177
           },
           __self: this
         }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -3012,7 +2501,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 167
+            lineNumber: 179
           },
           __self: this
         }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_13__["possibleStatus"].map(function (status) {
@@ -3021,7 +2510,7 @@ function (_Component) {
             value: status,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 168
+              lineNumber: 180
             },
             __self: this
           }, status);
@@ -3029,7 +2518,7 @@ function (_Component) {
           htmlFor: "allDay",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 172
+            lineNumber: 184
           },
           __self: this
         }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -3040,14 +2529,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 174
+            lineNumber: 186
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "draw",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 177
+            lineNumber: 189
           },
           __self: this
         }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -3058,14 +2547,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 179
+            lineNumber: 191
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "notes",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 182
+            lineNumber: 194
           },
           __self: this
         }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -3074,14 +2563,14 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 185
+            lineNumber: 197
           },
           __self: this
         }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "automations",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 188
+            lineNumber: 200
           },
           __self: this
         }, "Automations", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -3090,32 +2579,32 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 202
           },
           __self: this
         }, "CLICK HERE TO CREATE AUTOMATIONS"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 195
+            lineNumber: 207
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 196
+            lineNumber: 208
           },
           __self: this
         }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 197
+            lineNumber: 209
           },
           __self: this
         }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "name",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 198
+            lineNumber: 210
           },
           __self: this
         }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -3126,14 +2615,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 200
+            lineNumber: 212
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 202
+            lineNumber: 214
           },
           __self: this
         }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -3144,14 +2633,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 204
+            lineNumber: 216
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 207
+            lineNumber: 219
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -3162,14 +2651,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 209
+            lineNumber: 221
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "image",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 212
+            lineNumber: 224
           },
           __self: this
         }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -3180,7 +2669,7 @@ function (_Component) {
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 214
+            lineNumber: 226
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -3189,31 +2678,31 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 216
+            lineNumber: 228
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 218
+            lineNumber: 230
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 221
+            lineNumber: 233
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 222
+            lineNumber: 234
           },
           __self: this
         }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 223
+            lineNumber: 235
           },
           __self: this
         }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -3221,7 +2710,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 224
+            lineNumber: 236
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
@@ -3229,32 +2718,32 @@ function (_Component) {
           disabled: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 225
+            lineNumber: 237
           },
           __self: this
         }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 230
+            lineNumber: 242
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 231
+            lineNumber: 243
           },
           __self: this
         }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 232
+            lineNumber: 244
           },
           __self: this
         }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 233
+            lineNumber: 245
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))));
@@ -3291,11 +2780,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined,
-<<<<<<< HEAD
     _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
-=======
-    _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 
 
@@ -3445,11 +2930,7 @@ function () {
 /*!***************************************************!*\
   !*** ./components/globals/mutations/mutations.js ***!
   \***************************************************/
-<<<<<<< HEAD
-/*! exports provided: TOGGLE_MODAL_MUTATION, UPDATE_EVENT_MUTATION, MOVE_EVENT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_ACT_MUTATION */
-=======
 /*! exports provided: TOGGLE_MODAL_MUTATION, UPDATE_EVENT_MUTATION, MOVE_EVENT_MUTATION, CREATE_EVENT_WITH_NEW_ACT_MUTATION, CREATE_EVENT_WITH_EXISTING_ACT_MUTATION, CREATE_ACT_MUTATION, CREATE_EMAIL_MUTATION */
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3460,10 +2941,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_WITH_NEW_ACT_MUTATION", function() { return CREATE_EVENT_WITH_NEW_ACT_MUTATION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EVENT_WITH_EXISTING_ACT_MUTATION", function() { return CREATE_EVENT_WITH_EXISTING_ACT_MUTATION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ACT_MUTATION", function() { return CREATE_ACT_MUTATION; });
-<<<<<<< HEAD
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
-=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_EMAIL_MUTATION", function() { return CREATE_EMAIL_MUTATION; });
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
@@ -3477,7 +2954,6 @@ function _templateObject7() {
   return data;
 }
 
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 function _templateObject6() {
   var data = _taggedTemplateLiteral(["\n  mutation CREATE_ACT_MUTATION(\n      $name: String!\n      $description: String\n      $image: String\n      $largeImage: String\n      $email: String\n      $notes: [String!]\n  ) {\n    createAct(\n      name: $name\n      description: $description\n      image: $image\n      largeImage: $largeImage\n      email: $email\n      notes: $notes\n    ) {\n      id\n    }\n  }\n"]);
 
@@ -3547,10 +3023,7 @@ var MOVE_EVENT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_te
 var CREATE_EVENT_WITH_NEW_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4());
 var CREATE_EVENT_WITH_EXISTING_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
 var CREATE_ACT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
-<<<<<<< HEAD
-=======
 var CREATE_EMAIL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 /***/ }),
 
@@ -3558,11 +3031,7 @@ var CREATE_EMAIL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_
 /*!***********************************************!*\
   !*** ./components/globals/queries/queries.js ***!
   \***********************************************/
-<<<<<<< HEAD
-/*! exports provided: ALL_EVENTS_QUERY, SINGLE_EVENT_QUERY, ALL_ACTS_QUERY, ALL_ACTS_QUERY_PAGINATION, LOCAL_STATE_QUERY, PAGINATION_QUERY, SEARCH_ACTS_QUERY, SINGLE_ACT_QUERY */
-=======
 /*! exports provided: ALL_EVENTS_QUERY, SINGLE_EVENT_QUERY, ALL_ACTS_QUERY, ALL_ACTS_QUERY_PAGINATION, LOCAL_STATE_QUERY, PAGINATION_QUERY, SEARCH_ACTS_QUERY, SINGLE_ACT_QUERY, CURRENT_USER_QUERY */
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3575,11 +3044,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PAGINATION_QUERY", function() { return PAGINATION_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_ACTS_QUERY", function() { return SEARCH_ACTS_QUERY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SINGLE_ACT_QUERY", function() { return SINGLE_ACT_QUERY; });
-<<<<<<< HEAD
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../config */ "./config.js");
-=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENT_USER_QUERY", function() { return CURRENT_USER_QUERY; });
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
@@ -3594,7 +3058,6 @@ function _templateObject9() {
   return data;
 }
 
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 function _templateObject8() {
   var data = _taggedTemplateLiteral(["\n  query SINGLE_ACT_QUERY($id: ID!) {\n    act(where: { id: $id }) {\n      id\n      name\n      description\n      image\n      email\n      notes\n      event{\n        id\n        start\n        allDay\n        draw\n      }\n    }\n  }\n"]);
 
@@ -3687,10 +3150,7 @@ var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_temp
 var PAGINATION_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
 var SEARCH_ACTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
 var SINGLE_ACT_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject8());
-<<<<<<< HEAD
-=======
 var CURRENT_USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject9());
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 /***/ }),
 
@@ -3761,14 +3221,6 @@ var DeleteButtonStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.
 
 /***/ }),
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/***/ "./components/styles/Form.js":
-/*!***********************************!*\
-  !*** ./components/styles/Form.js ***!
-  \***********************************/
-=======
-=======
 /***/ "./components/styles/ModalStyles.js":
 /*!******************************************!*\
   !*** ./components/styles/ModalStyles.js ***!
@@ -3789,12 +3241,10 @@ var ModalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.w
 
 /***/ }),
 
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
 /***/ "./components/styles/OverlayStyled.js":
 /*!********************************************!*\
   !*** ./components/styles/OverlayStyled.js ***!
   \********************************************/
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3803,32 +3253,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{background-position:0 0;}to{background-position:100% 100%;}"]);
-var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withConfig({
-  displayName: "Form",
-  componentId: "sc-193v0pb-0"
-})(["display:grid;grid-template-columns:1fr 1fr 1fr 1fr;box-shadow:0 0 5px 3px rgba(0,0,0,0.05);background:rgba(0,0,0,0.02);border:5px solid white;padding:20px;font-size:1.5rem;line-height:1.5;font-weight:600;label{display:block;margin-bottom:1rem;}input,textarea,select{width:100%;padding:0.5rem;font-size:1rem;border:1px solid black;&:focus{outline:0;border-color:", ";}}input[type='submit']{width:auto;background:", ";color:white;border:0;font-size:2rem;font-weight:600;padding:0.5rem 1.0rem;}fieldset{border:0;padding:0;&[disabled]{opacity:0.5;}&::before{height:10px;content:'';display:block;background-image:linear-gradient(to right,#ff3019 0%,#e2b04a 50%,#ff3019 100%);}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], function (props) {
-  return props.theme.mainColor;
-}, function (props) {
-  return props.theme.mainColor;
-}, loading);
-/* harmony default export */ __webpack_exports__["default"] = (Form);
-
-/***/ }),
-
-/***/ "./components/styles/OverlayStyled.js":
-/*!********************************************!*\
-  !*** ./components/styles/OverlayStyled.js ***!
-  \********************************************/
-=======
-var OverlayedStyled = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "OverlayStyled__OverlayedStyled",
-=======
 var ModalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "OverlayStyled__ModalStyles",
->>>>>>> 7554c7efca2bca45f7d7bcea9d832a2a74a6ab50
   componentId: "sc-12gv6z4-0"
 })(["position:fixed;top:0px;left:0px;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;"]);
 /* harmony default export */ __webpack_exports__["default"] = (ModalStyles);
@@ -3839,7 +3265,6 @@ var ModalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.w
 /*!****************************************************!*\
   !*** ./components/styles/QuickUpdateFormStyles.js ***!
   \****************************************************/
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3848,13 +3273,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-<<<<<<< HEAD
-var OverlayedStyled = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "OverlayStyled__OverlayedStyled",
-  componentId: "sc-12gv6z4-0"
-})(["z-index:10;position:fixed;background-color:rgba(0,0,0,0.7);top:0;right:0;bottom:0;left:0;"]);
-/* harmony default export */ __webpack_exports__["default"] = (OverlayedStyled);
-=======
 var loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{background-position:0 0;}to{background-position:100% 100%;}"]);
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withConfig({
   displayName: "QuickUpdateFormStyles__Form",
@@ -3865,7 +3283,6 @@ var Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withCon
   return props.theme.mainColor;
 }, loading);
 /* harmony default export */ __webpack_exports__["default"] = (Form);
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 /***/ }),
 
@@ -3934,11 +3351,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_BigCalendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/BigCalendar */ "./components/BigCalendar.js");
-<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
-=======
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
->>>>>>> 7fade2387159fd668b274a8cf183106eead35fc9
 
 
 
@@ -3963,7 +3376,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

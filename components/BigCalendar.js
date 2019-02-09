@@ -5,7 +5,6 @@ import Router from 'next/router';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring';
 import moment from 'moment';
-import {format} from 'date-fns';
 import CustomEvent from './CustomEvent';
 import QuickUpdate from './QuickUpdate';
 import ModalContainer from './ModalContainer';
@@ -56,12 +55,14 @@ class BigCalendar extends Component {
 
   onToolTipAccess = e => {
     const name = e.act.name ? `${e.act.name}` : null 
-    const time = format(e.start, "h:mmaaaaa")
+    // const time = format(parseISO(e.start), "h:mmaaaaa")
+    const time = moment(e.start).format("h:mma") ;
     return `${time} ${name}`;
   }
 
   titleAccessor = e => {
-    const time = format(e.start, "h:mmaaaaa");
+    const time = moment(e.start).format("hh:mma");
+    // const time = format(parseISO(e.start), "h:mmaaaaa");
     const name = e.act.name ? ` ${e.act.name}`: null;
     return time + name;
   }

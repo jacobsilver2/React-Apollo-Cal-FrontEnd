@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
-import { format, addHours, addMinutes, differenceInMinutes } from 'date-fns'
+import moment from 'moment';
 import * as mutations from './globals/mutations/mutations';
 import * as queries from './globals/queries/queries';
 import {possibleStatus} from '../lib/possibleStatus';
@@ -46,7 +46,8 @@ class UpdateEvent extends Component {
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
       case 'duration':
         let val = parseFloat(value);
-        return this.setState({duration: val, end: addMinutes(this.state.start, val)});
+        return this.setState({ duration: val, end: moment(this.state.start).add(val, 'minutes') })
+        // return this.setState({duration: val, end: addMinutes(this.state.start, val)});
       case 'draw':
         val = parseFloat(value);
         return this.setState({ [name]: value });
@@ -60,16 +61,21 @@ class UpdateEvent extends Component {
 
     switch (type) {
       case 'date':
-        const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
+        // const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
+        const time = moment(this.state.start).format("hh:mm");
         let startDateTime = new Date(`${value} ${time}`);
-        const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
-        let end = addMinutes(startDateTime, this.state.duration);
+        // const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        const title = moment(value).format('YYYY-M-D');
+        // let end = addMinutes(startDateTime, this.state.duration);
+        let end = moment(startDateTime).add(this.state.duration, 'minutes');
         this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
-        const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        // const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        const date = moment(this.state.start).format("YYYY-M-D");
         startDateTime = new Date(`${date} ${value}`);
-        end = addMinutes(startDateTime, this.state.duration);
+        // end = addMinutes(startDateTime, this.state.duration);
+        end = moment(startDateTime).add(this.state.duration, 'minutes');
         this.setState({ start: startDateTime, end });
         break;
       case 'checkbox':
@@ -167,8 +173,10 @@ class UpdateEvent extends Component {
           } else if (event.notes.length > 0 ) {
             notes = event.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/> <Button onClick={(e)=>this.handleDeleteNote(e, index, event.notes)}>-</Button></div>)
           } 
-          const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
-          const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
+          // const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+          const formattedDate = moment(event.start).format("YYYY-MM-DD");
+          // const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
+          const formattedTime = moment(event.start).format("HH:mm");
           return (
             <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY, query: queries.ALL_ACTS_QUERY }]}>
               {(updateEvent, { loading, error }) => (
@@ -190,7 +198,7 @@ class UpdateEvent extends Component {
 
                       <label htmlFor="duration">
                         Duration (minutes)
-                        <input type="number" id="duration" name="duration" defaultValue={differenceInMinutes(event.end, event.start)} onChange={this.handleChange} />
+                        <input type="number" id="duration" name="duration" defaultValue={moment(event.end).diff(moment(event.start), 'minutes')} onChange={this.handleChange} />
                       </label>
 
                       <label htmlFor="status">

@@ -1,5 +1,5 @@
 {
-  "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/noop": [
+  "./noop": [
     {
       "id": "./node_modules/next/dist/client/noop.js",
       "name": "./node_modules/next/dist/client/noop.js",

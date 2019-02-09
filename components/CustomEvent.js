@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {format} from 'date-fns';
+import {format, parseISO} from 'date-fns';
+import moment from 'moment';
 import styled from 'styled-components';
 
 const Event = styled.div`
@@ -24,7 +25,8 @@ class CustomEvent extends Component {
   
   render() {
     const {event} = this.props
-    const start = format(event.start, "h:mmaaaaa");
+    // const start = format(parseISO(event.start), "h:mmaaaaa");
+    const start = moment(event.start).format("h:mma");
     return (
       <div onClick={this.handleClick}>
          <p>{start} {event.act.name}</p>
