@@ -1,6 +1,6 @@
 {
   "devFiles": [
-    "static/development/dll/dll_724ae78efd21d9b28c3a.js"
+    "static/development/dll/dll_4a2ab6ce0cb456fbfead.js"
   ],
   "pages": {
     "/_app": [
@@ -16,10 +16,6 @@
       "static/runtime/main.js"
     ],
     "/newCalEvent": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/acts": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

@@ -6,7 +6,6 @@ import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring';
 import moment from 'moment';
 import CustomEvent from './CustomEvent';
-import QuickUpdate from './QuickUpdate';
 import ModalContainer from './ModalContainer';
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import {StyledBigCal} from './styles/BigCalendarStyles';

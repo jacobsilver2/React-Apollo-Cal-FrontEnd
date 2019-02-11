@@ -11,6 +11,7 @@ import Error from './ErrorMessage';
 import * as queries from './globals/queries/queries';
 import * as mutations from './globals/mutations/mutations';
 import {possibleStatus} from '../lib/possibleStatus';
+import Button from './styles/SickButton';
 
 
 
@@ -214,7 +215,7 @@ class CreateEvent extends Component {
                       {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
                     </label>
                       
-                    <button type="submit">Submit</button>
+                    <Button type="submit">Submit</Button>
                   </fieldset>
                   </Form> 
                 </div>     

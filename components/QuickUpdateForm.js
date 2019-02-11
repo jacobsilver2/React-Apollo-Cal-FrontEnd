@@ -3,15 +3,16 @@ import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import moment from 'moment';
 import Router from 'next/router';
-
 import Error from './ErrorMessage';
 import QuickUpdateStyled from './styles/QuickUpdateStyles';
 import Form from './styles/QuickUpdateFormStyles';
 import Button from './styles/DeleteButtonStyles';
+import OtherButton from './styles/SickButton';
 import * as mutations from './globals/mutations/mutations';
 import * as queries from './globals/queries/queries';
 import * as updateEventMethods from './globals/functions/updateEventMethods';
 import { possibleStatus } from '../lib/possibleStatus';
+import Reminders from './Reminders';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
@@ -121,18 +122,8 @@ class QuickUpdate extends Component {
         ...this.state,
       },
     });
-    //run close modal mutation
     await closeModal();
   }
-
-  handleAutomationClick = (id, toggleModal) => {
-    toggleModal();
-    Router.push({
-      pathname: '/automations',
-      query: {id: encodeURIComponent(id)} 
-    })
-  }
-
 
   render() {
     return (
@@ -144,7 +135,6 @@ class QuickUpdate extends Component {
           console.log(formattedDate);
           // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
           const formattedTime = moment(event.start).format("HH:mm");
-          console.log(formattedTime);
           let notes = null;
           if (this.state.notes) {
             notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} /><Button onClick={(e) => this.handleDeleteNote(e, index)}>-</Button></div>)
@@ -198,8 +188,7 @@ class QuickUpdate extends Component {
                       </label>
 
                       <label htmlFor="automations">
-                        Automations
-                        <button onClick={() => this.handleAutomationClick(event.id, toggleModalMutation)}>CLICK HERE TO CREATE AUTOMATIONS</button>
+                        <OtherButton onClick={this.props.showReminders}>CREATE A REMINDER</OtherButton>
                       </label>
 
                     </fieldset>
@@ -213,12 +202,12 @@ class QuickUpdate extends Component {
                       </label>
                       <label htmlFor="description">
                         Blurb
-                          <textarea id="description" name="description" placeholder="Blurb"  defaultValue={event.act.description} onChange={this.handleChange} />
+                          <textarea id="description" name="description" placeholder="Blurb" defaultValue={event.act.description} onChange={this.handleChange} />
                       </label>
 
                       <label htmlFor="email">
                         Email
-                          <textarea id="email" name="email" placeholder="contact email"  defaultValue={event.act.email} onChange={this.handleChange} />
+                          <textarea id="email" name="email" defaultValue={event.act.email} onChange={this.handleChange} />
                       </label>
 
                       <label htmlFor="image">
@@ -242,7 +231,7 @@ class QuickUpdate extends Component {
                     <fieldset>
                       <h3>Create A New Act</h3>
                       <h6>...work in progress</h6>
-                      <button type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</button>
+                      <OtherButton type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</OtherButton>
                     </fieldset>
                   </Form>
                 </>

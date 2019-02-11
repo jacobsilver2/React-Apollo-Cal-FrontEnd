@@ -18,6 +18,7 @@ import {perPage} from '../../../config';
         description
         notes
         image
+        email
       }
     }
   }
