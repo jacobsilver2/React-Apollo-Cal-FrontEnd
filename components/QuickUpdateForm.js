@@ -188,7 +188,7 @@ class QuickUpdate extends Component {
                       </label>
 
                       <label htmlFor="automations">
-                        <OtherButton onClick={this.props.showReminders}>CREATE A REMINDER</OtherButton>
+                        <OtherButton onClick={this.props.toggleReminders}>CREATE A REMINDER</OtherButton>
                       </label>
 
                     </fieldset>

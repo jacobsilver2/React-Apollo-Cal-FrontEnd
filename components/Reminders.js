@@ -66,6 +66,8 @@ class Reminders extends Component {
                     </select>
                   </label>
 
+                  <Button onClick={showQuickUpdate}>Back</Button>
+                  ||
                   <Button type="submit">Send Email</Button>
                 </fieldset>
               </Form>

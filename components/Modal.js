@@ -8,22 +8,15 @@ import Reminders from './Reminders';
 class Modal extends Component {
   state = { 
     showQuickUpdate: true,
-    showReminders: false,
    }
   
-  showReminders = () => {
+  toggleReminders = () => {
     this.setState({
-      showQuickUpdate: false,
-      showReminders: true,
+      showQuickUpdate: !this.state.showQuickUpdate,
     })
   }
 
-  showQuickUpdate = () => {
-    this.setState({
-      showQuickUpdate: true,
-      showReminders: false
-    })
-  }
+
 
   render() {
     const {event, modalRef, buttonRef, closeModal, onKeyDown, onClickOutside} = this.props;
@@ -52,8 +45,7 @@ class Modal extends Component {
             </button>
   
             <div className="modal-body">
-              {this.state.showQuickUpdate && <QuickUpdateForm event={event} showReminders={this.showReminders}/>}
-              {this.state.showReminders && <Reminders event={event} showQuickUpdate={this.showQuickUpdate}/>}
+              {this.state.showQuickUpdate ? <QuickUpdateForm event={event} toggleReminders={this.toggleReminders}/> : <Reminders event={event} showQuickUpdate={this.toggleReminders}/>}
             </div>
           </div>
         </aside>

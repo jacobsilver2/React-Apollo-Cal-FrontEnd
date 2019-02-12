@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -514,7 +514,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -625,7 +625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
 
 
 
@@ -714,7 +714,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _styles_ModalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ModalStyles */ "./components/styles/ModalStyles.js");
 /* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -762,21 +762,12 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      showQuickUpdate: true,
-      showReminders: false
+      showQuickUpdate: true
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "showReminders", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggleReminders", function () {
       _this.setState({
-        showQuickUpdate: false,
-        showReminders: true
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "showQuickUpdate", function () {
-      _this.setState({
-        showQuickUpdate: true,
-        showReminders: false
+        showQuickUpdate: !_this.state.showQuickUpdate
       });
     });
 
@@ -796,7 +787,7 @@ function (_Component) {
       return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createPortal(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 24
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
@@ -809,7 +800,7 @@ function (_Component) {
         onKeyDown: onKeyDown,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 25
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -817,7 +808,7 @@ function (_Component) {
         ref: modalRef,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 34
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -827,7 +818,7 @@ function (_Component) {
         onClick: closeModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 35
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -835,7 +826,7 @@ function (_Component) {
         className: "_hide-visual",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 41
         },
         __self: this
       }, "Close"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -843,37 +834,37 @@ function (_Component) {
         viewBox: "0 0 40 40",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 42
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
         d: "M 10,10 L 30,30 M 30,10 L 10,30",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 43
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-body",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 47
         },
         __self: this
-      }, this.state.showQuickUpdate && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, this.state.showQuickUpdate ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
         event: event,
-        showReminders: this.showReminders,
+        toggleReminders: this.toggleReminders,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 48
         },
         __self: this
-      }), this.state.showReminders && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reminders__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reminders__WEBPACK_IMPORTED_MODULE_5__["default"], {
         event: event,
-        showQuickUpdate: this.showQuickUpdate,
+        showQuickUpdate: this.toggleReminders,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 48
         },
         __self: this
       }))))), document.body);
@@ -902,7 +893,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1062,7 +1053,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
 /* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
 
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1674,7 +1665,7 @@ function (_Component) {
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          onClick: _this2.props.showReminders,
+          onClick: _this2.props.toggleReminders,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 191
@@ -1874,7 +1865,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
 /* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2112,10 +2103,17 @@ function (_Component) {
           },
           __self: this
         }, "Hour"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          type: "submit",
+          onClick: showQuickUpdate,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 69
+          },
+          __self: this
+        }, "Back"), "||", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          type: "submit",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 71
           },
           __self: this
         }, "Send Email")));
@@ -2152,7 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined,
-    _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
+    _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
 
 
 
@@ -2730,7 +2728,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_BigCalendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/BigCalendar */ "./components/BigCalendar.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
 
 
 
