@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
+import { Spring } from 'react-spring/renderprops.cjs';
 import moment from 'moment';
 import Router from 'next/router';
 import Error from './ErrorMessage';
@@ -17,7 +18,8 @@ import Reminders from './Reminders';
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
   updateEventMutation: ({ updates, render }) => <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={updates} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY}]}>{render}</Mutation>,
-  toggleModalMutation: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>
+  toggleModalMutation: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
+  spring:({render}) => <Spring from={{ opacity: 0, marginTop: -500 }} to={{ opacity: 1, marginTop: 0 }} config={{ duration: 250}}>{render}</Spring>,
 });
 
 
@@ -128,7 +130,7 @@ class QuickUpdate extends Component {
   render() {
     return (
       <Composed singleEventId={this.props.id} updateCache={updateEventMethods.updateCache}>
-        {({ allActs, updateEventMutation, toggleModalMutation }) => {
+        {({ allActs, updateEventMutation, toggleModalMutation, spring }) => {
           const { event } = this.props;
           // const formattedDate = format(parseISO(event.start), "YYYY-MM-dd", { awareOfUnicodeTokens: true });
           const formattedDate = moment(event.start).format("YYYY-MM-DD");
@@ -143,9 +145,9 @@ class QuickUpdate extends Component {
           }
           const acts = allActs.data.acts ? allActs.data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>) : null;
           return (
-                  <>
+                  <div style={spring}>
                   <Error error={updateEventMutation.error} />
-                  <Form onSubmit={e => this.updateEvent(e, updateEventMutation, toggleModalMutation)} >
+                  <Form onSubmit={e => this.updateEvent(e, updateEventMutation, toggleModalMutation)}>
                     <fieldset disabled={updateEventMutation.loading} aria-busy={updateEventMutation.loading}>
                     <h3>Edit Event</h3>
                       <label htmlFor="date">
@@ -188,7 +190,7 @@ class QuickUpdate extends Component {
                       </label>
 
                       <label htmlFor="automations">
-                        <OtherButton onClick={this.props.toggleReminders}>CREATE A REMINDER</OtherButton>
+                        <OtherButton onClick={this.props.toggle}>CREATE A REMINDER</OtherButton>
                       </label>
 
                     </fieldset>
@@ -234,7 +236,7 @@ class QuickUpdate extends Component {
                       <OtherButton type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</OtherButton>
                     </fieldset>
                   </Form>
-                </>
+                </div>
           )
         }}
       </Composed>

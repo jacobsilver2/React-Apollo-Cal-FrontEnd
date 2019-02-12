@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Mutation, Query} from 'react-apollo';
 import { adopt } from 'react-adopt';
+import { Spring } from 'react-spring/renderprops.cjs';
 import {CURRENT_USER_QUERY} from './globals/queries/queries';
 import {CREATE_EMAIL_MUTATION} from './globals/mutations/mutations';
 import Button from './styles/SickButton';
@@ -9,7 +10,10 @@ import Form from './styles/Form';
 const Composed = adopt({
   currentUser: ({render}) => <Query query={CURRENT_USER_QUERY}>{render}</Query>,
   sendEmail: ({render}) => <Mutation mutation={CREATE_EMAIL_MUTATION}>{render}</Mutation>,
+  spring:({render}) => <Spring from={{ opacity: 0, marginTop: -500 }} to={{ opacity: 1, marginTop: 0 }} config={{ duration: 250}}>{render}</Spring>,
 })
+
+
 
 class Reminders extends Component {
   state = {
@@ -35,13 +39,18 @@ class Reminders extends Component {
     sendEmail({ variables: vars });
   }
 
+  
+
   render() {
-    const {event, showQuickUpdate} = this.props;
+
+    const {event, toggle} = this.props;
     return (
+
       <Composed>
-        {({currentUser, sendEmail}) => {
+        {({currentUser, sendEmail, spring}) => {
           const currentUserEmail = currentUser.data.me.email;
           return (
+            <div style={spring}>
             <Form onSubmit={(e) => this.onSendEmail(e, sendEmail, currentUserEmail, event.act.email )}>
                 <div></div>
                 <fieldset>
@@ -66,11 +75,12 @@ class Reminders extends Component {
                     </select>
                   </label>
 
-                  <Button onClick={showQuickUpdate}>Back</Button>
+                  <Button onClick={toggle}>Back</Button>
                   ||
-                  <Button type="submit">Send Email</Button>
+                  <Button type="submit">Create Reminder</Button>
                 </fieldset>
               </Form>
+            </div>
           )
         }}
       </Composed>

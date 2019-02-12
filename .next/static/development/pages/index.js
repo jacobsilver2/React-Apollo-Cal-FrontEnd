@@ -18,7 +18,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-adopt */ "./node_modules/react-adopt/dist/index.m.js");
-/* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-spring */ "./node_modules/react-spring/web.js");
+/* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-spring/renderprops.cjs */ "./node_modules/react-spring/renderprops.cjs.js");
+/* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _CustomEvent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CustomEvent */ "./components/CustomEvent.js");
@@ -28,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -125,7 +126,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_4__["adopt"])({
   },
   spring: function spring(_ref5) {
     var render = _ref5.render;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_5__["Spring"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_5__["Spring"], {
       from: {
         opacity: 0
       },
@@ -417,7 +418,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -527,7 +528,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
 
 
 
@@ -616,7 +617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _styles_ModalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ModalStyles */ "./components/styles/ModalStyles.js");
 /* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -664,12 +665,12 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      showQuickUpdate: true
+      toggle: true
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggleReminders", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggle", function () {
       _this.setState({
-        showQuickUpdate: !_this.state.showQuickUpdate
+        toggle: !_this.state.toggle
       });
     });
 
@@ -753,9 +754,9 @@ function (_Component) {
           lineNumber: 47
         },
         __self: this
-      }, this.state.showQuickUpdate ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, this.state.toggle ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QuickUpdateForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
         event: event,
-        toggleReminders: this.toggleReminders,
+        toggle: this.toggle,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 48
@@ -763,7 +764,7 @@ function (_Component) {
         __self: this
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reminders__WEBPACK_IMPORTED_MODULE_5__["default"], {
         event: event,
-        showQuickUpdate: this.toggleReminders,
+        toggle: this.toggle,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 48
@@ -795,7 +796,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -939,22 +940,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-adopt */ "./node_modules/react-adopt/dist/index.m.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var _styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/QuickUpdateStyles */ "./components/styles/QuickUpdateStyles.js");
-/* harmony import */ var _styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/QuickUpdateFormStyles */ "./components/styles/QuickUpdateFormStyles.js");
-/* harmony import */ var _styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/DeleteButtonStyles */ "./components/styles/DeleteButtonStyles.js");
-/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
-/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
-/* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
-/* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
-/* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
+/* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-spring/renderprops.cjs */ "./node_modules/react-spring/renderprops.cjs.js");
+/* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var _styles_QuickUpdateStyles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/QuickUpdateStyles */ "./components/styles/QuickUpdateStyles.js");
+/* harmony import */ var _styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/QuickUpdateFormStyles */ "./components/styles/QuickUpdateFormStyles.js");
+/* harmony import */ var _styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/DeleteButtonStyles */ "./components/styles/DeleteButtonStyles.js");
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
+/* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
+/* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
 
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1005,14 +1008,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   allActs: function allActs(_ref) {
     var render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_ACTS_QUERY"],
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_ACTS_QUERY"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 19
       },
       __self: this
     }, render);
@@ -1021,14 +1025,14 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
     var updates = _ref2.updates,
         render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_11__["UPDATE_EVENT_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["UPDATE_EVENT_MUTATION"],
       variables: updates,
       refetchQueries: [{
-        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_12__["ALL_EVENTS_QUERY"]
+        query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_EVENTS_QUERY"]
       }],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 20
       },
       __self: this
     }, render);
@@ -1036,10 +1040,31 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   toggleModalMutation: function toggleModalMutation(_ref3) {
     var render = _ref3.render;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_11__["TOGGLE_MODAL_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["TOGGLE_MODAL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 21
+      },
+      __self: this
+    }, render);
+  },
+  spring: function spring(_ref4) {
+    var render = _ref4.render;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_4__["Spring"], {
+      from: {
+        opacity: 0,
+        marginTop: -500
+      },
+      to: {
+        opacity: 1,
+        marginTop: 0
+      },
+      config: {
+        duration: 250
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
       },
       __self: this
     }, render);
@@ -1092,7 +1117,7 @@ function (_Component) {
           var val = parseFloat(value);
           return _this.setState({
             duration: val,
-            end: !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).add(val, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.start).add(val, 'minutes')
+            end: !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).add(val, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.start).add(val, 'minutes')
           });
 
         case 'draw':
@@ -1114,12 +1139,12 @@ function (_Component) {
       switch (type) {
         case 'date':
           // const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
-          var time = moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).format('hh:mm');
+          var time = moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).format('hh:mm');
           var startDateTime = new Date("".concat(value, " ").concat(time)); // const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
 
-          var title = moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("YYYY-M-D"); // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+          var title = moment__WEBPACK_IMPORTED_MODULE_5___default()(value).format("YYYY-M-D"); // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
 
-          var end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_4___default()(startDateTime).add(_this.state.duration, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(startDateTime).add(_this.props.duration, 'minutes');
+          var end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(_this.state.duration, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(_this.props.duration, 'minutes');
 
           _this.setState({
             start: startDateTime,
@@ -1131,10 +1156,10 @@ function (_Component) {
 
         case 'time':
           // const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-          var date = !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.start).format("YYYY-M-D") : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.start).format("YYYY-M-D");
+          var date = !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).format("YYYY-M-D") : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.start).format("YYYY-M-D");
           startDateTime = new Date("".concat(date, " ").concat(value)); // end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
 
-          end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.duration).add(startDateTime, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_4___default()(_this.props.duration).add(startDateTime, 'minutes');
+          end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.duration).add(startDateTime, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.duration).add(startDateTime, 'minutes');
 
           _this.setState({
             start: startDateTime,
@@ -1205,7 +1230,7 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "uploadFile",
     /*#__PURE__*/
     function () {
-      var _ref4 = _asyncToGenerator(
+      var _ref5 = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
         var files, data, res, file;
@@ -1245,14 +1270,14 @@ function (_Component) {
       }));
 
       return function (_x) {
-        return _ref4.apply(this, arguments);
+        return _ref5.apply(this, arguments);
       };
     }());
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateEvent",
     /*#__PURE__*/
     function () {
-      var _ref5 = _asyncToGenerator(
+      var _ref6 = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, updateEventMutation, closeModal) {
         var res;
@@ -1282,7 +1307,7 @@ function (_Component) {
       }));
 
       return function (_x2, _x3, _x4) {
-        return _ref5.apply(this, arguments);
+        return _ref6.apply(this, arguments);
       };
     }());
 
@@ -1296,22 +1321,23 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Composed, {
         singleEventId: this.props.id,
-        updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_13__["updateCache"],
+        updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__["updateCache"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 130
+          lineNumber: 132
         },
         __self: this
-      }, function (_ref6) {
-        var allActs = _ref6.allActs,
-            updateEventMutation = _ref6.updateEventMutation,
-            toggleModalMutation = _ref6.toggleModalMutation;
+      }, function (_ref7) {
+        var allActs = _ref7.allActs,
+            updateEventMutation = _ref7.updateEventMutation,
+            toggleModalMutation = _ref7.toggleModalMutation,
+            spring = _ref7.spring;
         var event = _this2.props.event; // const formattedDate = format(parseISO(event.start), "YYYY-MM-dd", { awareOfUnicodeTokens: true });
 
-        var formattedDate = moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start).format("YYYY-MM-DD");
+        var formattedDate = moment__WEBPACK_IMPORTED_MODULE_5___default()(event.start).format("YYYY-MM-DD");
         console.log(formattedDate); // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
 
-        var formattedTime = moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start).format("HH:mm");
+        var formattedTime = moment__WEBPACK_IMPORTED_MODULE_5___default()(event.start).format("HH:mm");
         var notes = null;
 
         if (_this2.state.notes) {
@@ -1320,7 +1346,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 140
+                lineNumber: 142
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1332,16 +1358,16 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 140
+                lineNumber: 142
               },
               __self: this
-            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__["default"], {
               onClick: function onClick(e) {
                 return _this2.handleDeleteNote(e, index);
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 140
+                lineNumber: 142
               },
               __self: this
             }, "-"));
@@ -1352,7 +1378,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 142
+                lineNumber: 144
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1365,16 +1391,16 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 142
+                lineNumber: 144
               },
               __self: this
-            }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__["default"], {
               onClick: function onClick(e) {
                 return _this2.handleDeleteNote(e, index, event.notes);
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 142
+                lineNumber: 144
               },
               __self: this
             }, "-"));
@@ -1387,25 +1413,32 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 144
+              lineNumber: 146
             },
             __self: this
           }, act.name);
         }) : null;
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          style: spring,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 148
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 147
+            lineNumber: 149
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
           onSubmit: function onSubmit(e) {
             return _this2.updateEvent(e, updateEventMutation, toggleModalMutation);
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148
+            lineNumber: 150
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -1413,20 +1446,20 @@ function (_Component) {
           "aria-busy": updateEventMutation.loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149
+            lineNumber: 151
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150
+            lineNumber: 152
           },
           __self: this
         }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "date",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 151
+            lineNumber: 153
           },
           __self: this
         }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1439,14 +1472,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153
+            lineNumber: 155
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "time",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156
+            lineNumber: 158
           },
           __self: this
         }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1459,32 +1492,32 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 158
+            lineNumber: 160
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "duration",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 161
+            lineNumber: 163
           },
           __self: this
         }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "number",
           id: "duration",
           name: "duration",
-          defaultValue: moment__WEBPACK_IMPORTED_MODULE_4___default()(event.end).diff(moment__WEBPACK_IMPORTED_MODULE_4___default()(event.start), 'minutes'),
+          defaultValue: moment__WEBPACK_IMPORTED_MODULE_5___default()(event.end).diff(moment__WEBPACK_IMPORTED_MODULE_5___default()(event.start), 'minutes'),
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 163
+            lineNumber: 165
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "status",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 167
+            lineNumber: 169
           },
           __self: this
         }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1493,16 +1526,16 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169
+            lineNumber: 171
           },
           __self: this
-        }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_14__["possibleStatus"].map(function (status) {
+        }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__["possibleStatus"].map(function (status) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
             key: status,
             value: status,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 170
+              lineNumber: 172
             },
             __self: this
           }, status);
@@ -1510,7 +1543,7 @@ function (_Component) {
           htmlFor: "allDay",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 174
+            lineNumber: 176
           },
           __self: this
         }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1521,14 +1554,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 176
+            lineNumber: 178
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "draw",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 179
+            lineNumber: 181
           },
           __self: this
         }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1539,62 +1572,62 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 181
+            lineNumber: 183
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "notes",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184
+            lineNumber: 186
           },
           __self: this
-        }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__["default"], {
           onClick: function onClick(e) {
             return _this2.addNoteField(e, _this2.state.notes ? null : event.notes);
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 187
+            lineNumber: 189
           },
           __self: this
         }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "automations",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 192
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          onClick: _this2.props.toggleReminders,
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          onClick: _this2.props.toggle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 191
+            lineNumber: 193
           },
           __self: this
         }, "CREATE A REMINDER"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 196
+            lineNumber: 198
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 197
+            lineNumber: 199
           },
           __self: this
         }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 198
+            lineNumber: 200
           },
           __self: this
         }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "name",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 199
+            lineNumber: 201
           },
           __self: this
         }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1605,14 +1638,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 201
+            lineNumber: 203
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 203
+            lineNumber: 205
           },
           __self: this
         }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1623,14 +1656,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 205
+            lineNumber: 207
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 208
+            lineNumber: 210
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1640,14 +1673,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 210
+            lineNumber: 212
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "image",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 213
+            lineNumber: 215
           },
           __self: this
         }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1658,7 +1691,7 @@ function (_Component) {
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 215
+            lineNumber: 217
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -1667,31 +1700,31 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 217
+            lineNumber: 219
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 219
+            lineNumber: 221
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 222
+            lineNumber: 224
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 223
+            lineNumber: 225
           },
           __self: this
         }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 224
+            lineNumber: 226
           },
           __self: this
         }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1699,7 +1732,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 225
+            lineNumber: 227
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
@@ -1707,32 +1740,32 @@ function (_Component) {
           disabled: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 226
+            lineNumber: 228
           },
           __self: this
         }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 231
+            lineNumber: 233
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 232
+            lineNumber: 234
           },
           __self: this
         }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 233
+            lineNumber: 235
           },
           __self: this
-        }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_11__["default"], {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 234
+            lineNumber: 236
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))));
@@ -1761,11 +1794,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-adopt */ "./node_modules/react-adopt/dist/index.m.js");
-/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
-/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
-/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders.js";
+/* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-spring/renderprops.cjs */ "./node_modules/react-spring/renderprops.cjs.js");
+/* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1794,14 +1829,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_2__["adopt"])({
   currentUser: function currentUser(_ref) {
     var render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_3__["CURRENT_USER_QUERY"],
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_4__["CURRENT_USER_QUERY"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 11
       },
       __self: this
     }, render);
@@ -1809,10 +1845,31 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_2__["adopt"])({
   sendEmail: function sendEmail(_ref2) {
     var render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_4__["CREATE_EMAIL_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_5__["CREATE_EMAIL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 12
+      },
+      __self: this
+    }, render);
+  },
+  spring: function spring(_ref3) {
+    var render = _ref3.render;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3__["Spring"], {
+      from: {
+        opacity: 0,
+        marginTop: -500
+      },
+      to: {
+        opacity: 1,
+        marginTop: 0
+      },
+      config: {
+        duration: 250
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
       },
       __self: this
     }, render);
@@ -1875,49 +1932,57 @@ function (_Component) {
 
       var _this$props = this.props,
           event = _this$props.event,
-          showQuickUpdate = _this$props.showQuickUpdate;
+          toggle = _this$props.toggle;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Composed, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 49
         },
         __self: this
-      }, function (_ref3) {
-        var currentUser = _ref3.currentUser,
-            sendEmail = _ref3.sendEmail;
+      }, function (_ref4) {
+        var currentUser = _ref4.currentUser,
+            sendEmail = _ref4.sendEmail,
+            spring = _ref4.spring;
         var currentUserEmail = currentUser.data.me.email;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          style: spring,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_7__["default"], {
           onSubmit: function onSubmit(e) {
             return _this2.onSendEmail(e, sendEmail, currentUserEmail, event.act.email);
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 54
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 55
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 56
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 57
           },
           __self: this
         }, "Create A Reminder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "subject",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 58
           },
           __self: this
         }, "Subject", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1930,14 +1995,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 60
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "message",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 63
           },
           __self: this
         }, "Message", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -1952,14 +2017,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 65
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "sendDate",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 68
           },
           __self: this
         }, "When Would You Like To Send", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1969,7 +2034,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 70
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
@@ -1978,45 +2043,45 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 71
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "week",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 72
           },
           __self: this
         }, "Week"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "day",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 73
           },
           __self: this
         }, "Day"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "hour",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 74
           },
           __self: this
-        }, "Hour"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          onClick: showQuickUpdate,
+        }, "Hour"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          onClick: toggle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 69
+            lineNumber: 78
           },
           __self: this
-        }, "Back"), "||", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        }, "Back"), "||", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 80
           },
           __self: this
-        }, "Send Email")));
+        }, "Create Reminder"))));
       });
     }
   }]);
@@ -2050,7 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined,
-    _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
+    _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
 
 
 
@@ -3296,101 +3361,6 @@ module.exports = _typeof;
 
 module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime-module.js");
 
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _assertThisInitialized; });
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _extends; });
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _inheritsLoose; });
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _objectWithoutPropertiesLoose; });
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
 
 /***/ }),
 
@@ -77094,38 +77064,118 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ "./node_modules/react-spring/web.js":
-/*!******************************************!*\
-  !*** ./node_modules/react-spring/web.js ***!
-  \******************************************/
-/*! exports provided: Spring, Keyframes, Transition, Trail, Controller, config, animated, interpolate, Globals */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/assertThisInitialized.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/react-spring/node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized;
+
+/***/ }),
+
+/***/ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/extends.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/react-spring/node_modules/@babel/runtime/helpers/extends.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+
+/***/ }),
+
+/***/ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/inheritsLoose.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/react-spring/node_modules/@babel/runtime/helpers/inheritsLoose.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+module.exports = _inheritsLoose;
+
+/***/ }),
+
+/***/ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/react-spring/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+module.exports = _objectWithoutPropertiesLoose;
+
+/***/ }),
+
+/***/ "./node_modules/react-spring/renderprops.cjs.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-spring/renderprops.cjs.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Spring", function() { return Spring; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Keyframes", function() { return Keyframes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Transition", function() { return Transition; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Trail", function() { return Trail; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Controller", function() { return Controller; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "animated", function() { return extendedAnimated; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "interpolate", function() { return interpolate$1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Globals", function() { return Globals; });
-/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
-/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_5__);
 
 
+Object.defineProperty(exports, '__esModule', { value: true });
 
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-
-
+var _objectWithoutPropertiesLoose = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/objectWithoutPropertiesLoose */ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js"));
+var _inheritsLoose = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/inheritsLoose */ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/inheritsLoose.js"));
+var _assertThisInitialized = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/assertThisInitialized.js"));
+var _extends = _interopDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/react-spring/node_modules/@babel/runtime/helpers/extends.js"));
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var React__default = _interopDefault(React);
+var ReactDOM = _interopDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 
 var bugfixes = undefined;
 var applyAnimatedValues = undefined;
@@ -77229,7 +77279,7 @@ var getValues = function getValues(object) {
 var AnimatedWithChildren =
 /*#__PURE__*/
 function (_Animated) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedWithChildren, _Animated);
+  _inheritsLoose(AnimatedWithChildren, _Animated);
 
   function AnimatedWithChildren() {
     var _this;
@@ -77250,7 +77300,7 @@ function (_Animated) {
         index = undefined;
       }
 
-      return index !== void 0 && _this.payload ? _this.payload[index] : _this.payload || Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this));
+      return index !== void 0 && _this.payload ? _this.payload[index] : _this.payload || _assertThisInitialized(_assertThisInitialized(_this));
     };
 
     return _this;
@@ -77274,7 +77324,7 @@ function (_Animated) {
 var AnimatedArrayWithChildren =
 /*#__PURE__*/
 function (_AnimatedWithChildren) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedArrayWithChildren, _AnimatedWithChildren);
+  _inheritsLoose(AnimatedArrayWithChildren, _AnimatedWithChildren);
 
   function AnimatedArrayWithChildren() {
     var _this2;
@@ -77292,13 +77342,13 @@ function (_AnimatedWithChildren) {
 
     _this2.attach = function () {
       return _this2.payload.forEach(function (p) {
-        return p instanceof Animated && p.addChild(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this2)));
+        return p instanceof Animated && p.addChild(_assertThisInitialized(_assertThisInitialized(_this2)));
       });
     };
 
     _this2.detach = function () {
       return _this2.payload.forEach(function (p) {
-        return p instanceof Animated && p.removeChild(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this2)));
+        return p instanceof Animated && p.removeChild(_assertThisInitialized(_assertThisInitialized(_this2)));
       });
     };
 
@@ -77310,7 +77360,7 @@ function (_AnimatedWithChildren) {
 var AnimatedObjectWithChildren =
 /*#__PURE__*/
 function (_AnimatedWithChildren2) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedObjectWithChildren, _AnimatedWithChildren2);
+  _inheritsLoose(AnimatedObjectWithChildren, _AnimatedWithChildren2);
 
   function AnimatedObjectWithChildren() {
     var _this3;
@@ -77328,13 +77378,13 @@ function (_AnimatedWithChildren2) {
 
     _this3.attach = function () {
       return getValues(_this3.payload).forEach(function (s) {
-        return s instanceof Animated && s.addChild(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this3)));
+        return s instanceof Animated && s.addChild(_assertThisInitialized(_assertThisInitialized(_this3)));
       });
     };
 
     _this3.detach = function () {
       return getValues(_this3.payload).forEach(function (s) {
-        return s instanceof Animated && s.removeChild(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this3)));
+        return s instanceof Animated && s.removeChild(_assertThisInitialized(_assertThisInitialized(_this3)));
       });
     };
 
@@ -77365,7 +77415,7 @@ function (_AnimatedWithChildren2) {
 var AnimatedStyle =
 /*#__PURE__*/
 function (_AnimatedObjectWithCh) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedStyle, _AnimatedObjectWithCh);
+  _inheritsLoose(AnimatedStyle, _AnimatedObjectWithCh);
 
   function AnimatedStyle(style) {
     var _this;
@@ -77810,7 +77860,7 @@ function createInterpolation(config) {
     });
   });
   var interpolations = outputRange[0].match(stringShapeRegex).map(function (value, i) {
-    return Interpolation.create(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, config, {
+    return Interpolation.create(_extends({}, config, {
       output: outputRanges[i]
     }));
   });
@@ -77832,7 +77882,7 @@ function createInterpolation(config) {
 var AnimatedInterpolation =
 /*#__PURE__*/
 function (_AnimatedArrayWithChi) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedInterpolation, _AnimatedArrayWithChi);
+  _inheritsLoose(AnimatedInterpolation, _AnimatedArrayWithChi);
 
   function AnimatedInterpolation(parents, _config, _arg) {
     var _this;
@@ -77852,7 +77902,7 @@ function (_AnimatedArrayWithChi) {
     };
 
     _this.interpolate = function (config, arg) {
-      return new AnimatedInterpolation(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this)), config, arg);
+      return new AnimatedInterpolation(_assertThisInitialized(_assertThisInitialized(_this)), config, arg);
     };
 
     _this.payload = // AnimatedArrays should unfold, except AnimatedInterpolation which is taken as is
@@ -77906,7 +77956,7 @@ function findAnimatedStyles(node, styles) {
 var AnimatedValue =
 /*#__PURE__*/
 function (_AnimatedWithChildren) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedValue, _AnimatedWithChildren);
+  _inheritsLoose(AnimatedValue, _AnimatedWithChildren);
 
   function AnimatedValue(_value) {
     var _this;
@@ -77927,7 +77977,7 @@ function (_AnimatedWithChildren) {
     };
 
     _this.updateStyles = function () {
-      return findAnimatedStyles(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this)), _this.animatedStyles);
+      return findAnimatedStyles(_assertThisInitialized(_assertThisInitialized(_this)), _this.animatedStyles);
     };
 
     _this.updateValue = function (value) {
@@ -77935,7 +77985,7 @@ function (_AnimatedWithChildren) {
     };
 
     _this.interpolate = function (config, arg) {
-      return new AnimatedInterpolation(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this)), config, arg);
+      return new AnimatedInterpolation(_assertThisInitialized(_assertThisInitialized(_this)), config, arg);
     };
 
     _this.value = _value;
@@ -77979,7 +78029,7 @@ function (_AnimatedWithChildren) {
 var AnimatedArray =
 /*#__PURE__*/
 function (_AnimatedArrayWithChi) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedArray, _AnimatedArrayWithChi);
+  _inheritsLoose(AnimatedArray, _AnimatedArrayWithChi);
 
   function AnimatedArray(array) {
     var _this;
@@ -78007,7 +78057,7 @@ function (_AnimatedArrayWithChi) {
     };
 
     _this.interpolate = function (config, arg) {
-      return new AnimatedInterpolation(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this)), config, arg);
+      return new AnimatedInterpolation(_assertThisInitialized(_assertThisInitialized(_this)), config, arg);
     };
 
     _this.payload = array.map(function (n) {
@@ -78073,7 +78123,7 @@ function getForwardProps(props) {
       interpolateTo = props.interpolateTo,
       autoStart = props.autoStart,
       ref = props.ref,
-      forward = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(props, ["to", "from", "config", "native", "onStart", "onRest", "onFrame", "children", "reset", "reverse", "force", "immediate", "impl", "inject", "delay", "attach", "destroyed", "interpolateTo", "autoStart", "ref"]);
+      forward = _objectWithoutPropertiesLoose(props, ["to", "from", "config", "native", "onStart", "onRest", "onFrame", "children", "reset", "reverse", "force", "immediate", "impl", "inject", "delay", "attach", "destroyed", "interpolateTo", "autoStart", "ref"]);
 
   return forward;
 }
@@ -78082,9 +78132,9 @@ function interpolateTo(props) {
   var rest = Object.keys(props).reduce(function (a, k) {
     var _extends2;
 
-    return forward[k] !== void 0 ? a : Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, a, (_extends2 = {}, _extends2[k] = props[k], _extends2));
+    return forward[k] !== void 0 ? a : _extends({}, a, (_extends2 = {}, _extends2[k] = props[k], _extends2));
   }, {});
-  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  return _extends({
     to: forward
   }, rest);
 }
@@ -78093,14 +78143,14 @@ function convertToAnimatedValue(acc, _ref) {
 
   var name = _ref[0],
       value = _ref[1];
-  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, acc, (_extends3 = {}, _extends3[name] = new (Array.isArray(value) ? AnimatedArray : AnimatedValue)(value), _extends3));
+  return _extends({}, acc, (_extends3 = {}, _extends3[name] = new (Array.isArray(value) ? AnimatedArray : AnimatedValue)(value), _extends3));
 }
 function convertValues(props) {
   var from = props.from,
       to = props.to,
       native = props.native;
-  var allProps = Object.entries(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, from, to));
-  return native ? allProps.reduce(convertToAnimatedValue, {}) : Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, from, to);
+  var allProps = Object.entries(_extends({}, from, to));
+  return native ? allProps.reduce(convertToAnimatedValue, {}) : _extends({}, from, to);
 }
 function handleRef(ref, forward) {
   if (forward) {
@@ -78124,7 +78174,7 @@ var overwrite = function overwrite(width, height) {
 
     var name = _ref[0],
         value = _ref[1];
-    return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, acc, (_extends2 = {}, _extends2[name] = value === 'auto' ? ~name.indexOf('height') ? height : width : value, _extends2));
+    return _extends({}, acc, (_extends2 = {}, _extends2[name] = value === 'auto' ? ~name.indexOf('height') ? height : width : value, _extends2));
   };
 };
 
@@ -78149,17 +78199,17 @@ function fixAuto(props, callback) {
   };
   var elementStyles = element.props.style; // Return v.dom with injected ref
 
-  return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(element.type, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  return React__default.createElement(element.type, _extends({
     key: element.key ? element.key : undefined
   }, element.props, {
-    style: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, elementStyles, {
+    style: _extends({}, elementStyles, {
       position: 'absolute',
       visibility: 'hidden'
     }),
     ref: function ref(_ref2) {
       if (_ref2) {
         // Once it's rendered out, fetch bounds (minus padding/margin/borders)
-        var node = react_dom__WEBPACK_IMPORTED_MODULE_5___default.a.findDOMNode(_ref2);
+        var node = ReactDOM.findDOMNode(_ref2);
         var width, height;
         var cs = getComputedStyle(node);
 
@@ -78176,7 +78226,7 @@ function fixAuto(props, callback) {
         }
 
         var convert = overwrite(width, height);
-        callback(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, {
+        callback(_extends({}, props, {
           from: Object.entries(from).reduce(convert, from),
           to: Object.entries(to).reduce(convert, to)
         }));
@@ -78263,7 +78313,7 @@ injectApplyAnimatedValues(function (instance, props) {
         children = props.children,
         scrollTop = props.scrollTop,
         scrollLeft = props.scrollLeft,
-        attributes = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(props, ["style", "children", "scrollTop", "scrollLeft"]);
+        attributes = _objectWithoutPropertiesLoose(props, ["style", "children", "scrollTop", "scrollLeft"]);
 
     if (scrollTop !== void 0) instance.scrollTop = scrollTop;
     if (scrollLeft !== void 0) instance.scrollLeft = scrollLeft; // Set textContent, if children is an animatable value
@@ -78468,7 +78518,7 @@ function () {
     this.frame = undefined;
     this.startTime = undefined;
     this.lastTime = undefined;
-    this.update(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, config));
+    this.update(_extends({}, props, config));
   }
 
   var _proto = Controller.prototype;
@@ -78476,7 +78526,7 @@ function () {
   _proto.update = function update(props) {
     var _this2 = this;
 
-    this.props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, this.props, props);
+    this.props = _extends({}, this.props, props);
 
     var _ref = this.props.interpolateTo ? interpolateTo(this.props) : this.props,
         _ref$from = _ref.from,
@@ -78507,7 +78557,7 @@ function () {
 
     var extra = reset ? {} : this.merged; // This will collect all props that were ever set
 
-    this.merged = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, from, extra, to); // Reduces input { name: value } pairs into animated values
+    this.merged = _extends({}, from, extra, to); // Reduces input { name: value } pairs into animated values
 
     this.animations = Object.entries(this.merged).reduce(function (acc, _ref3, i) {
       var name = _ref3[0],
@@ -78552,7 +78602,7 @@ function () {
         animatedValues.forEach(function (value) {
           return value.prepare(_this2);
         });
-        return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, acc, (_extends2 = {}, _extends2[name] = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, entry, {
+        return _extends({}, acc, (_extends2 = {}, _extends2[name] = _extends({}, entry, {
           name: name,
           parent: parent,
           interpolation: interpolation$$1,
@@ -78656,13 +78706,13 @@ function () {
 var AnimatedProps =
 /*#__PURE__*/
 function (_AnimatedObjectWithCh) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedProps, _AnimatedObjectWithCh);
+  _inheritsLoose(AnimatedProps, _AnimatedObjectWithCh);
 
   function AnimatedProps(props, callback) {
     var _this;
 
     _this = _AnimatedObjectWithCh.call(this) || this;
-    if (props.style) props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, {
+    if (props.style) props = _extends({}, props, {
       style: createAnimatedStyle(props.style)
     });
     _this.payload = props;
@@ -78680,7 +78730,7 @@ function createAnimatedComponent(Component) {
   var AnimatedComponent =
   /*#__PURE__*/
   function (_React$Component) {
-    Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(AnimatedComponent, _React$Component);
+    _inheritsLoose(AnimatedComponent, _React$Component);
 
     function AnimatedComponent(props) {
       var _this;
@@ -78689,7 +78739,7 @@ function createAnimatedComponent(Component) {
 
       _this.callback = function () {
         if (_this.node) {
-          var didUpdate = applyAnimatedValues.fn(_this.node, _this.propsAnimated.getAnimatedValue(), Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this)));
+          var didUpdate = applyAnimatedValues.fn(_this.node, _this.propsAnimated.getAnimatedValue(), _assertThisInitialized(_assertThisInitialized(_this)));
           if (didUpdate === false) _this.forceUpdate();
         }
       };
@@ -78718,7 +78768,7 @@ function createAnimatedComponent(Component) {
 
     _proto.attachProps = function attachProps(_ref) {
       var forwardRef = _ref.forwardRef,
-          nextProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref, ["forwardRef"]);
+          nextProps = _objectWithoutPropertiesLoose(_ref, ["forwardRef"]);
 
       var oldPropsAnimated = this.propsAnimated;
       this.propsAnimated = new AnimatedProps(nextProps, this.callback); // When you call detach, it removes the element from the parent list
@@ -78735,11 +78785,11 @@ function createAnimatedComponent(Component) {
 
     _proto.shouldComponentUpdate = function shouldComponentUpdate(props) {
       var style = props.style,
-          nextProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(props, ["style"]);
+          nextProps = _objectWithoutPropertiesLoose(props, ["style"]);
 
       var _this$props = this.props,
           currentStyle = _this$props.style,
-          currentProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_this$props, ["style"]);
+          currentProps = _objectWithoutPropertiesLoose(_this$props, ["style"]);
 
       if (!shallowEqual(currentProps, nextProps) || !shallowEqual(currentStyle, style)) {
         this.attachProps(props);
@@ -78755,9 +78805,9 @@ function createAnimatedComponent(Component) {
       var _this$propsAnimated$g = this.propsAnimated.getValue(),
           scrollTop = _this$propsAnimated$g.scrollTop,
           scrollLeft = _this$propsAnimated$g.scrollLeft,
-          animatedProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_this$propsAnimated$g, ["scrollTop", "scrollLeft"]);
+          animatedProps = _objectWithoutPropertiesLoose(_this$propsAnimated$g, ["scrollTop", "scrollLeft"]);
 
-      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, animatedProps, {
+      return React__default.createElement(Component, _extends({}, animatedProps, {
         ref: function ref(node) {
           return _this2.node = handleRef(node, _this2.props.forwardRef);
         }
@@ -78765,10 +78815,10 @@ function createAnimatedComponent(Component) {
     };
 
     return AnimatedComponent;
-  }(react__WEBPACK_IMPORTED_MODULE_4___default.a.Component);
+  }(React__default.Component);
 
-  return react__WEBPACK_IMPORTED_MODULE_4___default.a.forwardRef(function (props, ref) {
-    return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(AnimatedComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, {
+  return React__default.forwardRef(function (props, ref) {
+    return React__default.createElement(AnimatedComponent, _extends({}, props, {
       forwardRef: ref
     }));
   });
@@ -78804,7 +78854,7 @@ var config = {
 var Spring =
 /*#__PURE__*/
 function (_React$Component) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Spring, _React$Component);
+  _inheritsLoose(Spring, _React$Component);
 
   function Spring() {
     var _this;
@@ -78832,7 +78882,7 @@ function (_React$Component) {
       var wasMounted = _this.mounted;
 
       _this.controller.start(function (props) {
-        return _this.finish(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, {
+        return _this.finish(_extends({}, props, {
           wasMounted: wasMounted
         }));
       }, _this.update);
@@ -78952,9 +79002,9 @@ function (_React$Component) {
     // Render out raw values or AnimatedValues depending on "native"
 
 
-    var values = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, this.controller.getValues(), this.afterInject);
+    var values = _extends({}, this.controller.getValues(), this.afterInject);
 
-    if (this.finished) values = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, values, this.props.after);
+    if (this.finished) values = _extends({}, values, this.props.after);
     return Object.keys(values).length ? children(values) : null;
   };
 
@@ -78968,7 +79018,7 @@ function (_React$Component) {
   };
 
   return Spring;
-}(react__WEBPACK_IMPORTED_MODULE_4___default.a.Component);
+}(React__default.Component);
 
 Spring.defaultProps = {
   from: {},
@@ -78984,7 +79034,7 @@ Spring.defaultProps = {
 var Trail =
 /*#__PURE__*/
 function (_React$PureComponent) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Trail, _React$PureComponent);
+  _inheritsLoose(Trail, _React$PureComponent);
 
   function Trail() {
     var _this;
@@ -79023,11 +79073,11 @@ function (_React$PureComponent) {
         keys = _this$props.keys,
         delay = _this$props.delay,
         onRest = _this$props.onRest,
-        props = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_this$props, ["items", "children", "from", "initial", "reverse", "keys", "delay", "onRest"]);
+        props = _objectWithoutPropertiesLoose(_this$props, ["items", "children", "from", "initial", "reverse", "keys", "delay", "onRest"]);
 
     var array = toArray(items);
     return toArray(array).map(function (item, i) {
-      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(Spring, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      return React__default.createElement(Spring, _extends({
         onRest: i === 0 ? onRest : null,
         key: typeof keys === 'function' ? keys(item) : toArray(keys)[i],
         from: _this2.first && initial !== void 0 ? initial || {} : from
@@ -79051,7 +79101,7 @@ function (_React$PureComponent) {
   };
 
   return Trail;
-}(react__WEBPACK_IMPORTED_MODULE_4___default.a.PureComponent);
+}(React__default.PureComponent);
 
 Trail.defaultProps = {
   keys: function keys(item) {
@@ -79064,7 +79114,7 @@ var DEFAULT = '__default';
 var KeyframesImpl =
 /*#__PURE__*/
 function (_React$PureComponent) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(KeyframesImpl, _React$PureComponent);
+  _inheritsLoose(KeyframesImpl, _React$PureComponent);
 
   function KeyframesImpl() {
     var _this;
@@ -79195,11 +79245,11 @@ function (_React$PureComponent) {
         Component = _this$props2.primitive,
         _onRest = _this$props2.onRest,
         forwardRef = _this$props2.forwardRef,
-        rest = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_this$props2, ["state", "filter", "states", "config", "primitive", "onRest", "forwardRef"]); // Arrayed configs need an index to process
+        rest = _objectWithoutPropertiesLoose(_this$props2, ["state", "filter", "states", "config", "primitive", "onRest", "forwardRef"]); // Arrayed configs need an index to process
 
 
     if (Array.isArray(config)) config = config[index];
-    return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+    return React__default.createElement(Component, _extends({
       ref: function ref(_ref) {
         return _this3.instance = handleRef(_ref, forwardRef);
       },
@@ -79213,13 +79263,13 @@ function (_React$PureComponent) {
   };
 
   return KeyframesImpl;
-}(react__WEBPACK_IMPORTED_MODULE_4___default.a.PureComponent);
+}(React__default.PureComponent);
 
 KeyframesImpl.defaultProps = {
   state: DEFAULT
 };
-var Keyframes = react__WEBPACK_IMPORTED_MODULE_4___default.a.forwardRef(function (props, ref) {
-  return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(KeyframesImpl, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, {
+var Keyframes = React__default.forwardRef(function (props, ref) {
+  return React__default.createElement(KeyframesImpl, _extends({}, props, {
     forwardRef: ref
   }));
 });
@@ -79236,7 +79286,7 @@ Keyframes.create = function (primitive) {
 
     if (typeof states === 'function' || Array.isArray(states)) states = (_states = {}, _states[DEFAULT] = states, _states);
     return function (props) {
-      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(KeyframesImpl, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      return React__default.createElement(KeyframesImpl, _extends({
         primitive: primitive,
         states: states,
         filter: filter
@@ -79258,12 +79308,12 @@ var guid = 0;
 var get = function get(props) {
   var items = props.items,
       keys = props.keys,
-      rest = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(props, ["items", "keys"]);
+      rest = _objectWithoutPropertiesLoose(props, ["items", "keys"]);
 
   items = toArray(items !== void 0 ? items : null);
   keys = typeof keys === 'function' ? items.map(keys) : toArray(keys); // Make sure numeric keys are interpreted as Strings (5 !== "5")
 
-  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  return _extends({
     items: items,
     keys: keys.map(function (key) {
       return String(key);
@@ -79274,7 +79324,7 @@ var get = function get(props) {
 var Transition =
 /*#__PURE__*/
 function (_React$PureComponent) {
-  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Transition, _React$PureComponent);
+  _inheritsLoose(Transition, _React$PureComponent);
 
   var _proto = Transition.prototype;
 
@@ -79327,7 +79377,7 @@ function (_React$PureComponent) {
   Transition.getDerivedStateFromProps = function getDerivedStateFromProps(props, _ref2) {
     var first = _ref2.first,
         prevProps = _ref2.prevProps,
-        state = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, ["first", "prevProps"]);
+        state = _objectWithoutPropertiesLoose(_ref2, ["first", "prevProps"]);
 
     var _get = get(props),
         items = _get.items,
@@ -79346,7 +79396,7 @@ function (_React$PureComponent) {
         _keys = _get2.keys,
         _items = _get2.items;
 
-    var current = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, state.current);
+    var current = _extends({}, state.current);
 
     var deleted = [].concat(state.deleted); // Compare next keys with current keys
 
@@ -79391,7 +79441,7 @@ function (_React$PureComponent) {
 
       var item = _items[keyIndex];
       var state = 'leave';
-      deleted.push(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, current[key], {
+      deleted.push(_extends({}, current[key], {
         state: state,
         destroyed: true,
         left: _keys[Math.max(0, keyIndex - 1)],
@@ -79406,7 +79456,7 @@ function (_React$PureComponent) {
       var keyIndex = keys.indexOf(key);
       var item = items[keyIndex];
       var state = 'update';
-      current[key] = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, current[key], {
+      current[key] = _extends({}, current[key], {
         item: item,
         state: state,
         trail: delay = delay + trail,
@@ -79421,7 +79471,7 @@ function (_React$PureComponent) {
     deleted.forEach(function (_ref3) {
       var left = _ref3.left,
           right = _ref3.right,
-          transition = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref3, ["left", "right"]);
+          transition = _objectWithoutPropertiesLoose(_ref3, ["left", "right"]);
 
       var pos; // Was it the element on the left, if yes, move there ...
 
@@ -79473,7 +79523,7 @@ function (_React$PureComponent) {
         _children = _this$props2.children,
         unique = _this$props2.unique,
         reset = _this$props2.reset,
-        extra = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_3__["default"])(_this$props2, ["initial", "from", "enter", "leave", "update", "onDestroyed", "keys", "items", "onFrame", "onRest", "onStart", "trail", "config", "children", "unique", "reset"]);
+        extra = _objectWithoutPropertiesLoose(_this$props2, ["initial", "from", "enter", "leave", "update", "onDestroyed", "keys", "items", "onFrame", "onRest", "onStart", "trail", "config", "children", "unique", "reset"]);
 
     return this.state.transitions.map(function (_ref4, i) {
       var _ref5;
@@ -79486,7 +79536,7 @@ function (_React$PureComponent) {
           trail = _ref4.trail,
           config = _ref4.config,
           destroyed = _ref4.destroyed;
-      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(Keyframes, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      return React__default.createElement(Keyframes, _extends({
         reset: reset && state === 'enter',
         primitive: Spring,
         state: state,
@@ -79516,7 +79566,7 @@ function (_React$PureComponent) {
   };
 
   return Transition;
-}(react__WEBPACK_IMPORTED_MODULE_4___default.a.PureComponent);
+}(React__default.PureComponent);
 
 Transition.defaultProps = {
   keys: function keys(item) {
@@ -79533,7 +79583,15 @@ var extendedAnimated = domElements.reduce(function (acc, element) {
   return acc;
 }, createAnimatedComponent);
 
-
+exports.Spring = Spring;
+exports.Keyframes = Keyframes;
+exports.Transition = Transition;
+exports.Trail = Trail;
+exports.Controller = Controller;
+exports.config = config;
+exports.animated = extendedAnimated;
+exports.interpolate = interpolate$1;
+exports.Globals = Globals;
 
 
 /***/ }),
@@ -86857,7 +86915,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_BigCalendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/BigCalendar */ "./components/BigCalendar.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
 
 
 

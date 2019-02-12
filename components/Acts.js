@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Query} from 'react-apollo';
 import { adopt } from 'react-adopt';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 import styled from 'styled-components';
 import ActCard from './ActCard';
 import Error from './ErrorMessage';

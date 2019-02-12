@@ -3,7 +3,7 @@ import { Mutation, Query } from 'react-apollo';
 import {addMinutes, addHours} from 'date-fns';
 import Link from 'next/link'
 import { adopt } from 'react-adopt';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 import Router from 'next/router';
 import { format } from 'date-fns';
 import Form from './styles/Form';

@@ -3,7 +3,7 @@ import Calendar from 'react-big-calendar';
 import { Query, Mutation } from 'react-apollo';
 import Router from 'next/router';
 import { adopt } from 'react-adopt';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops.cjs';
 import moment from 'moment';
 import CustomEvent from './CustomEvent';
 import ModalContainer from './ModalContainer';

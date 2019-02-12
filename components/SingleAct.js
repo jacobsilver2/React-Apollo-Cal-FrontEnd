@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import Link from 'next/link'
 import moment from 'moment';
 import { Query } from 'react-apollo';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 import { adopt } from 'react-adopt';
 import Error from './ErrorMessage';
 import styled from 'styled-components';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { adopt } from 'react-adopt';
-import { Spring } from 'react-spring'
+import { Spring } from 'react-spring/renderprops'
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';

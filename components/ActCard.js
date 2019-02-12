@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Title from './styles/Title';
 import ActStyles from './styles/ItemStyles';
-import { Spring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
 
 class ActCard extends Component {
 
