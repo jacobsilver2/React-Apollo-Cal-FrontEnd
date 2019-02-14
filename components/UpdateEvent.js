@@ -12,13 +12,11 @@ import {possibleStatus} from '../lib/possibleStatus';
 import Button from './styles/DeleteButtonStyles';
 
 
-/* eslint-disable */
 const Composed = adopt({
   singleEventQuery: ({singleEventId, render}) => <Query query={queries.SINGLE_EVENT_QUERY} variables={{id: singleEventId}}>{render}</Query>,
   // allActsQuery: ({render}) => <Query query={ALL_ACTS_QUERY}>{render}</Query>,
   // updateEventMutation:({updateVars, render}) => <Mutation mutation={UPDATE_EVENT_MUTATION} variables={updateVars}>{render}</Mutation>,
 })
-/* eslint-enable */
 
 
 class UpdateEvent extends Component {
@@ -35,7 +33,7 @@ class UpdateEvent extends Component {
     };
   }
 
-  handleChange = (e) => {
+  handleChange = (e, event) => {
     const { name, type, value } = e.target;
     // let val = type === 'number' ? parseFloat(value) : value;
 
@@ -46,8 +44,8 @@ class UpdateEvent extends Component {
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
       case 'duration':
         let val = parseFloat(value);
-        return this.setState({ duration: val, end: moment(this.state.start).add(val, 'minutes') })
-        // return this.setState({duration: val, end: addMinutes(this.state.start, val)});
+        return this.setState({duration: val, end: !!this.state.start ? moment(this.state.start).add(val, 'minutes').toDate() : moment(event.start).add(val, 'minutes').toDate()});
+        // return this.setState({ duration: val, end: moment(this.state.start).add(val, 'minutes') })
       case 'draw':
         val = parseFloat(value);
         return this.setState({ [name]: value });
@@ -61,21 +59,27 @@ class UpdateEvent extends Component {
 
     switch (type) {
       case 'date':
-        // const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
-        const time = moment(this.state.start).format("hh:mm");
-        let startDateTime = new Date(`${value} ${time}`);
-        // const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        if (this.state.start != null) {
+          const time = moment(this.state.start).format("hh:mm");
+          let startDateTime = new Date(`${value} ${time}`);
+          const title = moment(value).format('YYYY-M-D');
+          let end = moment(startDateTime).add(this.state.duration, 'minutes').toDate();
+          this.setState({ start: startDateTime, title, end });
+          break;
+        }
+        let duration = moment(event.end).diff(event.start, 'minutes');
+        const startTime = moment(event.start).format('hh:mm');
+        let startDateTime = new Date(`${value} ${startTime}`);
+        let end = moment(startDateTime).add(duration, 'minutes').toDate();
         const title = moment(value).format('YYYY-M-D');
-        // let end = addMinutes(startDateTime, this.state.duration);
-        let end = moment(startDateTime).add(this.state.duration, 'minutes');
-        this.setState({ start: startDateTime, title, end });
+        this.setState({start: startDateTime, title, end, duration});
         break;
       case 'time':
-        // const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
-        const date = moment(this.state.start).format("YYYY-M-D");
+        const date = !!this.state.start ? moment(this.state.start).format('YYYY-M-D').toString() : moment(event.start).format('YYYY-M-D').toString();
         startDateTime = new Date(`${date} ${value}`);
-        // end = addMinutes(startDateTime, this.state.duration);
-        end = moment(startDateTime).add(this.state.duration, 'minutes');
+        // end = moment(startDateTime).add(this.state.duration, 'minutes');
+        duration = moment(event.end).diff(event.start, 'minutes');
+        end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes').toDate() : moment(startDateTime).add(duration, 'minutes').toDate();
         this.setState({ start: startDateTime, end });
         break;
       case 'checkbox':
@@ -169,14 +173,13 @@ class UpdateEvent extends Component {
 
           let notes = null;
           if (this.state.notes) {
-            notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/><Button onClick={(e)=>this.handleDeleteNote(e, index)}>-</Button></div>)
+            notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={(e) => this.handleChange(e, event)}/><Button onClick={(e)=>this.handleDeleteNote(e, index)}>-</Button></div>)
           } else if (event.notes.length > 0 ) {
-            notes = event.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/> <Button onClick={(e)=>this.handleDeleteNote(e, index, event.notes)}>-</Button></div>)
+            notes = event.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={(e) => this.handleChange(e, event)} disabled/> <Button onClick={(e)=>this.handleDeleteNote(e, index, event.notes)}>-</Button></div>)
           } 
-          // const formattedDate = format(event.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
           const formattedDate = moment(event.start).format("YYYY-MM-DD");
-          // const formattedTime = format(event.start, "HH:mm", {awareOfUnicodeTokens:true});
           const formattedTime = moment(event.start).format("HH:mm");
+
           return (
             <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={this.state} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY, query: queries.ALL_ACTS_QUERY }]}>
               {(updateEvent, { loading, error }) => (
@@ -188,29 +191,29 @@ class UpdateEvent extends Component {
                     <fieldset disabled={loading} aria-busy={loading}>
                       <label htmlFor="date">
                         Date
-                        <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={this.handleChange}/>
+                        <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={(e) => this.handleChange(e, event)}/>
                       </label>
 
                       <label htmlFor="time">
                         Time
-                        <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={this.handleChange}/>
+                        <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={(e) => this.handleChange(e, event)}/>
                       </label>
 
                       <label htmlFor="duration">
                         Duration (minutes)
-                        <input type="number" id="duration" name="duration" defaultValue={moment(event.end).diff(moment(event.start), 'minutes')} onChange={this.handleChange} />
+                        <input type="number" id="duration" name="duration" defaultValue={moment(event.end).diff(moment(event.start), 'minutes')} onChange={(e) => this.handleChange(e, event)} />
                       </label>
 
                       <label htmlFor="status">
                         Status
-                        <select name="status" defaultValue={event.status} onChange={this.handleChange}>
+                        <select name="status" defaultValue={event.status} onChange={(e) => this.handleChange(e, event)}>
                         { possibleStatus.map(status => <option key={status} value={status}>{status}</option>) }
                         </select>
                       </label>
 
                       <label htmlFor="allDay">
                         All Day
-                        <input type="checkbox" id="allday" name="allday" checked={event.allDay} onChange={this.handleChange} />
+                        <input type="checkbox" id="allday" name="allday" checked={event.allDay} onChange={(e) => this.handleChange(e, event)} />
                       </label>
                 
                       <label htmlFor="notes">
@@ -221,22 +224,22 @@ class UpdateEvent extends Component {
 
                       <label htmlFor="draw">
                         Draw
-                        <input type="number" id="draw" name="draw" placeholder={event.draw || 0} onChange={this.handleChange} />
+                        <input type="number" id="draw" name="draw" placeholder={event.draw || 0} onChange={(e) => this.handleChange(e, event)} />
                       </label>
 
                       <label htmlFor="name">
                         Act Name
-                        <textarea id="name" name="name" placeholder="Act Name" required defaultValue={event.act.name} onChange={this.handleChange}/>
+                        <textarea id="name" name="name" placeholder="Act Name" required defaultValue={event.act.name} onChange={(e) => this.handleChange(e, event)}/>
                       </label>
 
                       <label htmlFor="description">
                         Blurb
-                        <textarea id="description" name="description" placeholder="Blurb" required defaultValue={event.act.description} onChange={this.handleChange}/>
+                        <textarea id="description" name="description" placeholder="Blurb" required defaultValue={event.act.description} onChange={(e) => this.handleChange(e, event)}/>
                       </label>
 
                       <label htmlFor="email">
                         Email 
-                        <textarea id="email" name="email" placeholder="contact email" required defaultValue={event.act.email} onChange={this.handleChange}/>
+                        <textarea id="email" name="email" placeholder="contact email" required defaultValue={event.act.email} onChange={(e) => this.handleChange(e, event)}/>
                       </label>
 
                       <label htmlFor="image">
@@ -246,7 +249,7 @@ class UpdateEvent extends Component {
                       </label>
                       <hr />
                       <h3>Or Change To A Different Act</h3>
-                      <select defaultValue="" onChange={this.handleChange}>
+                      <select defaultValue="" onChange={(e) => this.handleChange(e, event)}>
                         <option value="" disabled>Acts</option>
                         {
                           data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
