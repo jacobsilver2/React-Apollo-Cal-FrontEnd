@@ -1054,6 +1054,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals/functions/updateEventMethods */ "./components/globals/functions/updateEventMethods.js");
 /* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../lib/possibleStatus */ "./lib/possibleStatus.js");
 /* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
+/* harmony import */ var repl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! repl */ "repl");
+/* harmony import */ var repl__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(repl__WEBPACK_IMPORTED_MODULE_17__);
 
 var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdateForm.js";
 
@@ -1107,6 +1109,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
   allActs: function allActs(_ref) {
     var render = _ref.render;
@@ -1114,7 +1117,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
       query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_13__["ALL_ACTS_QUERY"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 20
       },
       __self: this
     }, render);
@@ -1130,7 +1133,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
       }],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 21
       },
       __self: this
     }, render);
@@ -1141,7 +1144,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
       mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__["TOGGLE_MODAL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 22
       },
       __self: this
     }, render);
@@ -1162,7 +1165,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_3__["adopt"])({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 23
       },
       __self: this
     }, render);
@@ -1215,7 +1218,7 @@ function (_Component) {
           var val = parseFloat(value);
           return _this.setState({
             duration: val,
-            end: !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).add(val, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.start).add(val, 'minutes')
+            end: !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).add(val, 'minutes').toDate() : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.event.start).add(val, 'minutes').toDate()
           });
 
         case 'draw':
@@ -1236,28 +1239,49 @@ function (_Component) {
 
       switch (type) {
         case 'date':
-          // const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
-          var time = moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).format('hh:mm');
-          var startDateTime = new Date("".concat(value, " ").concat(time)); // const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+          if (_this.state.start != null) {
+            var _startTime = moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).format('hh:mm');
 
-          var title = moment__WEBPACK_IMPORTED_MODULE_5___default()(value).format("YYYY-M-D"); // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
+            var _startDateTime = new Date("".concat(value, " ").concat(_startTime));
 
-          var end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(_this.state.duration, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(_this.props.duration, 'minutes');
+            var _title = moment__WEBPACK_IMPORTED_MODULE_5___default()(value).format("YYYY-M-D");
+
+            var _end = moment__WEBPACK_IMPORTED_MODULE_5___default()(_startDateTime).add(_this.state.duration, 'minutes').toDate();
+
+            _this.setState({
+              start: _startDateTime,
+              title: _title,
+              end: _end
+            });
+
+            break;
+          }
+
+          var duration = moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.event.end).diff(_this.props.event.start, 'minutes');
+          var startTime = moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.event.start).format("hh:mm");
+          var startDateTime = new Date("".concat(value, " ").concat(startTime));
+          var end = moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(duration, 'minutes').toDate();
+          var title = moment__WEBPACK_IMPORTED_MODULE_5___default()(value).format("YYYY-M-D");
 
           _this.setState({
             start: startDateTime,
             title: title,
-            end: end
-          });
+            end: end,
+            duration: duration
+          }); // const startTime = this.state.start != null ? moment(this.state.start).format('hh:mm') : moment(this.props.event.start).format('hh:mm');
+          // let startDateTime = new Date(`${value} ${startTime}`);
+          // const title = moment(value).format("YYYY-M-D");
+          // let end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes').toString() : moment(startDateTime).add(this.props.event.duration, 'minutes').toString();
+          // this.setState({ start: startDateTime, title, end });
+
 
           break;
 
         case 'time':
-          // const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-          var date = !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).format("YYYY-M-D") : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.start).format("YYYY-M-D");
-          startDateTime = new Date("".concat(date, " ").concat(value)); // end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
-
-          end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.duration).add(startDateTime, 'minutes') : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.duration).add(startDateTime, 'minutes');
+          var date = !!_this.state.start ? moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.state.start).format("YYYY-M-D").toString() : moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.event.start).format("YYYY-M-D").toString();
+          startDateTime = new Date("".concat(date, " ").concat(value));
+          duration = moment__WEBPACK_IMPORTED_MODULE_5___default()(_this.props.event.end).diff(_this.props.event.start, 'minutes');
+          end = !!_this.state.duration ? moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(_this.state.duration, 'minutes').toDate() : moment__WEBPACK_IMPORTED_MODULE_5___default()(startDateTime).add(duration, 'minutes').toDate();
 
           _this.setState({
             start: startDateTime,
@@ -1422,7 +1446,7 @@ function (_Component) {
         updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_14__["updateCache"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 143
         },
         __self: this
       }, function (_ref7) {
@@ -1432,8 +1456,7 @@ function (_Component) {
             spring = _ref7.spring;
         var event = _this2.props.event; // const formattedDate = format(parseISO(event.start), "YYYY-MM-dd", { awareOfUnicodeTokens: true });
 
-        var formattedDate = moment__WEBPACK_IMPORTED_MODULE_5___default()(event.start).format("YYYY-MM-DD");
-        console.log(formattedDate); // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
+        var formattedDate = moment__WEBPACK_IMPORTED_MODULE_5___default()(event.start).format("YYYY-MM-DD"); // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
 
         var formattedTime = moment__WEBPACK_IMPORTED_MODULE_5___default()(event.start).format("HH:mm");
         var notes = null;
@@ -1444,7 +1467,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 142
+                lineNumber: 152
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1456,7 +1479,7 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 142
+                lineNumber: 152
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -1465,7 +1488,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 142
+                lineNumber: 152
               },
               __self: this
             }, "-"));
@@ -1476,7 +1499,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 144
+                lineNumber: 154
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1489,7 +1512,7 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 144
+                lineNumber: 154
               },
               __self: this
             }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -1498,7 +1521,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 144
+                lineNumber: 154
               },
               __self: this
             }, "-"));
@@ -1511,7 +1534,7 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 146
+              lineNumber: 156
             },
             __self: this
           }, act.name);
@@ -1520,14 +1543,14 @@ function (_Component) {
           style: spring,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148
+            lineNumber: 158
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149
+            lineNumber: 159
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -1536,7 +1559,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150
+            lineNumber: 160
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
@@ -1544,20 +1567,20 @@ function (_Component) {
           "aria-busy": updateEventMutation.loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 151
+            lineNumber: 161
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 152
+            lineNumber: 162
           },
           __self: this
         }, "Edit Event"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "date",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153
+            lineNumber: 163
           },
           __self: this
         }, "Date", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1570,14 +1593,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 155
+            lineNumber: 165
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "time",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 158
+            lineNumber: 168
           },
           __self: this
         }, "Time", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1590,14 +1613,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 160
+            lineNumber: 170
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "duration",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 163
+            lineNumber: 173
           },
           __self: this
         }, "Duration (minutes)", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1608,14 +1631,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 175
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "status",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169
+            lineNumber: 179
           },
           __self: this
         }, "Status", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1624,7 +1647,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 171
+            lineNumber: 181
           },
           __self: this
         }, _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_15__["possibleStatus"].map(function (status) {
@@ -1633,7 +1656,7 @@ function (_Component) {
             value: status,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 172
+              lineNumber: 182
             },
             __self: this
           }, status);
@@ -1641,7 +1664,7 @@ function (_Component) {
           htmlFor: "allDay",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 176
+            lineNumber: 186
           },
           __self: this
         }, "All Day", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1652,14 +1675,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 178
+            lineNumber: 188
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "draw",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 181
+            lineNumber: 191
           },
           __self: this
         }, "Draw", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1670,14 +1693,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 183
+            lineNumber: 193
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "notes",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 186
+            lineNumber: 196
           },
           __self: this
         }, "Notes", notes, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -1686,46 +1709,46 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 189
+            lineNumber: 199
           },
           __self: this
         }, "+")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "automations",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 192
+            lineNumber: 202
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_11__["default"], {
           onClick: _this2.props.toggle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 193
+            lineNumber: 203
           },
           __self: this
         }, "CREATE A REMINDER"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 198
+            lineNumber: 208
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 199
+            lineNumber: 209
           },
           __self: this
         }, "Edit Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 200
+            lineNumber: 210
           },
           __self: this
         }, "note: this will alter every event this act is associated with"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "name",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 201
+            lineNumber: 211
           },
           __self: this
         }, "Act Name", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1736,14 +1759,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 203
+            lineNumber: 213
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 205
+            lineNumber: 215
           },
           __self: this
         }, "Blurb", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1754,14 +1777,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 207
+            lineNumber: 217
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 210
+            lineNumber: 220
           },
           __self: this
         }, "Email", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1771,14 +1794,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 212
+            lineNumber: 222
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "image",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 215
+            lineNumber: 225
           },
           __self: this
         }, "Picture", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1789,7 +1812,7 @@ function (_Component) {
           onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 217
+            lineNumber: 227
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -1798,31 +1821,31 @@ function (_Component) {
           width: "200",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 219
+            lineNumber: 229
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 221
+            lineNumber: 231
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 224
+            lineNumber: 234
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 225
+            lineNumber: 235
           },
           __self: this
         }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 226
+            lineNumber: 236
           },
           __self: this
         }, "...currently not working"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1830,7 +1853,7 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 227
+            lineNumber: 237
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
@@ -1838,32 +1861,32 @@ function (_Component) {
           disabled: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 228
+            lineNumber: 238
           },
           __self: this
         }, "Acts"), acts)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 233
+            lineNumber: 243
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 234
+            lineNumber: 244
           },
           __self: this
         }, "Create A New Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h6", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 235
+            lineNumber: 245
           },
           __self: this
         }, "...work in progress"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_11__["default"], {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 236
+            lineNumber: 246
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes"))));
@@ -2991,6 +3014,17 @@ module.exports = require("react-dom");
 /***/ (function(module, exports) {
 
 module.exports = require("react-spring/renderprops.cjs");
+
+/***/ }),
+
+/***/ "repl":
+/*!***********************!*\
+  !*** external "repl" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("repl");
 
 /***/ }),
 

@@ -14,6 +14,7 @@ import * as queries from './globals/queries/queries';
 import * as updateEventMethods from './globals/functions/updateEventMethods';
 import { possibleStatus } from '../lib/possibleStatus';
 import Reminders from './Reminders';
+import { start } from 'repl';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
@@ -36,7 +37,7 @@ class QuickUpdate extends Component {
         return this.setState({ actId: value, name: '', email: '', description: '', image: '', largeImage: '' });
       case 'duration':
         let val = parseFloat(value);
-        return this.setState({ duration: val, end: !!this.state.start ? moment(this.state.start).add(val, 'minutes') : moment(this.props.start).add(val, 'minutes') });
+        return this.setState({ duration: val, end: !!this.state.start ? moment(this.state.start).add(val, 'minutes').toDate() : moment(this.props.event.start).add(val, 'minutes').toDate() });
         
       case 'draw':
         val = parseFloat(value);
@@ -49,22 +50,32 @@ class QuickUpdate extends Component {
     };
     switch (type) {
       case 'date':
-        // const time = format(this.state.start, "H:MM", { awareOfUnicodeTokens: true });
-        const time = moment(this.state.start).format('hh:mm');
-        let startDateTime = new Date(`${value} ${time}`);
-        // const title = format(value, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
+        if (this.state.start != null) {
+          const startTime = moment(this.state.start).format('hh:mm');
+          let startDateTime = new Date(`${value} ${startTime}`);
+          const title = moment(value).format("YYYY-M-D");
+          let end = moment(startDateTime).add(this.state.duration, 'minutes').toDate();
+          this.setState({start: startDateTime, title, end});
+          break;
+        }
+        let duration = moment(this.props.event.end).diff(this.props.event.start, 'minutes');
+        const startTime = moment(this.props.event.start).format("hh:mm");
+        let startDateTime = new Date(`${value} ${startTime}`);
+        let end = moment(startDateTime).add(duration, 'minutes').toDate();
         const title = moment(value).format("YYYY-M-D");
-        // let end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
-        let end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes') : moment(startDateTime).add(this.props.duration, 'minutes');
-        this.setState({ start: startDateTime, title, end });
+        this.setState({start: startDateTime, title, end, duration })
+
+        // const startTime = this.state.start != null ? moment(this.state.start).format('hh:mm') : moment(this.props.event.start).format('hh:mm');
+        // let startDateTime = new Date(`${value} ${startTime}`);
+        // const title = moment(value).format("YYYY-M-D");
+        // let end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes').toString() : moment(startDateTime).add(this.props.event.duration, 'minutes').toString();
+        // this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
-        // const date = format(!!this.state.start ? this.state.start : this.props.start, "YYYY-MM-dd", { awareOfUnicodeTokens: true });
-        const date = !!this.state.start ? moment(this.state.start).format("YYYY-M-D") : moment(this.props.start).format("YYYY-M-D");
+        const date = !!this.state.start ? moment(this.state.start).format("YYYY-M-D").toString() : moment(this.props.event.start).format("YYYY-M-D").toString();
         startDateTime = new Date(`${date} ${value}`);
-
-        // end = addMinutes(startDateTime, !!this.state.duration ? this.state.duration : this.props.duration);
-        end = !!this.state.duration ? moment(this.state.duration).add(startDateTime, 'minutes') : moment(this.props.duration).add(startDateTime, 'minutes');
+        duration = moment(this.props.event.end).diff(this.props.event.start, 'minutes');
+        end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes').toDate() : moment(startDateTime).add(duration, 'minutes').toDate();
         this.setState({ start: startDateTime, end });
         break;
       case 'checkbox':
@@ -134,7 +145,6 @@ class QuickUpdate extends Component {
           const { event } = this.props;
           // const formattedDate = format(parseISO(event.start), "YYYY-MM-dd", { awareOfUnicodeTokens: true });
           const formattedDate = moment(event.start).format("YYYY-MM-DD");
-          console.log(formattedDate);
           // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
           const formattedTime = moment(event.start).format("HH:mm");
           let notes = null;
