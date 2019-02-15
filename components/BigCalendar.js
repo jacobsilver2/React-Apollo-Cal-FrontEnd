@@ -41,27 +41,23 @@ class BigCalendar extends Component {
   onSelectSlot = e => {
     switch (e.action) {
       case 'click':
-        console.log('slot was clicked');
         break;
       case 'doubleClick':
         Router.push({pathname: '/newCalEvent', query: {start: encodeURIComponent(e.start), end: encodeURIComponent(e.end) }});
         break;
       case 'select':
-        console.log('slot was selected');
         break;
     }
   }
 
   onToolTipAccess = e => {
     const name = e.act.name ? `${e.act.name}` : null 
-    // const time = format(parseISO(e.start), "h:mmaaaaa")
     const time = moment(e.start).format("h:mma") ;
     return `${time} ${name}`;
   }
 
   titleAccessor = e => {
     const time = moment(e.start).format("hh:mma");
-    // const time = format(parseISO(e.start), "h:mmaaaaa");
     const name = e.act.name ? ` ${e.act.name}`: null;
     return time + name;
   }
@@ -76,7 +72,6 @@ class BigCalendar extends Component {
         backGroundColor = 'red';
         break;
     }
-
     let style = {
       backgroundColor: backGroundColor
     }
