@@ -18,8 +18,16 @@ const SidebarStyles = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 7%;
+  .hovertext{
+    display: none;
+  }
+
   &:hover {
     width:15%;
+    .hovertext{
+      display: inline;
+      padding-left: 50px;
+    }
   };
   header {
     border-bottom: 5px solid ${props => props.theme.black};

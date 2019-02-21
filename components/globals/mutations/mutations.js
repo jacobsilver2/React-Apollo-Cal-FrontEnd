@@ -158,12 +158,13 @@ export const CREATE_ACT_MUTATION = gql`
 `;
 
 export const CREATE_EMAIL_MUTATION = gql`
-  mutation CREATE_EMAIL_MUTATION($from: String!, $to: String!, $subject: String!, $message: String!)
+  mutation CREATE_EMAIL_MUTATION($from: String!, $to: String!, $subject: String!, $message: String!, $sendDate: DateTime!)
     {createEmail(
       from: $from
       to: $to
       subject: $subject
       message: $message
+      sendDate: $sendDate
     ){
       message
     }

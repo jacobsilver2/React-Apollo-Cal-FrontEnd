@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1897,6 +1897,102 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./components/ReminderMessage.js":
+/*!***************************************!*\
+  !*** ./components/ReminderMessage.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dnd */ "react-dnd");
+/* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ReminderMessage.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    hovered: monitor.isOver(),
+    item: monitor.getItem()
+  };
+}
+
+var ReminderMessage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ReminderMessage, _Component);
+
+  function ReminderMessage() {
+    _classCallCheck(this, ReminderMessage);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ReminderMessage).apply(this, arguments));
+  }
+
+  _createClass(ReminderMessage, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          name = _this$props.name,
+          placeholder = _this$props.placeholder,
+          value = _this$props.value,
+          change = _this$props.change,
+          connectDropTarget = _this$props.connectDropTarget,
+          hovered = _this$props.hovered,
+          width = _this$props.width,
+          height = _this$props.height,
+          item = _this$props.item;
+      var backgroundColor = hovered ? '#1a8fff' : "white";
+      return connectDropTarget(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        style: {
+          width: width,
+          height: height,
+          background: backgroundColor
+        },
+        name: name,
+        placeholder: placeholder,
+        value: value,
+        required: true,
+        onChange: change,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }));
+    }
+  }]);
+
+  return ReminderMessage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_dnd__WEBPACK_IMPORTED_MODULE_1__["DropTarget"])("token", {}, collect)(ReminderMessage));
+
+/***/ }),
+
 /***/ "./components/Reminders.js":
 /*!*********************************!*\
   !*** ./components/Reminders.js ***!
@@ -1914,10 +2010,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-spring/renderprops.cjs */ "react-spring/renderprops.cjs");
 /* harmony import */ var react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_spring_renderprops_cjs__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
-/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
-/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
+/* harmony import */ var react_dnd_html5_backend__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-dnd-html5-backend */ "react-dnd-html5-backend");
+/* harmony import */ var react_dnd_html5_backend__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_dnd_html5_backend__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dnd */ "react-dnd");
+/* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
+/* harmony import */ var _TextToken__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./TextToken */ "./components/TextToken.js");
+/* harmony import */ var _ReminderMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ReminderMessage */ "./components/ReminderMessage.js");
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1948,14 +2052,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+
+
+
 var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_2__["adopt"])({
   currentUser: function currentUser(_ref) {
     var render = _ref.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_4__["CURRENT_USER_QUERY"],
+      query: _globals_queries_queries__WEBPACK_IMPORTED_MODULE_7__["CURRENT_USER_QUERY"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 16
       },
       __self: this
     }, render);
@@ -1963,10 +2072,10 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_2__["adopt"])({
   sendEmail: function sendEmail(_ref2) {
     var render = _ref2.render;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
-      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_5__["CREATE_EMAIL_MUTATION"],
+      mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_8__["CREATE_EMAIL_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 17
       },
       __self: this
     }, render);
@@ -1987,7 +2096,7 @@ var Composed = Object(react_adopt__WEBPACK_IMPORTED_MODULE_2__["adopt"])({
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 18
       },
       __self: this
     }, render);
@@ -2015,7 +2124,7 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       message: '',
       subject: '',
-      sendDate: 'week',
+      sendDuration: 'week',
       sendInterval: "1"
     });
 
@@ -2027,16 +2136,28 @@ function (_Component) {
       _this.setState(_defineProperty({}, name, value));
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSendEmail", function (e, sendEmail, from, to) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSendEmail", function (e, sendEmail, from, to, startDate) {
       e.preventDefault();
+      var sendDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(startDate).subtract(_this.state.sendInterval, _this.state.sendDuration).toDate();
       var vars = {
         from: from,
         to: to,
         message: _this.state.message,
-        subject: _this.state.subject
+        subject: _this.state.subject,
+        sendDate: sendDate
       };
       sendEmail({
         variables: vars
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDrop", function (text, name) {
+      _this.setState(function (prevState) {
+        var prevText = prevState.message;
+        var newText = prevText + text;
+        return {
+          message: newText
+        };
       });
     });
 
@@ -2054,7 +2175,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Composed, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 63
         },
         __self: this
       }, function (_ref4) {
@@ -2062,144 +2183,239 @@ function (_Component) {
             sendEmail = _ref4.sendEmail,
             spring = _ref4.spring;
         var currentUserEmail = currentUser.data.me.email;
+        var startDateFormatted = moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format("MMMM Do, YYYY");
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           style: spring,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 68
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Form__WEBPACK_IMPORTED_MODULE_10__["default"], {
           onSubmit: function onSubmit(e) {
-            return _this2.onSendEmail(e, sendEmail, currentUserEmail, event.act.email);
+            return _this2.onSendEmail(e, sendEmail, currentUserEmail, event.act.email, event.start);
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 69
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "tokens",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 70
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextToken__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          text: event.act.name,
+          handleDrop: function handleDrop() {
+            return _this2.handleDrop(event.act.name);
+          },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 71
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextToken__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          text: moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('dddd'),
+          handleDrop: function handleDrop() {
+            return _this2.handleDrop(moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('dddd'));
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 72
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextToken__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          text: moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('MMMM'),
+          handleDrop: function handleDrop() {
+            return _this2.handleDrop(moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('MMMM'));
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 73
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextToken__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          text: moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('Do'),
+          handleDrop: function handleDrop() {
+            return _this2.handleDrop(moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('Do'));
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 74
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextToken__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          text: moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('YYYY'),
+          handleDrop: function handleDrop() {
+            return _this2.handleDrop(moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('YYYY'));
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 75
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TextToken__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          text: moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('h:mA'),
+          handleDrop: function handleDrop() {
+            return _this2.handleDrop(moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).format('h:mmA'));
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 76
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 78
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 79
           },
           __self: this
         }, "Create A Reminder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "subject",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 80
           },
           __self: this
-        }, "Subject", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text",
-          id: "subject",
+        }, "Subject", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReminderMessage__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          width: "100%",
+          height: "25px",
           name: "subject",
           placeholder: "Enter the Subject",
           value: _this2.state.subject,
-          required: true,
-          onChange: _this2.handleChange,
+          change: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 82
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "message",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 85
           },
           __self: this
-        }, "Message", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-          style: {
-            width: '100%',
-            height: '300px'
-          },
+        }, "Message", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReminderMessage__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          width: "100%",
+          height: "300px",
           name: "message",
           placeholder: "Enter Your Message",
           value: _this2.state.message,
-          required: true,
-          onChange: _this2.handleChange,
+          change: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 87
           },
           __self: this
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 90
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "sendDate",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 91
           },
           __self: this
-        }, "When Would You Like To Send", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "When Would You Like To Send?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "number",
           defaultValue: _this2.state.sendInterval,
           name: "sendInterval",
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 93
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          name: "sendDate",
-          defaultValue: _this2.state.sendDate,
+          name: "sendDuration",
+          defaultValue: _this2.state.sendDuration,
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 94
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "week",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 95
           },
           __self: this
-        }, "Week"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        }, parseInt(_this2.state.sendInterval) > 1 ? 'Weeks' : 'Week'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "day",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 96
           },
           __self: this
-        }, "Day"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        }, parseInt(_this2.state.sendInterval) > 1 ? 'Days' : 'Day'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "hour",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 97
           },
           __self: this
-        }, "Hour"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }, parseInt(_this2.state.sendInterval) > 1 ? 'Hours' : 'Hour'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "minute",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 98
+          },
+          __self: this
+        }, parseInt(_this2.state.sendInterval) > 1 ? 'Minutes' : 'Minute')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 101
+          },
+          __self: this
+        }, "Before ", startDateFormatted, "."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 102
+          },
+          __self: this
+        }, "This email will send on ", moment__WEBPACK_IMPORTED_MODULE_6___default()(event.start).subtract(_this2.state.sendInterval, _this2.state.sendDuration).format("LLLL"), ".")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 105
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
           onClick: toggle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 105
           },
           __self: this
-        }, "Back"), "||", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }, "Back")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 107
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 107
           },
           __self: this
-        }, "Create Reminder"))));
+        }, "Create Reminder")))));
       });
     }
   }]);
@@ -2207,7 +2423,106 @@ function (_Component) {
   return Reminders;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Reminders);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_dnd__WEBPACK_IMPORTED_MODULE_5__["DragDropContext"])(react_dnd_html5_backend__WEBPACK_IMPORTED_MODULE_4___default.a)(Reminders));
+
+/***/ }),
+
+/***/ "./components/TextToken.js":
+/*!*********************************!*\
+  !*** ./components/TextToken.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dnd */ "react-dnd");
+/* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/TextToken.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var itemSource = {
+  beginDrag: function beginDrag(props) {
+    var item = {
+      text: props.text
+    };
+    return item;
+  },
+  endDrag: function endDrag(props, monitor, component) {
+    if (!monitor.didDrop()) {
+      return;
+    }
+
+    return props.handleDrop(props.text);
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging()
+  };
+}
+
+var TextToken =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(TextToken, _Component);
+
+  function TextToken() {
+    _classCallCheck(this, TextToken);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TextToken).apply(this, arguments));
+  }
+
+  _createClass(TextToken, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          isDragging = _this$props.isDragging,
+          connectDragSource = _this$props.connectDragSource,
+          text = _this$props.text;
+      var opacity = isDragging ? 0 : 1;
+      return connectDragSource(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tag",
+        style: {
+          opacity: opacity
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        },
+        __self: this
+      }, text));
+    }
+  }]);
+
+  return TextToken;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_dnd__WEBPACK_IMPORTED_MODULE_1__["DragSource"])("token", itemSource, collect)(TextToken));
 
 /***/ }),
 
@@ -2398,7 +2713,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  mutation CREATE_EMAIL_MUTATION($from: String!, $to: String!, $subject: String!, $message: String!)\n    {createEmail(\n      from: $from\n      to: $to\n      subject: $subject\n      message: $message\n    ){\n      message\n    }\n  }   \n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation CREATE_EMAIL_MUTATION($from: String!, $to: String!, $subject: String!, $message: String!, $sendDate: DateTime!)\n    {createEmail(\n      from: $from\n      to: $to\n      subject: $subject\n      message: $message\n      sendDate: $sendDate\n    ){\n      message\n    }\n  }   \n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -2836,7 +3151,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -2988,6 +3303,28 @@ module.exports = require("react-big-calendar");
 /***/ (function(module, exports) {
 
 module.exports = require("react-big-calendar/lib/addons/dragAndDrop");
+
+/***/ }),
+
+/***/ "react-dnd":
+/*!****************************!*\
+  !*** external "react-dnd" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dnd");
+
+/***/ }),
+
+/***/ "react-dnd-html5-backend":
+/*!******************************************!*\
+  !*** external "react-dnd-html5-backend" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dnd-html5-backend");
 
 /***/ }),
 

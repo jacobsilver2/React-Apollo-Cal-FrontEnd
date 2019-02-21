@@ -439,7 +439,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html {\n    box-sizing: border-box;\n    font-size: .8rem;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 100;\n    margin: 0;\n    font-size: 1.5rem;\n    line-height: 2;\n    font-family: 'radnika_next';\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n  button {  font-family: 'radnika_next'; }\n\n  .modal-cover {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 10;\n    transform: translateZ(0);\n    background-color: rgba(0, 0, 0, 0.8);\n  }\n\n  .modal-area {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 2.5em 1.5em 1.5em 1.5em;\n    background-color: #ffffff;\n    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);\n    overflow-y: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n\n  @media screen and (min-width: 500px) {\n    /* Center the Modal! */\n    .modal-area {\n      left: 50%;\n      top: 50%;\n      height: auto;\n      transform: translate(-50%, -50%);\n      max-width: calc(100% - 20em);\n      max-height: calc(100% - 1em);\n    }\n  }\n\n  ._modal-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 0.5em;\n    line-height: 1;\n    background: #f6f6f7;\n    border: 0;\n    box-shadow: 0;\n    cursor: pointer;\n  }\n\n  ._modal-close-icon {\n    width: 25px;\n    height: 25px;\n    fill: transparent;\n    stroke: black;\n    stroke-linecap: round;\n    stroke-width: 2;\n  }\n\n  .modal-body {\n    padding-top: 0.25em;\n  }\n  ._hide-visual {\n    border: 0 !important;\n    clip: rect(0 0 0 0) !important;\n    height: 1px !important;\n    margin: -1px !important;\n    overflow: hidden !important;\n    padding: 0 !important;\n    position: absolute !important;\n    width: 1px !important;\n    white-space: nowrap !important;\n  }\n\n  .scroll-lock {\n    overflow: hidden;\n    margin-right: 17px;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html {\n    box-sizing: border-box;\n    font-size: .8rem;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 100;\n    margin: 0;\n    font-size: 1.5rem;\n    line-height: 2;\n    font-family: 'radnika_next';\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n  button {  font-family: 'radnika_next'; }\n\n  .modal-cover {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 10;\n    transform: translateZ(0);\n    background-color: rgba(0, 0, 0, 0.8);\n  }\n\n  .modal-area {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 2.5em 1.5em 1.5em 1.5em;\n    background-color: #ffffff;\n    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);\n    overflow-y: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .tag {\n  background: #eee;\n  border-radius: 3px 0 0 3px;\n  color: #999;\n  display: inline-block;\n  height: 26px;\n  line-height: 26px;\n  padding: 0 20px 0 23px;\n  position: relative;\n  margin: 0 10px 10px 0;\n  text-decoration: none;\n  -webkit-transition: color 0.2s;\n}\n\n.tag::before {\n  background: #fff;\n  border-radius: 10px;\n  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);\n  content: '';\n  height: 6px;\n  left: 10px;\n  position: absolute;\n  width: 6px;\n  top: 10px;\n}\n\n.tag::after {\n  background: #fff;\n  border-bottom: 13px solid transparent;\n  border-left: 10px solid #eee;\n  border-top: 13px solid transparent;\n  content: '';\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.tag:hover {\n  background-color: '#1a8fff';\n  color: white;\n}\n\n.tag:hover::after {\n   border-left-color: '#1a8fff'; \n}\n\n  @media screen and (min-width: 500px) {\n    /* Center the Modal! */\n    .modal-area {\n      left: 50%;\n      top: 50%;\n      height: auto;\n      transform: translate(-50%, -50%);\n      max-width: calc(100% - 20em);\n      max-height: calc(100% - 1em);\n    }\n  }\n\n  ._modal-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 0.5em;\n    line-height: 1;\n    background: #f6f6f7;\n    border: 0;\n    box-shadow: 0;\n    cursor: pointer;\n  }\n\n  ._modal-close-icon {\n    width: 25px;\n    height: 25px;\n    fill: transparent;\n    stroke: black;\n    stroke-linecap: round;\n    stroke-width: 2;\n  }\n\n  .modal-body {\n    padding-top: 0.25em;\n  }\n  ._hide-visual {\n    border: 0 !important;\n    clip: rect(0 0 0 0) !important;\n    height: 1px !important;\n    margin: -1px !important;\n    overflow: hidden !important;\n    padding: 0 !important;\n    position: absolute !important;\n    width: 1px !important;\n    white-space: nowrap !important;\n  }\n\n  .scroll-lock {\n    overflow: hidden;\n    margin-right: 17px;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -502,31 +502,31 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 189
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 190
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 191
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 192
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 193
         },
         __self: this
       }, this.props.children)));
@@ -796,21 +796,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./components/User.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! nprogress */ "nprogress");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-adopt */ "react-adopt");
-/* harmony import */ var react_adopt__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_adopt__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/SideBarStyles */ "./components/styles/SideBarStyles.js");
-/* harmony import */ var _styles_Supreme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/Supreme */ "./components/styles/Supreme.js");
-/* harmony import */ var _styles_CloseButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/CloseButton */ "./components/styles/CloseButton.js");
-/* harmony import */ var _Signout__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Signout */ "./components/Signout.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! nprogress */ "nprogress");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/SideBarStyles */ "./components/styles/SideBarStyles.js");
+/* harmony import */ var _Signout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Signout */ "./components/Signout.js");
+/* harmony import */ var react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-svg-loader!../assets/calendar.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg");
+/* harmony import */ var react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-svg-loader!../assets/calendar-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg");
+/* harmony import */ var react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-svg-loader!../assets/music.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg");
+/* harmony import */ var react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-svg-loader!../assets/music-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg");
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Sidebar.js";
 
 
@@ -825,165 +823,220 @@ var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/Rea
 
 
 
-
-next_router__WEBPACK_IMPORTED_MODULE_3___default.a.onRouteChangeStart = function () {
-  nprogress__WEBPACK_IMPORTED_MODULE_4___default.a.start();
+next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeStart = function () {
+  nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.start();
 };
 
-next_router__WEBPACK_IMPORTED_MODULE_3___default.a.onRouteChangeComplete = function () {
-  nprogress__WEBPACK_IMPORTED_MODULE_4___default.a.done();
+next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeComplete = function () {
+  nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.done();
 };
 
-next_router__WEBPACK_IMPORTED_MODULE_3___default.a.onRouteChangeError = function () {
-  nprogress__WEBPACK_IMPORTED_MODULE_4___default.a.done();
+next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeError = function () {
+  nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.done();
 };
 
-var Sidebar = function Sidebar(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_2__["default"], {
+var Sidebar = function Sidebar() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 27
     },
     __self: this
   }, function (_ref) {
     var me = _ref.data.me;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 29
       },
       __self: this
     }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "events",
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 33
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 34
-      },
-      __self: this
-    }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/newCalEvent",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38
-      },
-      __self: this
-    }, "+"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 34
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 36
       },
       __self: this
-    }, "All"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      width: 50,
+      height: 50,
+      filter: 'invert(100%)',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "hovertext",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }, "All Events")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/newCalEvent",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      width: 50,
+      height: 50,
+      filter: 'invert(100%)',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "hovertext",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }, "Add Event")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "Acts",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 46
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
-    }, "Acts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 47
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/newAct",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 53
-      },
-      __self: this
-    }, "+"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 56
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/acts",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 49
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 50
       },
       __self: this
-    }, "All")))))), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      width: 50,
+      height: 50,
+      filter: {
+        invert: '100%'
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 50
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "hovertext",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
+      },
+      __self: this
+    }, "All Acts")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 53
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/newAct",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 54
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      width: 50,
+      height: 50,
+      filter: {
+        grayscale: '100%'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "hovertext",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55
+      },
+      __self: this
+    }, "Add Act"))))))), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63
       },
       __self: this
     }), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 66
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 67
       },
       __self: this
     }, "Sign In")));
@@ -1236,26 +1289,6 @@ var CURRENT_USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_tem
 
 /***/ }),
 
-/***/ "./components/styles/CloseButton.js":
-/*!******************************************!*\
-  !*** ./components/styles/CloseButton.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-
-var CloseButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
-  displayName: "CloseButton",
-  componentId: "tgzrh8-0"
-})(["background:black;color:white;font-size:3rem;border:0;position:absolute;z-index:2;right:0;"]);
-/* harmony default export */ __webpack_exports__["default"] = (CloseButton);
-
-/***/ }),
-
 /***/ "./components/styles/DropDown.js":
 /*!***************************************!*\
   !*** ./components/styles/DropDown.js ***!
@@ -1339,7 +1372,7 @@ __webpack_require__.r(__webpack_exports__);
 var SidebarStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "SideBarStyles__SidebarStyles",
   componentId: "sc-1vxnimq-0"
-})(["opacity:0.95;padding:20px;position:relative;background:", ";position:fixed;height:100%;top:0;bottom:0;left:0;min-width:100px;transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;display:grid;grid-template-rows:auto 1fr auto;width:7%;&:hover{width:15%;};header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;overflow:scroll;}a{color:white;font-size:.9rem;}h3{font-size:.91rem;color:white;}"], function (props) {
+})(["opacity:0.95;padding:20px;position:relative;background:", ";position:fixed;height:100%;top:0;bottom:0;left:0;min-width:100px;transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;display:grid;grid-template-rows:auto 1fr auto;width:7%;.hovertext{display:none;}&:hover{width:15%;.hovertext{display:inline;padding-left:50px;}};header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;overflow:scroll;}a{color:white;font-size:.9rem;}h3{font-size:.91rem;color:white;}"], function (props) {
   return props.theme.grey;
 }, function (props) {
   return props.theme.black;
@@ -1347,28 +1380,6 @@ var SidebarStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div
   return props.theme.black;
 });
 /* harmony default export */ __webpack_exports__["default"] = (SidebarStyles);
-
-/***/ }),
-
-/***/ "./components/styles/Supreme.js":
-/*!**************************************!*\
-  !*** ./components/styles/Supreme.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-
-var Supreme = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.h3.withConfig({
-  displayName: "Supreme",
-  componentId: "sc-1vuksc7-0"
-})(["background:", ";color:white;display:inline-block;padding:4px 5px;margin:0;font-size:4rem;"], function (props) {
-  return props.theme.mainColor;
-});
-/* harmony default export */ __webpack_exports__["default"] = (Supreme);
 
 /***/ }),
 
@@ -1481,6 +1492,142 @@ function createClient(_ref) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (next_with_apollo__WEBPACK_IMPORTED_MODULE_0___default()(createClient));
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
+  let {
+    styles = {}
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["styles"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "svg",
+    _extends({ xmlns: "http://www.w3.org/2000/svg", width: "32.75", height: "32.75", viewBox: "0 0 32.75 32.75" }, props),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M29.375 1.25h-1.123c.029-.093.059-.186.059-.289a.963.963 0 0 0-1.924 0c0 .103.028.196.059.289h-3.68c.029-.093.059-.186.059-.289a.962.962 0 1 0-1.925 0 .93.93 0 0 0 .059.289h-3.682c.029-.093.059-.186.059-.289a.961.961 0 0 0-1.922 0c0 .103.028.196.058.289h-3.681c.029-.093.059-.186.059-.289a.962.962 0 0 0-1.923 0c0 .103.028.196.058.289h-3.68a.93.93 0 0 0 .059-.289.96.96 0 1 0-1.923 0c0 .103.028.196.058.289H3.375A2.752 2.752 0 0 0 .625 4v26a2.751 2.751 0 0 0 2.75 2.75H26.27l5.855-5.855V4a2.752 2.752 0 0 0-2.75-2.75zm1.25 25.023l-.311.311h-2.355c-1.102 0-2 .9-2 2v2.355l-.311.311H3.375c-.689 0-1.25-.561-1.25-1.25V5h28.5v21.273z" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M15.049 23.682h2.652v-3.981h3.979v-2.652h-3.979v-3.98h-2.652v3.98H11.07v2.652h3.979z" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M16.376 28.229c5.433 0 9.853-4.42 9.853-9.854 0-5.434-4.42-9.854-9.853-9.854-5.434 0-9.854 4.42-9.854 9.854 0 5.434 4.42 9.854 9.854 9.854zm0-18.192c4.597 0 8.337 3.741 8.337 8.338 0 4.598-3.74 8.338-8.337 8.338-4.598 0-8.339-3.74-8.339-8.338 0-4.597 3.741-8.338 8.339-8.338z" })
+  );
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg":
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
+  let {
+    styles = {}
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["styles"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "svg",
+    _extends({ xmlns: "http://www.w3.org/2000/svg", width: "33", height: "33", viewBox: "0 0 33 33" }, props),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M28.5 0h-24A4.505 4.505 0 0 0 0 4.5v24C0 30.98 2.019 33 4.5 33h24c2.48 0 4.5-2.02 4.5-4.5v-24C33 2.019 30.98 0 28.5 0zm3 28.5c0 1.648-1.35 3-3 3h-24c-1.65 0-3-1.352-3-3v-24c0-1.649 1.35-3 3-3h24c1.65 0 3 1.351 3 3v24z" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "9.25", cy: "4.773", r: "1.273" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "16.5", cy: "4.773", r: "1.273" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "23.75", cy: "4.773", r: "1.273" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M11.134 12.902h4.596v4.088h-4.596zM17.271 12.902h4.595v4.088h-4.595zM23.404 12.902H28v4.088h-4.596zM5 18.359h4.595v4.086H5zM11.134 18.359h4.596v4.086h-4.596zM17.271 18.359h4.595v4.086h-4.595zM23.404 18.359H28v4.086h-4.596zM5 23.816h4.595v4.086H5zM11.134 23.816h4.596v4.086h-4.596zM17.271 23.816h4.595v4.086h-4.595zM23.404 23.816H28v4.086h-4.596z" })
+  );
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg":
+/*!****************************************************************************!*\
+  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
+  let {
+    styles = {}
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["styles"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "svg",
+    _extends({ xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 59 59" }, props),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { fill: "#df4d60", d: "M0 2v47h56V2z" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M39.659 11.248a.999.999 0 0 0-.79-.239l-18 2.367a1 1 0 0 0-.869.991V33.801c-1.169-1.019-2.754-1.649-4.5-1.649-3.584 0-6.5 2.642-6.5 5.889s2.916 5.889 6.5 5.889 6.5-2.642 6.5-5.889V20.244l16-2.104v10.402c-1.133-.966-2.653-1.562-4.327-1.562-3.488 0-6.326 2.572-6.326 5.734s2.838 5.735 6.326 5.735c3.489 0 6.327-2.573 6.327-5.735V12a1 1 0 0 0-.341-.752z", fill: "#fff" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "47", cy: "45", r: "12", fill: "#71c386" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M53 44h-5v-5a1 1 0 0 0-2 0v5h-5a1 1 0 0 0 0 2h5v5a1 1 0 0 0 2 0v-5h5a1 1 0 0 0 0-2z", fill: "#fff" })
+  );
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
+  let {
+    styles = {}
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["styles"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "svg",
+    _extends({ xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 59 59" }, props),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { fill: "#df4d60", d: "M0 2v47h56V2z" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M39.659 11.248a.999.999 0 0 0-.79-.239l-18 2.367a1 1 0 0 0-.869.991V33.801c-1.169-1.019-2.754-1.649-4.5-1.649-3.584 0-6.5 2.642-6.5 5.889s2.916 5.889 6.5 5.889 6.5-2.642 6.5-5.889V20.244l16-2.104v10.402c-1.133-.966-2.653-1.562-4.327-1.562-3.488 0-6.326 2.572-6.326 5.734s2.838 5.735 6.326 5.735c3.489 0 6.327-2.573 6.327-5.735V12a1 1 0 0 0-.341-.752z", fill: "#fff" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "47", cy: "45", r: "12", fill: "#26b999" }),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M53.571 39.179a.999.999 0 0 0-1.392.25l-5.596 8.04-3.949-3.242a.999.999 0 1 0-1.268 1.546l4.786 3.929a1.003 1.003 0 0 0 1.455-.201l6.214-8.929a1.002 1.002 0 0 0-.25-1.393z", fill: "#fff" })
+  );
+});
 
 /***/ }),
 
@@ -1787,17 +1934,6 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
-
-/***/ }),
-
-/***/ "react-adopt":
-/*!******************************!*\
-  !*** external "react-adopt" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-adopt");
 
 /***/ }),
 
