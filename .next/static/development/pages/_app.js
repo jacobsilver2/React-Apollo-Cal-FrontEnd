@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.js");
 /* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Search */ "./components/Search.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./User */ "./components/User.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Header.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Header.js";
 
 
 
@@ -158,7 +158,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "./node_modules/next/head.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Meta.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Meta.js";
 
 
 
@@ -232,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_styles_NavStyles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/styles/NavStyles */ "./components/styles/NavStyles.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./User */ "./components/User.js");
 /* harmony import */ var _Signout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Signout */ "./components/Signout.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Nav.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Nav.js";
 
 
  // import { TOGGLE_SIDEBAR_MUTATION } from './Sidebar';
@@ -323,7 +323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header */ "./components/Header.js");
 /* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Meta */ "./components/Meta.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Page.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Page.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -344,7 +344,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html {\n    box-sizing: border-box;\n    font-size: .8rem;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 100;\n    margin: 0;\n    font-size: 1.5rem;\n    line-height: 2;\n    font-family: 'radnika_next';\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n  button {  font-family: 'radnika_next'; }\n\n  .modal-cover {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 10;\n    transform: translateZ(0);\n    background-color: rgba(0, 0, 0, 0.8);\n  }\n\n  .modal-area {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 2.5em 1.5em 1.5em 1.5em;\n    background-color: #ffffff;\n    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);\n    overflow-y: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .tag {\n  background: #eee;\n  border-radius: 3px 0 0 3px;\n  color: #999;\n  display: inline-block;\n  height: 26px;\n  line-height: 26px;\n  padding: 0 20px 0 23px;\n  position: relative;\n  margin: 0 10px 10px 0;\n  text-decoration: none;\n  -webkit-transition: color 0.2s;\n}\n\n.tag::before {\n  background: #fff;\n  border-radius: 10px;\n  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);\n  content: '';\n  height: 6px;\n  left: 10px;\n  position: absolute;\n  width: 6px;\n  top: 10px;\n}\n\n.tag::after {\n  background: #fff;\n  border-bottom: 13px solid transparent;\n  border-left: 10px solid #eee;\n  border-top: 13px solid transparent;\n  content: '';\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.tag:hover {\n  background-color: '#1a8fff';\n  color: white;\n}\n\n.tag:hover::after {\n   border-left-color: '#1a8fff'; \n}\n\n  @media screen and (min-width: 500px) {\n    /* Center the Modal! */\n    .modal-area {\n      left: 50%;\n      top: 50%;\n      height: auto;\n      transform: translate(-50%, -50%);\n      max-width: calc(100% - 20em);\n      max-height: calc(100% - 1em);\n    }\n  }\n\n  ._modal-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 0.5em;\n    line-height: 1;\n    background: #f6f6f7;\n    border: 0;\n    box-shadow: 0;\n    cursor: pointer;\n  }\n\n  ._modal-close-icon {\n    width: 25px;\n    height: 25px;\n    fill: transparent;\n    stroke: black;\n    stroke-linecap: round;\n    stroke-width: 2;\n  }\n\n  .modal-body {\n    padding-top: 0.25em;\n  }\n  ._hide-visual {\n    border: 0 !important;\n    clip: rect(0 0 0 0) !important;\n    height: 1px !important;\n    margin: -1px !important;\n    overflow: hidden !important;\n    padding: 0 !important;\n    position: absolute !important;\n    width: 1px !important;\n    white-space: nowrap !important;\n  }\n\n  .scroll-lock {\n    overflow: hidden;\n    margin-right: 17px;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  }\n  html {\n    box-sizing: border-box;\n    font-size: .8rem;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 100;\n    margin: 0;\n    font-size: 1.5rem;\n    line-height: 2;\n    font-family: 'radnika_next';\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n  button {  font-family: 'radnika_next'; }\n\n  .modal-cover {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 10;\n    transform: translateZ(0);\n    background-color: rgba(0, 0, 0, 0.8);\n  }\n\n  .modal-area {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 2.5em 1.5em 1.5em 1.5em;\n    background-color: #ffffff;\n    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);\n    overflow-y: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .tag {\n    background: #eee;\n    border-radius: 3px 0 0 3px;\n    color: #999;\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    padding: 0 20px 0 23px;\n    position: relative;\n    margin: 0 10px 10px 0;\n    text-decoration: none;\n    -webkit-transition: color 0.2s;\n  }\n\n  .tag::before {\n    background: #fff;\n    border-radius: 10px;\n    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);\n    content: '';\n    height: 6px;\n    left: 10px;\n    position: absolute;\n    width: 6px;\n    top: 10px;\n  }\n\n  .tag::after {\n    background: #fff;\n    border-bottom: 13px solid transparent;\n    border-left: 10px solid #eee;\n    border-top: 13px solid transparent;\n    content: '';\n    position: absolute;\n    right: 0;\n    top: 0;\n  }\n  \n  .tag:hover {\n    background-color: '#1a8fff';\n    color: white;\n  }\n  \n  .tag:hover::after {\n     border-left-color: '#1a8fff'; \n  }\n\n  @media screen and (min-width: 500px) {\n    /* Center the Modal! */\n    .modal-area {\n      left: 50%;\n      top: 50%;\n      height: auto;\n      transform: translate(-50%, -50%);\n      max-width: calc(100% - 20em);\n      max-height: calc(100% - 1em);\n    }\n  }\n\n  ._modal-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 0.5em;\n    line-height: 1;\n    background: #f6f6f7;\n    border: 0;\n    box-shadow: 0;\n    cursor: pointer;\n  }\n\n  ._modal-close-icon {\n    width: 25px;\n    height: 25px;\n    fill: transparent;\n    stroke: black;\n    stroke-linecap: round;\n    stroke-width: 2;\n  }\n\n  .modal-body {\n    padding-top: 0.25em;\n  }\n  ._hide-visual {\n    border: 0 !important;\n    clip: rect(0 0 0 0) !important;\n    height: 1px !important;\n    margin: -1px !important;\n    overflow: hidden !important;\n    padding: 0 !important;\n    position: absolute !important;\n    width: 1px !important;\n    white-space: nowrap !important;\n  }\n\n  .scroll-lock {\n    overflow: hidden;\n    margin-right: 17px;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -468,7 +468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_DropDown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/DropDown */ "./components/styles/DropDown.js");
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Search.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Search.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -712,7 +712,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-svg-loader!../assets/calendar-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg");
 /* harmony import */ var react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-svg-loader!../assets/music.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg");
 /* harmony import */ var react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-svg-loader!../assets/music-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Sidebar.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Sidebar.js";
 
 
 
@@ -725,24 +725,27 @@ var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/Rea
 
 
 
+next_router__WEBPACK_IMPORTED_MODULE_4___default.a.events.on('routeChangeStart', handleRouteStart);
+next_router__WEBPACK_IMPORTED_MODULE_4___default.a.events.on('routeChangeComplete', handleRouteComplete);
+next_router__WEBPACK_IMPORTED_MODULE_4___default.a.events.on('routeChangeError', handleRouteError);
 
-next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeStart = function () {
+function handleRouteStart() {
   nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.start();
-};
+}
 
-next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeComplete = function () {
+function handleRouteComplete() {
   nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.done();
-};
+}
 
-next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeError = function () {
+function handleRouteError() {
   nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.done();
-};
+}
 
 var Sidebar = function Sidebar() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 31
     },
     __self: this
   }, function (_ref) {
@@ -750,65 +753,37 @@ var Sidebar = function Sidebar() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 33
       },
       __self: this
     }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "top",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "events",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 37
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 38
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 34
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      width: 50,
-      height: 50,
-      filter: 'invert(100%)',
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "hovertext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, "All Events")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 39
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/newCalEvent",
+      href: "/",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 40
@@ -820,7 +795,7 @@ var Sidebar = function Sidebar() {
         lineNumber: 41
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__["default"], {
       width: 50,
       height: 50,
       filter: 'invert(100%)',
@@ -829,71 +804,69 @@ var Sidebar = function Sidebar() {
         lineNumber: 41
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "hovertext",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 41
       },
       __self: this
-    }, "Add Event")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "Acts",
+    }, "All Events")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 47
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 44
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/acts",
+      href: "/newCalEvent",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 45
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 46
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__["default"], {
       width: 50,
       height: 50,
-      filter: {
-        invert: '100%'
-      },
+      filter: 'invert(100%)',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 46
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "hovertext",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 46
       },
       __self: this
-    }, "All Acts")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    }, "Add Event")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "acts",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 53
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/newAct",
+      href: "/acts",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 54
@@ -905,11 +878,11 @@ var Sidebar = function Sidebar() {
         lineNumber: 55
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__["default"], {
       width: 50,
       height: 50,
       filter: {
-        grayscale: '100%'
+        invert: '100%'
       },
       __source: {
         fileName: _jsxFileName,
@@ -923,29 +896,124 @@ var Sidebar = function Sidebar() {
         lineNumber: 55
       },
       __self: this
-    }, "Add Act"))))))), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, "All Acts")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 58
       },
       __self: this
-    }), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/signup",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/newAct",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 59
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 60
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      width: 50,
+      height: 50,
+      filter: {
+        grayscale: '100%'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "hovertext",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60
+      },
+      __self: this
+    }, "Add Act")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "automations",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 66
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 67
       },
       __self: this
-    }, "Sign In")));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/automations",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 68
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69
+      },
+      __self: this
+    }, "Automations"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "middle",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76
+      },
+      __self: this
+    })), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bottom",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81
+      },
+      __self: this
+    })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bottom",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 85
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/signup",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 86
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 87
+      },
+      __self: this
+    }, "Sign In"))));
   });
-}; // export { LOCAL_STATE_QUERY, TOGGLE_SIDEBAR_MUTATION };
-
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Sidebar);
 
@@ -967,7 +1035,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Signout.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Signout.js";
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  mutation SIGNOUT_MUTATION {\n    signout {\n      message\n    }\n  }\n"]);
@@ -1034,7 +1102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CURRENT_USER_QUERY", function() { return _globals_queries_queries__WEBPACK_IMPORTED_MODULE_4__["CURRENT_USER_QUERY"]; });
 
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/User.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/User.js";
 
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -1272,7 +1340,7 @@ __webpack_require__.r(__webpack_exports__);
 var SidebarStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "SideBarStyles__SidebarStyles",
   componentId: "sc-1vxnimq-0"
-})(["opacity:0.95;padding:20px;position:relative;background:", ";position:fixed;height:100%;top:0;bottom:0;left:0;min-width:100px;transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;display:grid;grid-template-rows:auto 1fr auto;width:7%;.hovertext{display:none;}&:hover{width:15%;.hovertext{display:inline;padding-left:50px;}};header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;overflow:scroll;}a{color:white;font-size:.9rem;}h3{font-size:.91rem;color:white;}"], function (props) {
+})(["display:grid;grid-template-rows:auto 1fr auto;opacity:0.95;padding:20px;position:relative;background:", ";position:fixed;height:100%;top:0;bottom:0;left:0;min-width:100px;transition:all 0.4s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;width:7%;.hovertext{display:none;}&:hover{width:15%;.hovertext{display:inline;padding-left:50px;}};header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;}a{color:white;font-size:.9rem;}"], function (props) {
   return props.theme.grey;
 }, function (props) {
   return props.theme.black;
@@ -54202,7 +54270,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.js");
 
-var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/_app.js";
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/_app.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }

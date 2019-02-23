@@ -1,10 +1,10 @@
 import PleaseSignIn from '../components/PleaseSignIn';
-import AutomationsComponent from '../components/Automations';
+import GlobalAutomationsComponent from '../components/GlobalAutomations';
 
 const automations = () => (
   <div>
     <PleaseSignIn>
-      <AutomationsComponent />
+      <GlobalAutomationsComponent />
     </PleaseSignIn>
   </div>
 );
