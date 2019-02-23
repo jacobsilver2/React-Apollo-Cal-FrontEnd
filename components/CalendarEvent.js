@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { format, getMinutes } from 'date-fns';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 const StyledEvent = styled.div`
@@ -11,16 +10,11 @@ const StyledEvent = styled.div`
     position: relative;
 `;
 
-class CalendarEvent extends Component {
-  static propTypes = {
-    event: PropTypes.object.isRequired
-  }
+const CalendarEvent = ({event}) => {
+  const minutes = getMinutes(event.start);
+  const formattedTime = minutes > 0 ? format(event.start, "h:mma") : format(event.start, "ha");
 
-  render() {
-    const {event} = this.props;
-    const minutes = getMinutes(event.start);
-    const formattedTime = minutes > 0 ? format(event.start, "h:mma") : format(event.start, "ha");
-    return (
+  return (
       <StyledEvent>
         <Link href={{
           pathname: '/event',
@@ -29,8 +23,7 @@ class CalendarEvent extends Component {
           <a>•{formattedTime} {event.act.name}</a>
         </Link>
       </StyledEvent>     
-    );
-  }
+  );
 }
 
 export default CalendarEvent;

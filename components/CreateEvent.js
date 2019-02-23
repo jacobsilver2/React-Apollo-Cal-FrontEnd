@@ -54,9 +54,6 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
-    // console.log(type)
-    // console.log(value)
-
     switch (name) {
       case 'status':
         return this.setState({status: value});

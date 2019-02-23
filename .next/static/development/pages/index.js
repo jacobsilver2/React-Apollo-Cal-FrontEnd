@@ -882,7 +882,7 @@ function (_Component) {
         mutation: _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__["TOGGLE_MODAL_MUTATION"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 38
         },
         __self: this
       }, function (toggleModal) {
@@ -905,7 +905,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 40
           },
           __self: this
         });
@@ -92982,7 +92982,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -93007,5 +93007,5 @@ module.exports = dll_ea92b26618a5e8aa3a89;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map

@@ -3,9 +3,7 @@ import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops.cjs';
 import moment from 'moment';
-import Router from 'next/router';
 import Error from './ErrorMessage';
-import QuickUpdateStyled from './styles/QuickUpdateStyles';
 import Form from './styles/QuickUpdateFormStyles';
 import Button from './styles/DeleteButtonStyles';
 import OtherButton from './styles/SickButton';
@@ -13,8 +11,6 @@ import * as mutations from './globals/mutations/mutations';
 import * as queries from './globals/queries/queries';
 import * as updateEventMethods from './globals/functions/updateEventMethods';
 import { possibleStatus } from '../lib/possibleStatus';
-import Reminders from './Reminders';
-import { start } from 'repl';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
@@ -143,9 +139,7 @@ class QuickUpdate extends Component {
       <Composed singleEventId={this.props.id} updateCache={updateEventMethods.updateCache}>
         {({ allActs, updateEventMutation, toggleModalMutation, spring }) => {
           const { event } = this.props;
-          // const formattedDate = format(parseISO(event.start), "YYYY-MM-dd", { awareOfUnicodeTokens: true });
           const formattedDate = moment(event.start).format("YYYY-MM-DD");
-          // const formattedTime = format(parseISO(event.start), "HH:mm", { awareOfUnicodeTokens: true });
           const formattedTime = moment(event.start).format("HH:mm");
           let notes = null;
           if (this.state.notes) {

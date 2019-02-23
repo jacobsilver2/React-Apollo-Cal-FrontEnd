@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
-import Modal  from './Modal';
+import Modal from './Modal';
 import {TOGGLE_MODAL_MUTATION} from './globals/mutations/mutations';
+
+
 
 
 class ModalContainer extends Component {
