@@ -1,5 +1,5 @@
 import PleaseSignIn from '../components/PleaseSignIn';
-import GlobalAutomationsComponent from '../components/GlobalAutomations';
+import GlobalAutomationsComponent from '../components/Automations/GlobalAutomations';
 
 const automations = () => (
   <div>

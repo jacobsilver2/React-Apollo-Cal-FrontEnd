@@ -1,5 +1,5 @@
 import PleaseSignIn from '../components/PleaseSignIn';
-import AnalyticsComponent from '../components/Analytics';
+import AnalyticsComponent from '../components/Analytics/Analytics';
 
 const automations = () => (
   <div>

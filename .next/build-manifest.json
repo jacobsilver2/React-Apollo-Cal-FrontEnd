@@ -16,8 +16,12 @@
       "static/runtime/main.js"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "/acts": [
+=======
+    "/newCalEvent": [
+>>>>>>> 6760d226b000868ea9a4c10570b370e16f80bf21
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

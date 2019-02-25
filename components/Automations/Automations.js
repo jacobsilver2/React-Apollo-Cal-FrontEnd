@@ -1,12 +1,12 @@
 import React, { Component, useState } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
-import {SINGLE_EVENT_QUERY, CURRENT_USER_QUERY} from './globals/queries/queries';
-import {CREATE_EMAIL_MUTATION} from './globals/mutations/mutations';
+import {SINGLE_EVENT_QUERY, CURRENT_USER_QUERY} from '../globals/queries/queries';
+import {CREATE_EMAIL_MUTATION} from '../globals/mutations/mutations';
 import Router from 'next/router';
-import Form from './styles/Form';
-import Button from './styles/SickButton';
-import User from './User';
+import Form from '../styles/Form';
+import Button from '../styles/SickButton';
+import User from '../User';
 
 const Composed = adopt({
   singleEvent: ({id, render}) => <Query query={SINGLE_EVENT_QUERY} variables={id}>{render}</Query>,

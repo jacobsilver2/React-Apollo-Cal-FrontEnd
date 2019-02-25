@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/index":"static/development/pages/index.js","/":"static/development/pages/index.js"}
 =======
 {"/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/index":"static/development/pages/index.js","/acts":"static/development/pages/acts.js","/":"static/development/pages/index.js"}
 >>>>>>> 1512034c4b910acbb7c1ddf25a7026dffd144b3b
+=======
+{"/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/index":"static/development/pages/index.js","/newCalEvent":"static/development/pages/newCalEvent.js","/":"static/development/pages/index.js"}
+>>>>>>> 6760d226b000868ea9a4c10570b370e16f80bf21

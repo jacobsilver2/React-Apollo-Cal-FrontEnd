@@ -44,7 +44,7 @@ class CreateEvent extends Component {
       const decodedStart = decodeURIComponent(Router.query.start);
       const decodedEnd = decodeURIComponent(Router.query.end);
       this.setState({
-        title: format(new Date(decodedStart), "YYYY-MM-dd", {awareOfUnicodeTokens: true}),
+        title: moment(decodedStart).format("YYYY-MM-DD"),
         start: new Date(decodedStart),
         end: new Date(decodedEnd),
       })

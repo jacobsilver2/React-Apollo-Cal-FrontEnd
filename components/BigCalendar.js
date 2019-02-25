@@ -43,7 +43,7 @@ class BigCalendar extends Component {
       case 'click':
         break;
       case 'doubleClick':
-        Router.push({pathname: '/newCalEvent', query: {start: encodeURIComponent(e.start), end: encodeURIComponent(e.end) }});
+        Router.push({pathname: '/newCalEvent', query: {start: encodeURIComponent(e.start.toString()), end: encodeURIComponent(e.end.toString()) }});
         break;
       case 'select':
         break;

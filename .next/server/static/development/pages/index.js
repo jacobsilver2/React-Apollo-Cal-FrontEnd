@@ -282,8 +282,8 @@ function (_Component) {
           next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
             pathname: '/newCalEvent',
             query: {
-              start: encodeURIComponent(e.start),
-              end: encodeURIComponent(e.end)
+              start: encodeURIComponent(e.start.toString()),
+              end: encodeURIComponent(e.end.toString())
             }
           });
           break;
@@ -674,11 +674,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! focus-trap-react */ "focus-trap-react");
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_3__);
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var _styles_ModalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ModalStyles */ "./components/styles/ModalStyles.js");
 /* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
 =======
 /* harmony import */ var _Reminders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reminders */ "./components/Reminders.js");
+=======
+/* harmony import */ var _Reminders_Reminders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reminders/Reminders */ "./components/Reminders/Reminders.js");
+>>>>>>> 6760d226b000868ea9a4c10570b370e16f80bf21
 var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
 >>>>>>> 1512034c4b910acbb7c1ddf25a7026dffd144b3b
 
@@ -824,7 +828,7 @@ function (_Component) {
           lineNumber: 47
         },
         __self: this
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reminders__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reminders_Reminders__WEBPACK_IMPORTED_MODULE_4__["default"], {
         event: event,
         toggle: this.toggle,
         __source: {
@@ -2085,10 +2089,10 @@ var UpdateEvent = function UpdateEvent(_ref) {
 
 /***/ }),
 
-/***/ "./components/ReminderMessage.js":
-/*!***************************************!*\
-  !*** ./components/ReminderMessage.js ***!
-  \***************************************/
+/***/ "./components/Reminders/ReminderMessage.js":
+/*!*************************************************!*\
+  !*** ./components/Reminders/ReminderMessage.js ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2098,7 +2102,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dnd */ "react-dnd");
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ReminderMessage.js";
+=======
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders/ReminderMessage.js";
+>>>>>>> 6760d226b000868ea9a4c10570b370e16f80bf21
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2181,10 +2189,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./components/Reminders.js":
-/*!*********************************!*\
-  !*** ./components/Reminders.js ***!
-  \*********************************/
+/***/ "./components/Reminders/Reminders.js":
+/*!*******************************************!*\
+  !*** ./components/Reminders/Reminders.js ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2204,6 +2212,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "moment");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+<<<<<<< HEAD
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/SickButton */ "./components/styles/SickButton.js");
@@ -2211,6 +2220,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TextToken__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./TextToken */ "./components/TextToken.js");
 /* harmony import */ var _ReminderMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ReminderMessage */ "./components/ReminderMessage.js");
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders.js";
+=======
+/* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../globals/queries/queries */ "./components/globals/queries/queries.js");
+/* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles/Form */ "./components/styles/Form.js");
+/* harmony import */ var _TextToken__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../TextToken */ "./components/TextToken.js");
+/* harmony import */ var _ReminderMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ReminderMessage */ "./components/Reminders/ReminderMessage.js");
+var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders/Reminders.js";
+>>>>>>> 6760d226b000868ea9a4c10570b370e16f80bf21
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
