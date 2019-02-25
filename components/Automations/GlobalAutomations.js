@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-
+import Center from '../styles/Center';
 
 const GlobalAutomations = () => {
   return (
-    <h1>Hi from Global Automations</h1>
+    <Center>
+      <h1>Hi from Global Automations</h1>
+    </Center>
   );
 }
 

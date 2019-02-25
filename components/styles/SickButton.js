@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const SickButton = styled.button`
   background: ${props => props.theme.mainColor};
+  max-height: 100px;
+  max-width: 300px;
   cursor: pointer;
   color: white;
   font-weight: 500;

@@ -1,4 +1,4 @@
-import CreateEvent from '../components/CreateEvent';
+import CreateEvent from '../components/CreateEvent/CreateEvent.js';
 import PleaseSignIn from '../components/PleaseSignIn';
 
 const NewCalEvent = () => (

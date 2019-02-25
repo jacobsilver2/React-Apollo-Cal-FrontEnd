@@ -708,15 +708,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/SideBarStyles */ "./components/styles/SideBarStyles.js");
 /* harmony import */ var _Signout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Signout */ "./components/Signout.js");
-<<<<<<< HEAD
-/* harmony import */ var react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-svg-loader!../assets/calendar.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg");
-/* harmony import */ var react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-svg-loader!../assets/calendar-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg");
-/* harmony import */ var react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-svg-loader!../assets/music.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg");
-/* harmony import */ var react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-svg-loader!../assets/music-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg");
 var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Sidebar.js";
-=======
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Sidebar.js";
->>>>>>> 1512034c4b910acbb7c1ddf25a7026dffd144b3b
 
 
 

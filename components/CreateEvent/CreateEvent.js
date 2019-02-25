@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
-import {addMinutes, addHours} from 'date-fns';
 import moment from 'moment';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops';
 import Router from 'next/router';
-import { format } from 'date-fns';
-import Form from './styles/Form';
-import Error from './ErrorMessage';
-import * as queries from './globals/queries/queries';
-import * as mutations from './globals/mutations/mutations';
-import {possibleStatus} from '../lib/possibleStatus';
-import Button from './styles/SickButton';
+import Form from '../styles/Form';
+import Error from '../ErrorMessage';
+import * as queries from '../globals/queries/queries';
+import * as mutations from '../globals/mutations/mutations';
+import {possibleStatus} from '../../lib/possibleStatus';
+import Button from '../styles/SickButton';
+import Center from '../styles/Center';
+import CreateEventForm from './CreateEventForm';
+import SelectExistingActForm from './SelectExistingActForm';
+import NewActForm from './NewActForm';
+import ActViewPicker from './ActViewPicker';
 
 
 
@@ -37,6 +40,7 @@ class CreateEvent extends Component {
       email: '',
       description: '',
       actId: '',
+      actView: 'new',
   }
 
   componentDidMount() {
@@ -63,7 +67,7 @@ class CreateEvent extends Component {
         const selectedIndex = parseInt(e.target.dataset.key);
         notes[selectedIndex] = value;
         return this.setState({ notes });
-    }
+  }
 
     switch (type) {
       case 'date':
@@ -91,8 +95,6 @@ class CreateEvent extends Component {
         this.setState({ [name]: value });
     }
   }
-    
-
   
   uploadFile = async (e) => {
     const files = e.target.files;
@@ -115,6 +117,11 @@ class CreateEvent extends Component {
     const notes = [...this.state.notes];
     notes.push('');
     this.setState({notes});
+  }
+
+  handleActViewChange = (e, value) => {
+    e.preventDefault();
+    this.setState({actView: value})
   }
 
   render() {
@@ -140,80 +147,25 @@ class CreateEvent extends Component {
                   })
                 }}>
                   <Error error={allActsQuery.error} />
-                  <fieldset disabled={allActsQuery.loading} aria-busy={allActsQuery.loading}>
-                    <label htmlFor="date">
-                      Date
-                      <input type="date" id="date" name="date" placeholder="Date" value={moment(this.state.start).format(dateFormat)} onChange={this.handleChange}/>
-                    </label>
-              
-                    <label htmlFor="time">
-                      Time
-                      <input type="time" id="time" name="time" placeholder={moment(this.state.start).add(20, 'hours').format(timeFormat)} value={moment(this.state.start).format(timeFormat)} onChange={this.handleChange}/>
-
-                    </label>
-              
-                    <label htmlFor="duration">
-                      Duration (minutes)
-                      <input type="number" id="duration" name="duration" placeholder="45" value={this.state.duration} onChange={this.handleChange} />
-                    </label>
-              
-                    <label htmlFor="status">
-                      Status
-                      <select name="status" defaultValue={this.state.status} onChange={this.handleChange}>
-                        { possibleStatus.map(status => <option key={status} value={status}>{status}</option>) }
-                      </select>
-                    </label>
-              
-                    <label>
-                      All Day
-                      <input type="checkbox" id="allday" name="allday" checked={this.state.allDay} onChange={this.handleChange} />
-                    </label>
-              
-                    <label htmlFor="notes">
-                      Notes
-                      {notes}
-                      <button onClick={this.addNoteField}>&#43;</button>
-                    </label>
-                  </fieldset>
-              
+                  <CreateEventForm 
+                    loading={allActsQuery.loading}
+                    dateFormat={dateFormat}
+                    timeFormat={timeFormat}
+                    values={this.state}
+                    notes={notes}
+                    handleChange={this.handleChange}
+                    addNoteField={this.addNoteField}
+                    possibleStatus={possibleStatus}
+                  />
+                  <div>
+                    { this.state.actView === 'new' && <NewActForm values={this.state} handleChange={this.handleChange} uploadFile={this.uploadFile} /> }
+                    { this.state.actView === 'existing' && <SelectExistingActForm handleChange={this.handleChange} acts={allActsQuery.data.acts}/> }
+                    <ActViewPicker active={this.state.actOption} change={this.handleActViewChange} />
+                  </div>
                   <fieldset>
-                    <label htmlFor="acts">
-                      Select An Act Already In The Database
-                      <select name="select-existing-act" defaultValue="" onChange={this.handleChange}>
-                        <option value="" disabled>Acts</option>
-                        {
-                          allActsQuery.data.acts.map(act => <option key={act.id} value={act.id}>{act.name}</option>)
-                        }
-                      </select>
-                    </label>
-                    <hr />
-                  </fieldset>
-                      
-                  <fieldset>
-                    <h4>Or Create A New Act</h4>
-                    <hr />
-                    <label htmlFor="name">
-                      Name
-                      <input type="text" id="name" name="name" placeholder="Name" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.name} onChange={this.handleChange}/>
-                    </label>
-                      
-                    <label htmlFor="description">
-                      Description
-                      <textarea id="description" name="description" placeholder="Enter A Description" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.description} onChange={this.handleChange}/>
-                    </label>
-                      
-                    <label htmlFor="email">
-                      Email
-                      <input type="email" id="email" name="email" placeholder="email" disabled={!!this.state.actId} required={!this.state.actId} value={this.state.email} onChange={this.handleChange}/>
-                    </label>
-                      
-                    <label htmlFor="file">
-                      Image
-                      <input type="file" id="file" name="file" disabled={!!this.state.actId} placeholder="Upload an image" onChange={this.uploadFile}/>
-                      {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
-                    </label>
-                      
-                    <Button type="submit">Submit</Button>
+                    <Center>
+                      <Button type="submit">Submit</Button>
+                    </Center>
                   </fieldset>
                   </Form> 
                 </div>     

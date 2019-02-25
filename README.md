@@ -1,3 +1,3 @@
-# Advanced-React
+# React-Booking-Calendar
 
 frontend

@@ -4,12 +4,12 @@ import moment from 'moment';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops';
 import Router from 'next/router';
-import Form from './styles/Form';
-import Error from './ErrorMessage';
-import * as queries from './globals/queries/queries';
-import * as mutations from './globals/mutations/mutations';
-import {possibleStatus} from '../lib/possibleStatus';
-import Button from './styles/SickButton';
+import Form from '../styles/Form';
+import Error from '../ErrorMessage';
+import * as queries from '../globals/queries/queries';
+import * as mutations from '../globals/mutations/mutations';
+import {possibleStatus} from '../../lib/possibleStatus';
+import Button from '../styles/SickButton';
 
 const Composed = adopt({
   allActsQuery: ({render}) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
