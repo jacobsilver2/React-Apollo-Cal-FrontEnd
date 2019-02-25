@@ -972,43 +972,81 @@ var Sidebar = function Sidebar() {
       },
       __self: this
     }, "Automations"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "middle",
+      className: "analytics",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 76
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/analytics",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79
+      },
+      __self: this
+    }, "Analytics")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "middle",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 85
       },
       __self: this
     })), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bottom",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 89
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 90
       },
       __self: this
     })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bottom",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 94
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 95
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 96
       },
       __self: this
     }, "Sign In"))));

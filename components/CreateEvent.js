@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import {addMinutes, addHours} from 'date-fns';
-import Link from 'next/link'
+import moment from 'moment';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops';
 import Router from 'next/router';
@@ -25,10 +25,10 @@ const Composed = adopt({
 class CreateEvent extends Component {
   state = {
       duration: 45,
-      title: format(new Date(), "MM-dd-YYYY", {awareOfUnicodeTokens: true}),
+      title: moment(new Date()).format('YYYY-MM-DD'),
       status: 'CONFIRMED',
       start: new Date(),
-      end: addMinutes(new Date(), 45),
+      end: moment(new Date()).add(45, 'minutes').toDate(),
       allDay: false,
       notes: [''],
       name: '',
@@ -68,21 +68,28 @@ class CreateEvent extends Component {
 
     switch (type) {
       case 'date':
-        const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
+        // const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
+        const time = moment(this.state.start).format("HH:mm");
         let startDateTime = new Date(`${value} ${time}`);
-        const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
-        let end = addMinutes(startDateTime, this.state.duration);
+        // const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        const title = moment(value).format('YYYY-MM-DD');
+        // let end = addMinutes(startDateTime, this.state.duration);
+        let end = moment(startDateTime).add(this.state.duration, 'minutes').toDate();
         this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
-        const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        // const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
+        const date = moment(this.state.start).format("YYYY-MM-DD");
         startDateTime = new Date(`${date} ${value}`);
-        end = addMinutes(startDateTime, this.state.duration);
+        // end = addMinutes(startDateTime, this.state.duration);
+        end = moment(startDateTime).add(this.state.duration, 'minutes').toDate();
         this.setState({ start: startDateTime, end });
         break;
       case 'number':
         const val = parseFloat(value);
-        this.setState({duration: val, end: addMinutes(this.state.start, val)})
+        // this.setState({duration: val, end: addMinutes(this.state.start, val)})
+        end = moment(this.state.start).add(val, 'minutes').toDate()
+        this.setState({duration: val, end})
         break;
       case 'checkbox':
         this.setState({ allDay: !this.state.allDay })
@@ -118,8 +125,8 @@ class CreateEvent extends Component {
   }
 
   render() {
-    const dateFormat="yyyy-MM-dd"
-    const timeFormat="H:mm"
+    const dateFormat="YYYY-MM-DD"
+    const timeFormat="HH:mm"
     const notes = this.state.notes.map((note, index) => {
       return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
     })
@@ -143,12 +150,13 @@ class CreateEvent extends Component {
                   <fieldset disabled={allActsQuery.loading} aria-busy={allActsQuery.loading}>
                     <label htmlFor="date">
                       Date
-                      <input type="date" id="date" name="date" placeholder="Date" value={format(this.state.start, dateFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
+                      <input type="date" id="date" name="date" placeholder="Date" value={moment(this.state.start).format(dateFormat)} onChange={this.handleChange}/>
                     </label>
               
                     <label htmlFor="time">
                       Time
-                      <input type="time" id="time" name="time" placeholder={format(addHours(new Date(this.state.start), 20), timeFormat)} value={format(this.state.start, timeFormat, {awareOfUnicodeTokens: true})} onChange={this.handleChange}/>
+                      <input type="time" id="time" name="time" placeholder={moment(this.state.start).add(20, 'hours').format(timeFormat)} value={moment(this.state.start).format(timeFormat)} onChange={this.handleChange}/>
+
                     </label>
               
                     <label htmlFor="duration">

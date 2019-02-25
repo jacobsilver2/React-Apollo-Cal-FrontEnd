@@ -72,6 +72,15 @@ const Sidebar = () => (
                 </ul>
               </div>
             </div>
+              <div className="analytics">
+                <ul>
+                  <li>
+                    <Link href="/analytics">
+                      <a><span>Analytics</span></a>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
 
             <div className="middle"></div>
           </>
