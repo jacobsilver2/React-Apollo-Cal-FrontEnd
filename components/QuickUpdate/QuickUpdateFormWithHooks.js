@@ -3,14 +3,14 @@ import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops.cjs';
 import moment from 'moment';
-import Error from './ErrorMessage';
-import Form from './styles/QuickUpdateFormStyles';
-import Button from './styles/DeleteButtonStyles';
-import OtherButton from './styles/SickButton';
-import * as mutations from './globals/mutations/mutations';
-import * as queries from './globals/queries/queries';
-import * as updateEventMethods from './globals/functions/updateEventMethods';
-import { possibleStatus } from '../lib/possibleStatus';
+import Error from '../ErrorMessage';
+import Form from '../styles/QuickUpdateFormStyles';
+import Button from '../styles/DeleteButtonStyles';
+import OtherButton from '../styles/SickButton';
+import * as mutations from '../globals/mutations/mutations';
+import * as queries from '../globals/queries/queries';
+import * as updateEventMethods from '../globals/functions/updateEventMethods';
+import { possibleStatus } from '../../lib/possibleStatus';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,

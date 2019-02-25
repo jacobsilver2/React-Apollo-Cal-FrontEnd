@@ -38,6 +38,9 @@ const Form = styled.form`
       border-color: ${props => props.theme.mainColor};
     }
   }
+  ul {
+    list-style-type: none;
+  }
   input[type='submit'] {
     width: auto;
     background: ${props => props.theme.mainColor};

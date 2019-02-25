@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import moment from 'moment';
-import { Portal } from './Portal'
+import { Portal } from '../Portal'
 import Router from 'next/router';
-
-import Error from './ErrorMessage';
-import Closebutton from './styles/CloseButton';
-import QuickUpdateStyled from './styles/QuickUpdateStyles';
-import ModalStyled from './styles/OverlayStyled';
-import Form from './styles/QuickUpdateFormStyles';
-import Button from './styles/DeleteButtonStyles';
-import * as mutations from './globals/mutations/mutations';
-import * as queries from './globals/queries/queries';
-import * as updateEventMethods from './globals/functions/updateEventMethods';
-import { possibleStatus } from '../lib/possibleStatus';
+import Error from '../ErrorMessage';
+import Closebutton from '../styles/CloseButton';
+import QuickUpdateStyled from '../styles/QuickUpdateStyles';
+import ModalStyled from '../styles/OverlayStyled';
+import Form from '../styles/QuickUpdateFormStyles';
+import Button from '../styles/DeleteButtonStyles';
+import * as mutations from '../globals/mutations/mutations';
+import * as queries from '../globals/queries/queries';
+import * as updateEventMethods from '../globals/functions/updateEventMethods';
+import { possibleStatus } from '../../lib/possibleStatus';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,

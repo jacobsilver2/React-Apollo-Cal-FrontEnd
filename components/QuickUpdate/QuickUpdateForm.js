@@ -3,14 +3,17 @@ import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops.cjs';
 import moment from 'moment';
-import Error from './ErrorMessage';
-import Form from './styles/QuickUpdateFormStyles';
-import Button from './styles/DeleteButtonStyles';
-import OtherButton from './styles/SickButton';
-import * as mutations from './globals/mutations/mutations';
-import * as queries from './globals/queries/queries';
-import * as updateEventMethods from './globals/functions/updateEventMethods';
-import { possibleStatus } from '../lib/possibleStatus';
+import Error from '../ErrorMessage';
+import Form from '../styles/QuickUpdateFormStyles';
+import Button from '../styles/DeleteButtonStyles';
+import OtherButton from '../styles/SickButton';
+import * as mutations from '../globals/mutations/mutations';
+import * as queries from '../globals/queries/queries';
+import * as updateEventMethods from '../globals/functions/updateEventMethods';
+import UpdateEvent from './UpdateEvent';
+import UpdateAct from './UpdateActWithinUpdateEvent';
+import ChangeAct from './ChangeActWithinUpdateEvent';
+import NewAct from './NewActWithinUpdateEvent';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
@@ -21,7 +24,9 @@ const Composed = adopt({
 
 
 class QuickUpdate extends Component {
-  state = {}
+  state = {
+    actOption: 'editExisting'
+  }
 
   handleChange = (e) => {
     const { name, type, value } = e.target;
@@ -60,12 +65,6 @@ class QuickUpdate extends Component {
         let end = moment(startDateTime).add(duration, 'minutes').toDate();
         const title = moment(value).format("YYYY-M-D");
         this.setState({start: startDateTime, title, end, duration })
-
-        // const startTime = this.state.start != null ? moment(this.state.start).format('hh:mm') : moment(this.props.event.start).format('hh:mm');
-        // let startDateTime = new Date(`${value} ${startTime}`);
-        // const title = moment(value).format("YYYY-M-D");
-        // let end = !!this.state.duration ? moment(startDateTime).add(this.state.duration, 'minutes').toString() : moment(startDateTime).add(this.props.event.duration, 'minutes').toString();
-        // this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
         const date = !!this.state.start ? moment(this.state.start).format("YYYY-M-D").toString() : moment(this.props.event.start).format("YYYY-M-D").toString();
@@ -134,6 +133,11 @@ class QuickUpdate extends Component {
     await closeModal();
   }
 
+  handleChangeActOption = e => {
+    const { value } = e.target;
+    this.setState({actOption: value})
+  }
+
   render() {
     return (
       <Composed singleEventId={this.props.id} updateCache={updateEventMethods.updateCache}>
@@ -152,93 +156,34 @@ class QuickUpdate extends Component {
                   <div style={spring}>
                   <Error error={updateEventMutation.error} />
                   <Form onSubmit={e => this.updateEvent(e, updateEventMutation, toggleModalMutation)}>
-                    <fieldset disabled={updateEventMutation.loading} aria-busy={updateEventMutation.loading}>
-                    <h3>Edit Event</h3>
-                      <label htmlFor="date">
-                        Date
-                            <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={this.handleChange} />
-                      </label>
-
-                      <label htmlFor="time">
-                        Time
-                            <input type="time" id="time" name="time" placeholder="Date" required defaultValue={formattedTime} onChange={this.handleChange} />
-                      </label>
-
-                      <label htmlFor="duration">
-                        Duration (minutes)
-                            <input type="number" id="duration" name="duration" defaultValue={moment(event.end).diff(moment(event.start), 'minutes')} onChange={this.handleChange} />
-                            
-                      </label>
-
-                      <label htmlFor="status">
-                        Status
-                            <select name="status" defaultValue={event.status} onChange={this.handleChange}>
-                          {possibleStatus.map(status => <option key={status} value={status}>{status}</option>)}
-                        </select>
-                      </label>
-
-                      <label htmlFor="allDay">
-                        All Day
-                            <input type="checkbox" id="allday" name="allDay" defaultChecked={event.allDay} onChange={this.handleChange} />
-                      </label>
-
-                      <label htmlFor="draw">
-                        Draw
-                            <input type="number" id="draw" name="draw" placeholder={event.draw || 0} onChange={this.handleChange} />
-                      </label>
-                      
-                      <label htmlFor="notes">
-                        Notes
-                            {notes}
-                        <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : event.notes)}>&#43;</Button>
-                      </label>
-
-                      <label htmlFor="automations">
-                        <OtherButton onClick={this.props.toggle}>CREATE A REMINDER</OtherButton>
-                      </label>
-
-                    </fieldset>
-
+                    <UpdateEvent 
+                      loading={updateEventMutation.loading} 
+                      event={event} 
+                      handleChange={this.handleChange} 
+                      notes={notes}
+                      noteFieldCheck={this.state.notes} 
+                      addNoteField ={this.addNoteField} 
+                      formattedDate={formattedDate}
+                      formattedTime={formattedTime}
+                    />
                     <fieldset>
-                    <h3>Edit Act</h3>
-                    <h6>note: this will alter every event this act is associated with</h6>
-                      <label htmlFor="name">
-                        Act Name
-                          <textarea id="name" name="name" placeholder="Act Name" defaultValue={event.act.name} onChange={this.handleChange} />
+                      <label htmlFor="act">Act
+                        <select name="actOption" defaultValue={this.state.actOption} onChange={this.handleChangeActOption}>
+                          <option value="editExisting">Edit Existing Act</option>
+                          <option value="change">Change To A Different Act</option>
+                          <option value="new">Create New Act</option>
+                        </select>                  
                       </label>
-                      <label htmlFor="description">
-                        Blurb
-                          <textarea id="description" name="description" placeholder="Blurb" defaultValue={event.act.description} onChange={this.handleChange} />
-                      </label>
-
-                      <label htmlFor="email">
-                        Email
-                          <textarea id="email" name="email" defaultValue={event.act.email} onChange={this.handleChange} />
-                      </label>
-
-                      <label htmlFor="image">
-                        Picture
-                          <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile} />
-                        {/* {this.renderPreview(event.act.image)} */}
-                        <img src={this.state.image ? this.state.image : event.act.image} alt="Image Preview" width="200"/>
-                      </label>
-                      <hr />
                     </fieldset>
-
-                    <fieldset>
-                      <h3>Change To A Different Act</h3>
-                      <h6>...currently not working</h6>
-                      <select defaultValue="" onChange={this.handleChange}>
-                        <option value="" disabled>Acts</option>
-                        { acts }
-                      </select>
-                    </fieldset>
-
-                    <fieldset>
-                      <h3>Create A New Act</h3>
-                      <h6>...work in progress</h6>
-                      <OtherButton type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</OtherButton>
-                    </fieldset>
+                    {this.state.actOption === 'editExisting' && <UpdateAct event={event} handleChange={this.handleChange} uploadFile={this.uploadFile} image={this.state.image}/>}
+                    {this.state.actOption === 'change' && <ChangeAct acts={acts} handleChange={this.handleChange} />}
+                    {this.state.actOption === 'new' && <NewAct />}
+                    <div>
+                      <ul>
+                        <li><OtherButton type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</OtherButton></li>
+                        <li><OtherButton onClick={this.props.toggle}>CREATE A REMINDER</OtherButton></li>
+                      </ul>
+                    </div>
                   </Form>
                 </div>
           )
