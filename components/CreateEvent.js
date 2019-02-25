@@ -49,7 +49,6 @@ class CreateEvent extends Component {
         end: new Date(decodedEnd),
       })
     };
-
   }
 
   handleChange = (e) => {
@@ -68,26 +67,20 @@ class CreateEvent extends Component {
 
     switch (type) {
       case 'date':
-        // const time = format(this.state.start, "H:MM", {awareOfUnicodeTokens: true});
         const time = moment(this.state.start).format("HH:mm");
         let startDateTime = new Date(`${value} ${time}`);
-        // const title = format(value, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
         const title = moment(value).format('YYYY-MM-DD');
-        // let end = addMinutes(startDateTime, this.state.duration);
         let end = moment(startDateTime).add(this.state.duration, 'minutes').toDate();
         this.setState({ start: startDateTime, title, end });
         break;
       case 'time':
-        // const date = format(this.state.start, "YYYY-MM-dd", {awareOfUnicodeTokens: true});
         const date = moment(this.state.start).format("YYYY-MM-DD");
         startDateTime = new Date(`${date} ${value}`);
-        // end = addMinutes(startDateTime, this.state.duration);
         end = moment(startDateTime).add(this.state.duration, 'minutes').toDate();
         this.setState({ start: startDateTime, end });
         break;
       case 'number':
         const val = parseFloat(value);
-        // this.setState({duration: val, end: addMinutes(this.state.start, val)})
         end = moment(this.state.start).add(val, 'minutes').toDate()
         this.setState({duration: val, end})
         break;

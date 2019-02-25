@@ -17,6 +17,7 @@
     "apollo-client": "^2.4.12",
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-styled-components": "^1.10.0",
+    "cleave.js": "^1.4.7",
     "date-fns": "^2.0.0-alpha.27",
     "downshift": "^2.2.3",
     "enzyme": "^3.8.0",
