@@ -805,15 +805,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/SideBarStyles */ "./components/styles/SideBarStyles.js");
 /* harmony import */ var _Signout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Signout */ "./components/Signout.js");
-/* harmony import */ var react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-svg-loader!../assets/calendar.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg");
-/* harmony import */ var react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-svg-loader!../assets/calendar-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg");
-/* harmony import */ var react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-svg-loader!../assets/music.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg");
-/* harmony import */ var react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-svg-loader!../assets/music-add.svg */ "./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg");
 var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Sidebar.js";
-
-
-
-
 
 
 
@@ -842,7 +834,7 @@ var Sidebar = function Sidebar() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 27
     },
     __self: this
   }, function (_ref) {
@@ -850,300 +842,220 @@ var Sidebar = function Sidebar() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SideBarStyles__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 29
       },
       __self: this
     }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "top",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 32
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "events",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 33
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 34
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 36
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 37
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_svg__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      width: 50,
-      height: 50,
-      filter: 'invert(100%)',
+    }, "All Events"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "hovertext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, "All Events")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 40
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/newCalEvent",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 41
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 42
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_calendar_add_svg__WEBPACK_IMPORTED_MODULE_9__["default"], {
-      width: 50,
-      height: 50,
-      filter: 'invert(100%)',
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "hovertext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46
-      },
-      __self: this
-    }, "Add Event")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Add Event"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "acts",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 47
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 49
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/acts",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 50
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
+        lineNumber: 51
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_svg__WEBPACK_IMPORTED_MODULE_10__["default"], {
-      width: 50,
-      height: 50,
-      filter: {
-        invert: '100%'
-      },
+    }, "All Acts"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "hovertext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }, "All Acts")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 54
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/newAct",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 55
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
+        lineNumber: 56
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_svg_loader_assets_music_add_svg__WEBPACK_IMPORTED_MODULE_11__["default"], {
-      width: 50,
-      height: 50,
-      filter: {
-        grayscale: '100%'
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 60
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "hovertext",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 60
-      },
-      __self: this
-    }, "Add Act")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Add Act"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "automations",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 61
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 62
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 63
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/automations",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 64
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 65
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 69
-      },
-      __self: this
-    }, "Automations"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Automations")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "analytics",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 71
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 72
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 73
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/analytics",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 74
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 75
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 79
-      },
-      __self: this
-    }, "Analytics")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Analytics"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "middle",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 81
       },
       __self: this
     })), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bottom",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89
+        lineNumber: 85
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signout__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90
+        lineNumber: 86
       },
       __self: this
     })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "bottom",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 90
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signup",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 91
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 92
       },
       __self: this
     }, "Sign In"))));
@@ -1478,7 +1390,7 @@ __webpack_require__.r(__webpack_exports__);
 var SidebarStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "SideBarStyles__SidebarStyles",
   componentId: "sc-1vxnimq-0"
-})(["display:grid;grid-template-rows:auto 1fr auto;opacity:0.95;padding:20px;position:relative;background:", ";position:fixed;height:100%;top:0;bottom:0;left:0;min-width:100px;transition:all 0.4s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;width:7%;.hovertext{display:none;}&:hover{width:15%;.hovertext{display:inline;padding-left:50px;}};header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;}a{color:white;font-size:.9rem;}"], function (props) {
+})(["display:grid;grid-template-rows:auto 1fr auto;opacity:0.95;padding:20px;position:relative;background:", ";position:fixed;height:100%;top:0;bottom:0;left:0;min-width:100px;transition:all 0.4s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);z-index:5;width:8%;&:hover{width:15%;};header{border-bottom:5px solid ", ";margin-bottom:2rem;padding-bottom:2rem;}footer{border-top:10px double ", ";margin-top:2rem;padding-top:2rem;display:grid;grid-template-columns:auto auto;align-items:center;font-size:3rem;font-weight:900;p{margin:0;}}ul{margin:0;padding:0;list-style:none;}a{color:white;font-size:.9rem;}"], function (props) {
   return props.theme.grey;
 }, function (props) {
   return props.theme.black;
@@ -1502,7 +1414,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 // This is client side config only - don't put anything in here that shouldn't be public!
 var endpoint = "http://localhost:4444";
-var perPage = 16;
+var perPage = 12;
 
 /***/ }),
 
@@ -1598,142 +1510,6 @@ function createClient(_ref) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (next_with_apollo__WEBPACK_IMPORTED_MODULE_0___default()(createClient));
-
-/***/ }),
-
-/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/calendar-add.svg ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
-  let {
-    styles = {}
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["styles"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "svg",
-    _extends({ xmlns: "http://www.w3.org/2000/svg", width: "32.75", height: "32.75", viewBox: "0 0 32.75 32.75" }, props),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M29.375 1.25h-1.123c.029-.093.059-.186.059-.289a.963.963 0 0 0-1.924 0c0 .103.028.196.059.289h-3.68c.029-.093.059-.186.059-.289a.962.962 0 1 0-1.925 0 .93.93 0 0 0 .059.289h-3.682c.029-.093.059-.186.059-.289a.961.961 0 0 0-1.922 0c0 .103.028.196.058.289h-3.681c.029-.093.059-.186.059-.289a.962.962 0 0 0-1.923 0c0 .103.028.196.058.289h-3.68a.93.93 0 0 0 .059-.289.96.96 0 1 0-1.923 0c0 .103.028.196.058.289H3.375A2.752 2.752 0 0 0 .625 4v26a2.751 2.751 0 0 0 2.75 2.75H26.27l5.855-5.855V4a2.752 2.752 0 0 0-2.75-2.75zm1.25 25.023l-.311.311h-2.355c-1.102 0-2 .9-2 2v2.355l-.311.311H3.375c-.689 0-1.25-.561-1.25-1.25V5h28.5v21.273z" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M15.049 23.682h2.652v-3.981h3.979v-2.652h-3.979v-3.98h-2.652v3.98H11.07v2.652h3.979z" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M16.376 28.229c5.433 0 9.853-4.42 9.853-9.854 0-5.434-4.42-9.854-9.853-9.854-5.434 0-9.854 4.42-9.854 9.854 0 5.434 4.42 9.854 9.854 9.854zm0-18.192c4.597 0 8.337 3.741 8.337 8.338 0 4.598-3.74 8.338-8.337 8.338-4.598 0-8.339-3.74-8.339-8.338 0-4.597 3.741-8.338 8.339-8.338z" })
-  );
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg":
-/*!***************************************************************************!*\
-  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/calendar.svg ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
-  let {
-    styles = {}
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["styles"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "svg",
-    _extends({ xmlns: "http://www.w3.org/2000/svg", width: "33", height: "33", viewBox: "0 0 33 33" }, props),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M28.5 0h-24A4.505 4.505 0 0 0 0 4.5v24C0 30.98 2.019 33 4.5 33h24c2.48 0 4.5-2.02 4.5-4.5v-24C33 2.019 30.98 0 28.5 0zm3 28.5c0 1.648-1.35 3-3 3h-24c-1.65 0-3-1.352-3-3v-24c0-1.649 1.35-3 3-3h24c1.65 0 3 1.351 3 3v24z" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "9.25", cy: "4.773", r: "1.273" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "16.5", cy: "4.773", r: "1.273" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "23.75", cy: "4.773", r: "1.273" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M11.134 12.902h4.596v4.088h-4.596zM17.271 12.902h4.595v4.088h-4.595zM23.404 12.902H28v4.088h-4.596zM5 18.359h4.595v4.086H5zM11.134 18.359h4.596v4.086h-4.596zM17.271 18.359h4.595v4.086h-4.595zM23.404 18.359H28v4.086h-4.596zM5 23.816h4.595v4.086H5zM11.134 23.816h4.596v4.086h-4.596zM17.271 23.816h4.595v4.086h-4.595zM23.404 23.816H28v4.086h-4.596z" })
-  );
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg":
-/*!****************************************************************************!*\
-  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/music-add.svg ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
-  let {
-    styles = {}
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["styles"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "svg",
-    _extends({ xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 59 59" }, props),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { fill: "#df4d60", d: "M0 2v47h56V2z" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M39.659 11.248a.999.999 0 0 0-.79-.239l-18 2.367a1 1 0 0 0-.869.991V33.801c-1.169-1.019-2.754-1.649-4.5-1.649-3.584 0-6.5 2.642-6.5 5.889s2.916 5.889 6.5 5.889 6.5-2.642 6.5-5.889V20.244l16-2.104v10.402c-1.133-.966-2.653-1.562-4.327-1.562-3.488 0-6.326 2.572-6.326 5.734s2.838 5.735 6.326 5.735c3.489 0 6.327-2.573 6.327-5.735V12a1 1 0 0 0-.341-.752z", fill: "#fff" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "47", cy: "45", r: "12", fill: "#71c386" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M53 44h-5v-5a1 1 0 0 0-2 0v5h-5a1 1 0 0 0 0 2h5v5a1 1 0 0 0 2 0v-5h5a1 1 0 0 0 0-2z", fill: "#fff" })
-  );
-});
-
-/***/ }),
-
-/***/ "./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg":
-/*!************************************************************************!*\
-  !*** ./node_modules/react-svg-loader/lib/loader.js!./assets/music.svg ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = ((_ref) => {
-  let {
-    styles = {}
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["styles"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "svg",
-    _extends({ xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 59 59" }, props),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { fill: "#df4d60", d: "M0 2v47h56V2z" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M39.659 11.248a.999.999 0 0 0-.79-.239l-18 2.367a1 1 0 0 0-.869.991V33.801c-1.169-1.019-2.754-1.649-4.5-1.649-3.584 0-6.5 2.642-6.5 5.889s2.916 5.889 6.5 5.889 6.5-2.642 6.5-5.889V20.244l16-2.104v10.402c-1.133-.966-2.653-1.562-4.327-1.562-3.488 0-6.326 2.572-6.326 5.734s2.838 5.735 6.326 5.735c3.489 0 6.327-2.573 6.327-5.735V12a1 1 0 0 0-.341-.752z", fill: "#fff" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", { cx: "47", cy: "45", r: "12", fill: "#26b999" }),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M53.571 39.179a.999.999 0 0 0-1.392.25l-5.596 8.04-3.949-3.242a.999.999 0 1 0-1.268 1.546l4.786 3.929a1.003 1.003 0 0 0 1.455-.201l6.214-8.929a1.002 1.002 0 0 0-.25-1.393z", fill: "#fff" })
-  );
-});
 
 /***/ }),
 

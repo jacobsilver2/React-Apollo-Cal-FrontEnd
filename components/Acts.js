@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import {Query} from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops';
@@ -23,8 +23,8 @@ const Acts = ({page}) => {
 
   return (
     <Center>
-      <ViewPicker changeView={changeView} activeView={view}/>
         <Pagination page={page}/>
+        <ViewPicker changeView={changeView} activeView={view}/>
           <Composed skip={{skip: page*perPage-perPage}}>
             {({allActs, spring}) => {
               if (allActs.error) return <Error error={allActs.error} />

@@ -6,10 +6,6 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import SidebarStyles from './styles/SideBarStyles';
 import Signout from './Signout';
-import CalIcon from 'react-svg-loader!../assets/calendar.svg';
-import CalAddIcon from 'react-svg-loader!../assets/calendar-add.svg';
-import ActIcon from 'react-svg-loader!../assets/music.svg';
-import ActAdd from 'react-svg-loader!../assets/music-add.svg';
 
 Router.events.on('routeChangeStart', handleRouteStart);
 Router.events.on('routeChangeComplete', handleRouteComplete);
@@ -38,12 +34,12 @@ const Sidebar = () => (
                 <ul>
                   <li>
                     <Link href="/">
-                      <a><CalIcon width={50} height={50} filter={'invert(100%)'}/><div className="hovertext">All Events</div></a>
+                      <a>All Events</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/newCalEvent">
-                      <a><CalAddIcon width={50} height={50} filter={'invert(100%)'}/><span className="hovertext">Add Event</span></a>
+                      <a>Add Event</a>
                     </Link>
                   </li>
                 </ul>
@@ -52,12 +48,12 @@ const Sidebar = () => (
                 <ul>
                   <li>
                     <Link href="/acts">
-                      <a><ActIcon width={50} height={50} filter={{invert:'100%'}}/><span className="hovertext">All Acts</span></a>
+                      <a>All Acts</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/newAct">
-                      <a><ActAdd width={50} height={50} filter={{grayscale:'100%'}}/><span className="hovertext">Add Act</span></a>
+                      <a>Add Act</a>
                     </Link>
                   </li>
                 </ul>
@@ -66,7 +62,7 @@ const Sidebar = () => (
                 <ul>
                   <li>
                     <Link href="/automations">
-                      <a><span>Automations</span></a>
+                      <a>Automations</a>
                     </Link>
                   </li>
                 </ul>
@@ -76,7 +72,7 @@ const Sidebar = () => (
                 <ul>
                   <li>
                     <Link href="/analytics">
-                      <a><span>Analytics</span></a>
+                      <a>Analytics</a>
                     </Link>
                   </li>
                 </ul>

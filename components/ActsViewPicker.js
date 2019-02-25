@@ -6,7 +6,6 @@ import List from 'react-svg-loader!../assets/list.svg';
 
 const ActsViewPicker = ({changeView, activeView}) => (
   <Style>
-    <strong>Display</strong>
     <div className="btn-grp">
       <div>
         <button className={activeView === 'list' ? 'active' : null} onClick={() => changeView('list')}><List width={50} height={20}/></button>

@@ -17,18 +17,11 @@ const SidebarStyles = styled.div`
   transition: all 0.4s;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  width: 7%;
+  width: 8%;
 
-  .hovertext{
-    display: none;
-  }
 
   &:hover {
     width:15%;
-    .hovertext{
-      display: inline;
-      padding-left: 50px;
-    }
   };
 
   header {
