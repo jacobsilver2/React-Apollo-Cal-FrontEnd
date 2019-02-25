@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import QuickUpdateForm from './QuickUpdate/QuickUpdateForm';
 import FocusTrap from 'focus-trap-react';
-import Reminders from './Reminders';
+import Reminders from './Reminders/Reminders';
 
 class Modal extends Component {
   state = { 

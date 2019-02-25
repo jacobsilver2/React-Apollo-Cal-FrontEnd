@@ -5,11 +5,11 @@ import { Spring } from 'react-spring/renderprops.cjs';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import moment from 'moment';
-import {CURRENT_USER_QUERY} from './globals/queries/queries';
-import {CREATE_EMAIL_MUTATION} from './globals/mutations/mutations';
-import Button from './styles/SickButton';
-import Form from './styles/Form';
-import TextToken from './TextToken';
+import {CURRENT_USER_QUERY} from '../globals/queries/queries';
+import {CREATE_EMAIL_MUTATION} from '../globals/mutations/mutations';
+import Button from '../styles/SickButton';
+import Form from '../styles/Form';
+import TextToken from '../TextToken';
 import ReminderMessage from './ReminderMessage';
 
 const Composed = adopt({
