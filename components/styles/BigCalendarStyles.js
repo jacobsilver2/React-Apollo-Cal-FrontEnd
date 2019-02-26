@@ -97,6 +97,7 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-row-content {
   position: relative;
+  /* height: 100%; */
   -moz-user-select: none;
    -ms-user-select: none;
        user-select: none;
@@ -128,6 +129,7 @@ button.rbc-input::-moz-focus-inner {
           flex-grow: 1;
   padding: 0 10px;
   text-align: center;
+  font-weight: bold;
 }
 .rbc-toolbar button {
   color: #373a3c;
@@ -142,6 +144,7 @@ button.rbc-input::-moz-focus-inner {
   border-radius: 4px;
   line-height: normal;
   white-space: nowrap;
+  font-weight: bold;
 }
 .rbc-toolbar button:active,
 .rbc-toolbar button.rbc-active {
@@ -172,6 +175,7 @@ button.rbc-input::-moz-focus-inner {
   display: inline-block;
   white-space: nowrap;
   padding-left: 5%;
+
 }
 .rbc-btn-group > button:first-child:not(:last-child) {
   border-top-right-radius: 0;
@@ -261,6 +265,7 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-row-segment {
   padding: 0 1px 1px 1px;
+  max-height: 21px;
 }
 .rbc-selected-cell {
   background-color: rgba(0, 0, 0, 0.1);

@@ -17,7 +17,9 @@ const theme = {
   black: '#373a42',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
+  darkgrey: '#141A1D',
   highlighted: '#fff',
+  sidebarTop: '#1D262A'
 };
 
 const StyledPage = styled.div`
@@ -33,8 +35,10 @@ const Inner = styled.div`
 
 injectGlobal`
   @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    /* font-family: 'radnika_next'; */
+    font-family: 'Muli', sans-serif;
+    /* src: url('/static/radnikanext-medium-webfont.woff2') format('woff2'); */
+    src: url('/static/Muli-Regular.ttf')  format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -50,13 +54,13 @@ injectGlobal`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'radnika_next';
+    font-family: 'Muli', sans-serif;
   }
   a {
     text-decoration: none;
     color: ${theme.black};
   }
-  button {  font-family: 'radnika_next'; }
+  button {  font-family: 'Muli', sans-serif; }
 
   .modal-cover {
     position: fixed;

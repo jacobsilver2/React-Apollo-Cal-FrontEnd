@@ -2,22 +2,35 @@ import styled from 'styled-components';
 
 const SidebarStyles = styled.div`
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  opacity: 0.95;
-  padding: 20px;
+  grid-template-rows: auto 4fr 1fr;
+  opacity: 0.97;
   position: relative;
-  background: ${props => props.theme.grey};
+  background: ${props => props.theme.sidebarTop};
   position: fixed;
   height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   min-width: 100px;
-  /* transform: translateX(100%); */
   transition: all 0.4s;
+  width: 8%;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  width: 8%;
+
+  .top {
+    padding: 20px;
+
+  }
+
+  .bottom {
+    background: ${props => props.theme.darkgrey};
+    margin: 0px 3px 0px 0px;
+    button {
+      position: absolute;
+      bottom: 2%;
+      left: 25%;
+    }
+  }
 
 
   &:hover {

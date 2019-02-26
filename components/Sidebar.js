@@ -66,7 +66,6 @@ const Sidebar = () => (
                   </li>
                 </ul>
               </div>
-            </div>
               <div className="analytics">
                 <ul>
                   <li>
@@ -76,6 +75,7 @@ const Sidebar = () => (
                   </li>
                 </ul>
               </div>
+            </div> {/* end of top */}
             <div className="middle"></div>
           </>
           )}
