@@ -4,9 +4,10 @@ import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops'
 import gql from 'graphql-tag';
 import Router from 'next/router';
-import Form from './styles/Form';
-import Error from './ErrorMessage';
-import * as mutations from './globals/mutations/mutations';
+import Form from '../styles/Form';
+import Error from '../ErrorMessage';
+import CreateActForm from './CreateActForm';
+import * as mutations from '../globals/mutations/mutations';
 // import { ALL_EVENTS_QUERY } from './Calendar'; 
 
 const Composed = adopt({
@@ -98,38 +99,19 @@ class CreateAct extends Component {
               })
             }}>
               <Error error={createAct.error} />
-              <h2>Create A New Act</h2>
-              <fieldset disabled={createAct.loading} aria-busy={createAct.loading}>
-                <label htmlFor="file">
-                  Image
-                  <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
-                  {this.state.image && <img src={this.state.image} alt="Upload Preview" width="200"/>}
-                </label>
-
-                <label htmlFor="name">
-                  Name
-                  <input type="text" id="name" name="name" placeholder="Name" required value={this.state.name} onChange={this.handleChange}/>
-                </label>
-          
-                <label htmlFor="description">
-                  Description
-                  <textarea id="description" name="description" placeholder="Enter A Description" required value={this.state.description} onChange={this.handleChange}/>
-                </label>
-          
-                <label htmlFor="email">
-                  Email
-                  <input type="email" id="email" name="email" placeholder="email" required value={this.state.email} onChange={this.handleChange}/>
-                </label>
-
-                <label htmlFor="notes">
-                  Notes
-                  {notes}
-                  <button onClick={this.addNoteField}>&#43;</button>
-                </label>
-
-                <button type="submit">Submit</button>
-              </fieldset>
-            </Form>  
+              <div></div>
+              <div>
+                <h2>Create A New Act</h2>
+                <CreateActForm 
+                  loading={createAct.loading} 
+                  uploadFile={this.uploadFile}
+                  act={this.state}
+                  handleChange={this.handleChange}
+                  notes={notes}
+                  addNoteField={this.addNoteField}
+                  />
+                </div>
+              </Form>  
           </div>    
         )}
       </Composed>

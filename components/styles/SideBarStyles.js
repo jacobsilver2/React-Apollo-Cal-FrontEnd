@@ -21,7 +21,7 @@ const SidebarStyles = styled.div`
 
 
   &:hover {
-    width:15%;
+    width:11%;
   };
 
   header {

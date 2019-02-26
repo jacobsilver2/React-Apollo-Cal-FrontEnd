@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
 import User from './User';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -77,7 +76,6 @@ const Sidebar = () => (
                   </li>
                 </ul>
               </div>
-
             <div className="middle"></div>
           </>
           )}

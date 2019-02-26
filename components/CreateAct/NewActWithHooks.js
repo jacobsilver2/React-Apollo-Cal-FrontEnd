@@ -3,9 +3,9 @@ import { Mutation } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops'
 import Router from 'next/router';
-import Form from './styles/Form';
-import Error from './ErrorMessage';
-import * as mutations from './globals/mutations/mutations';
+import Form from '../styles/Form';
+import Error from '../ErrorMessage';
+import * as mutations from '../globals/mutations/mutations';
 
 const Composed = adopt({
   createAct: ({updates, render}) => <Mutation mutation={mutations.CREATE_ACT_MUTATION} variables={updates}>{render}</Mutation>,

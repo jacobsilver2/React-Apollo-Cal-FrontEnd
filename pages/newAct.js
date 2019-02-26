@@ -1,4 +1,4 @@
-import NewAct from '../components/NewAct';
+import NewAct from '../components/CreateAct/NewAct';
 import PleaseSignIn from '../components/PleaseSignIn';
 
 const newAct = () => (

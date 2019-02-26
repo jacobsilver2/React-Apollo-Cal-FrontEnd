@@ -51,10 +51,12 @@ button.rbc-input::-moz-focus-inner {
 .rbc-event-label,
 .rbc-row-segment .rbc-event-content,
 .rbc-show-more {
-  display: block;
+  display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  height: 20px;
+  align-items: center;
 }
 .rbc-rtl {
   direction: rtl;
@@ -169,6 +171,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-btn-group {
   display: inline-block;
   white-space: nowrap;
+  padding-left: 5%;
 }
 .rbc-btn-group > button:first-child:not(:last-child) {
   border-top-right-radius: 0;
@@ -207,10 +210,11 @@ button.rbc-input::-moz-focus-inner {
   box-shadow: none;
   margin: 0;
   padding: 0px 5px;
+  max-height: 20px;
   background-color: ${props => props.theme.mainColor};
   border-radius: 5px;
   color: #fff;
-  /* font-size: .5em; */
+  font-size: .5em;
   cursor: pointer;
   width: 100%;
   text-align: left;

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { format, getMinutes } from 'date-fns';
+import moment from 'moment';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -11,9 +12,8 @@ const StyledEvent = styled.div`
 `;
 
 const CalendarEvent = ({event}) => {
-  const minutes = getMinutes(event.start);
-  const formattedTime = minutes > 0 ? format(event.start, "h:mma") : format(event.start, "ha");
-
+  const minutes = moment(event.start).minutes();
+  const formattedTime = minutes > 0 ? moment(event.start).format("h:ma") : moment(event.start).format("ha");
   return (
       <StyledEvent>
         <Link href={{
