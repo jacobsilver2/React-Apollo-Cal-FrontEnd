@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag'; 
 import Router from 'next/router';
-import { ALL_EVENTS_QUERY } from './Calendar';
+import { ALL_EVENTS_QUERY } from './globals/queries/queries';
 
 const DELETE_EVENT_MUTATION = gql`
   mutation DELETE_EVENT_MUTATION($id: ID!) {
@@ -34,6 +34,7 @@ class DeleteEvent extends Component {
               deleteEvent().catch(err => {
                 alert(err.message);
               });
+              this.props.toggleModalMutation();
               Router.push({
                 pathname: '/'
               })

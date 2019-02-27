@@ -14,6 +14,9 @@ import UpdateEvent from './UpdateEvent';
 import UpdateAct from './UpdateActWithinUpdateEvent';
 import ChangeAct from './ChangeActWithinUpdateEvent';
 import NewAct from './NewActWithinUpdateEvent';
+import ActViewButtons from './ChangeActViewButtons';
+import DeleteEvent from '../DeleteEvent';
+import DeleteButton from '../styles/DeleteEventButton';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
@@ -167,11 +170,7 @@ class QuickUpdate extends Component {
                       formattedDate={formattedDate}
                       formattedTime={formattedTime}
                     />
-                    <fieldset>
-                      <OtherButton name="editExisting" onClick={(e)=>this.handleChangeActOption('editExisting', e)}>Edit Existing Act</OtherButton>
-                      <OtherButton name="change" onClick={(e)=>this.handleChangeActOption('change', e)}>Switch Acts</OtherButton>
-                      <OtherButton name="new" onClick={(e)=>this.handleChangeActOption('new', e)}>New Act</OtherButton>
-                    </fieldset>
+                    <ActViewButtons handleClick={this.handleChangeActOption} active={this.state.actOption}/>
                     {this.state.actOption === 'editExisting' && <UpdateAct event={event} handleChange={this.handleChange} uploadFile={this.uploadFile} image={this.state.image}/>}
                     {this.state.actOption === 'change' && <ChangeAct acts={acts} handleChange={this.handleChange} />}
                     {this.state.actOption === 'new' && <NewAct />}
@@ -179,6 +178,7 @@ class QuickUpdate extends Component {
                       <ul>
                         <li><OtherButton type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</OtherButton></li>
                         <li><OtherButton onClick={this.props.toggle}>CREATE A REMINDER</OtherButton></li>
+                        <li><DeleteEvent id={event.id} toggleModalMutation={toggleModalMutation}><DeleteButton>Cancel Event</DeleteButton></DeleteEvent></li>
                       </ul>
                     </div>
                   </Form>
