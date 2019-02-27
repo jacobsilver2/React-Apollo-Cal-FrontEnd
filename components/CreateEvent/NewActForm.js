@@ -1,7 +1,12 @@
 import React from 'react'
+import styled from 'styled-components';
+
+const Field = styled.fieldset`
+  height: 85%;
+`;
 
 const NewActForm = ({values, handleChange, uploadFile}) => (
-  <fieldset>
+  <Field>
   <h4>New Act</h4>
   <hr />
   <label htmlFor="name">
@@ -25,7 +30,7 @@ const NewActForm = ({values, handleChange, uploadFile}) => (
     {values.image && <img src={values.image} alt="Upload Preview" width="200"/>}
   </label>
     
-</fieldset>
+</Field>
 );
 
 export default NewActForm;

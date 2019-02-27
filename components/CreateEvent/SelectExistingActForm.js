@@ -1,9 +1,14 @@
 import React from 'react'
+import styled from 'styled-components';
+
+const Field = styled.fieldset`
+  height: 85%;
+`;
 
 const SelectExistingActForm = ({
   handleChange, acts
 }) => (
-  <fieldset>
+  <Field>
     <label htmlFor="acts">
       Existing Act
       <select name="select-existing-act" defaultValue="" onChange={handleChange}>
@@ -14,7 +19,7 @@ const SelectExistingActForm = ({
       </select>
     </label>
     <hr />
-  </fieldset>
+  </Field>
 );
 
 export default SelectExistingActForm;

@@ -10,15 +10,14 @@ const ActCard = ({ act, view }) => {
       {props => (
         <div style={props}>
           <ActStyles>
-            {view === "grid" && act.image && (
-              <img src={act.image} alt={act.name} />
-            )}
             <Title>
               <Link href={{ pathname: "/act", query: { id: act.id } }}>
                 <a>{act.name}</a>
               </Link>
             </Title>
-            {view === "grid" && <p>{act.description}</p>}
+            {view === "grid" && act.image && (
+              <img src={act.image} alt={act.name} />
+            )}
             <div className="buttonList">
               <Link href={{ pathname: "updateAct", query: { id: act.id } }}>
                 <a>Edit ✏️</a>

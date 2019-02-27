@@ -8,7 +8,6 @@ const ActsViewPickerStyles = styled.div`
   justify-content: center;
   align-content: center;
   margin: 2rem 0;
-  border: 1px solid ${props => props.theme.lightgrey};
   border-radius: 10px;
   & > * {
     margin: 0;

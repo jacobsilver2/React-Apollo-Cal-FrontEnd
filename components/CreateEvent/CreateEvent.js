@@ -160,11 +160,12 @@ class CreateEvent extends Component {
                   <div>
                     { this.state.actView === 'new' && <NewActForm values={this.state} handleChange={this.handleChange} uploadFile={this.uploadFile} /> }
                     { this.state.actView === 'existing' && <SelectExistingActForm handleChange={this.handleChange} acts={allActsQuery.data.acts}/> }
-                    <ActViewPicker active={this.state.actOption} change={this.handleActViewChange} />
+                    <ActViewPicker active={this.state.actView} change={this.handleActViewChange} />
                   </div>
                   <fieldset>
+                  <div style={{height: '85%'}}></div>
                     <Center>
-                      <Button type="submit">Submit</Button>
+                        <Button type="submit">Submit</Button>
                     </Center>
                   </fieldset>
                   </Form> 

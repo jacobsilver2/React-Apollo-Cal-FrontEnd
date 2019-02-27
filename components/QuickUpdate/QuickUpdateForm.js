@@ -133,8 +133,9 @@ class QuickUpdate extends Component {
     await closeModal();
   }
 
-  handleChangeActOption = e => {
-    const { value } = e.target;
+  handleChangeActOption = (value, e) => {
+    e.preventDefault();
+    // console.log(value)
     this.setState({actOption: value})
   }
 
@@ -167,13 +168,9 @@ class QuickUpdate extends Component {
                       formattedTime={formattedTime}
                     />
                     <fieldset>
-                      <label htmlFor="act">Act
-                        <select name="actOption" defaultValue={this.state.actOption} onChange={this.handleChangeActOption}>
-                          <option value="editExisting">Edit Existing Act</option>
-                          <option value="change">Change To A Different Act</option>
-                          <option value="new">Create New Act</option>
-                        </select>                  
-                      </label>
+                      <OtherButton name="editExisting" onClick={(e)=>this.handleChangeActOption('editExisting', e)}>Edit Existing Act</OtherButton>
+                      <OtherButton name="change" onClick={(e)=>this.handleChangeActOption('change', e)}>Switch Acts</OtherButton>
+                      <OtherButton name="new" onClick={(e)=>this.handleChangeActOption('new', e)}>New Act</OtherButton>
                     </fieldset>
                     {this.state.actOption === 'editExisting' && <UpdateAct event={event} handleChange={this.handleChange} uploadFile={this.uploadFile} image={this.state.image}/>}
                     {this.state.actOption === 'change' && <ChangeAct acts={acts} handleChange={this.handleChange} />}

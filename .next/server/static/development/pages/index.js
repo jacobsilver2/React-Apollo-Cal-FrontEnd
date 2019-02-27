@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_BigCalendarStyles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/BigCalendarStyles */ "./components/styles/BigCalendarStyles.js");
 /* harmony import */ var _globals_queries_queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./globals/queries/queries */ "./components/globals/queries/queries.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/BigCalendar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -508,7 +508,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/CustomEvent.js";
 
 
 
@@ -571,7 +571,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ErrorMessage.js";
 
 
 
@@ -659,7 +659,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! focus-trap-react */ "focus-trap-react");
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Reminders_Reminders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reminders/Reminders */ "./components/Reminders/Reminders.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Modal.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -837,7 +837,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./components/Modal.js");
 /* harmony import */ var _globals_mutations_mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals/mutations/mutations */ "./components/globals/mutations/mutations.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/ModalContainer.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -976,7 +976,7 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/ChangeActWithinUpdateEvent.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/ChangeActWithinUpdateEvent.js";
 
 
 var ChangeActWithinUpdateEvent = function ChangeActWithinUpdateEvent(_ref) {
@@ -1034,7 +1034,7 @@ var ChangeActWithinUpdateEvent = function ChangeActWithinUpdateEvent(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/NewActWithinUpdateEvent.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/NewActWithinUpdateEvent.js";
 
 
 var NewActWithinUpdateEvent = function NewActWithinUpdateEvent() {
@@ -1096,7 +1096,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChangeActWithinUpdateEvent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ChangeActWithinUpdateEvent */ "./components/QuickUpdate/ChangeActWithinUpdateEvent.js");
 /* harmony import */ var _NewActWithinUpdateEvent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./NewActWithinUpdateEvent */ "./components/QuickUpdate/NewActWithinUpdateEvent.js");
 
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/QuickUpdateForm.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/QuickUpdateForm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1468,8 +1468,8 @@ function (_Component) {
       };
     }());
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChangeActOption", function (e) {
-      var value = e.target.value;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChangeActOption", function (value, e) {
+      e.preventDefault(); // console.log(value)
 
       _this.setState({
         actOption: value
@@ -1489,7 +1489,7 @@ function (_Component) {
         updateCache: _globals_functions_updateEventMethods__WEBPACK_IMPORTED_MODULE_12__["updateCache"],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 144
         },
         __self: this
       }, function (_ref7) {
@@ -1508,7 +1508,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 150
+                lineNumber: 151
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1520,7 +1520,7 @@ function (_Component) {
               onChange: _this2.handleChange,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 150
+                lineNumber: 151
               },
               __self: this
             }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1529,7 +1529,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 150
+                lineNumber: 151
               },
               __self: this
             }, "-"));
@@ -1540,7 +1540,7 @@ function (_Component) {
               key: index,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 152
+                lineNumber: 153
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -1553,7 +1553,7 @@ function (_Component) {
               disabled: true,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 152
+                lineNumber: 153
               },
               __self: this
             }), " ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1562,7 +1562,7 @@ function (_Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 152
+                lineNumber: 153
               },
               __self: this
             }, "-"));
@@ -1575,7 +1575,7 @@ function (_Component) {
             value: act.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 154
+              lineNumber: 155
             },
             __self: this
           }, act.name);
@@ -1584,14 +1584,14 @@ function (_Component) {
           style: spring,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156
+            lineNumber: 157
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_6__["default"], {
           error: updateEventMutation.error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 157
+            lineNumber: 158
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_QuickUpdateFormStyles__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -1600,7 +1600,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 158
+            lineNumber: 159
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_UpdateEvent__WEBPACK_IMPORTED_MODULE_13__["default"], {
@@ -1614,60 +1614,53 @@ function (_Component) {
           formattedTime: formattedTime,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 159
+            lineNumber: 160
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-          htmlFor: "act",
-          __source: {
-            fileName: _jsxFileName,
             lineNumber: 170
           },
           __self: this
-        }, "Act", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
-          name: "actOption",
-          defaultValue: _this2.state.actOption,
-          onChange: _this2.handleChangeActOption,
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          name: "editExisting",
+          onClick: function onClick(e) {
+            return _this2.handleChangeActOption('editExisting', e);
+          },
           __source: {
             fileName: _jsxFileName,
             lineNumber: 171
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          value: "editExisting",
+        }, "Edit Existing Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          name: "change",
+          onClick: function onClick(e) {
+            return _this2.handleChangeActOption('change', e);
+          },
           __source: {
             fileName: _jsxFileName,
             lineNumber: 172
           },
           __self: this
-        }, "Edit Existing Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          value: "change",
+        }, "Switch Acts"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          name: "new",
+          onClick: function onClick(e) {
+            return _this2.handleChangeActOption('new', e);
+          },
           __source: {
             fileName: _jsxFileName,
             lineNumber: 173
           },
           __self: this
-        }, "Change To A Different Act"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-          value: "new",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 174
-          },
-          __self: this
-        }, "Create New Act")))), _this2.state.actOption === 'editExisting' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_UpdateActWithinUpdateEvent__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        }, "New Act")), _this2.state.actOption === 'editExisting' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_UpdateActWithinUpdateEvent__WEBPACK_IMPORTED_MODULE_14__["default"], {
           event: event,
           handleChange: _this2.handleChange,
           uploadFile: _this2.uploadFile,
           image: _this2.state.image,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 178
+            lineNumber: 175
           },
           __self: this
         }), _this2.state.actOption === 'change' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChangeActWithinUpdateEvent__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -1675,51 +1668,51 @@ function (_Component) {
           handleChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 179
+            lineNumber: 176
           },
           __self: this
         }), _this2.state.actOption === 'new' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewActWithinUpdateEvent__WEBPACK_IMPORTED_MODULE_16__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 180
+            lineNumber: 177
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 181
+            lineNumber: 178
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 182
+            lineNumber: 179
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 183
+            lineNumber: 180
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 183
+            lineNumber: 180
           },
           __self: this
         }, "Sav", updateEventMutation.loading ? 'ing' : 'e', " Changes")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184
+            lineNumber: 181
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
           onClick: _this2.props.toggle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184
+            lineNumber: 181
           },
           __self: this
         }, "CREATE A REMINDER"))))));
@@ -1745,7 +1738,7 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/UpdateActWithinUpdateEvent.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/UpdateActWithinUpdateEvent.js";
 
 
 var UpdateActWithinUpdateEvent = function UpdateActWithinUpdateEvent(_ref) {
@@ -1879,7 +1872,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles_DeleteButtonStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/DeleteButtonStyles */ "./components/styles/DeleteButtonStyles.js");
 /* harmony import */ var _lib_possibleStatus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/possibleStatus */ "./lib/possibleStatus.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/UpdateEvent.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/QuickUpdate/UpdateEvent.js";
 
 
 
@@ -2064,7 +2057,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dnd */ "react-dnd");
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders/ReminderMessage.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders/ReminderMessage.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2176,7 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles/Form */ "./components/styles/Form.js");
 /* harmony import */ var _TextToken__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../TextToken */ "./components/TextToken.js");
 /* harmony import */ var _ReminderMessage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ReminderMessage */ "./components/Reminders/ReminderMessage.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders/Reminders.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/Reminders/Reminders.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2594,7 +2587,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dnd */ "react-dnd");
 /* harmony import */ var react_dnd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dnd__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/TextToken.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/TextToken.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2702,7 +2695,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined,
-    _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
+    _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/components/globals/functions/updateEventMethods.js";
 
 
 
@@ -3240,7 +3233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_BigCalendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/BigCalendar */ "./components/BigCalendar.js");
-var _jsxFileName = "/Users/jake/Development/projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
+var _jsxFileName = "/Users/jacobsilver/Development/Projects/react-apollo-cal/React-Apollo-Cal-FrontEnd/pages/index.js";
 
 
 
