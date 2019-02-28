@@ -14,7 +14,7 @@ const ActsGrid = styled.div`
   
 `;
 
-const ActsList = styled.div`
+const ActsListStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 30px;
@@ -22,4 +22,4 @@ const ActsList = styled.div`
   margin: 0 auto;
 `;
 
-export {Center, ActsGrid, ActsList}
+export {Center, ActsGrid, ActsListStyles}

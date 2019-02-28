@@ -5,10 +5,11 @@ import { Spring } from 'react-spring/renderprops';
 import ActCard from './ActCard';
 import Error from './ErrorMessage';
 import * as queries from './globals/queries/queries';
-import {Center, ActsGrid, ActsList} from './styles/ActsViewStyles';
+import {Center, ActsGrid, ActsListStyles} from './styles/ActsViewStyles';
 import Pagination from './Pagination';
 import { perPage } from '../config';
 import ViewPicker from './ActsViewPicker';
+import ActsListContainer from './ActsList/ActsListContainer';
 
 const Composed = adopt({
   allActs: ({skip, render}) => <Query query={queries.ALL_ACTS_QUERY_PAGINATION} variables={skip}>{render}</Query>,
@@ -21,6 +22,7 @@ const Acts = ({page}) => {
     setView(view)
   }
 
+  // {view === 'list' && <ActsListStyles>{acts.map(act => <ActCard act={act} key={act.id} view={view}/>)}</ActsListStyles>}
   return (
     <Center>
         <Pagination page={page}/>
@@ -33,7 +35,7 @@ const Acts = ({page}) => {
               return (
                 <div style={spring}>
                   {view === 'grid' && <ActsGrid>{acts.map(act => <ActCard act={act} key={act.id} view={view}/>)}</ActsGrid>}
-                  {view === 'list' && <ActsList>{acts.map(act => <ActCard act={act} key={act.id} view={view}/>)}</ActsList>}
+                  {view === 'list' && <ActsListContainer acts={acts}/>}
                 </div>
               )
             }}
