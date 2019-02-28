@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Row = styled.div`
   display: grid;
-  grid-template-columns: repeat(8, 10em);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 3.75rem;
   align-items: center;
   background-color: white;
@@ -22,9 +22,8 @@ const ActList = ({act}) => {
 
   return (
     <Row>
-      <Cell>{act.name}</Cell>
+      <Cell><Link href={{ pathname: "/act", query: { id: act.id } }}><a>{act.name}</a></Link></Cell>
       <Cell>{act.email}</Cell>
-      <Cell>{act.notes.flat()}</Cell>
       <Cell><Link href={{ pathname: "updateAct", query: { id: act.id } }}><a>Edit ✏️</a></Link></Cell>
       <Cell>Delete Act (not working)</Cell>
     </Row>

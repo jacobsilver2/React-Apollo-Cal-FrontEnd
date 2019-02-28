@@ -3,17 +3,18 @@ import styled from 'styled-components';
 import Act from './ActList';
 
 const Container = styled.div`
+  /* padding-left: 10%; */
   display: grid;
   grid-template-rows: auto 1fr;
   width: 100%;
-  height: 75%;
+  height: 100%;
   background-color: white;;
-  border: 1px solid #3A3A3A;
+  /* border: 1px solid #3A3A3A; */
 `;
 
 const Header = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 10em);
+  grid-template-columns: repeat(4, 1fr);
   overflow-x: hidden;
 `;
 
@@ -40,7 +41,6 @@ const ActsListContainer = ({acts}) => {
       <Header>
         <Column>Name</Column>
         <Column>Contact Email</Column>
-        <Column>Notes</Column>
         <Column>Edit</Column>
         <Column>Delete</Column>
       </Header>
