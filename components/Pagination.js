@@ -4,14 +4,18 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Query } from 'react-apollo';
 import * as queries from './globals/queries/queries';
-import { perPage } from '../config';
+// import { perPage, perPageList } from '../config';
+
+
+
+
 
 const Pagination = (props) => (
   <Query query={queries.PAGINATION_QUERY}>
       {({data, loading, error}) => {
         if (loading) return <p>loading...</p>
         const count = data.actsConnection.aggregate.count;
-        const pages = Math.ceil(count / perPage);
+        const pages = Math.ceil(count / props.perPage);
         return (
           <PaginationStyles>
             <Head>

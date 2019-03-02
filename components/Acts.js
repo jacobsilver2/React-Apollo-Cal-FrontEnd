@@ -19,13 +19,18 @@ const Composed = adopt({
 const Acts = ({page}) => {
   const [view, setView] = useState('grid');
   function changeView(view) {
-    setView(view)
+    setView(view);
+    changePerPage(view);
   }
 
-  // {view === 'list' && <ActsListStyles>{acts.map(act => <ActCard act={act} key={act.id} view={view}/>)}</ActsListStyles>}
+  const [perPage, setPerPage] = useState(12);
+  function changePerPage(view){
+    view === 'grid' ? setPerPage(12) : setPerPage(100)
+  }
+
   return (
     <Center>
-        <Pagination page={page}/>
+        <Pagination page={page} view={view} perPage={perPage}/>
         <ViewPicker changeView={changeView} activeView={view}/>
           <Composed skip={{skip: page*perPage-perPage}}>
             {({allActs, spring}) => {
@@ -40,7 +45,7 @@ const Acts = ({page}) => {
               )
             }}
           </Composed>
-        <Pagination page={page}/>
+        <Pagination page={page} perPage={perPage}/>
     </Center>
   );
 }

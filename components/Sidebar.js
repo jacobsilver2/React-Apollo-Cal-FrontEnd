@@ -5,6 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import SidebarStyles from './styles/SideBarStyles';
 import Signout from './Signout';
+import Activity from './Activity/Activity';
 
 Router.events.on('routeChangeStart', handleRouteStart);
 Router.events.on('routeChangeComplete', handleRouteComplete);
@@ -76,7 +77,9 @@ const Sidebar = () => (
                 </ul>
               </div>
             </div> {/* end of top */}
-            <div className="middle"></div>
+            <div className="middle">
+              <Activity />
+            </div>
           </>
           )}
           {me && (
