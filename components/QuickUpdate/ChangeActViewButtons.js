@@ -36,3 +36,4 @@ const ChangeActViewButtons = ({handleClick, active}) => {
 }
 
 export default ChangeActViewButtons;
+export {StyledField, NewButton};

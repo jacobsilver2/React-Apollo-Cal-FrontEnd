@@ -15,6 +15,7 @@ import CreateEventForm from './CreateEventForm';
 import SelectExistingActForm from './SelectExistingActForm';
 import NewActForm from './NewActForm';
 import ActViewPicker from './ActViewPicker';
+import Container from '../styles/Container';
 
 
 
@@ -131,15 +132,16 @@ class CreateEvent extends Component {
       return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
     })
     return (
+      <Container>
       <Composed 
         eventNewActUpdates={{title: this.state.title, status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay, notes: this.state.notes, name: this.state.name, image: this.state.image, largeImage: this.state.largeImage, email: this.state.email, description: this.state.description,}}
         eventExistingActUpdates={{title: this.state.title,  status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId}}
-      >
-        {({allActsQuery, createEventWithNewActMutation, createEventWithExistingActMutation, spring}) => {
-          if (allActsQuery.loading) return <p>Loading...</p>;
+        >
+          {({ allActsQuery, createEventWithNewActMutation, createEventWithExistingActMutation, spring }) => {
+            if (allActsQuery.loading) return <p>Loading...</p>;
             return (
               <div style={spring}>
-                <Form onSubmit={ async (e) => {
+                <Form onSubmit={async (e) => {
                   e.preventDefault();
                   const res = !this.state.actId ? await createEventWithNewActMutation() : await createEventWithExistingActMutation();
                   Router.push({
@@ -147,7 +149,7 @@ class CreateEvent extends Component {
                   })
                 }}>
                   <Error error={allActsQuery.error} />
-                  <CreateEventForm 
+                  <CreateEventForm
                     loading={allActsQuery.loading}
                     dateFormat={dateFormat}
                     timeFormat={timeFormat}
@@ -158,21 +160,22 @@ class CreateEvent extends Component {
                     possibleStatus={possibleStatus}
                   />
                   <div>
-                    { this.state.actView === 'new' && <NewActForm values={this.state} handleChange={this.handleChange} uploadFile={this.uploadFile} /> }
-                    { this.state.actView === 'existing' && <SelectExistingActForm handleChange={this.handleChange} acts={allActsQuery.data.acts}/> }
+                    {this.state.actView === 'new' && <NewActForm values={this.state} handleChange={this.handleChange} uploadFile={this.uploadFile} />}
+                    {this.state.actView === 'existing' && <SelectExistingActForm handleChange={this.handleChange} acts={allActsQuery.data.acts} />}
                     <ActViewPicker active={this.state.actView} change={this.handleActViewChange} />
                   </div>
                   <fieldset>
-                  <div style={{height: '85%'}}></div>
+                    <div style={{ height: '85%' }}></div>
                     <Center>
-                        <Button type="submit">Submit</Button>
+                      <Button type="submit">Submit</Button>
                     </Center>
                   </fieldset>
-                  </Form> 
-                </div>     
-          )
-        }}
-      </Composed>
+                </Form>
+              </div>
+            )
+          }}
+        </Composed>
+      </Container>
     );
   }
 }

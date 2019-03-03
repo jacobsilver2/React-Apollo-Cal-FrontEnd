@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops'
-import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from '../styles/Form';
 import Error from '../ErrorMessage';
 import CreateActForm from './CreateActForm';
 import * as mutations from '../globals/mutations/mutations';
-// import { ALL_EVENTS_QUERY } from './Calendar'; 
+import Container from '../styles/Container';
 
 const Composed = adopt({
   createAct: ({updates, render}) => <Mutation mutation={mutations.CREATE_ACT_MUTATION} variables={updates}>{render}</Mutation>,
@@ -88,33 +87,35 @@ class CreateAct extends Component {
       return <textarea id="notes" key={index} data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/>
     })
     return (
-      <Composed updates={this.state}>
-        {({createAct, spring} ) => (
-          <div style={spring}>
-            <Form onSubmit={ async (e) => {
-              e.preventDefault();
-              const res = await createAct();
-              Router.push({
-                pathname: '/'
-              })
-            }}>
-              <Error error={createAct.error} />
-              <div></div>
-              <div>
-                <h2>Create A New Act</h2>
-                <CreateActForm 
-                  loading={createAct.loading} 
-                  uploadFile={this.uploadFile}
-                  act={this.state}
-                  handleChange={this.handleChange}
-                  notes={notes}
-                  addNoteField={this.addNoteField}
+      <Container>
+        <Composed updates={this.state}>
+          {({ createAct, spring }) => (
+            <div style={spring}>
+              <Form onSubmit={async (e) => {
+                e.preventDefault();
+                const res = await createAct();
+                Router.push({
+                  pathname: '/'
+                })
+              }}>
+                <Error error={createAct.error} />
+                <div></div>
+                <div>
+                  <h2>Create A New Act</h2>
+                  <CreateActForm
+                    loading={createAct.loading}
+                    uploadFile={this.uploadFile}
+                    act={this.state}
+                    handleChange={this.handleChange}
+                    notes={notes}
+                    addNoteField={this.addNoteField}
                   />
                 </div>
-              </Form>  
-          </div>    
-        )}
-      </Composed>
+              </Form>
+            </div>
+          )}
+        </Composed>
+      </Container>
     );
   }
 }

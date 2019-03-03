@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag'; 
 import Router from 'next/router';
 import { ALL_EVENTS_QUERY } from './globals/queries/queries';
+import DeleteButton from './styles/DeleteEventButton';
 
 const DELETE_EVENT_MUTATION = gql`
   mutation DELETE_EVENT_MUTATION($id: ID!) {
@@ -29,7 +30,7 @@ class DeleteEvent extends Component {
     return (
       <Mutation mutation={DELETE_EVENT_MUTATION} update={this.update} variables={{id: this.props.id} }>
         {(deleteEvent, {error}) => (
-          <button onClick={() => {
+          <DeleteButton onClick={() => {
             if(confirm("Are you sure you want to delete this event?")) {
               deleteEvent().catch(err => {
                 alert(err.message);
@@ -39,7 +40,7 @@ class DeleteEvent extends Component {
                 pathname: '/'
               })
             }
-          }}>{this.props.children}</button>
+          }}>{this.props.children}</DeleteButton>
         )
         }
       </Mutation>

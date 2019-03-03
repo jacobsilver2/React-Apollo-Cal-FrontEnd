@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ActsViewPickerStyles = styled.div`
   text-align: center;
   display: inline-grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: 1fr 1fr;
   align-items: stretch;
   justify-content: center;
   align-content: center;
@@ -21,11 +21,8 @@ const ActsViewPickerStyles = styled.div`
     color: grey;
     pointer-events: none;
   }
-  .btn-grp{
     .active {
       background-color: ${props => props.theme.mainColor};
-    }
-
   }
 
 `;

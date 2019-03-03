@@ -6,7 +6,6 @@ import moment from 'moment';
 import Error from '../ErrorMessage';
 import Form from '../styles/QuickUpdateFormStyles';
 import Button from '../styles/DeleteButtonStyles';
-import OtherButton from '../styles/SickButton';
 import * as mutations from '../globals/mutations/mutations';
 import * as queries from '../globals/queries/queries';
 import * as updateEventMethods from '../globals/functions/updateEventMethods';
@@ -16,7 +15,7 @@ import ChangeAct from './ChangeActWithinUpdateEvent';
 import NewAct from './NewActWithinUpdateEvent';
 import ActViewButtons from './ChangeActViewButtons';
 import DeleteEvent from '../DeleteEvent';
-import DeleteButton from '../styles/DeleteEventButton';
+import {StyledField, NewButton} from './ChangeActViewButtons';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
@@ -24,7 +23,6 @@ const Composed = adopt({
   toggleModalMutation: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
   spring:({render}) => <Spring from={{ opacity: 0, marginTop: -500 }} to={{ opacity: 1, marginTop: 0 }} config={{ duration: 250}}>{render}</Spring>,
 });
-
 
 class QuickUpdate extends Component {
   state = {
@@ -52,6 +50,7 @@ class QuickUpdate extends Component {
         notes[selectedIndex] = value;
         return this.setState({ notes });
     };
+    
     switch (type) {
       case 'date':
         if (this.state.start != null) {
@@ -175,11 +174,13 @@ class QuickUpdate extends Component {
                     {this.state.actOption === 'change' && <ChangeAct acts={acts} handleChange={this.handleChange} />}
                     {this.state.actOption === 'new' && <NewAct />}
                     <div>
+                      <StyledField>
                       <ul>
-                        <li><OtherButton type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</OtherButton></li>
-                        <li><OtherButton onClick={this.props.toggle}>CREATE A REMINDER</OtherButton></li>
-                        <li><DeleteEvent id={event.id} toggleModalMutation={toggleModalMutation}><DeleteButton>Cancel Event</DeleteButton></DeleteEvent></li>
+                        <li><NewButton selected={true} type="submit">Sav{updateEventMutation.loading ? 'ing' : 'e'} Changes</NewButton></li>
+                        <li><NewButton selected={true} onClick={this.props.toggle}>Create A Reminder</NewButton></li>
+                        <li><DeleteEvent id={event.id} toggleModalMutation={toggleModalMutation}>Delete Event</DeleteEvent></li>
                       </ul>
+                      </StyledField>
                     </div>
                   </Form>
                 </div>

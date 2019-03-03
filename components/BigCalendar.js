@@ -9,8 +9,11 @@ import CustomEvent from './CustomEvent';
 import ModalContainer from './ModalContainer';
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import {StyledBigCal} from './styles/BigCalendarStyles';
+import Container from './styles/Container';
 import * as queries from './globals/queries/queries';
 import * as mutations from './globals/mutations/mutations';
+
+
 
 
 const localizer = Calendar.momentLocalizer(moment)
@@ -114,33 +117,35 @@ class BigCalendar extends Component {
           if (allEvents.error) return <p>Error: {allEvents.error.message}</p>
           return (
             <>
-            {localState.data.modalOpen && <ModalContainer event={this.state.event}/>}
-            <div style={spring}>
-            <StyledBigCal>
-                <DnDCalendar
-                  events={allEvents.data.events}
-                  eventPropGetter={e => this.eventStyleGetter(e)}
-                  onSelectEvent={e => this.onToggleModal(e, toggleModal)}
-                  onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start)}})}
-                  onEventDrop={e => this.onMoveEvent(e,moveEvent)}
-                  selectable
-                  localizer={localizer}
-                  startAccessor={e => moment(e.start).toDate()}
-                  endAccessor={e => moment(e.end).toDate()}
-                  onEventResize={this.onEventResize}
-                  popup={true}
-                  popupOffset={{x: 30, y: 20}}
-                  titleAccessor={this.titleAccessor}
-                  onSelectSlot={e => this.onSelectSlot(e)}
-                  tooltipAccessor={e => this.onToolTipAccess(e)}
-                  defaultView="month"
-                  defaultDate={new Date()}
-                  views={['month']}
-                  style={{ height: "100vh" }}
-                  components={{ event: CustomEvent }}
-                />
-            </StyledBigCal>
-            </div>
+              {localState.data.modalOpen && <ModalContainer event={this.state.event} />}
+              <div style={spring}>
+                <Container>
+                  <StyledBigCal>
+                    <DnDCalendar
+                      events={allEvents.data.events}
+                      eventPropGetter={e => this.eventStyleGetter(e)}
+                      onSelectEvent={e => this.onToggleModal(e, toggleModal)}
+                      onDoubleClickEvent={e => Router.push({ pathname: '/updateEvent', query: { id: e.id, start: encodeURIComponent(e.start) } })}
+                      onEventDrop={e => this.onMoveEvent(e, moveEvent)}
+                      selectable
+                      localizer={localizer}
+                      startAccessor={e => moment(e.start).toDate()}
+                      endAccessor={e => moment(e.end).toDate()}
+                      onEventResize={this.onEventResize}
+                      popup={true}
+                      popupOffset={{ x: 30, y: 20 }}
+                      titleAccessor={this.titleAccessor}
+                      onSelectSlot={e => this.onSelectSlot(e)}
+                      tooltipAccessor={e => this.onToolTipAccess(e)}
+                      defaultView="month"
+                      defaultDate={new Date()}
+                      views={['month']}
+                      style={{ height: "100vh" }}
+                      components={{ event: CustomEvent }}
+                    />
+                  </StyledBigCal>
+                </Container>
+              </div>
             </>
           )
         }

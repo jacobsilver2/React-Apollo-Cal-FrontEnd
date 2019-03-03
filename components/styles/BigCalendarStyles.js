@@ -174,7 +174,7 @@ button.rbc-input::-moz-focus-inner {
 .rbc-btn-group {
   display: inline-block;
   white-space: nowrap;
-  padding-left: 5%;
+  /* padding-left: 5%; */
 
 }
 .rbc-btn-group > button:first-child:not(:last-child) {
@@ -280,7 +280,7 @@ button.rbc-input::-moz-focus-inner {
   white-space: nowrap;
 }
 .rbc-month-view {
-  left: 5%;
+  /* left: 5%; */
   position: relative;
   border: 1px solid #DDD;
   display: -webkit-flex;
@@ -292,12 +292,12 @@ button.rbc-input::-moz-focus-inner {
   -webkit-flex: 1 0 0;
       -ms-flex: 1 0 0px;
           flex: 1 0 0;
-  width: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   -moz-user-select: none;
    -ms-user-select: none;
        user-select: none;
   -webkit-user-select: none;
-  height: 100%;
 }
 .rbc-month-header {
   display: -webkit-flex;

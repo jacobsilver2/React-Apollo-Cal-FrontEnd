@@ -3,11 +3,6 @@ import React from 'react'
 const CreateActForm = ({loading, uploadFile, act, handleChange, notes, addNoteField}) => (
   
   <fieldset disabled={loading} aria-busy={loading}>
-    <label htmlFor="file">
-      Image
-      <input type="file" id="file" name="file" placeholder="Upload an image" onChange={uploadFile}/>
-      {act.image && <img src={act.image} alt="Upload Preview" width="200"/>}
-    </label>
 
     <label htmlFor="name">
       Name
@@ -24,6 +19,12 @@ const CreateActForm = ({loading, uploadFile, act, handleChange, notes, addNoteFi
       <input type="email" id="email" name="email" placeholder="email" required value={act.email} onChange={handleChange}/>
     </label>
 
+    <label htmlFor="file">
+      Image
+      <input type="file" id="file" name="file" placeholder="Upload an image" onChange={uploadFile}/>
+      {act.image && <img src={act.image} alt="Upload Preview" width="200"/>}
+    </label>
+    
     <label htmlFor="notes">
       Notes
       {notes}
