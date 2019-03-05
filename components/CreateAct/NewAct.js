@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { adopt } from 'react-adopt';
+import Dropzone from 'react-dropzone'
 import { Spring } from 'react-spring/renderprops'
 import Router from 'next/router';
 import Form from '../styles/Form';
@@ -12,6 +13,7 @@ import Container from '../styles/Container';
 const Composed = adopt({
   createAct: ({updates, render}) => <Mutation mutation={mutations.CREATE_ACT_MUTATION} variables={updates}>{render}</Mutation>,
   spring: ({render}) => <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>{render}</Spring>,
+  dropzone: ({onDrop, render}) => <Dropzone accept="image/*" onDrop={onDrop} multiple={false}>{render}</Dropzone>
 })
 
 
@@ -24,6 +26,7 @@ class CreateAct extends Component {
     email: '',
     notes: [''],
   }
+
 
   // update = (cache, payload) => {
   //   // manually update the cache on the client, so it matches the server
@@ -59,8 +62,7 @@ class CreateAct extends Component {
     })
   }
 
-    uploadFile = async (e) => {
-    const files = e.target.files;
+    uploadFile = async (files) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'react-apollo-cal');
@@ -88,8 +90,8 @@ class CreateAct extends Component {
     })
     return (
       <Container>
-        <Composed updates={this.state}>
-          {({ createAct, spring }) => (
+        <Composed updates={this.state} onDrop={this.uploadFile}>
+          {({ createAct, spring, dropzone }) => (
             <div style={spring}>
               <Form onSubmit={async (e) => {
                 e.preventDefault();
@@ -104,11 +106,11 @@ class CreateAct extends Component {
                   <h2>Create A New Act</h2>
                   <CreateActForm
                     loading={createAct.loading}
-                    uploadFile={this.uploadFile}
                     act={this.state}
                     handleChange={this.handleChange}
                     notes={notes}
                     addNoteField={this.addNoteField}
+                    dropzone={dropzone}
                   />
                 </div>
               </Form>

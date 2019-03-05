@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
+import {DndStyles, ImageContainer, PreviewStyles} from '../styles/DropzoneStyles';
 
 const Field = styled.fieldset`
   height: 85%;
 `;
 
-const NewActForm = ({values, handleChange, uploadFile}) => (
+const NewActForm = ({values, handleChange, uploadFile, dropzone}) => {
+  const {getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject, acceptedFiles} = dropzone;  
+  return (
   <Field>
   <h4>New Act</h4>
   <hr />
@@ -24,13 +27,20 @@ const NewActForm = ({values, handleChange, uploadFile}) => (
     <input type="email" id="email" name="email" placeholder="email" disabled={!!values.actId} required={!values.actId} value={values.email} onChange={handleChange}/>
   </label>
     
-  <label htmlFor="file">
-    Image
-    <input type="file" id="file" name="file" disabled={!!values.actId} placeholder="Upload an image" onChange={uploadFile}/>
-    {values.image && <img src={values.image} alt="Upload Preview" width="200"/>}
-  </label>
+    <label htmlFor="dropImage">
+      Image
+        <DndStyles>
+        <ImageContainer isDragActive={isDragActive} isDragReject={isDragReject} {...getRootProps()}>
+          <input {...getInputProps()} />
+          {isDragAccept ? 'Drop' : 'Drag'} image here...
+          </ImageContainer>
+        <PreviewStyles>
+          {values.image && <img src={values.image} alt="Upload Preview" width="200" />}
+        </PreviewStyles>
+      </DndStyles>
+    </label>
     
 </Field>
 );
-
+  }
 export default NewActForm;

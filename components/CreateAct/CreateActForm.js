@@ -1,37 +1,52 @@
-import React from 'react'
+import React from 'react';
+import {DndStyles, ImageContainer, PreviewStyles} from '../styles/DropzoneStyles';
 
-const CreateActForm = ({loading, uploadFile, act, handleChange, notes, addNoteField}) => (
-  
-  <fieldset disabled={loading} aria-busy={loading}>
 
-    <label htmlFor="name">
-      Name
-      <input type="text" id="name" name="name" placeholder="Name" required value={act.name} onChange={handleChange}/>
-    </label>
 
-    <label htmlFor="description">
-      Description
-      <textarea id="description" name="description" placeholder="Enter A Description" required value={act.description} onChange={handleChange}/>
-    </label>
 
-    <label htmlFor="email">
-      Email
-      <input type="email" id="email" name="email" placeholder="email" required value={act.email} onChange={handleChange}/>
-    </label>
+const CreateActForm = ({ loading, act, handleChange, notes, addNoteField, dropzone }) => {
+  const {getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject, acceptedFiles} = dropzone;
+  return (
+    <fieldset disabled={loading} aria-busy={loading}>
 
-    <label htmlFor="file">
-      Image
-      <input type="file" id="file" name="file" placeholder="Upload an image" onChange={uploadFile}/>
-      {act.image && <img src={act.image} alt="Upload Preview" width="200"/>}
-    </label>
-    
-    <label htmlFor="notes">
-      Notes
+      <label htmlFor="name">
+        Name
+      <input type="text" id="name" name="name" placeholder="Name" required value={act.name} onChange={handleChange} />
+      </label>
+
+      <label htmlFor="description">
+        Description
+      <textarea id="description" name="description" placeholder="Enter A Description" required value={act.description} onChange={handleChange} />
+      </label>
+
+      <label htmlFor="email">
+        Email
+      <input type="email" id="email" name="email" placeholder="email" required value={act.email} onChange={handleChange} />
+      </label>
+
+
+      <label htmlFor="dropImage">
+        Image
+        <DndStyles>
+          <ImageContainer isDragActive={isDragActive} isDragReject={isDragReject} {...getRootProps()}> 
+            <input {...getInputProps()}/>
+            {isDragAccept ? 'Drop' : 'Drag'} image here...
+          </ImageContainer>
+          <PreviewStyles>
+            {act.image && <img src={act.image} alt="Upload Preview" width="200" />}
+          </PreviewStyles>
+        </DndStyles>
+      </label>
+
+      <label htmlFor="notes">
+        Notes
       {notes}
-      <button onClick={addNoteField}>&#43;</button>
-    </label>
-    <button type="submit">Submit</button>
-  </fieldset>
-);
+        <button onClick={addNoteField}>&#43;</button>
+      </label>
+      <button type="submit">Submit</button>
+    </fieldset>
+  )
+}
+  ;
 
 export default CreateActForm;

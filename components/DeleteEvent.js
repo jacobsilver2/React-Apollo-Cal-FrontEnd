@@ -26,14 +26,16 @@ class DeleteEvent extends Component {
     // 3. Put the items back
     cache.writeQuery( {query: ALL_EVENTS_QUERY, data });
   }
+
   render() {
     return (
       <Mutation mutation={DELETE_EVENT_MUTATION} update={this.update} variables={{id: this.props.id} }>
         {(deleteEvent, {error}) => (
-          <DeleteButton onClick={() => {
+          <DeleteButton onClick={(e) => {
             if(confirm("Are you sure you want to delete this event?")) {
               deleteEvent().catch(err => {
                 alert(err.message);
+                // e.stopPropagation();
               });
               this.props.toggleModalMutation();
               Router.push({

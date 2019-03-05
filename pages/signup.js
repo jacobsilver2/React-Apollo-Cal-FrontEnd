@@ -1,7 +1,6 @@
-import SignupComponent from '../components/Signup';
-import SigninComponent from '../components/Signin';
-import RequestReset from '../components/RequestReset';
 import styled from 'styled-components';
+import AuthContainer from '../components/Auth/AuthContainer';
+
 
 const Columns = styled.div`
     display: grid;
@@ -9,12 +8,11 @@ const Columns = styled.div`
     grid-gap: 20px;
 `;
 
-const Signup = (props) => (
-  <Columns>
-    <SignupComponent />
-    <SigninComponent />
-    <RequestReset />
-  </Columns>
-);
 
-export default Signup;
+const signup = (props) => {
+  return (
+    <AuthContainer />
+  );
+}
+
+export default signup;

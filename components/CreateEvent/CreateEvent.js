@@ -3,6 +3,7 @@ import { Mutation, Query } from 'react-apollo';
 import moment from 'moment';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops';
+import Dropzone from 'react-dropzone';
 import Router from 'next/router';
 import Form from '../styles/Form';
 import Error from '../ErrorMessage';
@@ -24,6 +25,7 @@ const Composed = adopt({
   createEventWithNewActMutation: ({eventNewActUpdates, render}) => <Mutation variables={eventNewActUpdates} mutation={mutations.CREATE_EVENT_WITH_NEW_ACT_MUTATION} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: queries.ALL_ACTS_QUERY}]}>{render}</Mutation>,
   createEventWithExistingActMutation: ({eventExistingActUpdates, render}) => <Mutation variables={eventExistingActUpdates} mutation={mutations.CREATE_EVENT_WITH_EXISTING_ACT_MUTATION} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY }, { query: queries.ALL_ACTS_QUERY}]}>{render}</Mutation>,
   spring: ({render}) => <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>{render}</Spring>,
+  dropzone: ({onDrop, render}) => <Dropzone accept="image/*" onDrop={onDrop} multiple={false}>{render}</Dropzone>
 })
 
 class CreateEvent extends Component {
@@ -97,8 +99,7 @@ class CreateEvent extends Component {
     }
   }
   
-  uploadFile = async (e) => {
-    const files = e.target.files;
+  uploadFile = async (files) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'react-apollo-cal');
@@ -136,8 +137,9 @@ class CreateEvent extends Component {
       <Composed 
         eventNewActUpdates={{title: this.state.title, status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay, notes: this.state.notes, name: this.state.name, image: this.state.image, largeImage: this.state.largeImage, email: this.state.email, description: this.state.description,}}
         eventExistingActUpdates={{title: this.state.title,  status: this.state.status, start: this.state.start, end: this.state.end, allDay: this.state.allDay ,notes: this.state.notes, actId: this.state.actId}}
+        onDrop={this.uploadFile}
         >
-          {({ allActsQuery, createEventWithNewActMutation, createEventWithExistingActMutation, spring }) => {
+          {({ allActsQuery, createEventWithNewActMutation, createEventWithExistingActMutation, spring, dropzone }) => {
             if (allActsQuery.loading) return <p>Loading...</p>;
             return (
               <div style={spring}>
@@ -160,7 +162,7 @@ class CreateEvent extends Component {
                     possibleStatus={possibleStatus}
                   />
                   <div>
-                    {this.state.actView === 'new' && <NewActForm values={this.state} handleChange={this.handleChange} uploadFile={this.uploadFile} />}
+                    {this.state.actView === 'new' && <NewActForm values={this.state} handleChange={this.handleChange} uploadFile={this.uploadFile} dropzone={dropzone}/>}
                     {this.state.actView === 'existing' && <SelectExistingActForm handleChange={this.handleChange} acts={allActsQuery.data.acts} />}
                     <ActViewPicker active={this.state.actView} change={this.handleActViewChange} />
                   </div>
