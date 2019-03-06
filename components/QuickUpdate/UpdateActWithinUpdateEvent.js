@@ -1,9 +1,8 @@
 import React from 'react';
-import Dropzone from 'react-dropzone';
 import {DndStyles, ImageContainer, PreviewStyles} from '../styles/DropzoneStyles';
 
-const UpdateActWithinUpdateEvent = ({ event, handleChange, uploadFile, image }) => {
-
+const UpdateActWithinUpdateEvent = ({ event, handleChange, image, dropzone }) => {
+  const {getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject, acceptedFiles} = dropzone;
   return (
     <fieldset>
       <h3>Edit Existing Act</h3>
@@ -21,17 +20,15 @@ const UpdateActWithinUpdateEvent = ({ event, handleChange, uploadFile, image }) 
           <textarea id="email" name="email" defaultValue={event.act.email} onChange={handleChange} />
       </label>
       <label htmlFor="image">
-        <Dropzone accept="image/*" onDrop={uploadFile}>
-          {({getRootProps, getInputProps}) => 
-            <section>
-              <ImageContainer {...getRootProps()}>
-                <p>Drag 'n' drop some files here, or click to select files</p>
-                <img src={image || event.act.image} alt="Image Preview" width="200px"></img>
-                <input {...getInputProps()}></input>
-              </ImageContainer>
-            </section>
-          }
-        </Dropzone>
+        <DndStyles>
+          <ImageContainer isDragActive={isDragActive} isDragReject={isDragReject} {...getRootProps()}>
+            <input {...getInputProps()}/>
+            {isDragAccept ? 'Drop' : 'Drag'} image here...
+          </ImageContainer>
+          <PreviewStyles>
+            {image ? <img src={image} alt="Upload Preview" width="200" /> : <img src={event.act.image} alt="Upload Preview" width='200'/>}
+          </PreviewStyles>
+        </DndStyles>
       </label>
       <hr />
     </fieldset>

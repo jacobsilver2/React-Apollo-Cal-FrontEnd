@@ -3,25 +3,31 @@ import { Mutation, Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import { Spring } from 'react-spring/renderprops.cjs';
 import moment from 'moment';
-import Error from '../ErrorMessage';
-import Form from '../styles/QuickUpdateFormStyles';
-import Button from '../styles/DeleteButtonStyles';
+import Dropzone from 'react-dropzone'
+
 import * as mutations from '../globals/mutations/mutations';
 import * as queries from '../globals/queries/queries';
+
 import * as updateEventMethods from '../globals/functions/updateEventMethods';
+
+import Error from '../ErrorMessage';
 import UpdateEvent from './UpdateEvent';
 import UpdateAct from './UpdateActWithinUpdateEvent';
 import ChangeAct from './ChangeActWithinUpdateEvent';
 import NewAct from './NewActWithinUpdateEvent';
 import ActViewButtons from './ChangeActViewButtons';
 import DeleteEvent from '../DeleteEvent';
+
 import {StyledField, NewButton} from './ChangeActViewButtons';
+import Form from '../styles/QuickUpdateFormStyles';
+import Button from '../styles/DeleteButtonStyles';
 
 const Composed = adopt({
   allActs: ({ render }) => <Query query={queries.ALL_ACTS_QUERY}>{render}</Query>,
   updateEventMutation: ({ updates, render }) => <Mutation mutation={mutations.UPDATE_EVENT_MUTATION} variables={updates} refetchQueries={[{ query: queries.ALL_EVENTS_QUERY}]}>{render}</Mutation>,
   toggleModalMutation: ({ render }) => <Mutation mutation={mutations.TOGGLE_MODAL_MUTATION}>{render}</Mutation>,
   spring:({render}) => <Spring from={{ opacity: 0, marginTop: -500 }} to={{ opacity: 1, marginTop: 0 }} config={{ duration: 250}}>{render}</Spring>,
+  dropzone: ({onDrop, render}) => <Dropzone accept="image/*" onDrop={onDrop} multiple={false}>{render}</Dropzone>
 });
 
 class QuickUpdate extends Component {
@@ -143,8 +149,8 @@ class QuickUpdate extends Component {
 
   render() {
     return (
-      <Composed singleEventId={this.props.id} updateCache={updateEventMethods.updateCache}>
-        {({ allActs, updateEventMutation, toggleModalMutation, spring }) => {
+      <Composed singleEventId={this.props.id} updateCache={updateEventMethods.updateCache} onDrop={this.uploadFile}>
+        {({ allActs, updateEventMutation, toggleModalMutation, spring, dropzone }) => {
           const { event } = this.props;
           const formattedDate = moment(event.start).format("YYYY-MM-DD");
           const formattedTime = moment(event.start).format("HH:mm");
@@ -170,7 +176,7 @@ class QuickUpdate extends Component {
                       formattedTime={formattedTime}
                     />
                     <ActViewButtons handleClick={this.handleChangeActOption} active={this.state.actOption}/>
-                    {this.state.actOption === 'editExisting' && <UpdateAct event={event} handleChange={this.handleChange} uploadFile={this.uploadFile} image={this.state.image}/>}
+                    {this.state.actOption === 'editExisting' && <UpdateAct event={event} handleChange={this.handleChange} uploadFile={this.uploadFile} image={this.state.image} dropzone={dropzone}/>}
                     {this.state.actOption === 'change' && <ChangeAct acts={acts} handleChange={this.handleChange} />}
                     {this.state.actOption === 'new' && <NewAct />}
                     <div>
