@@ -98,8 +98,8 @@ class QuickUpdate extends Component {
   }
 
 
-  uploadFile = async (e) => {
-    const files = e.target.files;  
+  uploadFile = async (files) => {
+    // const files = e.target.files;  
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'react-apollo-cal');

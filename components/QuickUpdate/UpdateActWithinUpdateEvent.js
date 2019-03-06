@@ -1,4 +1,6 @@
 import React from 'react';
+import Dropzone from 'react-dropzone';
+import {DndStyles, ImageContainer, PreviewStyles} from '../styles/DropzoneStyles';
 
 const UpdateActWithinUpdateEvent = ({ event, handleChange, uploadFile, image }) => {
 
@@ -19,10 +21,17 @@ const UpdateActWithinUpdateEvent = ({ event, handleChange, uploadFile, image }) 
           <textarea id="email" name="email" defaultValue={event.act.email} onChange={handleChange} />
       </label>
       <label htmlFor="image">
-        Picture
-          <input type="file" id="file" name="file" placeholder="Upload an image" onChange={uploadFile} />
-        {/* {this.renderPreview(event.act.image)} */}
-        <img src={image ? image : event.act.image} alt="Image Preview" width="200"/>
+        <Dropzone accept="image/*" onDrop={uploadFile}>
+          {({getRootProps, getInputProps}) => 
+            <section>
+              <ImageContainer {...getRootProps()}>
+                <p>Drag 'n' drop some files here, or click to select files</p>
+                <img src={image || event.act.image} alt="Image Preview" width="200px"></img>
+                <input {...getInputProps()}></input>
+              </ImageContainer>
+            </section>
+          }
+        </Dropzone>
       </label>
       <hr />
     </fieldset>
