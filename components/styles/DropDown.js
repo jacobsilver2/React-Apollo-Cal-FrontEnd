@@ -2,9 +2,10 @@ import styled, { keyframes } from 'styled-components';
 
 const DropDown = styled.div`
   position: absolute;
+  z-index: 500;
+  right: 0px;
   text-align: right;
   width: 50%;
-  z-index: 2;
   border: 1px solid ${props => props.theme.lightgrey};
 `;
 

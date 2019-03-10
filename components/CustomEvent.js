@@ -27,7 +27,7 @@ const CustomEvent = ({event}) => {
   const formattedTime = minutes > 0 ? moment(event.start).format("h:ma") : moment(event.start).format("ha");
   return (
     <div onClick={handleClick}>
-         <p>{formattedTime} {event.act.name}</p>
+         <p>{formattedTime} {event.act ? event.act.name : 'TBA'}</p>
       </div>    
   );
 }

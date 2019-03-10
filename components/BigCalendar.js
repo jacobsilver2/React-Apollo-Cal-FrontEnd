@@ -54,14 +54,14 @@ class BigCalendar extends Component {
   }
 
   onToolTipAccess = e => {
-    const name = e.act.name ? `${e.act.name}` : null 
+    const name = e.act  ? `${e.act.name}` : 'TBA' 
     const time = moment(e.start).format("h:mma") ;
     return `${time} ${name}`;
   }
 
   titleAccessor = e => {
     const time = moment(e.start).format("hh:mma");
-    const name = e.act.name ? ` ${e.act.name}`: null;
+    const name = e.act ? ` ${e.act.name}`: 'TBA';
     return time + name;
   }
 

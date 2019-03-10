@@ -1410,7 +1410,7 @@ __webpack_require__.r(__webpack_exports__);
 var DropDown = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "DropDown",
   componentId: "sc-6xg2gk-0"
-})(["position:absolute;text-align:right;width:50%;z-index:2;border:1px solid ", ";"], function (props) {
+})(["position:absolute;z-index:500;right:0px;text-align:right;width:50%;border:1px solid ", ";"], function (props) {
   return props.theme.lightgrey;
 });
 var DropDownItem = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({

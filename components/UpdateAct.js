@@ -5,6 +5,7 @@ import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import Button from './styles/DeleteButtonStyles';
+import DeleteAct from './DeleteAct';
 
 const SINGLE_ACT_QUERY = gql`
   query SINGLE_ACT_QUERY($id: ID!) {
@@ -199,6 +200,7 @@ class UpdateAct extends Component {
                     {this.renderPreview(data)}
                   </label>
                   <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
+                  <DeleteAct id={act.id}>Delete Act</DeleteAct>
                 </fieldset>
               </Form>
             )}
