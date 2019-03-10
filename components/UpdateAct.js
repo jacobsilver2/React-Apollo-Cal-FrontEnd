@@ -5,7 +5,20 @@ import Router from 'next/router';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import Button from './styles/DeleteButtonStyles';
+import SickButton from './styles/SickButton';
 import DeleteAct from './DeleteAct';
+import styled from 'styled-components';
+import Container from './styles/Container';
+
+const ActContainer = styled(Container)`
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+`;
+
+const SingleColumnForm = styled(Form)`
+  display: grid;
+  grid-template-columns: 1fr
+`;
 
 const SINGLE_ACT_QUERY = gql`
   query SINGLE_ACT_QUERY($id: ID!) {
@@ -87,35 +100,35 @@ class UpdateAct extends Component {
   renderPreview = (data) => {
     if (this.state.image) {
       return (
-        <img src={this.state.image} alt="Upload Preview" width="200"/>
+        <img src={this.state.image} alt="Upload Preview" width="200" />
       )
-    } 
-      this.setState({
-        image: data.act.image
-      })
-      return (
-        <img src={data.act.image} alt="Upload Preview" width="200"/>
-      )  
+    }
+    this.setState({
+      image: data.act.image
+    })
+    return (
+      <img src={data.act.image} alt="Upload Preview" width="200" />
+    )
   }
 
   handleDeleteNote = (e, index, notes) => {
     e.preventDefault();
-    if (notes){
+    if (notes) {
       const notesCopy = [...notes];
-      const notesFiltered = notesCopy.filter((note, i) => i !== index );
-      return this.setState({notes: notesFiltered});
+      const notesFiltered = notesCopy.filter((note, i) => i !== index);
+      return this.setState({ notes: notesFiltered });
     }
     const notesCopy = [...this.state.notes];
-    const notesFiltered = notesCopy.filter((note, i) => i != index );
-    return this.setState({notes: notesFiltered});    
+    const notesFiltered = notesCopy.filter((note, i) => i != index);
+    return this.setState({ notes: notesFiltered });
   }
 
   addNoteField = (e, notes) => {
     e.preventDefault();
-    if (notes){
+    if (notes) {
       const notesCopy = [...notes];
       notesCopy.push('')
-      return this.setState({notes: notesCopy});
+      return this.setState({ notes: notesCopy });
     }
     const notesCopy = [...this.state.notes];
     notesCopy.push('');
@@ -126,88 +139,93 @@ class UpdateAct extends Component {
   render() {
 
     return (
-      <Query
-      query={SINGLE_ACT_QUERY}
-      variables={{
-        id: this.props.id,
-      }}
-    >
-      {({ data, loading }) => {
-        const {act} = data;
-        if (loading) return <p>Loading...</p>;
-        if (!data.act) return <p>No Act Found for ID {this.props.id}</p>;
+        <Query
+          query={SINGLE_ACT_QUERY}
+          variables={{
+            id: this.props.id,
+          }}
+        >
+          {({ data, loading }) => {
+            const { act } = data;
+            if (loading) return <p>Loading...</p>;
+            if (!data.act) return <p>No Act Found for ID {this.props.id}</p>;
 
-        let notes = null;
-        if (this.state.notes) {
-          notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange}/><Button onClick={(e)=>this.handleDeleteNote(e, index)}>-</Button></div>)
-        } else if (act.notes.length > 0 ){
-          notes = act.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled/> <Button onClick={(e)=>this.handleDeleteNote(e, index, act.notes)}>-</Button></div>)
-        }
+            let notes = null;
+            if (this.state.notes) {
+              notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} /><Button onClick={(e) => this.handleDeleteNote(e, index)}>-</Button></div>)
+            } else if (act.notes.length > 0) {
+              notes = act.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled /> <Button onClick={(e) => this.handleDeleteNote(e, index, act.notes)}>-</Button></div>)
+            }
 
-        return (
-          <Mutation mutation={UPDATE_ACT_MUTATION} variables={this.state}>
-            {(updateAct, { loading, error }) => (
-              <Form onSubmit={e => this.updateAct(e, updateAct)}>
-                <Error error={error} />
-                <fieldset disabled={loading} aria-busy={loading}>
-                  <label htmlFor="name">
-                    Name
+            return (
+              <ActContainer>
+              <div></div>
+              <Mutation mutation={UPDATE_ACT_MUTATION} variables={this.state}>
+                {(updateAct, { loading, error }) => (
+                  <SingleColumnForm onSubmit={e => this.updateAct(e, updateAct)}>
+                    <Error error={error} />
+                    <fieldset disabled={loading} aria-busy={loading}>
+                      <label htmlFor="name">
+                        Name
                     <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Name"
-                      required
-                      defaultValue={act.name}
-                      onChange={this.handleChange}
-                    />
-                  </label>
+                          type="text"
+                          id="name"
+                          name="name"
+                          placeholder="Name"
+                          required
+                          defaultValue={act.name}
+                          onChange={this.handleChange}
+                        />
+                      </label>
 
-                  <label htmlFor="name">
-                    Email
+                      <label htmlFor="name">
+                        Email
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                      defaultValue={act.email}
-                      onChange={this.handleChange}
-                    />
-                  </label>
+                          type="email"
+                          id="email"
+                          name="email"
+                          placeholder="Email"
+                          required
+                          defaultValue={act.email}
+                          onChange={this.handleChange}
+                        />
+                      </label>
 
-                  <label htmlFor="description">
-                    Description
+                      <label htmlFor="description">
+                        Description
                     <input
-                      type="text"
-                      id="description"
-                      name="description"
-                      placeholder="Description"
-                      defaultValue={act.description}
-                      onChange={this.handleChange}
-                    />
-                  </label>
+                          type="text"
+                          id="description"
+                          name="description"
+                          placeholder="Description"
+                          defaultValue={act.description}
+                          onChange={this.handleChange}
+                        />
+                      </label>
 
-                  <label htmlFor='notes'>
-                    Notes
+                      <label htmlFor='notes'>
+                        Notes
                     {notes}
-                    <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : act.notes)}>&#43;</Button>
-                  </label>
+                        <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : act.notes)}>&#43;</Button>
+                      </label>
 
-                  <label htmlFor="file">
-                    Image
-                    <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile}/>
-                    {this.renderPreview(data)}
-                  </label>
-                  <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
-                  <DeleteAct id={act.id}>Delete Act</DeleteAct>
-                </fieldset>
-              </Form>
-            )}
-          </Mutation>
-        );
-      }}
-    </Query>      
+                      <label htmlFor="file">
+                        Image
+                    <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile} />
+                        {this.renderPreview(data)}
+                      </label>
+                      <SickButton type="submit">Sav{loading ? 'ing' : 'e'} Changes</SickButton>
+                      <DeleteAct id={act.id}>Delete Act</DeleteAct>
+                    </fieldset>
+                  </SingleColumnForm>
+                  
+                )}
+              </Mutation>
+              <div></div>
+          </ActContainer>
+            );
+          }}
+        </Query>
     );
   }
 }

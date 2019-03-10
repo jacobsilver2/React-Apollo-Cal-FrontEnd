@@ -1,6 +1,6 @@
 import React from 'react';
 import {DndStyles, ImageContainer, PreviewStyles} from '../styles/DropzoneStyles';
-
+import Button from '../styles/SickButton';
 
 
 
@@ -43,7 +43,7 @@ const CreateActForm = ({ loading, act, handleChange, notes, addNoteField, dropzo
       {notes}
         <button onClick={addNoteField}>&#43;</button>
       </label>
-      <button type="submit">Submit</button>
+      <Button type="submit">Submit</Button>
     </fieldset>
   )
 }
