@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Router from 'next/router';
+import Dropzone from 'react-dropzone';
+import styled from 'styled-components';
+import { ClipLoader } from 'react-spinners';
+
 import Form from './styles/Form';
 import Error from './ErrorMessage';
 import Button from './styles/DeleteButtonStyles';
 import SickButton from './styles/SickButton';
 import DeleteAct from './DeleteAct';
-import styled from 'styled-components';
 import Container from './styles/Container';
+
+import { ImageContainer } from './styles/DropzoneStyles';
 
 const ActContainer = styled(Container)`
   display: grid;
@@ -18,6 +23,16 @@ const ActContainer = styled(Container)`
 const SingleColumnForm = styled(Form)`
   display: grid;
   grid-template-columns: 1fr
+`;
+
+const ActDndStyles = styled.div`
+  display: grid;
+  grid-template-columns: 4fr 4fr;
+`;
+
+const ActPreviewStyles = styled.div`
+  width: 50%;
+  height: 50%;
 `;
 
 const SINGLE_ACT_QUERY = gql`
@@ -79,8 +94,7 @@ class UpdateAct extends Component {
     });
   }
 
-  uploadFile = async (e) => {
-    const files = e.target.files;
+  uploadFile = async (files) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'react-apollo-cal');
@@ -139,26 +153,26 @@ class UpdateAct extends Component {
   render() {
 
     return (
-        <Query
-          query={SINGLE_ACT_QUERY}
-          variables={{
-            id: this.props.id,
-          }}
-        >
-          {({ data, loading }) => {
-            const { act } = data;
-            if (loading) return <p>Loading...</p>;
-            if (!data.act) return <p>No Act Found for ID {this.props.id}</p>;
+      <Query
+        query={SINGLE_ACT_QUERY}
+        variables={{
+          id: this.props.id,
+        }}
+      >
+        {({ data, loading }) => {
+          const { act } = data;
+          if (loading) return <p>Loading...</p>;
+          if (!data.act) return <p>No Act Found for ID {this.props.id}</p>;
 
-            let notes = null;
-            if (this.state.notes) {
-              notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} /><Button onClick={(e) => this.handleDeleteNote(e, index)}>-</Button></div>)
-            } else if (act.notes.length > 0) {
-              notes = act.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled /> <Button onClick={(e) => this.handleDeleteNote(e, index, act.notes)}>-</Button></div>)
-            }
+          let notes = null;
+          if (this.state.notes) {
+            notes = this.state.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} /><Button onClick={(e) => this.handleDeleteNote(e, index)}>-</Button></div>)
+          } else if (act.notes.length > 0) {
+            notes = act.notes.map((note, index) => <div key={index}><textarea id="notes" data-key={index} name="notes" placeholder="Enter A Note" value={note} onChange={this.handleChange} disabled /> <Button onClick={(e) => this.handleDeleteNote(e, index, act.notes)}>-</Button></div>)
+          }
 
-            return (
-              <ActContainer>
+          return (
+            <ActContainer>
               <div></div>
               <Mutation mutation={UPDATE_ACT_MUTATION} variables={this.state}>
                 {(updateAct, { loading, error }) => (
@@ -208,24 +222,29 @@ class UpdateAct extends Component {
                     {notes}
                         <Button onClick={(e) => this.addNoteField(e, this.state.notes ? null : act.notes)}>&#43;</Button>
                       </label>
-
-                      <label htmlFor="file">
-                        Image
-                    <input type="file" id="file" name="file" placeholder="Upload an image" onChange={this.uploadFile} />
-                        {this.renderPreview(data)}
-                      </label>
-                      <SickButton type="submit">Sav{loading ? 'ing' : 'e'} Changes</SickButton>
+                      <Dropzone onDrop={this.uploadFile}>
+                        {({ getRootProps, getInputProps, isDragActive, isDragReject, isDragAccept }) => (
+                          <ActDndStyles>
+                            <ImageContainer isDragActive={isDragActive} isDragReject={isDragReject} {...getRootProps()}>
+                              <input {...getInputProps()} />
+                              {isDragAccept ? 'Drop' : 'Drag'} image here...
+                          </ImageContainer>
+                            <ActPreviewStyles> {this.renderPreview(data)} </ActPreviewStyles>
+                          </ActDndStyles>
+                        )}
+                      </Dropzone>
+                      <SickButton type="submit">{loading ? <ClipLoader /> : 'Save Changes'}</SickButton>
                       <DeleteAct id={act.id}>Delete Act</DeleteAct>
                     </fieldset>
                   </SingleColumnForm>
-                  
+
                 )}
               </Mutation>
               <div></div>
-          </ActContainer>
-            );
-          }}
-        </Query>
+            </ActContainer>
+          );
+        }}
+      </Query>
     );
   }
 }
