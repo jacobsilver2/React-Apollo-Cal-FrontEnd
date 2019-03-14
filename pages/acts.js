@@ -1,8 +1,11 @@
 import AllActs from '../components/Acts';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const Acts = (props) => (
   <div>
-    <AllActs page={parseFloat(props.query.page) || 1}/>
+    <PleaseSignIn>
+      <AllActs page={parseFloat(props.query.page) || 1}/>
+    </PleaseSignIn>
   </div>
 );
 

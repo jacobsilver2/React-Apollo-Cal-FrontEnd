@@ -1,8 +1,11 @@
 import SingleAct from '../components/SingleAct';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const Item = props => (
   <div>
-    <SingleAct id={props.query.id} />
+    <PleaseSignIn>
+      <SingleAct id={props.query.id} />
+    </PleaseSignIn>
   </div>
 );
 

@@ -1,8 +1,11 @@
 import UpdateEvent from '../components/UpdateEvent';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const UpdateCalEvent = (props) => (
   <div>
-    <UpdateEvent id={props.query.id}/>
+    <PleaseSignIn>
+      <UpdateEvent id={props.query.id}/>
+    </PleaseSignIn>
   </div>
 );
 

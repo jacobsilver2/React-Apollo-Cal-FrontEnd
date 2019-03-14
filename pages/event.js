@@ -1,8 +1,11 @@
 import SingleEvent from '../components/SingleEvent';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const Event = (props) => (
   <div>
-    <SingleEvent id={props.query.id}/>
+    <PleaseSignIn>
+      <SingleEvent id={props.query.id}/>
+    </PleaseSignIn>
   </div>
 );
 

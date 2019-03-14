@@ -15,14 +15,6 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/acts": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/updateAct": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
