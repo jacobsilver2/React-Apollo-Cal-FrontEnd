@@ -8,6 +8,7 @@ import * as queries from './globals/queries/queries';
 import Title from './styles/Title';
 import DeleteEvent from './DeleteEvent';
 import Error from './ErrorMessage';
+import daysUntil from '../lib/daysUntilShow';
 
 const SingleEventStyles = styled.div`
   max-width: 1200px;
@@ -33,7 +34,9 @@ const SingleEventStyles = styled.div`
 `;
 
 class SingleEvent extends Component {
+
   render() {
+
     const dateFormat = "MMMM D, YYYY"
     const timeFormat = "h:mm a"
     return (
@@ -51,6 +54,7 @@ class SingleEvent extends Component {
                 </Head>
                 <img src={event.act.largeImage} alt={event.act.name}/>
                 <div className="details">
+                  <p>{daysUntil(event.start)}</p>
                   <h2>{event.act.name}</h2>
                   <p>{moment(event.start).format(dateFormat)}</p>
                   <p>{!event.allDay ? moment(event.start).format(timeFormat) : "This Event is All-Day"}
