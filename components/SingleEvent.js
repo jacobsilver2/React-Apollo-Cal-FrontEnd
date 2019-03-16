@@ -5,7 +5,6 @@ import moment from 'moment';
 import styled from 'styled-components';
 import Head from 'next/head';
 import * as queries from './globals/queries/queries';
-import Title from './styles/Title';
 import DeleteEvent from './DeleteEvent';
 import Error from './ErrorMessage';
 import daysUntil from '../lib/daysUntilShow';

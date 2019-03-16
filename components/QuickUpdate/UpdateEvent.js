@@ -2,10 +2,12 @@ import React from 'react';
 import moment from 'moment';
 import Button from '../styles/DeleteButtonStyles';
 import { possibleStatus } from '../../lib/possibleStatus';
+import daysUntil from '../../lib/daysUntilShow';
 
 const UpdateEvent = ({loading, event, handleChange, notes, noteFieldCheck, addNoteField, formattedDate, formattedTime}) => (
   <fieldset disabled={loading} aria-busy={loading}>
   <h3>Edit Event</h3>
+  <h4>{daysUntil(formattedDate)}</h4>
     <label htmlFor="date">
       Date
           <input type="date" id="date" name="date" placeholder="Date" required defaultValue={formattedDate} onChange={handleChange} />
